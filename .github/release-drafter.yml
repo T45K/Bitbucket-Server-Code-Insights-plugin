@@ -1,2 +1,2 @@
 _extends: .github
-tag-template: codeSights-$NEXT_MINOR_VERSION
+tag-template: jenkins-hello-world-$NEXT_MINOR_VERSION

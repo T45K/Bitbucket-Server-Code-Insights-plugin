@@ -1,10 +1,10 @@
-# codeSights
+# codeInsights
 
-[![Build Status](https://ci.jenkins.io/job/Plugins/job/codeSights-plugin/job/master/badge/icon)](https://ci.jenkins.io/job/Plugins/job/codeSights-plugin/job/master/)
-[![Contributors](https://img.shields.io/github/contributors/jenkinsci/codeSights-plugin.svg)](https://github.com/jenkinsci/codeSights-plugin/graphs/contributors)
-[![Jenkins Plugin](https://img.shields.io/jenkins/plugin/v/codeSights.svg)](https://plugins.jenkins.io/codeSights)
-[![GitHub release](https://img.shields.io/github/release/jenkinsci/codeSights-plugin.svg?label=changelog)](https://github.com/jenkinsci/codeSights-plugin/releases/latest)
-[![Jenkins Plugin Installs](https://img.shields.io/jenkins/plugin/i/codeSights.svg?color=blue)](https://plugins.jenkins.io/codeSights)
+[![Build Status](https://ci.jenkins.io/job/Plugins/job/codeInsights-plugin/job/master/badge/icon)](https://ci.jenkins.io/job/Plugins/job/codeInsights-plugin/job/master/)
+[![Contributors](https://img.shields.io/github/contributors/jenkinsci/codeInsights-plugin.svg)](https://github.com/jenkinsci/codeInsights-plugin/graphs/contributors)
+[![Jenkins Plugin](https://img.shields.io/jenkins/plugin/v/codeInsights.svg)](https://plugins.jenkins.io/codeInsights)
+[![GitHub release](https://img.shields.io/github/release/jenkinsci/codeInsights-plugin.svg?label=changelog)](https://github.com/jenkinsci/codeInsights-plugin/releases/latest)
+[![Jenkins Plugin Installs](https://img.shields.io/jenkins/plugin/i/codeInsights.svg?color=blue)](https://plugins.jenkins.io/codeInsights)
 
 ## Introduction
 
