@@ -11,4 +11,5 @@ jobs:
     container:
       image: openjdk:8
     steps:
-      - run: ./mvnw clean test
+      - uses: actions/checkout@v2
+      - run: sh mvnw clean test
