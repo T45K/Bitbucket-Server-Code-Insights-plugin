@@ -1,0 +1,14 @@
+name: execute-test
+
+on:
+  pull_request:
+    types:
+      - opened
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: openjdk:8
+    steps:
+      - run: ./mvnw clean test
