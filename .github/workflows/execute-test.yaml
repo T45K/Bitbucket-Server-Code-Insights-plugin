@@ -1,0 +1,15 @@
+name: execute-test
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: openjdk:8
+    steps:
+      - uses: actions/checkout@v2
+      - run: sh mvnw clean test

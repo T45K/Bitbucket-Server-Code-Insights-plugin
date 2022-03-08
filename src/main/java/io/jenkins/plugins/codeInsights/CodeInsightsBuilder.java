@@ -1,6 +1,5 @@
 package io.jenkins.plugins.codeInsights;
 
-import edu.umd.cs.findbugs.annotations.NonNull;
 import hudson.Extension;
 import hudson.FilePath;
 import hudson.Launcher;
@@ -32,10 +31,10 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
     }
 
     @Override
-    public void perform(@NonNull final Run<?, ?> run,
-                        @NonNull final FilePath workspace,
-                        @NonNull final Launcher launcher,
-                        @NonNull final TaskListener listener) {
+    public void perform(final Run<?, ?> run,
+                        final FilePath workspace,
+                        final Launcher launcher,
+                        final TaskListener listener) {
         if (this.checkstyleFilePath == null) {
             listener.getLogger().println("checkstyleFilePath must not be null");
         }
@@ -51,7 +50,6 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
             return true;
         }
 
-        @NonNull
         @Override
         public String getDisplayName() {
             return "Call Bitbucket Server Code Insights API";
