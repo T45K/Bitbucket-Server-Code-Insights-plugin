@@ -10,7 +10,6 @@ import hudson.tasks.BuildStepDescriptor;
 import hudson.tasks.Builder;
 import jenkins.tasks.SimpleBuildStep;
 import org.jenkinsci.Symbol;
-import org.jetbrains.annotations.NotNull;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.DataBoundSetter;
 
