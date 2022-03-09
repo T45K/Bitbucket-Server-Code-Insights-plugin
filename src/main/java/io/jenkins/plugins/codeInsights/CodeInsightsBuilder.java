@@ -9,19 +9,28 @@ import hudson.model.TaskListener;
 import hudson.tasks.BuildStepDescriptor;
 import hudson.tasks.Builder;
 import jenkins.tasks.SimpleBuildStep;
+import net.sf.json.JSONObject;
 import org.jenkinsci.Symbol;
+import org.jetbrains.annotations.NotNull;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.DataBoundSetter;
+import org.kohsuke.stapler.StaplerRequest;
 
+@SuppressWarnings("unused")
 public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
-
-    private final String projectPath;
+    private final String repositoryName;
+    private final String repositoryPath;
     private final String srcPath;
+
     private String checkstyleFilePath;
 
     @DataBoundConstructor
-    public CodeInsightsBuilder(String projectPath, final String srcPath) {
-        this.projectPath = projectPath;
+    public CodeInsightsBuilder(
+        @NotNull final String repositoryName,
+        @NotNull final String repositoryPath,
+        @NotNull final String srcPath) {
+        this.repositoryName = repositoryName;
+        this.repositoryPath = repositoryPath;
         this.srcPath = srcPath;
     }
 
@@ -31,26 +40,55 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
     }
 
     @Override
-    public void perform(final Run<?, ?> run,
-                        final FilePath workspace,
-                        final Launcher launcher,
-                        final TaskListener listener) {
-        if (this.checkstyleFilePath == null) {
-            listener.getLogger().println("checkstyleFilePath must not be null");
-        }
-
-        listener.getLogger().println(projectPath + "/" + srcPath + "/" + checkstyleFilePath);
+    public void perform(@NotNull final Run<?, ?> run,
+                        @NotNull final FilePath workspace,
+                        @NotNull final Launcher launcher,
+                        @NotNull final TaskListener listener) {
+        final DescriptorImpl descriptor = (DescriptorImpl) super.getDescriptor();
+        // repositoryPathからcommitIdを抜く
+        final HttpClient httpClient = new HttpClient(
+            descriptor.username,
+            descriptor.password,
+            descriptor.bitbucketUrl,
+            descriptor.project,
+            repositoryName,
+            "",
+            descriptor.reportKey,
+            listener.getLogger());
     }
 
     @Symbol("codeInsights")
     @Extension
     public static final class DescriptorImpl extends BuildStepDescriptor<Builder> {
+        private String bitbucketUrl;
+        private String project;
+        private String reportKey;
+        private String username;
+        private String password;
+
+        public DescriptorImpl() {
+            super.load();
+        }
+
+        @Override
+        public boolean configure(final StaplerRequest req, final JSONObject json) {
+            final JSONObject globalSettings = json.getJSONObject("codeInsights");
+            this.bitbucketUrl = globalSettings.getString("bitbucketUrl");
+            this.project = globalSettings.getString("project");
+            this.reportKey = globalSettings.getString("reportKey");
+            this.username = globalSettings.getString("username");
+            this.password = globalSettings.getString("password");
+            save();
+            return true;
+        }
+
         @Override
         public boolean isApplicable(Class<? extends AbstractProject> aClass) {
             return true;
         }
 
         @Override
+        @NotNull
         public String getDisplayName() {
             return "Call Bitbucket Server Code Insights API";
         }
