@@ -1,0 +1,20 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form">
+    <f:section title="${%Bitbucket Server Code Insights API plugin}" name="codeInsights">
+        <f:entry title="${%URL of Bitbucket}" field="bitbucketUrl">
+            <f:textbox/>
+        </f:entry>
+        <f:entry title="${%Project name (WASH, SJ)}" field="project">
+            <f:textbox/>
+        </f:entry>
+        <f:entry title="${%Report key of API}" field="reportKey">
+            <f:textbox/>
+        </f:entry>
+        <f:entry title="${%username}" field="username">
+            <f:textbox/>
+        </f:entry>
+        <f:entry title="${%password}" field="password">
+            <f:password/>
+        </f:entry>
+    </f:section>
+</j:jelly>
