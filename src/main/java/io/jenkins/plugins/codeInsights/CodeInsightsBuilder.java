@@ -45,16 +45,17 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
                         @NotNull final Launcher launcher,
                         @NotNull final TaskListener listener) {
         final DescriptorImpl descriptor = (DescriptorImpl) super.getDescriptor();
-        // repositoryPathからcommitIdを抜く
-        final HttpClient httpClient = new HttpClient(
-            descriptor.username,
-            descriptor.password,
+        new KotlinEntryPoint(
             descriptor.bitbucketUrl,
             descriptor.project,
-            repositoryName,
-            "",
             descriptor.reportKey,
-            listener.getLogger());
+            descriptor.username,
+            descriptor.password,
+            repositoryName,
+            repositoryPath,
+            srcPath,
+            listener.getLogger()
+        ).delegate();
     }
 
     @Symbol("codeInsights")
