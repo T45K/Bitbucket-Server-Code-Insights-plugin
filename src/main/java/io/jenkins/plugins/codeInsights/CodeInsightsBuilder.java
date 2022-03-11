@@ -52,7 +52,7 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
             descriptor.username,
             descriptor.password,
             repositoryName,
-            repositoryPath,
+            run.getRootDir(),
             srcPath,
             listener.getLogger()
         ).delegate();
