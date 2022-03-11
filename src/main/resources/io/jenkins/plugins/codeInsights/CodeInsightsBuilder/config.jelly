@@ -4,10 +4,10 @@
     <f:entry title="${%Repository name}" field="repositoryName">
         <f:textbox/>
     </f:entry>
-    <f:entry title="${%Path of repository dir}" field="repositoryPath">
+    <f:entry title="${%Path of src dir}" field="srcPath">
         <f:textbox/>
     </f:entry>
-    <f:entry title="${%Path of src dir}" field="srcPath">
+    <f:entry title="${%Commit ID}" field="commitId">
         <f:textbox/>
     </f:entry>
     <f:advanced>
