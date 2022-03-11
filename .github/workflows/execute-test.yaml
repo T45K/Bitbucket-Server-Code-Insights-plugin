@@ -12,4 +12,4 @@ jobs:
       image: openjdk:8
     steps:
       - uses: actions/checkout@v2
-      - run: sh mvnw clean test -Denforcer.skip=true
+      - run: sh mvnw clean test
