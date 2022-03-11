@@ -20,15 +20,18 @@ import org.kohsuke.stapler.StaplerRequest;
 public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
     private final String repositoryName;
     private final String srcPath;
+    private final String commitId;
 
     private String checkstyleFilePath;
 
     @DataBoundConstructor
     public CodeInsightsBuilder(
         @NotNull final String repositoryName,
-        @NotNull final String srcPath) {
+        @NotNull final String srcPath,
+        @NotNull String commitId) {
         this.repositoryName = repositoryName;
         this.srcPath = srcPath;
+        this.commitId = commitId;
     }
 
     @DataBoundSetter
@@ -51,6 +54,7 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
             repositoryName,
             run.getRootDir(),
             srcPath,
+            commitId,
             listener.getLogger()
         ).delegate();
     }

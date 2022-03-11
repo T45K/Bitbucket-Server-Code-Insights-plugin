@@ -12,10 +12,10 @@ class KotlinEntryPoint(
     private val repositoryName: String,
     private val repositoryPath: File,
     private val srcPath: String,
+    private val commitId:String,
     private val logger: PrintStream
 ) {
     fun delegate() {
-        val commitId = GitService.extractHeadCommitId(repositoryPath)
         val httpClient = HttpClient(
             username,
             password,

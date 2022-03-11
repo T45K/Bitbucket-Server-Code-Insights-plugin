@@ -7,6 +7,9 @@
     <f:entry title="${%Path of src dir}" field="srcPath">
         <f:textbox/>
     </f:entry>
+    <f:entry title="${%Commit ID}" field="commitId">
+        <f:textbox/>
+    </f:entry>
     <f:advanced>
         <f:entry title="${%Path of checkstyle results file}" field="checkstyleFilePath">
             <f:textbox/>
