@@ -1,6 +1,5 @@
 package io.jenkins.plugins.codeInsights
 
-import java.io.File
 import java.io.PrintStream
 
 class KotlinEntryPoint(
@@ -10,9 +9,9 @@ class KotlinEntryPoint(
     private val username: String,
     private val password: String,
     private val repositoryName: String,
-    private val repositoryPath: File,
+    private val repositoryPath: String,
     private val srcPath: String,
-    private val commitId:String,
+    private val commitId: String,
     private val logger: PrintStream
 ) {
     fun delegate() {
