@@ -19,7 +19,6 @@ import org.kohsuke.stapler.StaplerRequest;
 @SuppressWarnings("unused")
 public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
     private final String repositoryName;
-    private final String repositoryPath;
     private final String srcPath;
 
     private String checkstyleFilePath;
@@ -27,10 +26,8 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
     @DataBoundConstructor
     public CodeInsightsBuilder(
         @NotNull final String repositoryName,
-        @NotNull final String repositoryPath,
         @NotNull final String srcPath) {
         this.repositoryName = repositoryName;
-        this.repositoryPath = repositoryPath;
         this.srcPath = srcPath;
     }
 
