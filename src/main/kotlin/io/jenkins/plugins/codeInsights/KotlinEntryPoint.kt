@@ -12,6 +12,7 @@ class KotlinEntryPoint(
     private val repositoryPath: String,
     private val srcPath: String,
     private val commitId: String,
+    private val checkstyleFilePath: String?,
     private val logger: PrintStream
 ) {
     fun delegate() {
