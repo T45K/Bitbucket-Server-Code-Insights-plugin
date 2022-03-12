@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="8.45.1">
+    <file name="/test/repo/src/main/java/A.java">
+        <error line="1" column="10" severity="error" message="message 1"
+               source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+        <error line="2" column="20" severity="error" message="message 2"
+               source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+    </file>
+    <file name="/test/repo/src/main/java/B.java">
+        <error line="100" severity="error" message="single error"
+               source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck"/>
+    </file>
+</checkstyle>
