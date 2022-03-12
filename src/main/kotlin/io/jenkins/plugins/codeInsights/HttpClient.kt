@@ -1,5 +1,6 @@
 package io.jenkins.plugins.codeInsights
 
+import io.jenkins.plugins.codeInsights.annotation.Annotation
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import okhttp3.Call
@@ -8,7 +9,6 @@ import okhttp3.Credentials
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
-import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import okhttp3.Response
 import java.io.IOException
@@ -48,7 +48,6 @@ class HttpClient(
     ).toRequestBody(mediaType)
 
     fun putReport() {
-        RequestBody
         val request = Request.Builder()
             .url(reportUrl)
             .authorizationHeader()
@@ -65,8 +64,21 @@ class HttpClient(
         })
     }
 
-    fun postAnnotations() {
-        TODO()
+    fun postAnnotations(name: String, annotations: List<Annotation>) {
+        val request = Request.Builder()
+            .url(annotationUrl)
+            .authorizationHeader()
+            .post(Json.encodeToString(mapOf("annotations" to annotations)).toRequestBody(mediaType))
+            .build()
+        client.newCall(request).enqueue(object : Callback {
+            override fun onResponse(call: Call, response: Response) {
+                logger.println("Post $name annotations: SUCCESS")
+            }
+
+            override fun onFailure(call: Call, e: IOException) {
+                logger.println("Post $name annotations: FAILURE")
+            }
+        })
     }
 
     private fun Request.Builder.authorizationHeader(): Request.Builder = this.header("Authorization", credential)

@@ -57,6 +57,7 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
             workspace.absolutize().getRemote(),
             srcPath,
             commitId,
+            checkstyleFilePath,
             listener.getLogger()
         ).delegate();
     }
