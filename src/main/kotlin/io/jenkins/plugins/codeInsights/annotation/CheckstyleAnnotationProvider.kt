@@ -1,15 +1,15 @@
-package io.jenkins.plugins.codeInsights.converter
+package io.jenkins.plugins.codeInsights.annotation
 
 import com.fasterxml.jackson.dataformat.xml.XmlMapper
-import io.jenkins.plugins.codeInsights.Annotation
 import java.nio.file.Paths
 
-class CheckstyleResultConverter(
+class CheckstyleAnnotationProvider(
     private val checkstyleFilePath: String,
     private val xmlMapper: XmlMapper,
-) : ResultConverter {
+) : AnnotationProvider {
+    override val name: String = "Checkstyle"
 
-    override fun provideAnnotations(repositoryPath: String, reportKey: String): List<Annotation> {
+    override fun execute(repositoryPath: String, reportKey: String): List<Annotation> {
         val repository = Paths.get(repositoryPath)
         val checkStyleFile = repository.resolve(checkstyleFilePath).toFile()
         return xmlMapper.readTree(checkStyleFile)["file"]
@@ -19,7 +19,7 @@ class CheckstyleResultConverter(
                     .let { if (it.isArray) it else listOf(it) }
                     .map { errorTag ->
                         val line = errorTag["line"].asInt()
-                        val message = "Checkstyle says: ${errorTag["message"]}"
+                        val message = "Checkstyle says: ${errorTag["message"].asText()}"
                         Annotation(reportKey, line, message, filePath)
                     }
             }.toList()

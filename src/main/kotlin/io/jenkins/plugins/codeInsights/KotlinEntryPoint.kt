@@ -1,5 +1,6 @@
 package io.jenkins.plugins.codeInsights
 
+import io.jenkins.plugins.codeInsights.annotation.AnnotationsProviders
 import java.io.PrintStream
 
 class KotlinEntryPoint(
@@ -28,5 +29,10 @@ class KotlinEntryPoint(
         )
 
         httpClient.putReport()
+
+        AnnotationsProviders.Builder(repositoryPath, reportKey)
+            .setCheckstyle(checkstyleFilePath)
+            .build()
+            .executeAndPost(httpClient)
     }
 }
