@@ -22,6 +22,7 @@ class KotlinEntryPoint(
     private val checkstyleFilePath: String?,
 ) {
     fun delegate() {
+        JenkinsLogger.setLogger(listener.logger)
         val httpClient = HttpClient(
             username,
             password,
@@ -30,7 +31,6 @@ class KotlinEntryPoint(
             repositoryName,
             commitId,
             reportKey,
-            listener.logger,
         )
 
         httpClient.putReport()

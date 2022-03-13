@@ -3,16 +3,11 @@ package io.jenkins.plugins.codeInsights
 import io.jenkins.plugins.codeInsights.annotation.Annotation
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
-import okhttp3.Call
-import okhttp3.Callback
 import okhttp3.Credentials
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
-import okhttp3.Response
-import java.io.IOException
-import java.io.PrintStream
 
 class HttpClient(
     username: String,
@@ -22,8 +17,7 @@ class HttpClient(
     repository: String,
     commitId: String,
     reportKey: String,
-    logger: PrintStream
-) : JenkinsLoggable(logger) {
+) {
     private val client: OkHttpClient = OkHttpClient.Builder()
         .authenticator { _, response ->
             val credential = Credentials.basic(username, password)
@@ -39,7 +33,9 @@ class HttpClient(
 
     private val credential = Credentials.basic(username, password)
     private val mediaType = "application/json; charset=utf-8".toMediaType()
-    private val reportRequestBody = Json.encodeToString(
+    private val json = Json { encodeDefaults = true }
+
+    private val reportRequestBody = json.encodeToString(
         mapOf(
             "title" to "Jenkins report",
             "reporter" to "Jenkins",
@@ -48,38 +44,40 @@ class HttpClient(
     ).toRequestBody(mediaType)
 
     fun putReport() {
+        JenkinsLogger.info("Start to put reports")
         val request = Request.Builder()
             .url(reportUrl)
             .authorizationHeader()
             .put(reportRequestBody)
             .build()
-        client.newCall(request).enqueue(object : Callback {
-            override fun onResponse(call: Call, response: Response) {
-                logger.println("Put reports: SUCCESS")
+        client.newCall(request).execute().also {
+            if (it.isSuccessful) {
+                JenkinsLogger.info("Put reports: SUCCESS")
+            } else {
+                JenkinsLogger.info(it.body!!.string())
+                throw CallApiFailureException()
             }
-
-            override fun onFailure(call: Call, e: IOException) {
-                logger.println("Put reports: FAILURE")
-            }
-        })
+        }
     }
 
     fun postAnnotations(name: String, annotations: List<Annotation>) {
+        JenkinsLogger.info("Start to post $name annotations ")
         val request = Request.Builder()
             .url(annotationUrl)
             .authorizationHeader()
-            .post(Json.encodeToString(mapOf("annotations" to annotations)).toRequestBody(mediaType))
+            .post(json.encodeToString(mapOf("annotations" to annotations)).toRequestBody(mediaType))
             .build()
-        client.newCall(request).enqueue(object : Callback {
-            override fun onResponse(call: Call, response: Response) {
-                logger.println("Post $name annotations: SUCCESS")
+        client.newCall(request).execute().also {
+            if (it.isSuccessful) {
+                JenkinsLogger.info("Post $name annotations : SUCCESS")
+            } else {
+                JenkinsLogger.info(it.body!!.string())
+                throw CallApiFailureException()
             }
-
-            override fun onFailure(call: Call, e: IOException) {
-                logger.println("Post $name annotations: FAILURE")
-            }
-        })
+        }
     }
 
     private fun Request.Builder.authorizationHeader(): Request.Builder = this.header("Authorization", credential)
+
+    private class CallApiFailureException : RuntimeException()
 }
