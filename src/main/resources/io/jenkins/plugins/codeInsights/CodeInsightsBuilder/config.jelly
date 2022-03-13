@@ -11,6 +11,9 @@
         <f:textbox/>
     </f:entry>
     <f:advanced>
+        <f:entry title="${%Base branch (default: master)}" field="baseBranch">
+            <f:textbox/>
+        </f:entry>
         <f:entry title="${%Path of checkstyle results file}" field="checkstyleFilePath">
             <f:textbox/>
         </f:entry>

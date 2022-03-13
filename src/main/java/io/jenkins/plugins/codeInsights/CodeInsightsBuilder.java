@@ -23,6 +23,7 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
     private final String commitId;
 
     private String checkstyleFilePath;
+    private String baseBranch = "master";
 
     @DataBoundConstructor
     public CodeInsightsBuilder(
@@ -39,6 +40,11 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
         this.checkstyleFilePath = checkstyleFilePath;
     }
 
+    @DataBoundSetter
+    public void setBaseBranch(final String baseBranch) {
+        this.baseBranch = baseBranch;
+    }
+
     @Override
     public void perform(@NotNull final Run<?, ?> run,
                         @NotNull final FilePath workspace,
@@ -46,9 +52,10 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
                         @NotNull final TaskListener listener) {
         final DescriptorImpl descriptor = (DescriptorImpl) super.getDescriptor();
         new KotlinEntryPoint(
-            run, workspace, launcher, listener,
-            descriptor.bitbucketUrl, descriptor.project, descriptor.reportKey, descriptor.username, descriptor.password,
-            repositoryName, srcPath, commitId, checkstyleFilePath
+            run, workspace, launcher, listener, // given by Jenkins
+            descriptor.bitbucketUrl, descriptor.project, descriptor.reportKey, descriptor.username, descriptor.password, // mandatory global settings
+            repositoryName, srcPath, commitId, // mandatory local settings
+            baseBranch, checkstyleFilePath // optional local settings
         ).delegate();
     }
 
