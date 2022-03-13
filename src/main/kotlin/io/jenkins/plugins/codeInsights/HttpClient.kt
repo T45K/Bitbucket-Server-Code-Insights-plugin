@@ -54,6 +54,7 @@ class HttpClient(
             if (it.isSuccessful) {
                 JenkinsLogger.info("Put reports: SUCCESS")
             } else {
+                JenkinsLogger.info("Put reports: FAILURE")
                 JenkinsLogger.info(it.body!!.string())
                 throw CallApiFailureException()
             }
@@ -71,6 +72,7 @@ class HttpClient(
             if (it.isSuccessful) {
                 JenkinsLogger.info("Post $name annotations : SUCCESS")
             } else {
+                JenkinsLogger.info("Post $name annotations : FAILURE")
                 JenkinsLogger.info(it.body!!.string())
                 throw CallApiFailureException()
             }
