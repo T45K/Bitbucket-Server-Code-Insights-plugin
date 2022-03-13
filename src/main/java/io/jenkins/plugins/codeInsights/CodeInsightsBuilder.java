@@ -16,8 +16,6 @@ import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.DataBoundSetter;
 import org.kohsuke.stapler.StaplerRequest;
 
-import java.io.IOException;
-
 @SuppressWarnings("unused")
 public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
     private final String repositoryName;
@@ -45,20 +43,12 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
     public void perform(@NotNull final Run<?, ?> run,
                         @NotNull final FilePath workspace,
                         @NotNull final Launcher launcher,
-                        @NotNull final TaskListener listener) throws IOException, InterruptedException {
+                        @NotNull final TaskListener listener) {
         final DescriptorImpl descriptor = (DescriptorImpl) super.getDescriptor();
         new KotlinEntryPoint(
-            descriptor.bitbucketUrl,
-            descriptor.project,
-            descriptor.reportKey,
-            descriptor.username,
-            descriptor.password,
-            repositoryName,
-            workspace.absolutize().getRemote(),
-            srcPath,
-            commitId,
-            checkstyleFilePath,
-            listener.getLogger()
+            run, workspace, launcher, listener,
+            descriptor.bitbucketUrl, descriptor.project, descriptor.reportKey, descriptor.username, descriptor.password,
+            repositoryName, srcPath, commitId, checkstyleFilePath
         ).delegate();
     }
 
