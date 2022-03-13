@@ -3,16 +3,10 @@ package io.jenkins.plugins.codeInsights
 import io.jenkins.plugins.codeInsights.annotation.Annotation
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
-import okhttp3.Call
-import okhttp3.Callback
-import okhttp3.Credentials
+import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.OkHttpClient
-import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
-import okhttp3.Response
 import java.io.IOException
-import java.io.PrintStream
 
 class HttpClient(
     username: String,
@@ -22,8 +16,7 @@ class HttpClient(
     repository: String,
     commitId: String,
     reportKey: String,
-    logger: PrintStream
-) : JenkinsLoggable(logger) {
+) {
     private val client: OkHttpClient = OkHttpClient.Builder()
         .authenticator { _, response ->
             val credential = Credentials.basic(username, password)
@@ -55,11 +48,11 @@ class HttpClient(
             .build()
         client.newCall(request).enqueue(object : Callback {
             override fun onResponse(call: Call, response: Response) {
-                logger.println("Put reports: SUCCESS")
+                JenkinsLogger.info("Put reports: SUCCESS")
             }
 
             override fun onFailure(call: Call, e: IOException) {
-                logger.println("Put reports: FAILURE")
+                JenkinsLogger.info("Put reports: FAILURE")
             }
         })
     }
@@ -72,11 +65,11 @@ class HttpClient(
             .build()
         client.newCall(request).enqueue(object : Callback {
             override fun onResponse(call: Call, response: Response) {
-                logger.println("Post $name annotations: SUCCESS")
+                JenkinsLogger.info("Post $name annotations: SUCCESS")
             }
 
             override fun onFailure(call: Call, e: IOException) {
-                logger.println("Post $name annotations: FAILURE")
+                JenkinsLogger.info("Post $name annotations: FAILURE")
             }
         })
     }
