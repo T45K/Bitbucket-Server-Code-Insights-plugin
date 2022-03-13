@@ -1,6 +1,6 @@
 package io.jenkins.plugins.codeInsights
 
-import io.jenkins.plugins.codeInsights.annotation.Annotation
+import io.jenkins.plugins.codeInsights.domain.Annotation
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import okhttp3.Credentials

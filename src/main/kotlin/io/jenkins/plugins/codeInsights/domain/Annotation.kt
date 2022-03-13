@@ -1,4 +1,4 @@
-package io.jenkins.plugins.codeInsights.annotation
+package io.jenkins.plugins.codeInsights.domain
 
 @kotlinx.serialization.Serializable
 data class Annotation(

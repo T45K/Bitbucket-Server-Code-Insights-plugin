@@ -1,4 +1,4 @@
-package io.jenkins.plugins.codeInsights.annotation
+package io.jenkins.plugins.codeInsights.domain
 
 import com.fasterxml.jackson.dataformat.xml.XmlMapper
 import hudson.FilePath

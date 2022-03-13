@@ -1,4 +1,4 @@
-package io.jenkins.plugins.codeInsights.annotation
+package io.jenkins.plugins.codeInsights.domain
 
 import hudson.FilePath
 import java.io.ByteArrayOutputStream

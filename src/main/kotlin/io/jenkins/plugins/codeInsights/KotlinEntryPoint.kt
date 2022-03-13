@@ -4,7 +4,7 @@ import hudson.FilePath
 import hudson.Launcher
 import hudson.model.Run
 import hudson.model.TaskListener
-import io.jenkins.plugins.codeInsights.annotation.AnnotationsProviders
+import io.jenkins.plugins.codeInsights.domain.AnnotationsProviders
 
 class KotlinEntryPoint(
     private val run: Run<*, *>,
