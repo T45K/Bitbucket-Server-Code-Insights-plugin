@@ -2,7 +2,6 @@ package io.jenkins.plugins.codeInsights.annotation
 
 @kotlinx.serialization.Serializable
 data class Annotation(
-    private val reportKey: String,
     private val line: Int,
     private val message: String,
     private val path: String,
