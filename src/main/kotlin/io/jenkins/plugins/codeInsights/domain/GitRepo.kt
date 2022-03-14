@@ -56,27 +56,4 @@ class GitRepo(fullPath: String) {
         revWalk.dispose()
         return treeParser
     }
-
-    //     private fun execute(): List<DiffEntry> {
-    //        val newTreeParser = prepareTreeParser(git.repository.resolve(newCommit.sha))
-    //        val oldTreeParser = prepareTreeParser(git.repository.resolve(oldCommit.sha))
-    //        return DiffFormatter(DisabledOutputStream.INSTANCE)
-    //            .apply { this.setRepository(git.repository) }
-    //            .apply { this.setDiffComparator(RawTextComparator.DEFAULT) }
-    //            .apply { this.isDetectRenames = true }
-    //            .scan(oldTreeParser, newTreeParser)
-    //    }
-    //
-    //    fun getModifiedJavaFiles(): List<DiffEntry> =
-    //        execute().filter { it.changeType == DiffEntry.ChangeType.MODIFY && it.oldPath.endsWith(".java") }
-    //
-    //    private fun prepareTreeParser(objectId: ObjectId): AbstractTreeIterator {
-    //        val revWalk = RevWalk(git.repository).also { it.revFilter = RevFilter.MERGE_BASE }
-    //        val commit = revWalk.parseCommit(objectId)
-    //        val tree = revWalk.parseTree(commit.tree.id)
-    //        val treeParser = CanonicalTreeParser()
-    //            .also { it.reset(git.repository.newObjectReader(), tree) }
-    //        revWalk.dispose()
-    //        return treeParser
-    //    }
 }
