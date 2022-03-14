@@ -1,6 +1,6 @@
 package io.jenkins.plugins.codeInsights
 
-import io.jenkins.plugins.codeInsights.annotation.Annotation
+import io.jenkins.plugins.codeInsights.domain.Annotation
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import okhttp3.Credentials
@@ -18,13 +18,7 @@ class HttpClient(
     commitId: String,
     reportKey: String,
 ) {
-    private val client: OkHttpClient = OkHttpClient.Builder()
-        .authenticator { _, response ->
-            val credential = Credentials.basic(username, password)
-            response.request.newBuilder()
-                .header("Authorization", credential)
-                .build()
-        }.build()
+    private val client: OkHttpClient = OkHttpClient()
 
     private val reportUrl =
         "$bitbucketUrl/rest/insights/1.0/projects/$project/repos/$repository/commits/$commitId/reports/$reportKey"
@@ -54,6 +48,7 @@ class HttpClient(
             if (it.isSuccessful) {
                 JenkinsLogger.info("Put reports: SUCCESS")
             } else {
+                JenkinsLogger.info("Put reports: FAILURE")
                 JenkinsLogger.info(it.body!!.string())
                 throw CallApiFailureException()
             }
@@ -71,6 +66,7 @@ class HttpClient(
             if (it.isSuccessful) {
                 JenkinsLogger.info("Post $name annotations : SUCCESS")
             } else {
+                JenkinsLogger.info("Post $name annotations : FAILURE")
                 JenkinsLogger.info(it.body!!.string())
                 throw CallApiFailureException()
             }
