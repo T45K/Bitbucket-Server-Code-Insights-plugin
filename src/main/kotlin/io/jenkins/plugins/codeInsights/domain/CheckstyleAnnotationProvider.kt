@@ -5,11 +5,11 @@ import java.nio.file.Paths
 
 class CheckstyleAnnotationProvider(
     private val xmlMapper: XmlMapper,
-    checkstyleFilePath: String,
-) : AnnotationProvider(checkstyleFilePath) {
+    contents: String,
+) : AnnotationProvider(contents) {
     override val name: String = "Checkstyle"
 
-    override fun convert(repositoryPath: String, contents: String): List<Annotation> {
+    override fun convert(repositoryPath: String): List<Annotation> {
         val repository = Paths.get(repositoryPath)
         return xmlMapper.readTree(contents)["file"]
             .flatMap { fileTag ->

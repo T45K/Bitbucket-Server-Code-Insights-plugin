@@ -18,13 +18,7 @@ class HttpClient(
     commitId: String,
     reportKey: String,
 ) {
-    private val client: OkHttpClient = OkHttpClient.Builder()
-        .authenticator { _, response ->
-            val credential = Credentials.basic(username, password)
-            response.request.newBuilder()
-                .header("Authorization", credential)
-                .build()
-        }.build()
+    private val client: OkHttpClient = OkHttpClient()
 
     private val reportUrl =
         "$bitbucketUrl/rest/insights/1.0/projects/$project/repos/$repository/commits/$commitId/reports/$reportKey"

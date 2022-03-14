@@ -4,10 +4,11 @@ package io.jenkins.plugins.codeInsights.domain
 data class Annotation(
     private val line: Int,
     private val message: String,
-    private val path: String,
+    val path: String,
     private val severity: Severity = Severity.MEDIUM,
 )
 
+@Suppress("unused")
 @kotlinx.serialization.Serializable
 enum class Severity {
     LOW, MEDIUM, HIGH

@@ -4,8 +4,11 @@ import hudson.FilePath
 import hudson.Launcher
 import hudson.model.Run
 import hudson.model.TaskListener
-import io.jenkins.plugins.codeInsights.domain.AnnotationsProviders
+import io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder
+import io.jenkins.plugins.codeInsights.domain.GitRepo
+import io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl
 
+@Suppress("unused")
 class KotlinEntryPoint(
     private val run: Run<*, *>,
     private val workspace: FilePath,
@@ -25,20 +28,24 @@ class KotlinEntryPoint(
     fun delegate() {
         JenkinsLogger.setLogger(listener.logger)
         val httpClient = HttpClient(
-            username,
-            password,
-            bitbucketUrl,
-            project,
-            repositoryName,
-            commitId,
-            reportKey,
+            username, password, // credential
+            bitbucketUrl, project, repositoryName, commitId, reportKey, // url
         )
 
         httpClient.putReport()
 
-        AnnotationsProviders.Builder(workspace)
+        val fileTransferService = FileTransferServiceImpl(workspace, run)
+        fileTransferService.copyFromWorkspaceToLocal(".git")
+        val changedFiles = GitRepo(run.rootDir.resolve(".git").absolutePath)
+            .detectChangedFiles(commitId, baseBranch)
+        val executables = ExecutableAnnotationProvidersBuilder(fileTransferService)
             .setCheckstyle(checkstyleFilePath)
             .build()
-            .executeAndPost(httpClient)
+        for (executable in executables) {
+            JenkinsLogger.info("Start ${executable.name}")
+            val annotations = executable.convert(workspace.remote).filter { changedFiles.contains(it.path) }
+            httpClient.postAnnotations(executable.name, annotations)
+            JenkinsLogger.info("Finish ${executable.name}")
+        }
     }
 }

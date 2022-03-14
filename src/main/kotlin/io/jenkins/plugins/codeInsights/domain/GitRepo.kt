@@ -22,7 +22,7 @@ class GitRepo(fullPath: String) {
         .let(::FileRepository)
         .let(::Git)
 
-    fun detectChangedFiles(head: String, base: String): List<String> {
+    fun detectChangedFiles(head: String, base: String): Set<String> {
         val headObjectId: ObjectId = git.repository.resolve(head)
         val headTreeParser = prepareTreeParser(headObjectId)
 
@@ -38,6 +38,7 @@ class GitRepo(fullPath: String) {
             }.scan(baseTreeParser, headTreeParser)
             .filter { it.changeType == ADD || it.changeType == MODIFY }
             .map { it.newPath }
+            .toSet()
     }
 
     private fun findMergeBaseObject(commit1: ObjectId, commit2: ObjectId): ObjectId =
