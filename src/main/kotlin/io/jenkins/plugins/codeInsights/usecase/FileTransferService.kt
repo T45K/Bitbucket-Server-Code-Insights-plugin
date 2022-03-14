@@ -1,5 +1,6 @@
 package io.jenkins.plugins.codeInsights.usecase
 
-interface FileTransporter {
+interface FileTransferService {
     fun copyFromWorkspaceToLocal(path: String)
+    fun readFile(path: String): String
 }
