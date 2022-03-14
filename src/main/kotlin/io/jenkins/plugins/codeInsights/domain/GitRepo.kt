@@ -35,25 +35,24 @@ class GitRepo(fullPath: String) {
                 setRepository(git.repository)
                 setDiffComparator(RawTextComparator.DEFAULT)
                 isDetectRenames = true
-            }.scan(headTreeParser, baseTreeParser)
+            }.scan(baseTreeParser, headTreeParser)
             .filter { it.changeType == ADD || it.changeType == MODIFY }
             .map { it.newPath }
     }
 
-    private fun findMergeBaseObject(objectId1: ObjectId, objectId2: ObjectId): ObjectId =
+    private fun findMergeBaseObject(commit1: ObjectId, commit2: ObjectId): ObjectId =
         RevWalk(git.repository)
             .apply {
                 revFilter = RevFilter.MERGE_BASE
-                markStart(this.parseCommit(objectId1))
-                markStart(this.parseCommit(objectId2))
+                markStart(this.parseCommit(commit1))
+                markStart(this.parseCommit(commit2))
             }.next().id
 
     private fun prepareTreeParser(objectId: ObjectId): AbstractTreeIterator {
-        val revWalk = RevWalk(git.repository).also { it.revFilter = RevFilter.MERGE_BASE }
+        val revWalk = RevWalk(git.repository).apply { revFilter = RevFilter.MERGE_BASE }
         val commit = revWalk.parseCommit(objectId)
         val tree = revWalk.parseTree(commit.tree.id)
-        val treeParser = CanonicalTreeParser()
-            .also { it.reset(git.repository.newObjectReader(), tree) }
+        val treeParser = CanonicalTreeParser().apply { reset(git.repository.newObjectReader(), tree) }
         revWalk.dispose()
         return treeParser
     }
