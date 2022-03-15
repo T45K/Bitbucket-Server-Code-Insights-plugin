@@ -44,7 +44,9 @@ class KotlinEntryPoint(
         for (executable in executables) {
             JenkinsLogger.info("Start ${executable.name}")
             val annotations = executable.convert(workspace.remote).filter { changedFiles.contains(it.path) }
-            httpClient.postAnnotations(executable.name, annotations)
+            if (annotations.isNotEmpty()) {
+                httpClient.postAnnotations(executable.name, annotations)
+            }
             JenkinsLogger.info("Finish ${executable.name}")
         }
     }
