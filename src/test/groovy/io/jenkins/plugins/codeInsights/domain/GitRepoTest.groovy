@@ -1,7 +1,9 @@
 package io.jenkins.plugins.codeInsights.domain
 
+import spock.lang.IgnoreIf
 import spock.lang.Specification
 
+@IgnoreIf({ env['CI'] })
 class GitRepoTest extends Specification {
     def 'detectChangedFiles: check'() {
         given:
