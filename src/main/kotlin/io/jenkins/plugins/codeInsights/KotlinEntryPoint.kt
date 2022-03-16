@@ -23,10 +23,13 @@ class KotlinEntryPoint(
     private val srcPath: String,
     private val commitId: String,
     private val baseBranch: String,
-    private val checkstyleFilePath: String?,
+    private val checkstyleFilePath: String,
 ) {
-    fun delegate() {
+    init {
         JenkinsLogger.setLogger(listener.logger)
+    }
+
+    fun delegate() {
         val httpClient = HttpClient(
             username, password, // credential
             bitbucketUrl, project, repositoryName, commitId, reportKey, // url
