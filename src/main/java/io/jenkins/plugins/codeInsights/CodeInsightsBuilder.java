@@ -23,7 +23,7 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
     private final String commitId;
 
     private String checkstyleFilePath;
-    private String baseBranch = "master";
+    private String baseBranch = "origin/master";
 
     @DataBoundConstructor
     public CodeInsightsBuilder(
