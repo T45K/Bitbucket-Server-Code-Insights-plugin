@@ -7,6 +7,7 @@ import okhttp3.mockwebserver.MockWebServer
 import org.junit.Rule
 import org.jvnet.hudson.test.JenkinsRule
 import org.kohsuke.stapler.StaplerRequest
+import spock.lang.IgnoreIf
 import spock.lang.Specification
 
 import java.nio.file.Files
@@ -51,6 +52,7 @@ class CodeInsightsBuilderTest extends Specification {
         )
     }
 
+    @IgnoreIf({ env['CI'] })
     def 'test build successful without Checkstyle file'() {
         given:
         server.enqueue(new MockResponse().setResponseCode(200))
@@ -69,6 +71,7 @@ class CodeInsightsBuilderTest extends Specification {
         jenkins.assertLogNotContains('[Code Insights plugin] Checkstyle enabled', build)
     }
 
+    @IgnoreIf({ env['CI'] })
     def 'test build successful with Checkstyle file'() {
         given:
         server.enqueue(new MockResponse().setResponseCode(200))
