@@ -4,7 +4,7 @@
         <f:entry title="${%URL of Bitbucket}" field="bitbucketUrl">
             <f:textbox/>
         </f:entry>
-        <f:entry title="${%Project name (WASH, SJ)}" field="project">
+        <f:entry title="${%Project name}" field="project">
             <f:textbox/>
         </f:entry>
         <f:entry title="${%Report key of API}" field="reportKey">

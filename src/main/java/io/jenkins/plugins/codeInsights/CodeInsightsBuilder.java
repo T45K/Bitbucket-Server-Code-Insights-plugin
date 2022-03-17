@@ -22,26 +22,46 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
     private final String srcPath;
     private final String commitId;
 
-    private String checkstyleFilePath;
+    private String checkstyleFilePath = "";
     private String baseBranch = "origin/master";
 
     @DataBoundConstructor
     public CodeInsightsBuilder(
         @NotNull final String repositoryName,
         @NotNull final String srcPath,
-        @NotNull String commitId) {
+        @NotNull final String commitId) {
         this.repositoryName = repositoryName;
         this.srcPath = srcPath;
         this.commitId = commitId;
     }
 
-    @DataBoundSetter
-    public void setCheckstyleFilePath(final String checkstyleFilePath) {
-        this.checkstyleFilePath = checkstyleFilePath;
+    public String getRepositoryName() {
+        return repositoryName;
+    }
+
+    public String getSrcPath() {
+        return srcPath;
+    }
+
+    public String getCommitId() {
+        return commitId;
+    }
+
+    public String getCheckstyleFilePath() {
+        return checkstyleFilePath;
     }
 
     @DataBoundSetter
-    public void setBaseBranch(final String baseBranch) {
+    public void setCheckstyleFilePath(@NotNull final String checkstyleFilePath) {
+        this.checkstyleFilePath = checkstyleFilePath;
+    }
+
+    public String getBaseBranch() {
+        return baseBranch;
+    }
+
+    @DataBoundSetter
+    public void setBaseBranch(@NotNull final String baseBranch) {
         this.baseBranch = baseBranch;
     }
 
@@ -85,7 +105,7 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
         }
 
         @Override
-        public boolean isApplicable(Class<? extends AbstractProject> aClass) {
+        public boolean isApplicable(final Class<? extends AbstractProject> aClass) {
             return true;
         }
 

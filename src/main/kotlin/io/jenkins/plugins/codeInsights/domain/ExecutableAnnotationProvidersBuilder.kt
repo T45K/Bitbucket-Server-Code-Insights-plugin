@@ -8,8 +8,8 @@ class ExecutableAnnotationProvidersBuilder(private val fileTransferService: File
     private val executables = mutableListOf<AnnotationProvider>()
     private val xmlMapper = XmlMapper()
 
-    fun setCheckstyle(checkstyleFilePath: String?): ExecutableAnnotationProvidersBuilder {
-        if (checkstyleFilePath != null) {
+    fun setCheckstyle(checkstyleFilePath: String): ExecutableAnnotationProvidersBuilder {
+        if (checkstyleFilePath.isNotBlank()) {
             JenkinsLogger.info("Checkstyle enabled")
             executables.add(CheckstyleAnnotationProvider(xmlMapper, fileTransferService.readFile(checkstyleFilePath)))
         }
