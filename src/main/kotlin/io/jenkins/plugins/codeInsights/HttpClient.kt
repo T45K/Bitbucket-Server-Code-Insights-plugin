@@ -64,9 +64,9 @@ class HttpClient(
             .build()
         client.newCall(request).execute().also {
             if (it.isSuccessful) {
-                JenkinsLogger.info("Post $name annotations : SUCCESS")
+                JenkinsLogger.info("Post $name annotations: SUCCESS")
             } else {
-                JenkinsLogger.info("Post $name annotations : FAILURE")
+                JenkinsLogger.info("Post $name annotations: FAILURE")
                 JenkinsLogger.info(it.body!!.string())
                 throw CallApiFailureException()
             }
