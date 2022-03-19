@@ -9,6 +9,7 @@ import hudson.model.TaskListener;
 import hudson.tasks.BuildStepDescriptor;
 import hudson.tasks.Builder;
 import jenkins.tasks.SimpleBuildStep;
+import lombok.Getter;
 import net.sf.json.JSONObject;
 import org.jenkinsci.Symbol;
 import org.jetbrains.annotations.NotNull;
@@ -17,12 +18,14 @@ import org.kohsuke.stapler.DataBoundSetter;
 import org.kohsuke.stapler.StaplerRequest;
 
 @SuppressWarnings("unused")
+@Getter
 public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
     private final String repositoryName;
     private final String srcPath;
     private final String commitId;
 
     private String checkstyleFilePath = "";
+    private String sonarQubeProjectKey = "";
     private String baseBranch = "origin/master";
 
     @DataBoundConstructor
@@ -35,29 +38,14 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
         this.commitId = commitId;
     }
 
-    public String getRepositoryName() {
-        return repositoryName;
-    }
-
-    public String getSrcPath() {
-        return srcPath;
-    }
-
-    public String getCommitId() {
-        return commitId;
-    }
-
-    public String getCheckstyleFilePath() {
-        return checkstyleFilePath;
-    }
-
     @DataBoundSetter
     public void setCheckstyleFilePath(@NotNull final String checkstyleFilePath) {
         this.checkstyleFilePath = checkstyleFilePath;
     }
 
-    public String getBaseBranch() {
-        return baseBranch;
+    @DataBoundSetter
+    public void setSonarQubeProjectKey(@NotNull final String sonarQubeProjectKey) {
+        this.sonarQubeProjectKey = sonarQubeProjectKey;
     }
 
     @DataBoundSetter
@@ -73,9 +61,10 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
         final DescriptorImpl descriptor = (DescriptorImpl) super.getDescriptor();
         new KotlinEntryPoint(
             run, workspace, launcher, listener, // given by Jenkins
-            descriptor.bitbucketUrl, descriptor.project, descriptor.reportKey, descriptor.username, descriptor.password, // mandatory global settings
+            descriptor.bitbucketUrl, descriptor.project, descriptor.reportKey, descriptor.username, descriptor.password, // mandatory global settings (Bitbucket)
+            descriptor.sonarQubeUrl, descriptor.sonarQubeToken, descriptor.sonarQubeUsername, descriptor.sonarQubePassword, // optional global settings (SonarQube)
             repositoryName, srcPath, commitId, // mandatory local settings
-            baseBranch, checkstyleFilePath // optional local settings
+            baseBranch, checkstyleFilePath, sonarQubeProjectKey // optional local settings
         ).delegate();
     }
 
@@ -87,6 +76,10 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
         private String reportKey;
         private String username;
         private String password;
+        private String sonarQubeUrl;
+        private String sonarQubeToken;
+        private String sonarQubeUsername;
+        private String sonarQubePassword;
 
         public DescriptorImpl() {
             super.load();
@@ -100,6 +93,10 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
             this.reportKey = globalSettings.getString("reportKey");
             this.username = globalSettings.getString("username");
             this.password = globalSettings.getString("password");
+            this.sonarQubeUrl = globalSettings.getOrDefault("sonarQubeUrl", "").toString();
+            this.sonarQubeToken = globalSettings.getOrDefault("sonarQubeToken", "").toString();
+            this.sonarQubeUsername = globalSettings.getOrDefault("sonarQubeUsername", "").toString();
+            this.sonarQubePassword = globalSettings.getOrDefault("sonarQubePassword", "").toString();
             save();
             return true;
         }

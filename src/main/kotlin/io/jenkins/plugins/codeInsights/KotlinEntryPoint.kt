@@ -19,11 +19,16 @@ class KotlinEntryPoint(
     private val reportKey: String,
     private val username: String,
     private val password: String,
+    private val sonarQubeUrl: String,
+    private val sonarQubeToken: String,
+    private val sonarQubeUserName: String,
+    private val sonarQubePassword: String,
     private val repositoryName: String,
     private val srcPath: String,
     private val commitId: String,
     private val baseBranch: String,
     private val checkstyleFilePath: String,
+    private val sonarQubeProjectKey: String,
 ) {
     init {
         JenkinsLogger.setLogger(listener.logger)
@@ -43,6 +48,7 @@ class KotlinEntryPoint(
             .detectChangedFiles(commitId, baseBranch)
         val executables = ExecutableAnnotationProvidersBuilder(fileTransferService)
             .setCheckstyle(checkstyleFilePath)
+            .setSonarQube(sonarQubeUrl, sonarQubeProjectKey, sonarQubeToken, sonarQubeUserName, sonarQubePassword)
             .build()
         for (executable in executables) {
             JenkinsLogger.info("Start ${executable.name}")

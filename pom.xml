@@ -107,6 +107,12 @@
             <!-- for Java 8 -->
             <version>5.13.0.202109080827-r</version>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.22</version>
+            <scope>provided</scope>
+        </dependency>
 
         <!-- test -->
         <dependency>

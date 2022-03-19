@@ -74,13 +74,38 @@ class CodeInsightsBuilderTest extends Specification {
     @IgnoreIf({ env['CI'] })
     def 'test build successful with Checkstyle file'() {
         given:
-        server.enqueue(new MockResponse().setResponseCode(200))
-        server.enqueue(new MockResponse().setResponseCode(200))
+        server.enqueue(new MockResponse()) // put reports
+        server.enqueue(new MockResponse()) // post annotations
         jenkins.get(CodeInsightsBuilder.DescriptorImpl).configure(Stub(StaplerRequest), jsonObject)
 
         def project = jenkins.createFreeStyleProject()
         def builder = new CodeInsightsBuilder('repo', 'src/main/java', INITIAL_COMMIT_ID)
         builder.setCheckstyleFilePath('src/test/resources/checkstyle-test.xml')
+        project.buildersList << builder
+        project.customWorkspace = Paths.get(".").toAbsolutePath().toString()
+
+        expect:
+        def build = jenkins.buildAndAssertSuccess(project)
+        jenkins.assertLogContains('[Code Insights plugin] Start to put reports', build)
+        jenkins.assertLogContains('[Code Insights plugin] Put reports: SUCCESS', build)
+        jenkins.assertLogContains('[Code Insights plugin] Checkstyle enabled', build)
+        jenkins.assertLogContains('[Code Insights plugin] Start to post Checkstyle annotations', build)
+        jenkins.assertLogContains('[Code Insights plugin] Post Checkstyle annotations: SUCCESS', build)
+        jenkins.assertLogContains('[Code Insights plugin] Finish Checkstyle', build)
+        jenkins.assertLogContains('Finished: SUCCESS', build)
+    }
+
+    @IgnoreIf({ env['CI'] })
+    def 'test build successful with SonarQube'() {
+        given:
+        server.enqueue(new MockResponse().setResponseCode(200)) // put reports
+        server.enqueue(new MockResponse().setResponseCode(200))
+        server.enqueue(new MockResponse().setResponseCode(200)) // post annotations
+        jenkins.get(CodeInsightsBuilder.DescriptorImpl).configure(Stub(StaplerRequest), jsonObject)
+
+        def project = jenkins.createFreeStyleProject()
+        def builder = new CodeInsightsBuilder('repo', 'src/main/java', INITIAL_COMMIT_ID)
+        builder.setSonarQubeProjectKey("trial")
         project.buildersList << builder
         project.customWorkspace = Paths.get(".").toAbsolutePath().toString()
 

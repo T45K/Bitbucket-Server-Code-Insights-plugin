@@ -1,6 +1,5 @@
 <?jelly escape-by-default='true'?>
-<j:jelly xmlns:j="jelly:core"
-         xmlns:f="/lib/form">
+<j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form">
     <f:entry title="Repository name" field="repositoryName">
         <f:textbox/>
     </f:entry>
@@ -11,10 +10,14 @@
         <f:textbox/>
     </f:entry>
     <f:advanced>
-        <f:entry title="Base branch (default: origin/master)" field="baseBranch">
+        <f:entry title="Base branch" field="baseBranch" description="optional. default: origin/master">
             <f:textbox/>
         </f:entry>
         <f:entry title="Path of checkstyle results file" field="checkstyleFilePath">
+            <f:textbox/>
+        </f:entry>
+        <f:entry title="SonarQube project key" field="sonarQubeProjectKey"
+                 description="same as XXX of `mvn sonar:sonar -Dsonar.projectKey=XXX`">
             <f:textbox/>
         </f:entry>
     </f:advanced>
