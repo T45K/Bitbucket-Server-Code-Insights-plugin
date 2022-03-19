@@ -15,7 +15,7 @@ import org.eclipse.jgit.util.io.DisabledOutputStream
 import java.io.File
 
 /**
- * .git
+ * @param fullPath must include ".git"
  */
 class GitRepo(fullPath: String) {
     private val git = File(fullPath)
