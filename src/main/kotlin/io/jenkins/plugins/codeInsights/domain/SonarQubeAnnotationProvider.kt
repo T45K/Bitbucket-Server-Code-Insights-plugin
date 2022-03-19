@@ -27,8 +27,8 @@ class SonarQubeAnnotationProvider(
     private val client = OkHttpClient()
 
     override fun convert(repositoryPath: String): List<Annotation> {
-        val totalCount = fetchTotalCount() ?: return emptyList()
-        return (1..(totalCount + PAGE_SIZE - 1) / PAGE_SIZE)
+        val totalPage = fetchTotalPage() ?: return emptyList()
+        return (1..(totalPage + PAGE_SIZE - 1) / PAGE_SIZE)
             .flatMap { page -> callApi(page)?.let { it.jsonObject["issues"]!!.jsonArray } ?: emptyList() }
             .map { it.jsonObject }
             .map { issue ->
@@ -41,7 +41,7 @@ class SonarQubeAnnotationProvider(
             }
     }
 
-    private fun fetchTotalCount(): Int? =
+    private fun fetchTotalPage(): Int? =
         callApi(1)?.let {
             it.jsonObject["paging"]!!
                 .jsonObject["total"]!!
