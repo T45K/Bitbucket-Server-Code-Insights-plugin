@@ -1,20 +1,38 @@
 <?jelly escape-by-default='true'?>
 <j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form">
-    <f:section title="${%Bitbucket Server Code Insights API plugin}" name="codeInsights">
-        <f:entry title="${%URL of Bitbucket}" field="bitbucketUrl">
+    <f:section title="Bitbucket Server Code Insights API plugin" name="codeInsights">
+        <f:entry title="URL of Bitbucket" field="bitbucketUrl">
             <f:textbox/>
         </f:entry>
-        <f:entry title="${%Project name}" field="project">
+        <f:entry title="Project name" field="project">
             <f:textbox/>
         </f:entry>
-        <f:entry title="${%Report key of API}" field="reportKey">
+        <f:entry title="Report key of API" field="reportKey"
+                 description="The report key should be a unique string chosen by the reporter and should be unique enough not to potentially clash with report keys from other reporters. We recommend using reverse DNS namespacing or a similar standard to ensure that collision is avoided.">
             <f:textbox/>
         </f:entry>
-        <f:entry title="${%username}" field="username">
+        <f:entry title="Username of Bitbucket user" field="username">
             <f:textbox/>
         </f:entry>
-        <f:entry title="${%password}" field="password">
+        <f:entry title="Password of Bitbucket user" field="password">
             <f:password/>
         </f:entry>
+        <f:advanced>
+            <f:entry title="URL of SonarQube" field="sonarQubeUrl">
+                <f:textbox/>
+            </f:entry>
+            <f:entry title="Token of SonarQube user" field="sonarQubeToken"
+                     description="Either token only or username and password is needed.">
+                <f:textbox/>
+            </f:entry>
+            <f:entry title="Username of SonarQube user" field="SonarQubeUser"
+                     description="Either token only or username and password is needed.">
+                <f:textbox/>
+            </f:entry>
+            <f:entry title="Password of SonarQube user" field="SonarQubeUser"
+                     description="Either token only or username and password is needed.">
+                <f:password/>
+            </f:entry>
+        </f:advanced>
     </f:section>
 </j:jelly>

@@ -1,4 +1,4 @@
-package io.jenkins.plugins.codeInsights.domain
+package io.jenkins.plugins.codeInsights.usecase
 
 import org.eclipse.jgit.api.Git
 import org.eclipse.jgit.diff.DiffEntry.ChangeType.ADD
@@ -15,7 +15,7 @@ import org.eclipse.jgit.util.io.DisabledOutputStream
 import java.io.File
 
 /**
- * .git
+ * @param fullPath must include ".git"
  */
 class GitRepo(fullPath: String) {
     private val git = File(fullPath)
