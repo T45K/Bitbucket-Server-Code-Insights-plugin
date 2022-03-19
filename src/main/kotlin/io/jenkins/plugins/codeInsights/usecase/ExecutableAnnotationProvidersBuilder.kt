@@ -1,8 +1,9 @@
-package io.jenkins.plugins.codeInsights.domain
+package io.jenkins.plugins.codeInsights.usecase
 
 import com.fasterxml.jackson.dataformat.xml.XmlMapper
 import io.jenkins.plugins.codeInsights.JenkinsLogger
-import io.jenkins.plugins.codeInsights.usecase.FileTransferService
+import io.jenkins.plugins.codeInsights.domain.AnnotationProvider
+import io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider
 
 class ExecutableAnnotationProvidersBuilder(private val fileTransferService: FileTransferService) {
     private val executables = mutableListOf<AnnotationProvider>()

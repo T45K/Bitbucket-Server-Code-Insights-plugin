@@ -4,8 +4,8 @@ import hudson.FilePath
 import hudson.Launcher
 import hudson.model.Run
 import hudson.model.TaskListener
-import io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder
-import io.jenkins.plugins.codeInsights.domain.GitRepo
+import io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder
+import io.jenkins.plugins.codeInsights.usecase.GitRepo
 import io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl
 
 @Suppress("unused")

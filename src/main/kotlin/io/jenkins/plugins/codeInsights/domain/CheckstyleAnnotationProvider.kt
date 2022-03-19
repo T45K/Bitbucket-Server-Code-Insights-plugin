@@ -11,7 +11,7 @@ class CheckstyleAnnotationProvider(
 
     override fun convert(repositoryPath: String): List<Annotation> {
         val repository = Paths.get(repositoryPath)
-        return xmlMapper.readTree(contents)["file"]
+        return xmlMapper.readTree(source)["file"]
             .flatMap { fileTag ->
                 val filePath = repository.relativize(Paths.get(fileTag["name"].asText())).toString()
                 fileTag["error"]

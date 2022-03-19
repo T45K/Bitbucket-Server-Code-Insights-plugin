@@ -1,5 +1,6 @@
 package io.jenkins.plugins.codeInsights.domain
 
+import io.jenkins.plugins.codeInsights.usecase.GitRepo
 import spock.lang.IgnoreIf
 import spock.lang.Specification
 
