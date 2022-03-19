@@ -1,11 +1,10 @@
 package io.jenkins.plugins.codeInsights.domain
 
-
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
 import spock.lang.Specification
 
-import static io.jenkins.plugins.codeInsights.util.SonarQubeResponseHereDocument.getRESPONSE_BODY
+import static io.jenkins.plugins.codeInsights.util.SonarQubeResponseHereDocument.RESPONSE_BODY
 
 class SonarQubeAnnotationProviderTest extends Specification {
 
@@ -13,7 +12,8 @@ class SonarQubeAnnotationProviderTest extends Specification {
 
     def 'convert returns annotations'() {
         given:
-        server.setDispatcher { new MockResponse().setResponseCode(200).setBody(RESPONSE_BODY) }
+        server.enqueue(new MockResponse().setBody(RESPONSE_BODY)) // call to fetch total page
+        server.enqueue(new MockResponse().setBody(RESPONSE_BODY)) // call to fetch issue
 
         final def sut = new SonarQubeAnnotationProvider(server.url('').toString(), 'trial', new SonarQubeCredential('', 'admin', 'admin'))
 

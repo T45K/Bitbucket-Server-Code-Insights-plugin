@@ -96,8 +96,8 @@ class CodeInsightsBuilderTest extends Specification {
     def 'build successful with SonarQube'() {
         given:
         server.enqueue(new MockResponse()) // put reports
-        server.enqueue(new MockResponse().setBody(SonarQubeResponseHereDocument.RESPONSE_BODY)) // call for fetch total page
-        server.enqueue(new MockResponse().setBody(SonarQubeResponseHereDocument.RESPONSE_BODY)) // call for fetch issues
+        server.enqueue(new MockResponse().setBody(SonarQubeResponseHereDocument.RESPONSE_BODY)) // call to fetch total page
+        server.enqueue(new MockResponse().setBody(SonarQubeResponseHereDocument.RESPONSE_BODY)) // call to fetch issues
         final def jsonObject = new JSONObject(
             [codeInsights:
                  [bitbucketUrl  : server.url('').toString(),
@@ -129,8 +129,8 @@ class CodeInsightsBuilderTest extends Specification {
     def 'build successful with all sources'() {
         given:
         server.enqueue(new MockResponse().setResponseCode(200))
-        server.enqueue(new MockResponse().setBody(SonarQubeResponseHereDocument.RESPONSE_BODY)) // call for fetch total page
-        server.enqueue(new MockResponse().setBody(SonarQubeResponseHereDocument.RESPONSE_BODY)) // call for fetch issues
+        server.enqueue(new MockResponse().setBody(SonarQubeResponseHereDocument.RESPONSE_BODY)) // call to fetch total page
+        server.enqueue(new MockResponse().setBody(SonarQubeResponseHereDocument.RESPONSE_BODY)) // call to fetch issues
         final def jsonObject = new JSONObject(
             [codeInsights:
                  [bitbucketUrl  : server.url('').toString(),
