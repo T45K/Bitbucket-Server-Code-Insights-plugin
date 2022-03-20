@@ -33,10 +33,10 @@ class SonarQubeAnnotationProvider(
             .map { it.jsonObject }
             .map { issue ->
                 Annotation(
-                    issue["line"]!!.jsonPrimitive.int,
+                    issue["line"]?.jsonPrimitive?.int ?: 0,
                     "SonarQube says: " + issue["message"]!!.jsonPrimitive.content,
                     issue["component"]!!.jsonPrimitive.content.split(":").last(),
-                    issue["severity"]!!.toString().toAnnotationSeverity()
+                    issue["severity"]?.toString()?.toAnnotationSeverity() ?: Severity.LOW
                 )
             }
     }
