@@ -23,13 +23,13 @@
             </f:entry>
             <f:entry title="Token of SonarQube user" field="sonarQubeToken"
                      description="Either token only or username and password is needed.">
-                <f:textbox/>
+                <f:password/>
             </f:entry>
             <f:entry title="Username of SonarQube user" field="SonarQubeUser"
                      description="Either token only or username and password is needed.">
                 <f:textbox/>
             </f:entry>
-            <f:entry title="Password of SonarQube user" field="SonarQubeUser"
+            <f:entry title="Password of SonarQube user" field="SonarQubePassword"
                      description="Either token only or username and password is needed.">
                 <f:password/>
             </f:entry>
