@@ -70,6 +70,7 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
 
     @Symbol("codeInsights")
     @Extension
+    @Getter
     public static final class DescriptorImpl extends BuildStepDescriptor<Builder> {
         private String bitbucketUrl;
         private String project;
