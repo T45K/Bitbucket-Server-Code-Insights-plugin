@@ -6,6 +6,7 @@ data class Annotation(
     private val message: String,
     val path: String,
     private val severity: Severity = Severity.MEDIUM,
+    private val link: String? = null,
 )
 
 @Suppress("unused")
