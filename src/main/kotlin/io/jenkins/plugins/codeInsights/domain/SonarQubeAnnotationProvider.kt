@@ -50,6 +50,9 @@ class SonarQubeAnnotationProvider(
 
     private fun callApi(page: Int): JsonElement? {
         val url = super.source.toHttpUrl().newBuilder()
+            .addPathSegment("api")
+            .addPathSegment("issues")
+            .addPathSegment("search")
             .addQueryParameter("componentKey", sonarQubeProjectKey)
             .addQueryParameter("p", page.toString())
             .addQueryParameter("ps", PAGE_SIZE.toString())

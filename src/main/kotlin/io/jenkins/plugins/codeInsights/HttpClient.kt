@@ -4,6 +4,7 @@ import io.jenkins.plugins.codeInsights.domain.Annotation
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import okhttp3.Credentials
+import okhttp3.HttpUrl.Companion.toHttpUrl
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -20,10 +21,23 @@ class HttpClient(
 ) {
     private val client: OkHttpClient = OkHttpClient()
 
-    private val reportUrl =
-        "$bitbucketUrl/rest/insights/1.0/projects/$project/repos/$repository/commits/$commitId/reports/$reportKey"
-    private val annotationUrl =
-        "$bitbucketUrl/rest/insights/1.0/projects/$project/repos/$repository/commits/$commitId/reports/$reportKey/annotations"
+    private val reportUrl = bitbucketUrl.toHttpUrl().newBuilder()
+        .addPathSegment("rest")
+        .addPathSegment("insights")
+        .addPathSegment("1.0")
+        .addPathSegment("projects")
+        .addPathSegment(project)
+        .addPathSegment("repos")
+        .addPathSegment(repository)
+        .addPathSegment("commits")
+        .addPathSegment(commitId)
+        .addPathSegment("reports")
+        .addPathSegment(reportKey)
+        .build()
+
+    private val annotationUrl = reportUrl.newBuilder()
+        .addPathSegment("annotations")
+        .build()
 
     private val credential = Credentials.basic(username, password)
     private val mediaType = "application/json; charset=utf-8".toMediaType()
