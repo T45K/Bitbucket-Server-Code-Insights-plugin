@@ -36,7 +36,16 @@ class SonarQubeAnnotationProvider(
                     issue["line"]?.jsonPrimitive?.int ?: 0,
                     "SonarQube says: " + issue["message"]!!.jsonPrimitive.content,
                     issue["component"]!!.jsonPrimitive.content.split(":").last(),
-                    issue["severity"]?.toString()?.toAnnotationSeverity() ?: Severity.LOW
+                    issue["severity"]?.toString()?.toAnnotationSeverity() ?: Severity.LOW,
+                    issue["key"]?.jsonPrimitive?.content?.let {
+                        source.toHttpUrl().newBuilder()
+                            .addPathSegment("project")
+                            .addPathSegment("issues")
+                            .addQueryParameter("id", sonarQubeProjectKey)
+                            .addQueryParameter("issues", it)
+                            .build()
+                            .toString()
+                    }
                 )
             }
     }
