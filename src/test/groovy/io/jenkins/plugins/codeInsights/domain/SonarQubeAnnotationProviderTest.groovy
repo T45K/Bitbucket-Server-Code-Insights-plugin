@@ -20,7 +20,8 @@ class SonarQubeAnnotationProviderTest extends Specification {
         expect:
         sut.convert('') == [
             new Annotation(1, 'SonarQube says: Rename this package name to match the regular expression \'^[a-z_]+(\\.[a-z_][a-z0-9_]*)*$\'.',
-                'src/main/java/io/jenkins/plugins/codeInsights/CodeInsightsBuilder.java', Severity.LOW)
+                'src/main/java/io/jenkins/plugins/codeInsights/CodeInsightsBuilder.java', Severity.LOW,
+                server.url('').resolve("/project/issues?id=trial&issues=AX-YFnV_aoaIWGn8Z8OF").toString())
         ]
     }
 
