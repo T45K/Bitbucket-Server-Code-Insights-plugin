@@ -14,13 +14,17 @@ class SpotBugsAnnotationProvider(
 
     override fun convert(): List<Annotation> =
         xmlMapper.readTree(source)["BugInstance"].asArray().flatMap { bugInstance ->
-            val message = bugInstance["LongMessage"].asText()
+            val message = bugInstance["LongMessage"].asText().flat()
             bugInstance["SourceLine"].asArray().map { sourceLine ->
                 Annotation(
                     sourceLine["start"].asInt(),
                     message,
-                    Paths.get(srcPath, sourceLine["sourcePath"].asText()).toString(),
+                    Paths.get(srcPath, sourceLine["sourcepath"].asText()).toString(),
                 )
             }
         }
+
+    private fun String.flat() = this.replace("\n", "")
+        .replace("\\s+".toRegex(), " ")
+        .trim()
 }
