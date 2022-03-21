@@ -6,6 +6,7 @@ import io.jenkins.plugins.codeInsights.domain.AnnotationProvider
 import io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider
 import io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider
 import io.jenkins.plugins.codeInsights.domain.SonarQubeCredential
+import io.jenkins.plugins.codeInsights.domain.SpotBugsAnnotationProvider
 
 class ExecutableAnnotationProvidersBuilder(private val fileTransferService: FileTransferService) {
     private val executables = mutableListOf<AnnotationProvider>()
@@ -15,6 +16,14 @@ class ExecutableAnnotationProvidersBuilder(private val fileTransferService: File
         if (checkstyleFilePath.isNotBlank()) {
             JenkinsLogger.info("Checkstyle enabled")
             executables.add(CheckstyleAnnotationProvider(xmlMapper, fileTransferService.readFile(checkstyleFilePath)))
+        }
+        return this
+    }
+
+    fun setSpotBugs(spotBugsFilePath: String): ExecutableAnnotationProvidersBuilder {
+        if (spotBugsFilePath.isNotBlank()) {
+            JenkinsLogger.info("SpotBugs enabled")
+            executables.add(SpotBugsAnnotationProvider())
         }
         return this
     }

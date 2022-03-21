@@ -28,6 +28,7 @@ class KotlinEntryPoint(
     private val srcPath: String,
     private val baseBranch: String,
     private val checkstyleFilePath: String,
+    private val spotBugsFilePath: String,
     private val sonarQubeProjectKey: String,
 ) {
     init {
@@ -48,6 +49,7 @@ class KotlinEntryPoint(
             .detectChangedFiles(commitId, baseBranch)
         val executables = ExecutableAnnotationProvidersBuilder(fileTransferService)
             .setCheckstyle(checkstyleFilePath)
+            .setSpotBugs(spotBugsFilePath)
             .setSonarQube(sonarQubeUrl, sonarQubeProjectKey, sonarQubeToken, sonarQubeUserName, sonarQubePassword)
             .build()
         for (executable in executables) {

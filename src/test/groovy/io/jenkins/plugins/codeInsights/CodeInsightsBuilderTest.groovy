@@ -1,5 +1,6 @@
 package io.jenkins.plugins.codeInsights
 
+import com.fasterxml.jackson.dataformat.xml.XmlMapper
 import hudson.model.Result
 import io.jenkins.plugins.codeInsights.util.SonarQubeResponseHereDocument
 import net.sf.json.JSONObject
@@ -188,6 +189,12 @@ class CodeInsightsBuilderTest extends Specification {
         final def build = jenkins.buildAndAssertStatus(Result.FAILURE, project)
         jenkins.assertLogContains('[Code Insights plugin] Start to put reports', build)
         jenkins.assertLogContains('[Code Insights plugin] Put reports: FAILURE', build)
+    }
+
+    def 'aaa'() {
+        expect:
+        def hoge = new XmlMapper().readTree(Paths.get('target/spotBugsXml.xml').toFile())
+        true
     }
 
     def cleanup() {
