@@ -4,7 +4,6 @@ import io.jenkins.plugins.codeInsights.usecase.GitRepo
 import spock.lang.IgnoreIf
 import spock.lang.Specification
 
-@IgnoreIf({ env['CI'] })
 class GitRepoTest extends Specification {
     def 'detectChangedFiles returns changed files based on git-diff'() {
         given:
