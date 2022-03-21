@@ -29,7 +29,7 @@ class ExecutableAnnotationProvidersBuilder(private val fileTransferService: File
     fun setSpotBugs(spotBugsFilePath: String, srcPath: String): ExecutableAnnotationProvidersBuilder {
         if (spotBugsFilePath.isNotBlank()) {
             JenkinsLogger.info("SpotBugs enabled")
-            executables.add(SpotBugsAnnotationProvider(spotBugsFilePath, srcPath))
+            executables.add(SpotBugsAnnotationProvider(srcPath, fileTransferService.readFile(spotBugsFilePath)))
         }
         return this
     }

@@ -10,10 +10,14 @@ class CheckstyleAnnotationProviderTest extends Specification {
 
     def 'convert returns annotations based on checkstyle result file'() {
         given:
-        final def sut = new CheckstyleAnnotationProvider(new XmlMapper(), Files.readAllLines(Paths.get('src', 'test', 'resources', 'checkstyle-test.xml')).join('\n'))
+        final def sut = new CheckstyleAnnotationProvider(
+            new XmlMapper(),
+            '/test/repo',
+            Files.readAllLines(Paths.get('src', 'test', 'resources', 'checkstyle-test.xml')).join('\n'),
+        )
 
         expect:
-        sut.convert('/test/repo') == [
+        sut.convert() == [
             new Annotation(1, 'Checkstyle says: message 1',
                 Paths.get('src', 'main', 'java', 'A.java').toString(), Severity.MEDIUM, null),
             new Annotation(2, 'Checkstyle says: message 2',

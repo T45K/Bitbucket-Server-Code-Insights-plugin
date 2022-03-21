@@ -1,6 +1,7 @@
 package io.jenkins.plugins.codeInsights.domain
 
 import com.fasterxml.jackson.dataformat.xml.XmlMapper
+import io.jenkins.plugins.codeInsights.util.asArray
 import java.nio.file.Paths
 
 class CheckstyleAnnotationProvider(
@@ -15,8 +16,7 @@ class CheckstyleAnnotationProvider(
         return xmlMapper.readTree(source)["file"]
             .flatMap { fileTag ->
                 val filePath = repository.relativize(Paths.get(fileTag["name"].asText())).toString()
-                fileTag["error"]
-                    .let { if (it.isArray) it else listOf(it) }
+                fileTag["error"].asArray()
                     .map { errorTag ->
                         val line = errorTag["line"].asInt()
                         val message = "$name says: ${errorTag["message"].asText()}"
