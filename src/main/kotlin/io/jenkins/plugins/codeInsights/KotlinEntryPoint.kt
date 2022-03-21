@@ -4,11 +4,11 @@ import hudson.FilePath
 import hudson.Launcher
 import hudson.model.Run
 import hudson.model.TaskListener
+import io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl
 import io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder
 import io.jenkins.plugins.codeInsights.usecase.GitRepo
-import io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl
 
-@Suppress("unused")
+@Suppress("unused", "CanBeParameter")
 class KotlinEntryPoint(
     private val run: Run<*, *>,
     private val workspace: FilePath,
@@ -24,8 +24,8 @@ class KotlinEntryPoint(
     private val sonarQubeUserName: String,
     private val sonarQubePassword: String,
     private val repositoryName: String,
-    private val srcPath: String,
     private val commitId: String,
+    private val srcPath: String,
     private val baseBranch: String,
     private val checkstyleFilePath: String,
     private val sonarQubeProjectKey: String,
