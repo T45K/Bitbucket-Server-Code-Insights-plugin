@@ -65,7 +65,8 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
             descriptor.bitbucketUrl, descriptor.project, descriptor.reportKey, descriptor.username, descriptor.password, // mandatory global settings (Bitbucket)
             descriptor.sonarQubeUrl, descriptor.sonarQubeToken, descriptor.sonarQubeUsername, descriptor.sonarQubePassword, // optional global settings (SonarQube)
             repositoryName, commitId, // mandatory local settings
-            srcPath, baseBranch, checkstyleFilePath, sonarQubeProjectKey // optional local settings
+            srcPath, baseBranch, // optional local settings (with default values)
+            checkstyleFilePath, sonarQubeProjectKey // optional local settings
         ).delegate();
     }
 
