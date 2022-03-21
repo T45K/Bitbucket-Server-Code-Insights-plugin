@@ -23,4 +23,7 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
+      - run: ls -la
+      - run: ls .git
+      - run: git --no-pager log --decorate=short --pretty=oneline -n1
       - run: sh mvnw clean test
