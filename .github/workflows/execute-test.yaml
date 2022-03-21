@@ -24,7 +24,5 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
             ${{ runner.os }}-
-      - run: ls -la
-      - run: ls .git
-      - run: git --no-pager log --decorate=short --pretty=oneline -n1
+      - run: git fetch origin gitrepo-test-branch
       - run: sh mvnw clean test
