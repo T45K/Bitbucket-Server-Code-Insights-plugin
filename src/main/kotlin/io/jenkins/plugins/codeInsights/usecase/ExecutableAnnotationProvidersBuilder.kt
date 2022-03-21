@@ -12,18 +12,24 @@ class ExecutableAnnotationProvidersBuilder(private val fileTransferService: File
     private val executables = mutableListOf<AnnotationProvider>()
     private val xmlMapper = XmlMapper()
 
-    fun setCheckstyle(checkstyleFilePath: String): ExecutableAnnotationProvidersBuilder {
+    fun setCheckstyle(checkstyleFilePath: String, repositoryPath: String): ExecutableAnnotationProvidersBuilder {
         if (checkstyleFilePath.isNotBlank()) {
             JenkinsLogger.info("Checkstyle enabled")
-            executables.add(CheckstyleAnnotationProvider(xmlMapper, fileTransferService.readFile(checkstyleFilePath)))
+            executables.add(
+                CheckstyleAnnotationProvider(
+                    xmlMapper,
+                    fileTransferService.readFile(checkstyleFilePath),
+                    repositoryPath
+                )
+            )
         }
         return this
     }
 
-    fun setSpotBugs(spotBugsFilePath: String): ExecutableAnnotationProvidersBuilder {
+    fun setSpotBugs(spotBugsFilePath: String, srcPath: String): ExecutableAnnotationProvidersBuilder {
         if (spotBugsFilePath.isNotBlank()) {
             JenkinsLogger.info("SpotBugs enabled")
-            executables.add(SpotBugsAnnotationProvider())
+            executables.add(SpotBugsAnnotationProvider(spotBugsFilePath, srcPath))
         }
         return this
     }

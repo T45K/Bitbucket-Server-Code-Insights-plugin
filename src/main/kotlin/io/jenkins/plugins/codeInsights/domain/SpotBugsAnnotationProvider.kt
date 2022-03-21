@@ -1,10 +1,12 @@
 package io.jenkins.plugins.codeInsights.domain
 
-class SpotBugsAnnotationProvider : AnnotationProvider("TODO") {
-    override val name: String
-        get() = TODO("Not yet implemented")
+class SpotBugsAnnotationProvider(
+    spotBugsFilePath: String,
+    srcPath: String,
+) : AnnotationProvider(spotBugsFilePath) {
+    override val name: String = "SpotBugs"
 
-    override fun convert(repositoryPath: String): List<Annotation> {
+    override fun convert(): List<Annotation> {
         TODO("Not yet implemented")
     }
 }
