@@ -21,21 +21,27 @@ import org.kohsuke.stapler.StaplerRequest;
 @Getter
 public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
     private final String repositoryName;
-    private final String srcPath;
     private final String commitId;
 
+    private String srcPath = "src/main/java";
+    private String baseBranch = "origin/master";
     private String checkstyleFilePath = "";
     private String sonarQubeProjectKey = "";
-    private String baseBranch = "origin/master";
 
     @DataBoundConstructor
-    public CodeInsightsBuilder(
-        @NotNull final String repositoryName,
-        @NotNull final String srcPath,
-        @NotNull final String commitId) {
+    public CodeInsightsBuilder(@NotNull final String repositoryName, @NotNull final String commitId) {
         this.repositoryName = repositoryName;
-        this.srcPath = srcPath;
         this.commitId = commitId;
+    }
+
+    @DataBoundSetter
+    public void setSrcPath(@NotNull final String srcPath) {
+        this.srcPath = srcPath;
+    }
+
+    @DataBoundSetter
+    public void setBaseBranch(@NotNull final String baseBranch) {
+        this.baseBranch = baseBranch;
     }
 
     @DataBoundSetter
@@ -48,11 +54,6 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
         this.sonarQubeProjectKey = sonarQubeProjectKey;
     }
 
-    @DataBoundSetter
-    public void setBaseBranch(@NotNull final String baseBranch) {
-        this.baseBranch = baseBranch;
-    }
-
     @Override
     public void perform(@NotNull final Run<?, ?> run,
                         @NotNull final FilePath workspace,
@@ -63,8 +64,8 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
             run, workspace, launcher, listener, // given by Jenkins
             descriptor.bitbucketUrl, descriptor.project, descriptor.reportKey, descriptor.username, descriptor.password, // mandatory global settings (Bitbucket)
             descriptor.sonarQubeUrl, descriptor.sonarQubeToken, descriptor.sonarQubeUsername, descriptor.sonarQubePassword, // optional global settings (SonarQube)
-            repositoryName, srcPath, commitId, // mandatory local settings
-            baseBranch, checkstyleFilePath, sonarQubeProjectKey // optional local settings
+            repositoryName, commitId, // mandatory local settings
+            srcPath, baseBranch, checkstyleFilePath, sonarQubeProjectKey // optional local settings
         ).delegate();
     }
 

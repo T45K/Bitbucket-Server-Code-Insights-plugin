@@ -41,12 +41,12 @@ class CodeInsightsBuilderTest extends Specification {
     def 'test config round-trip'() {
         given:
         final def project = jenkins.createFreeStyleProject()
-        project.buildersList << new CodeInsightsBuilder('repo', 'src/main/java', '0' * 40)
+        project.buildersList << new CodeInsightsBuilder('repo', '0' * 40)
         final def roundTrippedProject = jenkins.configRoundtrip(project)
 
         expect:
         jenkins.assertEqualDataBoundBeans(
-            new CodeInsightsBuilder('repo', 'src/main/java', '0' * 40),
+            new CodeInsightsBuilder('repo', '0' * 40),
             roundTrippedProject.buildersList[0]
         )
     }
@@ -58,7 +58,7 @@ class CodeInsightsBuilderTest extends Specification {
         jenkins.get(CodeInsightsBuilder.DescriptorImpl).configure(Stub(StaplerRequest), jsonObject)
 
         final def project = jenkins.createFreeStyleProject()
-        final def builder = new CodeInsightsBuilder('repo', 'src/main/java', INITIAL_COMMIT_ID)
+        final def builder = new CodeInsightsBuilder('repo', INITIAL_COMMIT_ID)
         project.buildersList << builder
         project.customWorkspace = Paths.get('.').toAbsolutePath().toString()
 
@@ -78,7 +78,7 @@ class CodeInsightsBuilderTest extends Specification {
         jenkins.get(CodeInsightsBuilder.DescriptorImpl).configure(Stub(StaplerRequest), jsonObject)
 
         final def project = jenkins.createFreeStyleProject()
-        final def builder = new CodeInsightsBuilder('repo', 'src/main/java', INITIAL_COMMIT_ID)
+        final def builder = new CodeInsightsBuilder('repo', INITIAL_COMMIT_ID)
         builder.setCheckstyleFilePath('src/test/resources/checkstyle-test.xml')
         project.buildersList << builder
         project.customWorkspace = Paths.get('.').toAbsolutePath().toString()
@@ -111,7 +111,7 @@ class CodeInsightsBuilderTest extends Specification {
         jenkins.get(CodeInsightsBuilder.DescriptorImpl).configure(Stub(StaplerRequest), jsonObject)
 
         final def project = jenkins.createFreeStyleProject()
-        final def builder = new CodeInsightsBuilder('repo', 'src/main/java', INITIAL_COMMIT_ID)
+        final def builder = new CodeInsightsBuilder('repo', INITIAL_COMMIT_ID)
         builder.setSonarQubeProjectKey("trial")
         project.buildersList << builder
         project.customWorkspace = Paths.get('.').toAbsolutePath().toString()
@@ -144,7 +144,7 @@ class CodeInsightsBuilderTest extends Specification {
         jenkins.get(CodeInsightsBuilder.DescriptorImpl).configure(Stub(StaplerRequest), jsonObject)
 
         final def project = jenkins.createFreeStyleProject()
-        final def builder = new CodeInsightsBuilder('repo', 'src/main/java', INITIAL_COMMIT_ID)
+        final def builder = new CodeInsightsBuilder('repo', INITIAL_COMMIT_ID)
         builder.setCheckstyleFilePath('src/test/resources/checkstyle-test.xml')
         builder.setSonarQubeProjectKey('trial')
         project.buildersList << builder
@@ -164,7 +164,7 @@ class CodeInsightsBuilderTest extends Specification {
         jenkins.get(CodeInsightsBuilder.DescriptorImpl).configure(Stub(StaplerRequest), jsonObject)
 
         final def project = jenkins.createFreeStyleProject()
-        final def builder = new CodeInsightsBuilder('repo', 'src/main/java', INITIAL_COMMIT_ID)
+        final def builder = new CodeInsightsBuilder('repo', INITIAL_COMMIT_ID)
         project.buildersList << builder
         project.customWorkspace = Paths.get('.').toAbsolutePath().toString()
 
@@ -180,7 +180,7 @@ class CodeInsightsBuilderTest extends Specification {
         jenkins.get(CodeInsightsBuilder.DescriptorImpl).configure(Stub(StaplerRequest), jsonObject)
 
         final def project = jenkins.createFreeStyleProject()
-        final def builder = new CodeInsightsBuilder('repo', 'src/main/java', INITIAL_COMMIT_ID)
+        final def builder = new CodeInsightsBuilder('repo', INITIAL_COMMIT_ID)
         project.buildersList << builder
         project.customWorkspace = Paths.get('.').toAbsolutePath().toString()
 
