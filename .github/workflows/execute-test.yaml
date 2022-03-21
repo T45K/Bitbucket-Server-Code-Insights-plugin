@@ -25,4 +25,5 @@ jobs:
             ${{ runner.os }}-maven-
             ${{ runner.os }}-
       - run: git fetch origin gitrepo-test-branch
+      - run: git fetch origin master
       - run: sh mvnw clean test
