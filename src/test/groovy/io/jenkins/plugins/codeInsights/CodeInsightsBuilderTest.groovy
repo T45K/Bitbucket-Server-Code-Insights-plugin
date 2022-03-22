@@ -9,7 +9,6 @@ import okhttp3.mockwebserver.MockWebServer
 import org.junit.Rule
 import org.jvnet.hudson.test.JenkinsRule
 import org.kohsuke.stapler.StaplerRequest
-import spock.lang.IgnoreIf
 import spock.lang.Specification
 
 import java.nio.file.Files
@@ -52,7 +51,6 @@ class CodeInsightsBuilderTest extends Specification {
         )
     }
 
-    @IgnoreIf({ env['CI'] })
     def 'build successful without specifying any source'() {
         given:
         server.enqueue(new MockResponse().setResponseCode(200))
@@ -72,7 +70,6 @@ class CodeInsightsBuilderTest extends Specification {
         jenkins.assertLogNotContains('[Code Insights plugin] SonarQube enabled', build)
     }
 
-    @IgnoreIf({ env['CI'] })
     def 'build successful with Checkstyle file'() {
         given:
         server.enqueue(new MockResponse()) // put reports
@@ -93,7 +90,6 @@ class CodeInsightsBuilderTest extends Specification {
         jenkins.assertLogContains('Finished: SUCCESS', build)
     }
 
-    @IgnoreIf({ env['CI'] })
     def 'build successful with SonarQube'() {
         given:
         server.enqueue(new MockResponse()) // put reports
@@ -126,7 +122,6 @@ class CodeInsightsBuilderTest extends Specification {
         jenkins.assertLogContains('Finished: SUCCESS', build)
     }
 
-    @IgnoreIf({ env['CI'] })
     def 'build successful with all sources'() {
         given:
         server.enqueue(new MockResponse().setResponseCode(200))
