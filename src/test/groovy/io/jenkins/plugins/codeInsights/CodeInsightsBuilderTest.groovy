@@ -8,7 +8,6 @@ import okhttp3.mockwebserver.MockWebServer
 import org.junit.Rule
 import org.jvnet.hudson.test.JenkinsRule
 import org.kohsuke.stapler.StaplerRequest
-import spock.lang.IgnoreIf
 import spock.lang.Specification
 
 import java.nio.file.Files
