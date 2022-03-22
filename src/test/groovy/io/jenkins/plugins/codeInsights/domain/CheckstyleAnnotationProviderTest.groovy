@@ -18,12 +18,9 @@ class CheckstyleAnnotationProviderTest extends Specification {
 
         expect:
         sut.convert() == [
-            new Annotation(1, 'Checkstyle says: message 1',
-                Paths.get('src', 'main', 'java', 'A.java').toString(), Severity.LOW, null),
-            new Annotation(2, 'Checkstyle says: message 2',
-                Paths.get('src', 'main', 'java', 'A.java').toString(), Severity.LOW, null),
-            new Annotation(100, 'Checkstyle says: single error',
-                Paths.get('src', 'main', 'java', 'B.java').toString(), Severity.LOW, null)
+            new Annotation(1, 'Checkstyle says: message 1', 'src/main/java/A.java', Severity.LOW, null),
+            new Annotation(2, 'Checkstyle says: message 2', 'src/main/java/A.java', Severity.LOW, null),
+            new Annotation(100, 'Checkstyle says: single error', 'src/main/java/B.java', Severity.LOW, null)
         ]
     }
 }
