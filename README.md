@@ -49,7 +49,7 @@ Set up in your Job settings page of give in `Jenkinsfile` as parameter.
 |      `commitId`       | Commit Sha of target branch. You can use `env.GIT_COMMIT` as commitId in Jenkins Multibranch pipeline job.                                            |   Yes    |       `-`       | 
 |     `baseBranch`      | Base branch of your repository (e.g., `origin/main`).                                                                                                 |    No    | `origin/master` | 
 | `checkstyleFilePath`  | Relative path of Checkstyle result file from repository root (e.g., `target/checkstyle-result.xml`).                                                  |    No    |       `-`       |
-| `spotButsFilePath`    | Relative path of SpotBugs result file from repository root (e.g., `target/spotbugsXml.xml`).                                                          |    No    |       `-`       |  
+| `spotBugsFilePath`    | Relative path of SpotBugs result file from repository root (e.g., `target/spotbugsXml.xml`).                                                          |    No    |       `-`       |  
 | `SonarQubeProjectKey` | Project key of SonarQube project. If you use SonarQube plugin in Jenkins, specify the same value as `XXX` of `mvn sonar:sonar -Dsonar.projectKey=XXX` |    No    |       `-`       | 
 
 ## Supporting tools
