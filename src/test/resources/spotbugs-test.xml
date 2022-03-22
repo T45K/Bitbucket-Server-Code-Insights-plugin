@@ -1,0 +1,2549 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BugCollection sequence='0' release='' analysisTimestamp='1647868583588' version='4.5.3' timestamp='1647868519845'>
+    <Project projectName='Bitbucket Server Code Insights plugin'>
+        <Jar>/Users/t45k/prog/bitbucket-server-code-insights-plugin/target/classes</Jar>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/jenkins-ci/plugins/structs/1.20/structs-1.20.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/jenkins-ci/symbol-annotation/1.20/symbol-annotation-1.20.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.6.10/kotlin-stdlib-jdk8-1.6.10.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.6.10/kotlin-stdlib-1.6.10.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-common/1.6.10/kotlin-stdlib-common-1.6.10.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.6.10/kotlin-stdlib-jdk7-1.6.10.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/com/squareup/okhttp3/okhttp/4.9.3/okhttp-4.9.3.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/com/squareup/okio/okio/2.8.0/okio-2.8.0.jar</AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/com/squareup/okhttp3/mockwebserver/4.9.3/mockwebserver-4.9.3.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/jetbrains/kotlinx/kotlinx-serialization-json/1.3.2/kotlinx-serialization-json-1.3.2.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/jetbrains/kotlinx/kotlinx-serialization-json-jvm/1.3.2/kotlinx-serialization-json-jvm-1.3.2.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/jetbrains/kotlinx/kotlinx-serialization-core-jvm/1.3.2/kotlinx-serialization-core-jvm-1.3.2.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-xml/2.13.2/jackson-dataformat-xml-2.13.2.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.2/jackson-core-2.13.2.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.2/jackson-annotations-2.13.2.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.2/jackson-databind-2.13.2.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/codehaus/woodstox/stax2-api/4.2.1/stax2-api-4.2.1.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/com/fasterxml/woodstox/woodstox-core/6.2.7/woodstox-core-6.2.7.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/eclipse/jgit/org.eclipse.jgit/6.1.0.202203080745-r/org.eclipse.jgit-6.1.0.202203080745-r.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/com/googlecode/javaewah/JavaEWAH/1.1.13/JavaEWAH-1.1.13.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/projectlombok/lombok/1.18.22/lombok-1.18.22.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/jenkins-ci/main/jenkins-core/2.235.1/jenkins-core-2.235.1.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/jenkins-ci/plugins/icon-shim/icon-set/1.0.5/icon-set-1.0.5.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/jenkins-ci/main/remoting/4.3/remoting-4.3.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/jenkins-ci/main/cli/2.235.1/cli-2.235.1.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/jenkins-ci/version-number/1.7/version-number-1.7.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/jenkins-ci/crypto-util/1.5/crypto-util-1.5.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/jvnet/hudson/jtidy/4aug2000r7-dev-hudson-1/jtidy-4aug2000r7-dev-hudson-1.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/com/google/inject/guice/4.0/guice-4.0.jar</AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar</AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/connectbot/jbcrypt/jbcrypt/1.0.0/jbcrypt-1.0.0.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/jruby/ext/posix/jna-posix/1.0.3-jenkins-1/jna-posix-1.0.3-jenkins-1.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/com/github/jnr/jnr-posix/3.0.45/jnr-posix-3.0.45.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/com/github/jnr/jnr-ffi/2.1.8/jnr-ffi-2.1.8.jar</AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/com/github/jnr/jffi/1.2.17/jffi-1.2.17.jar</AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/com/github/jnr/jffi/1.2.16/jffi-1.2.16-native.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/ow2/asm/asm/5.0.3/asm-5.0.3.jar</AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/ow2/asm/asm-commons/5.0.3/asm-commons-5.0.3.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/ow2/asm/asm-analysis/5.0.3/asm-analysis-5.0.3.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/ow2/asm/asm-tree/5.0.3/asm-tree-5.0.3.jar</AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/ow2/asm/asm-util/5.0.3/asm-util-5.0.3.jar</AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/com/github/jnr/jnr-x86asm/1.0.2/jnr-x86asm-1.0.2.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/com/github/jnr/jnr-constants/0.9.9/jnr-constants-0.9.9.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/kohsuke/stapler/stapler-groovy/1.259/stapler-groovy-1.259.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/kohsuke/stapler/stapler-jelly/1.259/stapler-jelly-1.259.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/jenkins-ci/commons-jelly/1.1-jenkins-20120928/commons-jelly-1.1-jenkins-20120928.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/dom4j/dom4j/2.1.1/dom4j-2.1.1.jar</AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/kohsuke/stapler/stapler-jrebel/1.259/stapler-jrebel-1.259.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/kohsuke/stapler/stapler/1.259/stapler-1.259.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/commons-discovery/commons-discovery/0.4/commons-discovery-0.4.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/jvnet/tiger-types/2.2/tiger-types-2.2.jar</AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/kohsuke/asm5/5.0.1/asm5-5.0.1.jar</AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/com/google/code/findbugs/jsr305/2.0.1/jsr305-2.0.1.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/kohsuke/windows-package-checker/1.2/windows-package-checker-1.2.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/kohsuke/stapler/stapler-adjunct-zeroclipboard/1.3.5-1/stapler-adjunct-zeroclipboard-1.3.5-1.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/kohsuke/stapler/stapler-adjunct-timeline/1.5/stapler-adjunct-timeline-1.5.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/kohsuke/stapler/stapler-adjunct-codemirror/1.3/stapler-adjunct-codemirror-1.3.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/io/jenkins/stapler/jenkins-stapler-support/1.1/jenkins-stapler-support-1.1.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/com/infradna/tool/bridge-method-annotation/1.13/bridge-method-annotation-1.13.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/kohsuke/stapler/json-lib/2.4-jenkins-2/json-lib-2.4-jenkins-2.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/net/sf/ezmorph/ezmorph/1.0.6/ezmorph-1.0.6.jar</AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/commons-httpclient/commons-httpclient/3.1-jenkins-1/commons-httpclient-3.1-jenkins-1.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/args4j/args4j/2.33/args4j-2.33.jar</AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/jenkins-ci/annotation-indexer/1.12/annotation-indexer-1.12.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/jenkins-ci/bytecode-compatibility-transformer/2.0-beta-2/bytecode-compatibility-transformer-2.0-beta-2.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/kohsuke/asm6/6.2/asm6-6.2.jar</AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/jenkins-ci/constant-pool-scanner/1.2/constant-pool-scanner-1.2.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/jenkins-ci/task-reactor/1.5/task-reactor-1.5.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/jvnet/localizer/localizer/1.26/localizer-1.26.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/antlr/antlr/2.7.6/antlr-2.7.6.jar</AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/jvnet/hudson/xstream/1.4.7-jenkins-1/xstream-1.4.7-jenkins-1.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/xpp3/xpp3/1.1.4c/xpp3-1.1.4c.jar</AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar</AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/jfree/jfreechart/1.0.19/jfreechart-1.0.19.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/jfree/jcommon/1.0.23/jcommon-1.0.23.jar</AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/apache/ant/ant/1.10.7/ant-1.10.7.jar</AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/apache/ant/ant-launcher/1.10.7/ant-launcher-1.10.7.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/commons-io/commons-io/2.6/commons-io-2.6.jar</AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/commons-digester/commons-digester/2.1/commons-digester-2.1.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/commons-beanutils/commons-beanutils/1.9.3/commons-beanutils-1.9.3.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/apache/commons/commons-compress/1.19/commons-compress-1.19.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/com/sun/mail/jakarta.mail/1.6.5/jakarta.mail-1.6.5.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/com/sun/activation/jakarta.activation/1.2.1/jakarta.activation-1.2.1.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/jaxen/jaxen/1.1-beta-11/jaxen-1.1-beta-11.jar</AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/commons-jelly/commons-jelly-tags-fmt/1.0/commons-jelly-tags-fmt-1.0.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/commons-jelly/commons-jelly-tags-xml/1.1/commons-jelly-tags-xml-1.1.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/jvnet/hudson/commons-jelly-tags-define/1.0.1-hudson-20071021/commons-jelly-tags-define-1.0.1-hudson-20071021.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/jenkins-ci/commons-jexl/1.1-jenkins-20111212/commons-jexl-1.1-jenkins-20111212.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/acegisecurity/acegi-security/1.0.7/acegi-security-1.0.7.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/springframework/spring-jdbc/1.2.9/spring-jdbc-1.2.9.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/springframework/spring-dao/1.2.9/spring-dao-1.2.9.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/oro/oro/2.0.8/oro-2.0.8.jar</AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar</AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/codehaus/groovy/groovy-all/2.4.12/groovy-all-2.4.12.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/jline/jline/2.12/jline-2.12.jar</AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/fusesource/jansi/jansi/1.11/jansi-1.11.jar</AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/springframework/spring-webmvc/2.5.6.SEC03/spring-webmvc-2.5.6.SEC03.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/springframework/spring-beans/2.5.6.SEC03/spring-beans-2.5.6.SEC03.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/springframework/spring-context/2.5.6.SEC03/spring-context-2.5.6.SEC03.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/springframework/spring-context-support/2.5.6.SEC03/spring-context-support-2.5.6.SEC03.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/springframework/spring-web/2.5.6.SEC03/spring-web-2.5.6.SEC03.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/springframework/spring-core/2.5.6.SEC03/spring-core-2.5.6.SEC03.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/springframework/spring-aop/2.5.6.SEC03/spring-aop-2.5.6.SEC03.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/javax/servlet/jsp/jstl/javax.servlet.jsp.jstl-api/1.2.1/javax.servlet.jsp.jstl-api-1.2.1.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.26/jcl-over-slf4j-1.7.26.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/slf4j/log4j-over-slf4j/1.7.26/log4j-over-slf4j-1.7.26.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/com/sun/xml/txw2/txw2/20110809/txw2-20110809.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/javax/xml/stream/stax-api/1.0-2/stax-api-1.0-2.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/relaxngDatatype/relaxngDatatype/20020414/relaxngDatatype-20020414.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/jvnet/winp/winp/1.28/winp-1.28.jar</AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/jenkins-ci/memory-monitor/1.9/memory-monitor-1.9.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/codehaus/woodstox/wstx-asl/3.2.9/wstx-asl-3.2.9.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar</AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/net/java/dev/jna/jna/5.3.1/jna-5.3.1.jar</AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/kohsuke/akuma/1.10/akuma-1.10.jar</AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/kohsuke/libpam4j/1.11/libpam4j-1.11.jar</AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/org/kohsuke/libzfs/0.8/libzfs-0.8.jar</AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/com/sun/solaris/embedded_su4j/1.1/embedded_su4j-1.1.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/net/java/sezpoz/sezpoz/1.13/sezpoz-1.13.jar</AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/kohsuke/jinterop/j-interop/2.0.6-kohsuke-1/j-interop-2.0.6-kohsuke-1.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/kohsuke/jinterop/j-interopdeps/2.0.6-kohsuke-1/j-interopdeps-2.0.6-kohsuke-1.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/samba/jcifs/jcifs/1.3.17-kohsuke-1/jcifs-1.3.17-kohsuke-1.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/jvnet/robust-http-client/robust-http-client/1.2/robust-http-client-1.2.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/commons-codec/commons-codec/1.14/commons-codec-1.14.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/kohsuke/access-modifier-annotation/1.16/access-modifier-annotation-1.16.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/commons-fileupload/commons-fileupload/1.3.1-jenkins-2/commons-fileupload-1.3.1-jenkins-2.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/com/google/guava/guava/11.0.1/guava-11.0.1.jar</AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/com/jcraft/jzlib/1.1.3-kohsuke-1/jzlib-1.1.3-kohsuke-1.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/net/jcip/jcip-annotations/1.0/jcip-annotations-1.0.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>
+            /Users/t45k/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.21/animal-sniffer-annotations-1.21.jar
+        </AuxClasspathEntry>
+        <AuxClasspathEntry>/Users/t45k/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar
+        </AuxClasspathEntry>
+        <SrcDir>/Users/t45k/prog/bitbucket-server-code-insights-plugin/src/main/java</SrcDir>
+        <SrcDir>/Users/t45k/prog/bitbucket-server-code-insights-plugin/target/generated-sources/localizer</SrcDir>
+        <WrkDir>/Users/t45k/prog/bitbucket-server-code-insights-plugin/target</WrkDir>
+    </Project>
+    <BugInstance instanceOccurrenceNum='0' instanceHash='2fc535c8576df081b915f3cfe2e84789' cweid='476' rank='8'
+                 abbrev='NP' category='CORRECTNESS' priority='2' type='NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR'
+                 instanceOccurrenceMax='0'>
+        <ShortMessage>非 null フィールドは初期化されていない</ShortMessage>
+        <LongMessage>非 null フィールド logger は io.jenkins.plugins.codeInsights.JenkinsLogger.&lt;static initializer for
+            JenkinsLogger&gt;() によって初期化されていません。
+        </LongMessage>
+        <Class classname='io.jenkins.plugins.codeInsights.JenkinsLogger' primary='true'>
+            <SourceLine classname='io.jenkins.plugins.codeInsights.JenkinsLogger' start='5' end='14'
+                        sourcepath='io/jenkins/plugins/codeInsights/JenkinsLogger.kt' sourcefile='JenkinsLogger.kt'>
+                <Message>該当箇所 JenkinsLogger.kt:[lines 5-14]</Message>
+            </SourceLine>
+            <Message>クラス io.jenkins.plugins.codeInsights.JenkinsLogger</Message>
+        </Class>
+        <Method isStatic='true' classname='io.jenkins.plugins.codeInsights.JenkinsLogger' signature='()V'
+                name='&lt;clinit&gt;' primary='true'>
+            <SourceLine endBytecode='48' classname='io.jenkins.plugins.codeInsights.JenkinsLogger' start='6' end='6'
+                        sourcepath='io/jenkins/plugins/codeInsights/JenkinsLogger.kt' sourcefile='JenkinsLogger.kt'
+                        startBytecode='0'></SourceLine>
+            <Message>メソッド io.jenkins.plugins.codeInsights.JenkinsLogger.&lt;static initializer for JenkinsLogger&gt;()
+            </Message>
+        </Method>
+        <Field isStatic='true' classname='io.jenkins.plugins.codeInsights.JenkinsLogger'
+               signature='Ljava/io/PrintStream;' name='logger' primary='true'>
+            <SourceLine classname='io.jenkins.plugins.codeInsights.JenkinsLogger'
+                        sourcepath='io/jenkins/plugins/codeInsights/JenkinsLogger.kt' sourcefile='JenkinsLogger.kt'>
+                <Message>該当場所 JenkinsLogger.kt</Message>
+            </SourceLine>
+            <Message>フィールド io.jenkins.plugins.codeInsights.JenkinsLogger.logger</Message>
+        </Field>
+        <SourceLine synthetic='true' endBytecode='48' classname='io.jenkins.plugins.codeInsights.JenkinsLogger'
+                    start='6' end='6' sourcepath='io/jenkins/plugins/codeInsights/JenkinsLogger.kt'
+                    sourcefile='JenkinsLogger.kt' startBytecode='0'>
+            <Message>該当箇所 JenkinsLogger.kt:[line 6]</Message>
+        </SourceLine>
+    </BugInstance>
+    <BugInstance instanceOccurrenceNum='0' instanceHash='d8a8183a11a1e8cbad705600135d2c1a' rank='15' abbrev='ST'
+                 category='STYLE' priority='1' type='ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD' instanceOccurrenceMax='0'>
+        <ShortMessage>インスタンスメソッドから static フィールドへの書き込み</ShortMessage>
+        <LongMessage>インスタンスメソッド io.jenkins.plugins.codeInsights.JenkinsLogger.setLogger(PrintStream) から static フィールド
+            io.jenkins.plugins.codeInsights.JenkinsLogger.logger に書き込みをしています。
+        </LongMessage>
+        <Class classname='io.jenkins.plugins.codeInsights.JenkinsLogger' primary='true'>
+            <SourceLine classname='io.jenkins.plugins.codeInsights.JenkinsLogger' start='5' end='14'
+                        sourcepath='io/jenkins/plugins/codeInsights/JenkinsLogger.kt' sourcefile='JenkinsLogger.kt'>
+                <Message>該当箇所 JenkinsLogger.kt:[lines 5-14]</Message>
+            </SourceLine>
+            <Message>クラス io.jenkins.plugins.codeInsights.JenkinsLogger</Message>
+        </Class>
+        <Method isStatic='false' classname='io.jenkins.plugins.codeInsights.JenkinsLogger'
+                signature='(Ljava/io/PrintStream;)V' name='setLogger' primary='true'>
+            <SourceLine endBytecode='66' classname='io.jenkins.plugins.codeInsights.JenkinsLogger' start='9' end='10'
+                        sourcepath='io/jenkins/plugins/codeInsights/JenkinsLogger.kt' sourcefile='JenkinsLogger.kt'
+                        startBytecode='0'></SourceLine>
+            <Message>メソッド io.jenkins.plugins.codeInsights.JenkinsLogger.setLogger(PrintStream)</Message>
+        </Method>
+        <Field isStatic='true' classname='io.jenkins.plugins.codeInsights.JenkinsLogger'
+               signature='Ljava/io/PrintStream;' name='logger' primary='true'>
+            <SourceLine classname='io.jenkins.plugins.codeInsights.JenkinsLogger'
+                        sourcepath='io/jenkins/plugins/codeInsights/JenkinsLogger.kt' sourcefile='JenkinsLogger.kt'>
+                <Message>該当場所 JenkinsLogger.kt</Message>
+            </SourceLine>
+            <Message>フィールド io.jenkins.plugins.codeInsights.JenkinsLogger.logger</Message>
+        </Field>
+        <SourceLine endBytecode='7' classname='io.jenkins.plugins.codeInsights.JenkinsLogger' start='9' end='9'
+                    sourcepath='io/jenkins/plugins/codeInsights/JenkinsLogger.kt' sourcefile='JenkinsLogger.kt'
+                    startBytecode='7' primary='true'>
+            <Message>該当箇所 JenkinsLogger.kt:[line 9]</Message>
+        </SourceLine>
+    </BugInstance>
+    <BugInstance instanceOccurrenceNum='0' instanceHash='e05809c6c1a5ec3d6d66df23bcb661b7' rank='17' abbrev='BC'
+                 category='STYLE' priority='2' type='BC_BAD_CAST_TO_ABSTRACT_COLLECTION' instanceOccurrenceMax='0'>
+        <ShortMessage>抽象コレクションへの疑わしいキャスト</ShortMessage>
+        <LongMessage>Collection から抽象クラス java.util.List
+            への疑わしいキャストです。io.jenkins.plugins.codeInsights.KotlinEntryPoint.delegate()
+        </LongMessage>
+        <Class classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint' primary='true'>
+            <SourceLine classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint' start='11' end='66'
+                        sourcepath='io/jenkins/plugins/codeInsights/KotlinEntryPoint.kt'
+                        sourcefile='KotlinEntryPoint.kt'>
+                <Message>該当箇所 KotlinEntryPoint.kt:[lines 11-66]</Message>
+            </SourceLine>
+            <Message>クラス io.jenkins.plugins.codeInsights.KotlinEntryPoint</Message>
+        </Class>
+        <Method isStatic='false' classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint' signature='()V'
+                name='delegate' primary='true'>
+            <SourceLine endBytecode='164' classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint' start='38'
+                        end='61' sourcepath='io/jenkins/plugins/codeInsights/KotlinEntryPoint.kt'
+                        sourcefile='KotlinEntryPoint.kt' startBytecode='0'></SourceLine>
+            <Message>メソッド io.jenkins.plugins.codeInsights.KotlinEntryPoint.delegate()</Message>
+        </Method>
+        <Type role='TYPE_FOUND' descriptor='Ljava/util/Collection;'>
+            <SourceLine classname='java.util.Collection' start='413' end='764' sourcepath='java/util/Collection.java'
+                        sourcefile='Collection.java'>
+                <Message>該当箇所 Collection.java:[lines 413-764]</Message>
+            </SourceLine>
+            <Message>実際の型 java.util.Collection</Message>
+        </Type>
+        <Type role='TYPE_EXPECTED' descriptor='Ljava/util/List;'>
+            <SourceLine classname='java.util.List' start='437' end='1064' sourcepath='java/util/List.java'
+                        sourcefile='List.java'>
+                <Message>該当箇所 List.java:[lines 437-1064]</Message>
+            </SourceLine>
+            <Message>期待された java.util.List</Message>
+        </Type>
+        <LocalVariable role='LOCAL_VARIABLE_VALUE_OF' pc='326' name='destination$iv$iv' register='11'>
+            <Message>destination$iv$iv からロードされた値</Message>
+        </LocalVariable>
+        <SourceLine endBytecode='328' classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint' start='66' end='66'
+                    sourcepath='io/jenkins/plugins/codeInsights/KotlinEntryPoint.kt' sourcefile='KotlinEntryPoint.kt'
+                    startBytecode='328' primary='true'>
+            <Message>該当箇所 KotlinEntryPoint.kt:[line 66]</Message>
+        </SourceLine>
+    </BugInstance>
+    <BugInstance instanceOccurrenceNum='0' instanceHash='cea674d3b37181eba1eaf735737f6dc7' cweid='374' rank='18'
+                 abbrev='EI2' category='MALICIOUS_CODE' priority='2' type='EI_EXPOSE_REP2' instanceOccurrenceMax='0'>
+        <ShortMessage>可変オブジェクトへの参照を取り込むことによって内部表現を暴露するかもしれないメソッド</ShortMessage>
+        <LongMessage>new io.jenkins.plugins.codeInsights.KotlinEntryPoint(Run, FilePath, Launcher, TaskListener, String,
+            String, String, String, String, String, String, String, String, String, String, String, String, String,
+            String) は，KotlinEntryPoint.run の中に外部の可変オブジェクトを格納することによって内部表現を暴露するかもしれません。
+        </LongMessage>
+        <Class classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint' primary='true'>
+            <SourceLine classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint' start='11' end='66'
+                        sourcepath='io/jenkins/plugins/codeInsights/KotlinEntryPoint.kt'
+                        sourcefile='KotlinEntryPoint.kt'>
+                <Message>該当箇所 KotlinEntryPoint.kt:[lines 11-66]</Message>
+            </SourceLine>
+            <Message>クラス io.jenkins.plugins.codeInsights.KotlinEntryPoint</Message>
+        </Class>
+        <Method isStatic='false' classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint'
+                signature='(Lhudson/model/Run;Lhudson/FilePath;Lhudson/Launcher;Lhudson/model/TaskListener;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V'
+                name='&lt;init&gt;' primary='true'>
+            <SourceLine endBytecode='597' classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint' start='11'
+                        end='12' sourcepath='io/jenkins/plugins/codeInsights/KotlinEntryPoint.kt'
+                        sourcefile='KotlinEntryPoint.kt' startBytecode='0'></SourceLine>
+            <Message>メソッド new io.jenkins.plugins.codeInsights.KotlinEntryPoint(Run, FilePath, Launcher, TaskListener,
+                String, String, String, String, String, String, String, String, String, String, String, String, String,
+                String, String)
+            </Message>
+        </Method>
+        <Field isStatic='false' classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint'
+               signature='Lhudson/model/Run;' name='run' primary='true'>
+            <SourceLine classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint'
+                        sourcepath='io/jenkins/plugins/codeInsights/KotlinEntryPoint.kt'
+                        sourcefile='KotlinEntryPoint.kt'>
+                <Message>該当場所 KotlinEntryPoint.kt</Message>
+            </SourceLine>
+            <Message>フィールド io.jenkins.plugins.codeInsights.KotlinEntryPoint.run</Message>
+        </Field>
+        <LocalVariable role='LOCAL_VARIABLE_NAMED' pc='136' name='run' register='1'>
+            <Message>ローカル変数名 run</Message>
+        </LocalVariable>
+        <SourceLine endBytecode='136' classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint' start='13' end='13'
+                    sourcepath='io/jenkins/plugins/codeInsights/KotlinEntryPoint.kt' sourcefile='KotlinEntryPoint.kt'
+                    startBytecode='136' primary='true'>
+            <Message>該当箇所 KotlinEntryPoint.kt:[line 13]</Message>
+        </SourceLine>
+    </BugInstance>
+    <BugInstance instanceOccurrenceNum='0' instanceHash='d23a24ce4f36265c14c3aa1627ef84f6' cweid='374' rank='18'
+                 abbrev='EI2' category='MALICIOUS_CODE' priority='2' type='EI_EXPOSE_REP2' instanceOccurrenceMax='0'>
+        <ShortMessage>可変オブジェクトへの参照を取り込むことによって内部表現を暴露するかもしれないメソッド</ShortMessage>
+        <LongMessage>new io.jenkins.plugins.codeInsights.KotlinEntryPoint(Run, FilePath, Launcher, TaskListener, String,
+            String, String, String, String, String, String, String, String, String, String, String, String, String,
+            String) は，KotlinEntryPoint.workspace の中に外部の可変オブジェクトを格納することによって内部表現を暴露するかもしれません。
+        </LongMessage>
+        <Class classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint' primary='true'>
+            <SourceLine classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint' start='11' end='66'
+                        sourcepath='io/jenkins/plugins/codeInsights/KotlinEntryPoint.kt'
+                        sourcefile='KotlinEntryPoint.kt'>
+                <Message>該当箇所 KotlinEntryPoint.kt:[lines 11-66]</Message>
+            </SourceLine>
+            <Message>クラス io.jenkins.plugins.codeInsights.KotlinEntryPoint</Message>
+        </Class>
+        <Method isStatic='false' classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint'
+                signature='(Lhudson/model/Run;Lhudson/FilePath;Lhudson/Launcher;Lhudson/model/TaskListener;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V'
+                name='&lt;init&gt;' primary='true'>
+            <SourceLine endBytecode='597' classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint' start='11'
+                        end='12' sourcepath='io/jenkins/plugins/codeInsights/KotlinEntryPoint.kt'
+                        sourcefile='KotlinEntryPoint.kt' startBytecode='0'></SourceLine>
+            <Message>メソッド new io.jenkins.plugins.codeInsights.KotlinEntryPoint(Run, FilePath, Launcher, TaskListener,
+                String, String, String, String, String, String, String, String, String, String, String, String, String,
+                String, String)
+            </Message>
+        </Method>
+        <Field isStatic='false' classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint'
+               signature='Lhudson/FilePath;' name='workspace' primary='true'>
+            <SourceLine classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint'
+                        sourcepath='io/jenkins/plugins/codeInsights/KotlinEntryPoint.kt'
+                        sourcefile='KotlinEntryPoint.kt'>
+                <Message>該当場所 KotlinEntryPoint.kt</Message>
+            </SourceLine>
+            <Message>フィールド io.jenkins.plugins.codeInsights.KotlinEntryPoint.workspace</Message>
+        </Field>
+        <LocalVariable role='LOCAL_VARIABLE_NAMED' pc='141' name='workspace' register='2'>
+            <Message>ローカル変数名 workspace</Message>
+        </LocalVariable>
+        <SourceLine endBytecode='141' classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint' start='14' end='14'
+                    sourcepath='io/jenkins/plugins/codeInsights/KotlinEntryPoint.kt' sourcefile='KotlinEntryPoint.kt'
+                    startBytecode='141' primary='true'>
+            <Message>該当箇所 KotlinEntryPoint.kt:[line 14]</Message>
+        </SourceLine>
+    </BugInstance>
+    <BugInstance instanceOccurrenceNum='0' instanceHash='75a08d7c728d00e637053905d1369cac' rank='16' abbrev='Nm'
+                 category='BAD_PRACTICE' priority='2' type='NM_CLASS_NAMING_CONVENTION' instanceOccurrenceMax='0'>
+        <ShortMessage>クラス名は大文字から始めるべき</ShortMessage>
+        <LongMessage>クラス名 io.jenkins.plugins.codeInsights.domain.Annotation$$serializer は，大文字から始まっていません。</LongMessage>
+        <Class classname='io.jenkins.plugins.codeInsights.domain.Annotation$$serializer' primary='true'>
+            <SourceLine classname='io.jenkins.plugins.codeInsights.domain.Annotation$$serializer' start='3' end='10'
+                        sourcepath='io/jenkins/plugins/codeInsights/domain/Annotation.kt' sourcefile='Annotation.kt'>
+                <Message>該当箇所 Annotation.kt:[lines 3-10]</Message>
+            </SourceLine>
+            <Message>クラス io.jenkins.plugins.codeInsights.domain.Annotation$$serializer</Message>
+        </Class>
+        <SourceLine synthetic='true' classname='io.jenkins.plugins.codeInsights.domain.Annotation$$serializer' start='3'
+                    end='10' sourcepath='io/jenkins/plugins/codeInsights/domain/Annotation.kt'
+                    sourcefile='Annotation.kt'>
+            <Message>該当箇所 Annotation.kt:[lines 3-10]</Message>
+        </SourceLine>
+    </BugInstance>
+    <BugInstance instanceOccurrenceNum='0' instanceHash='c497a72c472da9b9ba848d596c73639f' rank='17' abbrev='BC'
+                 category='STYLE' priority='2' type='BC_BAD_CAST_TO_ABSTRACT_COLLECTION' instanceOccurrenceMax='0'>
+        <ShortMessage>抽象コレクションへの疑わしいキャスト</ShortMessage>
+        <LongMessage>Collection から抽象クラス java.util.List
+            への疑わしいキャストです。io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider.convert(String)
+        </LongMessage>
+        <Class classname='io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider' primary='true'>
+            <SourceLine classname='io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider' start='6'
+                        end='38' sourcepath='io/jenkins/plugins/codeInsights/domain/CheckstyleAnnotationProvider.kt'
+                        sourcefile='CheckstyleAnnotationProvider.kt'>
+                <Message>該当箇所 CheckstyleAnnotationProvider.kt:[lines 6-38]</Message>
+            </SourceLine>
+            <Message>クラス io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider</Message>
+        </Class>
+        <Method isStatic='false' classname='io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider'
+                signature='(Ljava/lang/String;)Ljava/util/List;' name='convert' primary='true'>
+            <SourceLine endBytecode='163'
+                        classname='io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider' start='13'
+                        end='14' sourcepath='io/jenkins/plugins/codeInsights/domain/CheckstyleAnnotationProvider.kt'
+                        sourcefile='CheckstyleAnnotationProvider.kt' startBytecode='0'></SourceLine>
+            <Message>メソッド io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider.convert(String)</Message>
+        </Method>
+        <Type role='TYPE_FOUND' descriptor='Ljava/util/Collection;'>
+            <SourceLine classname='java.util.Collection' start='413' end='764' sourcepath='java/util/Collection.java'
+                        sourcefile='Collection.java'>
+                <Message>該当箇所 Collection.java:[lines 413-764]</Message>
+            </SourceLine>
+            <Message>実際の型 java.util.Collection</Message>
+        </Type>
+        <Type role='TYPE_EXPECTED' descriptor='Ljava/util/List;'>
+            <SourceLine classname='java.util.List' start='437' end='1064' sourcepath='java/util/List.java'
+                        sourcefile='List.java'>
+                <Message>該当箇所 List.java:[lines 437-1064]</Message>
+            </SourceLine>
+            <Message>期待された java.util.List</Message>
+        </Type>
+        <LocalVariable role='LOCAL_VARIABLE_VALUE_OF' pc='355' name='destination$iv$iv' register='6'>
+            <Message>destination$iv$iv からロードされた値</Message>
+        </LocalVariable>
+        <SourceLine endBytecode='357' classname='io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider'
+                    start='38' end='38'
+                    sourcepath='io/jenkins/plugins/codeInsights/domain/CheckstyleAnnotationProvider.kt'
+                    sourcefile='CheckstyleAnnotationProvider.kt' startBytecode='357' primary='true'>
+            <Message>該当箇所 CheckstyleAnnotationProvider.kt:[line 38]</Message>
+        </SourceLine>
+        <SourceLine role='SOURCE_LINE_ANOTHER_INSTANCE' endBytecode='334'
+                    classname='io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider' start='35' end='35'
+                    sourcepath='io/jenkins/plugins/codeInsights/domain/CheckstyleAnnotationProvider.kt'
+                    sourcefile='CheckstyleAnnotationProvider.kt' startBytecode='334'>
+            <Message>他の出現箇所 CheckstyleAnnotationProvider.kt:[line 35]</Message>
+        </SourceLine>
+    </BugInstance>
+    <BugInstance instanceOccurrenceNum='0' instanceHash='cdf7ad7805b9b179a4aace31d9e9df0e' cweid='374' rank='18'
+                 abbrev='EI2' category='MALICIOUS_CODE' priority='2' type='EI_EXPOSE_REP2' instanceOccurrenceMax='0'>
+        <ShortMessage>可変オブジェクトへの参照を取り込むことによって内部表現を暴露するかもしれないメソッド</ShortMessage>
+        <LongMessage>new io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider(XmlMapper, String)
+            は，CheckstyleAnnotationProvider.xmlMapper の中に外部の可変オブジェクトを格納することによって内部表現を暴露するかもしれません。
+        </LongMessage>
+        <Class classname='io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider' primary='true'>
+            <SourceLine classname='io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider' start='6'
+                        end='38' sourcepath='io/jenkins/plugins/codeInsights/domain/CheckstyleAnnotationProvider.kt'
+                        sourcefile='CheckstyleAnnotationProvider.kt'>
+                <Message>該当箇所 CheckstyleAnnotationProvider.kt:[lines 6-38]</Message>
+            </SourceLine>
+            <Message>クラス io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider</Message>
+        </Class>
+        <Method isStatic='false' classname='io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider'
+                signature='(Lcom/fasterxml/jackson/dataformat/xml/XmlMapper;Ljava/lang/String;)V' name='&lt;init&gt;'
+                primary='true'>
+            <SourceLine endBytecode='102'
+                        classname='io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider' start='9'
+                        end='6' sourcepath='io/jenkins/plugins/codeInsights/domain/CheckstyleAnnotationProvider.kt'
+                        sourcefile='CheckstyleAnnotationProvider.kt' startBytecode='0'></SourceLine>
+            <Message>メソッド new io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider(XmlMapper, String)
+            </Message>
+        </Method>
+        <Field isStatic='false' classname='io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider'
+               signature='Lcom/fasterxml/jackson/dataformat/xml/XmlMapper;' name='xmlMapper' primary='true'>
+            <SourceLine classname='io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider'
+                        sourcepath='io/jenkins/plugins/codeInsights/domain/CheckstyleAnnotationProvider.kt'
+                        sourcefile='CheckstyleAnnotationProvider.kt'>
+                <Message>該当場所 CheckstyleAnnotationProvider.kt</Message>
+            </SourceLine>
+            <Message>フィールド io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider.xmlMapper</Message>
+        </Field>
+        <LocalVariable role='LOCAL_VARIABLE_NAMED' pc='19' name='xmlMapper' register='1'>
+            <Message>ローカル変数名 xmlMapper</Message>
+        </LocalVariable>
+        <SourceLine endBytecode='19' classname='io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider'
+                    start='7' end='7'
+                    sourcepath='io/jenkins/plugins/codeInsights/domain/CheckstyleAnnotationProvider.kt'
+                    sourcefile='CheckstyleAnnotationProvider.kt' startBytecode='19' primary='true'>
+            <Message>該当箇所 CheckstyleAnnotationProvider.kt:[line 7]</Message>
+        </SourceLine>
+    </BugInstance>
+    <BugInstance instanceOccurrenceNum='0' instanceHash='709a3599efa684223bfd97aeb5bc85b9' rank='16' abbrev='Nm'
+                 category='BAD_PRACTICE' priority='2' type='NM_CLASS_NAMING_CONVENTION' instanceOccurrenceMax='0'>
+        <ShortMessage>クラス名は大文字から始めるべき</ShortMessage>
+        <LongMessage>クラス名 io.jenkins.plugins.codeInsights.domain.Severity$$serializer は，大文字から始まっていません。</LongMessage>
+        <Class classname='io.jenkins.plugins.codeInsights.domain.Severity$$serializer' primary='true'>
+            <SourceLine classname='io.jenkins.plugins.codeInsights.domain.Severity$$serializer' start='12' end='16'
+                        sourcepath='io/jenkins/plugins/codeInsights/domain/Annotation.kt' sourcefile='Annotation.kt'>
+                <Message>該当箇所 Annotation.kt:[lines 12-16]</Message>
+            </SourceLine>
+            <Message>クラス io.jenkins.plugins.codeInsights.domain.Severity$$serializer</Message>
+        </Class>
+        <SourceLine synthetic='true' classname='io.jenkins.plugins.codeInsights.domain.Severity$$serializer' start='12'
+                    end='16' sourcepath='io/jenkins/plugins/codeInsights/domain/Annotation.kt'
+                    sourcefile='Annotation.kt'>
+            <Message>該当箇所 Annotation.kt:[lines 12-16]</Message>
+        </SourceLine>
+    </BugInstance>
+    <BugInstance instanceOccurrenceNum='0' instanceHash='930648228e99bae663ea25eec56570f8' rank='17' abbrev='BC'
+                 category='STYLE' priority='2' type='BC_BAD_CAST_TO_ABSTRACT_COLLECTION' instanceOccurrenceMax='0'>
+        <ShortMessage>抽象コレクションへの疑わしいキャスト</ShortMessage>
+        <LongMessage>Collection から抽象クラス java.util.List
+            への疑わしいキャストです。io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider.convert(String)
+        </LongMessage>
+        <Class classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider' primary='true'>
+            <SourceLine classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider' start='20'
+                        end='121' sourcepath='io/jenkins/plugins/codeInsights/domain/SonarQubeAnnotationProvider.kt'
+                        sourcefile='SonarQubeAnnotationProvider.kt'>
+                <Message>該当箇所 SonarQubeAnnotationProvider.kt:[lines 20-121]</Message>
+            </SourceLine>
+            <Message>クラス io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider</Message>
+        </Class>
+        <Method isStatic='false' classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider'
+                signature='(Ljava/lang/String;)Ljava/util/List;' name='convert' primary='true'>
+            <SourceLine endBytecode='311' classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider'
+                        start='30' end='31'
+                        sourcepath='io/jenkins/plugins/codeInsights/domain/SonarQubeAnnotationProvider.kt'
+                        sourcefile='SonarQubeAnnotationProvider.kt' startBytecode='0'></SourceLine>
+            <Message>メソッド io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider.convert(String)</Message>
+        </Method>
+        <Type role='TYPE_FOUND' descriptor='Ljava/util/Collection;'>
+            <SourceLine classname='java.util.Collection' start='413' end='764' sourcepath='java/util/Collection.java'
+                        sourcefile='Collection.java'>
+                <Message>該当箇所 Collection.java:[lines 413-764]</Message>
+            </SourceLine>
+            <Message>実際の型 java.util.Collection</Message>
+        </Type>
+        <Type role='TYPE_EXPECTED' descriptor='Ljava/util/List;'>
+            <SourceLine classname='java.util.List' start='437' end='1064' sourcepath='java/util/List.java'
+                        sourcefile='List.java'>
+                <Message>該当箇所 List.java:[lines 437-1064]</Message>
+            </SourceLine>
+            <Message>期待された java.util.List</Message>
+        </Type>
+        <LocalVariable role='LOCAL_VARIABLE_VALUE_OF' pc='175' name='destination$iv$iv' register='6'>
+            <Message>destination$iv$iv からロードされた値</Message>
+        </LocalVariable>
+        <SourceLine endBytecode='177' classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider'
+                    start='113' end='113'
+                    sourcepath='io/jenkins/plugins/codeInsights/domain/SonarQubeAnnotationProvider.kt'
+                    sourcefile='SonarQubeAnnotationProvider.kt' startBytecode='177' primary='true'>
+            <Message>該当箇所 SonarQubeAnnotationProvider.kt:[line 113]</Message>
+        </SourceLine>
+        <SourceLine role='SOURCE_LINE_ANOTHER_INSTANCE' endBytecode='274'
+                    classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider' start='117' end='117'
+                    sourcepath='io/jenkins/plugins/codeInsights/domain/SonarQubeAnnotationProvider.kt'
+                    sourcefile='SonarQubeAnnotationProvider.kt' startBytecode='274'>
+            <Message>他の出現箇所 SonarQubeAnnotationProvider.kt:[line 117]</Message>
+        </SourceLine>
+        <SourceLine role='SOURCE_LINE_ANOTHER_INSTANCE' endBytecode='665'
+                    classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider' start='121' end='121'
+                    sourcepath='io/jenkins/plugins/codeInsights/domain/SonarQubeAnnotationProvider.kt'
+                    sourcefile='SonarQubeAnnotationProvider.kt' startBytecode='665'>
+            <Message>他の出現箇所 SonarQubeAnnotationProvider.kt:[line 121]</Message>
+        </SourceLine>
+    </BugInstance>
+    <BugInstance instanceOccurrenceNum='0' instanceHash='ccbb7d318564ca3bea8c106b2a965e33' cweid='476' rank='18'
+                 abbrev='RCN' category='STYLE' priority='2' type='RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE'
+                 instanceOccurrenceMax='0'>
+        <ShortMessage>null ではないことがわかっている値の冗長な null チェック</ShortMessage>
+        <LongMessage>null ではないことがわかっている値 Object.toString() の冗長な null
+            チェックがあります。io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider.convert(String)
+        </LongMessage>
+        <Class classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider' primary='true'>
+            <SourceLine classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider' start='20'
+                        end='121' sourcepath='io/jenkins/plugins/codeInsights/domain/SonarQubeAnnotationProvider.kt'
+                        sourcefile='SonarQubeAnnotationProvider.kt'>
+                <Message>該当箇所 SonarQubeAnnotationProvider.kt:[lines 20-121]</Message>
+            </SourceLine>
+            <Message>クラス io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider</Message>
+        </Class>
+        <Method isStatic='false' classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider'
+                signature='(Ljava/lang/String;)Ljava/util/List;' name='convert' primary='true'>
+            <SourceLine endBytecode='1858'
+                        classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider' start='30'
+                        end='31' sourcepath='io/jenkins/plugins/codeInsights/domain/SonarQubeAnnotationProvider.kt'
+                        sourcefile='SonarQubeAnnotationProvider.kt' startBytecode='0'></SourceLine>
+            <Message>メソッド io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider.convert(String)</Message>
+        </Method>
+        <Method isStatic='false' role='METHOD_RETURN_VALUE_OF' classname='java.lang.Object'
+                signature='()Ljava/lang/String;' name='toString'>
+            <SourceLine endBytecode='77' classname='java.lang.Object' start='239' end='239'
+                        sourcepath='java/lang/Object.java' sourcefile='Object.java' startBytecode='0'></SourceLine>
+            <Message>戻り値 Object.toString()</Message>
+        </Method>
+        <SourceLine role='SOURCE_REDUNDANT_NULL_CHECK' endBytecode='489'
+                    classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider' start='39' end='39'
+                    sourcepath='io/jenkins/plugins/codeInsights/domain/SonarQubeAnnotationProvider.kt'
+                    sourcefile='SonarQubeAnnotationProvider.kt' startBytecode='489' primary='true'>
+            <Message>冗長な null チェックが行われている箇所 SonarQubeAnnotationProvider.kt:[line 39]</Message>
+        </SourceLine>
+    </BugInstance>
+    <BugInstance instanceOccurrenceNum='0' instanceHash='712e15c491c166fcff31e70e42c481db' cweid='476' rank='18'
+                 abbrev='RCN' category='STYLE' priority='2' type='RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE'
+                 instanceOccurrenceMax='0'>
+        <ShortMessage>null ではないことがわかっている値の冗長な null チェック</ShortMessage>
+        <LongMessage>null ではないことがわかっている値 kotlinx.serialization.json.JsonElementKt.getJsonPrimitive(JsonElement) の冗長な
+            null チェックがあります。io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider.convert(String)
+        </LongMessage>
+        <Class classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider' primary='true'>
+            <SourceLine classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider' start='20'
+                        end='121' sourcepath='io/jenkins/plugins/codeInsights/domain/SonarQubeAnnotationProvider.kt'
+                        sourcefile='SonarQubeAnnotationProvider.kt'>
+                <Message>該当箇所 SonarQubeAnnotationProvider.kt:[lines 20-121]</Message>
+            </SourceLine>
+            <Message>クラス io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider</Message>
+        </Class>
+        <Method isStatic='false' classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider'
+                signature='(Ljava/lang/String;)Ljava/util/List;' name='convert' primary='true'>
+            <SourceLine endBytecode='1858'
+                        classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider' start='30'
+                        end='31' sourcepath='io/jenkins/plugins/codeInsights/domain/SonarQubeAnnotationProvider.kt'
+                        sourcefile='SonarQubeAnnotationProvider.kt' startBytecode='0'></SourceLine>
+            <Message>メソッド io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider.convert(String)</Message>
+        </Method>
+        <Method isStatic='true' role='METHOD_RETURN_VALUE_OF' classname='kotlinx.serialization.json.JsonElementKt'
+                signature='(Lkotlinx/serialization/json/JsonElement;)Lkotlinx/serialization/json/JsonPrimitive;'
+                name='getJsonPrimitive'>
+            <SourceLine endBytecode='100' classname='kotlinx.serialization.json.JsonElementKt' start='153' end='153'
+                        sourcepath='kotlinx/serialization/json/JsonElement.kt' sourcefile='JsonElement.kt'
+                        startBytecode='0'></SourceLine>
+            <Message>戻り値 kotlinx.serialization.json.JsonElementKt.getJsonPrimitive(JsonElement)</Message>
+        </Method>
+        <SourceLine role='SOURCE_REDUNDANT_NULL_CHECK' endBytecode='375'
+                    classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider' start='36' end='36'
+                    sourcepath='io/jenkins/plugins/codeInsights/domain/SonarQubeAnnotationProvider.kt'
+                    sourcefile='SonarQubeAnnotationProvider.kt' startBytecode='375' primary='true'>
+            <Message>冗長な null チェックが行われている箇所 SonarQubeAnnotationProvider.kt:[line 36]</Message>
+        </SourceLine>
+        <SourceLine role='SOURCE_LINE_ANOTHER_INSTANCE' endBytecode='533'
+                    classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider' start='40' end='40'
+                    sourcepath='io/jenkins/plugins/codeInsights/domain/SonarQubeAnnotationProvider.kt'
+                    sourcefile='SonarQubeAnnotationProvider.kt' startBytecode='533'>
+            <Message>他の出現箇所 SonarQubeAnnotationProvider.kt:[line 40]</Message>
+        </SourceLine>
+    </BugInstance>
+    <BugInstance instanceOccurrenceNum='0' instanceHash='b0d4fcca435d9fcc62af864264f04fdd' cweid='476' rank='18'
+                 abbrev='RCN' category='STYLE' priority='2' type='RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE'
+                 instanceOccurrenceMax='0'>
+        <ShortMessage>null ではないことがわかっている値の冗長な null チェック</ShortMessage>
+        <LongMessage>null ではないことがわかっている値 kotlinx.serialization.json.JsonPrimitive.getContent() の冗長な null
+            チェックがあります。io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider.convert(String)
+        </LongMessage>
+        <Class classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider' primary='true'>
+            <SourceLine classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider' start='20'
+                        end='121' sourcepath='io/jenkins/plugins/codeInsights/domain/SonarQubeAnnotationProvider.kt'
+                        sourcefile='SonarQubeAnnotationProvider.kt'>
+                <Message>該当箇所 SonarQubeAnnotationProvider.kt:[lines 20-121]</Message>
+            </SourceLine>
+            <Message>クラス io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider</Message>
+        </Class>
+        <Method isStatic='false' classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider'
+                signature='(Ljava/lang/String;)Ljava/util/List;' name='convert' primary='true'>
+            <SourceLine endBytecode='1858'
+                        classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider' start='30'
+                        end='31' sourcepath='io/jenkins/plugins/codeInsights/domain/SonarQubeAnnotationProvider.kt'
+                        sourcefile='SonarQubeAnnotationProvider.kt' startBytecode='0'></SourceLine>
+            <Message>メソッド io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider.convert(String)</Message>
+        </Method>
+        <Method isStatic='false' role='METHOD_RETURN_VALUE_OF' classname='kotlinx.serialization.json.JsonPrimitive'
+                signature='()Ljava/lang/String;' name='getContent'>
+            <SourceLine classname='kotlinx.serialization.json.JsonPrimitive'
+                        sourcepath='kotlinx/serialization/json/JsonElement.kt' sourcefile='JsonElement.kt'></SourceLine>
+            <Message>戻り値 kotlinx.serialization.json.JsonPrimitive.getContent()</Message>
+        </Method>
+        <SourceLine role='SOURCE_REDUNDANT_NULL_CHECK' endBytecode='545'
+                    classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider' start='40' end='40'
+                    sourcepath='io/jenkins/plugins/codeInsights/domain/SonarQubeAnnotationProvider.kt'
+                    sourcefile='SonarQubeAnnotationProvider.kt' startBytecode='545' primary='true'>
+            <Message>冗長な null チェックが行われている箇所 SonarQubeAnnotationProvider.kt:[line 40]</Message>
+        </SourceLine>
+    </BugInstance>
+    <BugInstance instanceOccurrenceNum='0' instanceHash='26f46d1dc8c7b0db42d6af901b96753c' cweid='374' rank='18'
+                 abbrev='EI2' category='MALICIOUS_CODE' priority='2' type='EI_EXPOSE_REP2' instanceOccurrenceMax='0'>
+        <ShortMessage>可変オブジェクトへの参照を取り込むことによって内部表現を暴露するかもしれないメソッド</ShortMessage>
+        <LongMessage>new io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl(FilePath, Run)
+            は，FileTransferServiceImpl.workspace の中に外部の可変オブジェクトを格納することによって内部表現を暴露するかもしれません。
+        </LongMessage>
+        <Class classname='io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl' primary='true'>
+            <SourceLine classname='io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl' start='7' end='14'
+                        sourcepath='io/jenkins/plugins/codeInsights/framework/FileTransferServiceImpl.kt'
+                        sourcefile='FileTransferServiceImpl.kt'>
+                <Message>該当箇所 FileTransferServiceImpl.kt:[lines 7-14]</Message>
+            </SourceLine>
+            <Message>クラス io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl</Message>
+        </Class>
+        <Method isStatic='false' classname='io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl'
+                signature='(Lhudson/FilePath;Lhudson/model/Run;)V' name='&lt;init&gt;' primary='true'>
+            <SourceLine endBytecode='106' classname='io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl'
+                        start='7' end='7'
+                        sourcepath='io/jenkins/plugins/codeInsights/framework/FileTransferServiceImpl.kt'
+                        sourcefile='FileTransferServiceImpl.kt' startBytecode='0'></SourceLine>
+            <Message>メソッド new io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl(FilePath, Run)</Message>
+        </Method>
+        <Field isStatic='false' classname='io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl'
+               signature='Lhudson/FilePath;' name='workspace' primary='true'>
+            <SourceLine classname='io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl'
+                        sourcepath='io/jenkins/plugins/codeInsights/framework/FileTransferServiceImpl.kt'
+                        sourcefile='FileTransferServiceImpl.kt'>
+                <Message>該当場所 FileTransferServiceImpl.kt</Message>
+            </SourceLine>
+            <Message>フィールド io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl.workspace</Message>
+        </Field>
+        <LocalVariable role='LOCAL_VARIABLE_NAMED' pc='18' name='workspace' register='1'>
+            <Message>ローカル変数名 workspace</Message>
+        </LocalVariable>
+        <SourceLine endBytecode='18' classname='io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl'
+                    start='7' end='7' sourcepath='io/jenkins/plugins/codeInsights/framework/FileTransferServiceImpl.kt'
+                    sourcefile='FileTransferServiceImpl.kt' startBytecode='18' primary='true'>
+            <Message>該当箇所 FileTransferServiceImpl.kt:[line 7]</Message>
+        </SourceLine>
+    </BugInstance>
+    <BugInstance instanceOccurrenceNum='0' instanceHash='718ba8c614ccaf99288f69d199179b12' cweid='391' rank='16'
+                 abbrev='DE' category='BAD_PRACTICE' priority='2' type='DE_MIGHT_IGNORE' instanceOccurrenceMax='0'>
+        <ShortMessage>例外を無視しているかもしれないメソッド</ShortMessage>
+        <LongMessage>io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder.setSonarQube(String,
+            String, String, String, String) は，java.lang.Exception を無視しているかもしれません。
+        </LongMessage>
+        <Class classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder' primary='true'>
+            <SourceLine classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder'
+                        start='10' end='36'
+                        sourcepath='io/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder.kt'
+                        sourcefile='ExecutableAnnotationProvidersBuilder.kt'>
+                <Message>該当箇所 ExecutableAnnotationProvidersBuilder.kt:[lines 10-36]</Message>
+            </SourceLine>
+            <Message>クラス io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder</Message>
+        </Class>
+        <Method isStatic='false'
+                classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder'
+                signature='(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder;'
+                name='setSonarQube' primary='true'>
+            <SourceLine endBytecode='232'
+                        classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder'
+                        start='26' end='33'
+                        sourcepath='io/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder.kt'
+                        sourcefile='ExecutableAnnotationProvidersBuilder.kt' startBytecode='0'></SourceLine>
+            <Message>メソッド
+                io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder.setSonarQube(String,
+                String, String, String, String)
+            </Message>
+        </Method>
+        <Class role='CLASS_EXCEPTION' classname='java.lang.Exception'>
+            <SourceLine classname='java.lang.Exception' start='55' end='124' sourcepath='java/lang/Exception.java'
+                        sourcefile='Exception.java'>
+                <Message>該当箇所 Exception.java:[lines 55-124]</Message>
+            </SourceLine>
+            <Message>例外クラス java.lang.Exception</Message>
+        </Class>
+        <SourceLine endBytecode='79'
+                    classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder' start='30'
+                    end='30'
+                    sourcepath='io/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder.kt'
+                    sourcefile='ExecutableAnnotationProvidersBuilder.kt' startBytecode='79' primary='true'>
+            <Message>該当箇所 ExecutableAnnotationProvidersBuilder.kt:[line 30]</Message>
+        </SourceLine>
+        <SourceLine endBytecode='79'
+                    classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder' start='30'
+                    end='30'
+                    sourcepath='io/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder.kt'
+                    sourcefile='ExecutableAnnotationProvidersBuilder.kt' startBytecode='79' primary='true'>
+            <Message>該当箇所 ExecutableAnnotationProvidersBuilder.kt:[line 30]</Message>
+        </SourceLine>
+    </BugInstance>
+    <BugInstance instanceOccurrenceNum='0' instanceHash='884637611a4d445aeb0c09e7f3a797f0' cweid='374' rank='18'
+                 abbrev='EI' category='MALICIOUS_CODE' priority='2' type='EI_EXPOSE_REP' instanceOccurrenceMax='0'>
+        <ShortMessage>可変オブジェクトへの参照を返すことによって内部表現を暴露するかもしれないメソッド</ShortMessage>
+        <LongMessage>io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder.build()
+            は，ExecutableAnnotationProvidersBuilder.executables を返すことによって内部表現を暴露するかもしれません。
+        </LongMessage>
+        <Class classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder' primary='true'>
+            <SourceLine classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder'
+                        start='10' end='36'
+                        sourcepath='io/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder.kt'
+                        sourcefile='ExecutableAnnotationProvidersBuilder.kt'>
+                <Message>該当箇所 ExecutableAnnotationProvidersBuilder.kt:[lines 10-36]</Message>
+            </SourceLine>
+            <Message>クラス io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder</Message>
+        </Class>
+        <Method isStatic='false'
+                classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder'
+                signature='()Ljava/util/List;' name='build' primary='true'>
+            <SourceLine endBytecode='46'
+                        classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder'
+                        start='36' end='36'
+                        sourcepath='io/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder.kt'
+                        sourcefile='ExecutableAnnotationProvidersBuilder.kt' startBytecode='0'></SourceLine>
+            <Message>メソッド io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder.build()</Message>
+        </Method>
+        <Field isStatic='false' classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder'
+               signature='Ljava/util/List;' name='executables' primary='true'>
+            <SourceLine classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder'
+                        sourcepath='io/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder.kt'
+                        sourcefile='ExecutableAnnotationProvidersBuilder.kt'>
+                <Message>該当場所 ExecutableAnnotationProvidersBuilder.kt</Message>
+            </SourceLine>
+            <Message>フィールド io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder.executables
+            </Message>
+        </Field>
+        <SourceLine endBytecode='4'
+                    classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder' start='36'
+                    end='36'
+                    sourcepath='io/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder.kt'
+                    sourcefile='ExecutableAnnotationProvidersBuilder.kt' startBytecode='4' primary='true'>
+            <Message>該当箇所 ExecutableAnnotationProvidersBuilder.kt:[line 36]</Message>
+        </SourceLine>
+    </BugInstance>
+    <BugInstance instanceOccurrenceNum='0' instanceHash='a302ac56ae14a62a9c7647344cd2f2d' rank='17' abbrev='BC'
+                 category='STYLE' priority='2' type='BC_BAD_CAST_TO_ABSTRACT_COLLECTION' instanceOccurrenceMax='0'>
+        <ShortMessage>抽象コレクションへの疑わしいキャスト</ShortMessage>
+        <LongMessage>Collection から抽象クラス java.util.List
+            への疑わしいキャストです。io.jenkins.plugins.codeInsights.usecase.GitRepo.detectChangedFiles(String, String)
+        </LongMessage>
+        <Class classname='io.jenkins.plugins.codeInsights.usecase.GitRepo' primary='true'>
+            <SourceLine classname='io.jenkins.plugins.codeInsights.usecase.GitRepo' start='20' end='69'
+                        sourcepath='io/jenkins/plugins/codeInsights/usecase/GitRepo.kt' sourcefile='GitRepo.kt'>
+                <Message>該当箇所 GitRepo.kt:[lines 20-69]</Message>
+            </SourceLine>
+            <Message>クラス io.jenkins.plugins.codeInsights.usecase.GitRepo</Message>
+        </Class>
+        <Method isStatic='false' classname='io.jenkins.plugins.codeInsights.usecase.GitRepo'
+                signature='(Ljava/lang/String;Ljava/lang/String;)Ljava/util/Set;' name='detectChangedFiles'
+                primary='true'>
+            <SourceLine endBytecode='165' classname='io.jenkins.plugins.codeInsights.usecase.GitRepo' start='26'
+                        end='33' sourcepath='io/jenkins/plugins/codeInsights/usecase/GitRepo.kt' sourcefile='GitRepo.kt'
+                        startBytecode='0'></SourceLine>
+            <Message>メソッド io.jenkins.plugins.codeInsights.usecase.GitRepo.detectChangedFiles(String, String)</Message>
+        </Method>
+        <Type role='TYPE_FOUND' descriptor='Ljava/util/Collection;'>
+            <SourceLine classname='java.util.Collection' start='413' end='764' sourcepath='java/util/Collection.java'
+                        sourcefile='Collection.java'>
+                <Message>該当箇所 Collection.java:[lines 413-764]</Message>
+            </SourceLine>
+            <Message>実際の型 java.util.Collection</Message>
+        </Type>
+        <Type role='TYPE_EXPECTED' descriptor='Ljava/util/List;'>
+            <SourceLine classname='java.util.List' start='437' end='1064' sourcepath='java/util/List.java'
+                        sourcefile='List.java'>
+                <Message>該当箇所 List.java:[lines 437-1064]</Message>
+            </SourceLine>
+            <Message>期待された java.util.List</Message>
+        </Type>
+        <LocalVariable role='LOCAL_VARIABLE_VALUE_OF' pc='261' name='destination$iv$iv' register='11'>
+            <Message>destination$iv$iv からロードされた値</Message>
+        </LocalVariable>
+        <SourceLine endBytecode='263' classname='io.jenkins.plugins.codeInsights.usecase.GitRepo' start='65' end='65'
+                    sourcepath='io/jenkins/plugins/codeInsights/usecase/GitRepo.kt' sourcefile='GitRepo.kt'
+                    startBytecode='263' primary='true'>
+            <Message>該当箇所 GitRepo.kt:[line 65]</Message>
+        </SourceLine>
+        <SourceLine role='SOURCE_LINE_ANOTHER_INSTANCE' endBytecode='363'
+                    classname='io.jenkins.plugins.codeInsights.usecase.GitRepo' start='69' end='69'
+                    sourcepath='io/jenkins/plugins/codeInsights/usecase/GitRepo.kt' sourcefile='GitRepo.kt'
+                    startBytecode='363'>
+            <Message>他の出現箇所 GitRepo.kt:[line 69]</Message>
+        </SourceLine>
+    </BugInstance>
+    <BugCategory category='BAD_PRACTICE'>
+        <Description>Bad practice</Description>
+    </BugCategory>
+    <BugCategory category='MALICIOUS_CODE'>
+        <Description>Malicious code vulnerability</Description>
+    </BugCategory>
+    <BugCategory category='CORRECTNESS'>
+        <Description>Correctness</Description>
+    </BugCategory>
+    <BugCategory category='STYLE'>
+        <Description>Dodgy code</Description>
+    </BugCategory>
+    <BugPattern abbrev='NP' category='CORRECTNESS' type='NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR'>
+        <ShortDescription>非 null フィールドは初期化されていない</ShortDescription>
+        <Details>
+
+            &lt;p&gt;
+            フィールドは，非 &lt;code&gt;null&lt;/code&gt; としてマークされていますが，コンストラクタで書き込まれていません。
+            フィールドは，コンストラクタの間，ほかの場所で初期化されるか，または使用する前に常に初期化されるかもしれません。
+            &lt;/p&gt;
+
+        </Details>
+    </BugPattern>
+    <BugPattern abbrev='ST' category='STYLE' type='ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD'>
+        <ShortDescription>インスタンスメソッドから static フィールドへの書き込み</ShortDescription>
+        <Details>
+
+            &lt;p&gt;
+            このインスタンスメソッドは， &lt;code&gt;static&lt;/code&gt; フィールドに書き込みをしています。
+            複数のインスタンスが操作されているなら，正しくさせるのは難しいです。一般的にバッドプラクティスです。
+            &lt;/p&gt;
+
+        </Details>
+    </BugPattern>
+    <BugPattern cweid='374' abbrev='EI2' category='MALICIOUS_CODE' type='EI_EXPOSE_REP2'>
+        <ShortDescription>可変オブジェクトへの参照を取り込むことによって内部表現を暴露するかもしれないメソッド</ShortDescription>
+        <Details>
+
+            &lt;p&gt;
+            このコードはオブジェクトの内部表現に外部の可変オブジェクトの参照を格納しています。
+            インスタンスが信頼できないコードによってアクセスされるなら，可変オブジェクトのチェックされていない変更がセキュリティや他の重要なプロパティを危うくするでしょう。
+            何か違うことをする必要があります。オブジェクトのコピーを格納することは，多くの状況でより良いアプローチです。
+            &lt;/p&gt;
+
+        </Details>
+    </BugPattern>
+    <BugPattern abbrev='Nm' category='BAD_PRACTICE' type='NM_CLASS_NAMING_CONVENTION'>
+        <ShortDescription>クラス名は大文字から始めるべき</ShortDescription>
+        <Details>
+
+            &lt;p&gt;
+            クラス名は，最初の文字とそれに続く各単語の最初の文字を大文字にした名詞にすべきです。
+            クラス名は単純でわかりやすいようにしてください。
+            頭文字や略語 (URLやHTMLなどのように略語がロング形式よりもはるかに広く使われている場合を除く) の使用は避けてください。
+            &lt;/p&gt;
+
+        </Details>
+    </BugPattern>
+    <BugPattern cweid='374' abbrev='EI' category='MALICIOUS_CODE' type='EI_EXPOSE_REP'>
+        <ShortDescription>可変オブジェクトへの参照を返すことによって内部表現を暴露するかもしれないメソッド</ShortDescription>
+        <Details>
+
+            &lt;p&gt;
+            オブジェクトのフィールドに格納された可変オブジェクトの参照を返すと，オブジェクトの内部表現を暴露します。
+            インスタンスが信頼できないコードによってアクセスされるなら，可変オブジェクトのチェックされていない変更がセキュリティや他の重要なプロパティを危うくするでしょう。
+            何か違うことをする必要があります。オブジェクトの新しいコピーを返すことは，多くの状況でより良いアプローチです。
+            &lt;/p&gt;
+
+        </Details>
+    </BugPattern>
+    <BugPattern abbrev='BC' category='STYLE' type='BC_BAD_CAST_TO_ABSTRACT_COLLECTION'>
+        <ShortDescription>抽象コレクションへの疑わしいキャスト</ShortDescription>
+        <Details>
+
+            &lt;p&gt;
+            このコードは &lt;code&gt;Collection&lt;/code&gt; を抽象コレクションにキャストしています (たとえば &lt;code&gt;List&lt;/code&gt; ， &lt;code&gt;Set&lt;/code&gt;
+            ， &lt;code&gt;Map&lt;/code&gt;)。
+            オブジェクトがキャストする型であるということが保証されていることを確認してください。
+            必要とするコレクションの反復処理ができるなら &lt;code&gt;Set&lt;/code&gt; または &lt;code&gt;List&lt;/code&gt; にキャストする必要はありません。
+            &lt;/p&gt;
+
+        </Details>
+    </BugPattern>
+    <BugPattern abbrev='DE' category='BAD_PRACTICE' type='DE_MIGHT_IGNORE'>
+        <ShortDescription>例外を無視しているかもしれないメソッド</ShortDescription>
+        <Details>
+
+            &lt;p&gt;
+            このメソッドは例外を無視しているかもしれません。
+            一般的に例外は何らかの方法で処理または報告すべきです。またはメソッドからスローすべきです。
+            &lt;/p&gt;
+
+        </Details>
+    </BugPattern>
+    <BugPattern abbrev='RCN' category='STYLE' type='RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE'>
+        <ShortDescription>null ではないことがわかっている値の冗長な null チェック</ShortDescription>
+        <Details>
+
+            &lt;p&gt;
+            このメソッドには &lt;code&gt;null&lt;/code&gt; ではないことがわかっている値の冗長な &lt;code&gt;null&lt;/code&gt; チェックがあります。
+            &lt;/p&gt;
+
+        </Details>
+    </BugPattern>
+    <BugCode abbrev='ST'>
+        <Description>static フィールドの誤用</Description>
+    </BugCode>
+    <BugCode abbrev='BC'>
+        <Description>オブジェクト参照の間違ったキャスト</Description>
+    </BugCode>
+    <BugCode cweid='391' abbrev='DE'>
+        <Description>捨てられたか無視された例外</Description>
+    </BugCode>
+    <BugCode cweid='476' abbrev='NP'>
+        <Description>null値 の利用</Description>
+    </BugCode>
+    <BugCode abbrev='EI'>
+        <Description>内部表現を暴露するかもしれない配列を返すメソッド</Description>
+    </BugCode>
+    <BugCode cweid='476' abbrev='RCN'>
+        <Description>null への冗長な比較</Description>
+    </BugCode>
+    <BugCode abbrev='EI2'>
+        <Description>可変オブジェクトへの参照の格納</Description>
+    </BugCode>
+    <BugCode abbrev='Nm'>
+        <Description>紛らわしいメソッド名</Description>
+    </BugCode>
+    <Errors missingClasses='0' errors='0'></Errors>
+    <FindBugsSummary num_packages='4' total_classes='22' priority_1='1' priority_2='16' total_size='558'
+                     clock_seconds='6.32' referenced_classes='273' vm_version='14.0.2+12' total_bugs='17'
+                     java_version='14.0.2' gc_seconds='0.11' alloc_mbytes='512.00' cpu_seconds='27.92'
+                     peak_mbytes='295.48' timestamp='Mon, 21 Mar 2022 22:15:19 +0900'>
+        <FileStats path='io/jenkins/plugins/codeInsights/CodeInsightsBuilder.java' size='102' bugCount='0'></FileStats>
+        <FileStats path='io/jenkins/plugins/codeInsights/HttpClient.kt' size='84' bugCount='0'></FileStats>
+        <FileStats path='io/jenkins/plugins/codeInsights/JenkinsLogger.kt' size='13'
+                   bugHash='883fe004b7804fdfd7d813d6047dcefe' bugCount='2'></FileStats>
+        <FileStats path='io/jenkins/plugins/codeInsights/KotlinEntryPoint.kt' size='68'
+                   bugHash='71870dffd0edd5a86fee7ddf1069b075' bugCount='3'></FileStats>
+        <FileStats path='io/jenkins/plugins/codeInsights/domain/Annotation.kt' size='83'
+                   bugHash='cec9f03a10d98b4975347f950c6e0672' bugCount='2'></FileStats>
+        <FileStats path='io/jenkins/plugins/codeInsights/domain/AnnotationProvider.kt' size='7'
+                   bugCount='0'></FileStats>
+        <FileStats path='io/jenkins/plugins/codeInsights/domain/CheckstyleAnnotationProvider.kt' size='31'
+                   bugHash='f23a0bb2f82d27c206ed69b6569b2c6d' bugCount='2'></FileStats>
+        <FileStats path='io/jenkins/plugins/codeInsights/domain/SonarQubeAnnotationProvider.kt' size='90'
+                   bugHash='328bc6b06365e5e3b45820291bec49ae' bugCount='4'></FileStats>
+        <FileStats path='io/jenkins/plugins/codeInsights/framework/FileTransferServiceImpl.kt' size='11'
+                   bugHash='422e209cbf17f7c82da24f21a2d60384' bugCount='1'></FileStats>
+        <FileStats path='io/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder.kt' size='22'
+                   bugHash='050db9c6119cb50eea1cda4a6a95f0fd' bugCount='2'></FileStats>
+        <FileStats path='io/jenkins/plugins/codeInsights/usecase/FileTransferService.kt' size='3'
+                   bugCount='0'></FileStats>
+        <FileStats path='io/jenkins/plugins/codeInsights/usecase/GitRepo.kt' size='44'
+                   bugHash='276432e0700f33d45cd408db01723c97' bugCount='1'></FileStats>
+        <PackageStats package='io.jenkins.plugins.codeInsights' priority_1='1' total_bugs='5' priority_2='4'
+                      total_size='267' total_types='7'>
+            <ClassStats bugs='0' size='43' interface='false' sourceFile='CodeInsightsBuilder.java'
+                        class='io.jenkins.plugins.codeInsights.CodeInsightsBuilder'></ClassStats>
+            <ClassStats bugs='0' size='59' interface='false' sourceFile='CodeInsightsBuilder.java'
+                        class='io.jenkins.plugins.codeInsights.CodeInsightsBuilder$DescriptorImpl'></ClassStats>
+            <ClassStats bugs='0' size='74' interface='false' sourceFile='HttpClient.kt'
+                        class='io.jenkins.plugins.codeInsights.HttpClient'></ClassStats>
+            <ClassStats bugs='0' size='3' interface='false' sourceFile='HttpClient.kt'
+                        class='io.jenkins.plugins.codeInsights.HttpClient$CallApiFailureException'></ClassStats>
+            <ClassStats bugs='0' size='7' interface='false' sourceFile='HttpClient.kt'
+                        class='io.jenkins.plugins.codeInsights.HttpClient$json$1'></ClassStats>
+            <ClassStats bugs='2' size='13' priority_1='1' priority_2='1' interface='false' sourceFile='JenkinsLogger.kt'
+                        class='io.jenkins.plugins.codeInsights.JenkinsLogger'></ClassStats>
+            <ClassStats bugs='3' size='68' priority_2='3' interface='false' sourceFile='KotlinEntryPoint.kt'
+                        class='io.jenkins.plugins.codeInsights.KotlinEntryPoint'></ClassStats>
+        </PackageStats>
+        <PackageStats package='io.jenkins.plugins.codeInsights.domain' total_bugs='8' priority_2='8' total_size='211'
+                      total_types='11'>
+            <ClassStats bugs='0' size='31' interface='false' sourceFile='Annotation.kt'
+                        class='io.jenkins.plugins.codeInsights.domain.Annotation'></ClassStats>
+            <ClassStats bugs='1' size='14' priority_2='1' interface='false' sourceFile='Annotation.kt'
+                        class='io.jenkins.plugins.codeInsights.domain.Annotation$$serializer'></ClassStats>
+            <ClassStats bugs='0' size='5' interface='false' sourceFile='Annotation.kt'
+                        class='io.jenkins.plugins.codeInsights.domain.Annotation$Companion'></ClassStats>
+            <ClassStats bugs='0' size='7' interface='false' sourceFile='AnnotationProvider.kt'
+                        class='io.jenkins.plugins.codeInsights.domain.AnnotationProvider'></ClassStats>
+            <ClassStats bugs='2' size='31' priority_2='2' interface='false' sourceFile='CheckstyleAnnotationProvider.kt'
+                        class='io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider'></ClassStats>
+            <ClassStats bugs='0' size='14' interface='false' sourceFile='Annotation.kt'
+                        class='io.jenkins.plugins.codeInsights.domain.Severity'></ClassStats>
+            <ClassStats bugs='1' size='14' priority_2='1' interface='false' sourceFile='Annotation.kt'
+                        class='io.jenkins.plugins.codeInsights.domain.Severity$$serializer'></ClassStats>
+            <ClassStats bugs='0' size='5' interface='false' sourceFile='Annotation.kt'
+                        class='io.jenkins.plugins.codeInsights.domain.Severity$Companion'></ClassStats>
+            <ClassStats bugs='4' size='79' priority_2='4' interface='false' sourceFile='SonarQubeAnnotationProvider.kt'
+                        class='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider'></ClassStats>
+            <ClassStats bugs='0' size='2' interface='false' sourceFile='SonarQubeAnnotationProvider.kt'
+                        class='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProviderKt'></ClassStats>
+            <ClassStats bugs='0' size='9' interface='false' sourceFile='SonarQubeAnnotationProvider.kt'
+                        class='io.jenkins.plugins.codeInsights.domain.SonarQubeCredential'></ClassStats>
+        </PackageStats>
+        <PackageStats package='io.jenkins.plugins.codeInsights.framework' total_bugs='1' priority_2='1' total_size='11'
+                      total_types='1'>
+            <ClassStats bugs='1' size='11' priority_2='1' interface='false' sourceFile='FileTransferServiceImpl.kt'
+                        class='io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl'></ClassStats>
+        </PackageStats>
+        <PackageStats package='io.jenkins.plugins.codeInsights.usecase' total_bugs='3' priority_2='3' total_size='69'
+                      total_types='3'>
+            <ClassStats bugs='2' size='22' priority_2='2' interface='false'
+                        sourceFile='ExecutableAnnotationProvidersBuilder.kt'
+                        class='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder'></ClassStats>
+            <ClassStats bugs='0' size='3' interface='true' sourceFile='FileTransferService.kt'
+                        class='io.jenkins.plugins.codeInsights.usecase.FileTransferService'></ClassStats>
+            <ClassStats bugs='1' size='44' priority_2='1' interface='false' sourceFile='GitRepo.kt'
+                        class='io.jenkins.plugins.codeInsights.usecase.GitRepo'></ClassStats>
+        </PackageStats>
+        <FindBugsProfile>
+            <ClassProfile avgMicrosecondsPerInvocation='466' totalMilliseconds='1168'
+                          name='edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine'
+                          maxMicrosecondsPerInvocation='51515' standardDeviationMicrosecondsPerInvocation='1623'
+                          invocations='2507'></ClassProfile>
+            <ClassProfile avgMicrosecondsPerInvocation='332' totalMilliseconds='836'
+                          name='edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine'
+                          maxMicrosecondsPerInvocation='3773' standardDeviationMicrosecondsPerInvocation='326'
+                          invocations='2514'></ClassProfile>
+            <ClassProfile avgMicrosecondsPerInvocation='1447' totalMilliseconds='395'
+                          name='edu.umd.cs.findbugs.detect.FieldItemSummary' maxMicrosecondsPerInvocation='31990'
+                          standardDeviationMicrosecondsPerInvocation='3309' invocations='273'></ClassProfile>
+            <ClassProfile avgMicrosecondsPerInvocation='1103' totalMilliseconds='301'
+                          name='edu.umd.cs.findbugs.detect.FindNoSideEffectMethods' maxMicrosecondsPerInvocation='18377'
+                          standardDeviationMicrosecondsPerInvocation='2115' invocations='273'></ClassProfile>
+            <ClassProfile avgMicrosecondsPerInvocation='345' totalMilliseconds='289'
+                          name='edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory' maxMicrosecondsPerInvocation='9944'
+                          standardDeviationMicrosecondsPerInvocation='674' invocations='837'></ClassProfile>
+            <ClassProfile avgMicrosecondsPerInvocation='1477' totalMilliseconds='166'
+                          name='edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder'
+                          maxMicrosecondsPerInvocation='53576' standardDeviationMicrosecondsPerInvocation='5601'
+                          invocations='113'></ClassProfile>
+            <ClassProfile avgMicrosecondsPerInvocation='1164' totalMilliseconds='137'
+                          name='edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory'
+                          maxMicrosecondsPerInvocation='37790' standardDeviationMicrosecondsPerInvocation='3866'
+                          invocations='118'></ClassProfile>
+            <ClassProfile avgMicrosecondsPerInvocation='495' totalMilliseconds='135'
+                          name='edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers'
+                          maxMicrosecondsPerInvocation='5638' standardDeviationMicrosecondsPerInvocation='907'
+                          invocations='273'></ClassProfile>
+            <ClassProfile avgMicrosecondsPerInvocation='44' totalMilliseconds='109'
+                          name='edu.umd.cs.findbugs.util.TopologicalSort' maxMicrosecondsPerInvocation='1851'
+                          standardDeviationMicrosecondsPerInvocation='93' invocations='2460'></ClassProfile>
+            <ClassProfile avgMicrosecondsPerInvocation='839' totalMilliseconds='102'
+                          name='edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory'
+                          maxMicrosecondsPerInvocation='10694' standardDeviationMicrosecondsPerInvocation='1863'
+                          invocations='122'></ClassProfile>
+            <ClassProfile avgMicrosecondsPerInvocation='214' totalMilliseconds='89'
+                          name='edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine'
+                          maxMicrosecondsPerInvocation='17876' standardDeviationMicrosecondsPerInvocation='942'
+                          invocations='415'></ClassProfile>
+            <ClassProfile avgMicrosecondsPerInvocation='321' totalMilliseconds='87'
+                          name='edu.umd.cs.findbugs.detect.CalledMethods' maxMicrosecondsPerInvocation='4297'
+                          standardDeviationMicrosecondsPerInvocation='600' invocations='273'></ClassProfile>
+            <ClassProfile avgMicrosecondsPerInvocation='730' totalMilliseconds='86'
+                          name='edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory'
+                          maxMicrosecondsPerInvocation='9187' standardDeviationMicrosecondsPerInvocation='1557'
+                          invocations='118'></ClassProfile>
+            <ClassProfile avgMicrosecondsPerInvocation='707' totalMilliseconds='84'
+                          name='edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory'
+                          maxMicrosecondsPerInvocation='10077' standardDeviationMicrosecondsPerInvocation='1540'
+                          invocations='119'></ClassProfile>
+            <ClassProfile avgMicrosecondsPerInvocation='272' totalMilliseconds='74'
+                          name='edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures'
+                          maxMicrosecondsPerInvocation='4459' standardDeviationMicrosecondsPerInvocation='573'
+                          invocations='273'></ClassProfile>
+            <ClassProfile avgMicrosecondsPerInvocation='264' totalMilliseconds='72'
+                          name='edu.umd.cs.findbugs.detect.BuildStringPassthruGraph' maxMicrosecondsPerInvocation='4336'
+                          standardDeviationMicrosecondsPerInvocation='592' invocations='273'></ClassProfile>
+        </FindBugsProfile>
+    </FindBugsSummary>
+    <ClassFeatures></ClassFeatures>
+    <History></History>
+</BugCollection><?xml version="1.0" encoding="utf-8"?>
+<BugCollection sequence='0' release='' analysisTimestamp='1647868583588' version='4.5.3' timestamp='1647868519845'>
+<Project projectName='Bitbucket Server Code Insights plugin'>
+    <Jar>/Users/t45k/prog/bitbucket-server-code-insights-plugin/target/classes</Jar>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/jenkins-ci/plugins/structs/1.20/structs-1.20.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/jenkins-ci/symbol-annotation/1.20/symbol-annotation-1.20.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.6.10/kotlin-stdlib-jdk8-1.6.10.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.6.10/kotlin-stdlib-1.6.10.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-common/1.6.10/kotlin-stdlib-common-1.6.10.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.6.10/kotlin-stdlib-jdk7-1.6.10.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/com/squareup/okhttp3/okhttp/4.9.3/okhttp-4.9.3.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/com/squareup/okio/okio/2.8.0/okio-2.8.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/com/squareup/okhttp3/mockwebserver/4.9.3/mockwebserver-4.9.3.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/jetbrains/kotlinx/kotlinx-serialization-json/1.3.2/kotlinx-serialization-json-1.3.2.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/jetbrains/kotlinx/kotlinx-serialization-json-jvm/1.3.2/kotlinx-serialization-json-jvm-1.3.2.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/jetbrains/kotlinx/kotlinx-serialization-core-jvm/1.3.2/kotlinx-serialization-core-jvm-1.3.2.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-xml/2.13.2/jackson-dataformat-xml-2.13.2.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.2/jackson-core-2.13.2.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.2/jackson-annotations-2.13.2.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.2/jackson-databind-2.13.2.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/codehaus/woodstox/stax2-api/4.2.1/stax2-api-4.2.1.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/com/fasterxml/woodstox/woodstox-core/6.2.7/woodstox-core-6.2.7.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/eclipse/jgit/org.eclipse.jgit/6.1.0.202203080745-r/org.eclipse.jgit-6.1.0.202203080745-r.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/com/googlecode/javaewah/JavaEWAH/1.1.13/JavaEWAH-1.1.13.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/projectlombok/lombok/1.18.22/lombok-1.18.22.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/jenkins-ci/main/jenkins-core/2.235.1/jenkins-core-2.235.1.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/jenkins-ci/plugins/icon-shim/icon-set/1.0.5/icon-set-1.0.5.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/jenkins-ci/main/remoting/4.3/remoting-4.3.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/jenkins-ci/main/cli/2.235.1/cli-2.235.1.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/jenkins-ci/version-number/1.7/version-number-1.7.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/jenkins-ci/crypto-util/1.5/crypto-util-1.5.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/jvnet/hudson/jtidy/4aug2000r7-dev-hudson-1/jtidy-4aug2000r7-dev-hudson-1.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/com/google/inject/guice/4.0/guice-4.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/connectbot/jbcrypt/jbcrypt/1.0.0/jbcrypt-1.0.0.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/jruby/ext/posix/jna-posix/1.0.3-jenkins-1/jna-posix-1.0.3-jenkins-1.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/com/github/jnr/jnr-posix/3.0.45/jnr-posix-3.0.45.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/com/github/jnr/jnr-ffi/2.1.8/jnr-ffi-2.1.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/com/github/jnr/jffi/1.2.17/jffi-1.2.17.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/com/github/jnr/jffi/1.2.16/jffi-1.2.16-native.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/ow2/asm/asm/5.0.3/asm-5.0.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/ow2/asm/asm-commons/5.0.3/asm-commons-5.0.3.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/ow2/asm/asm-analysis/5.0.3/asm-analysis-5.0.3.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/ow2/asm/asm-tree/5.0.3/asm-tree-5.0.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/ow2/asm/asm-util/5.0.3/asm-util-5.0.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/com/github/jnr/jnr-x86asm/1.0.2/jnr-x86asm-1.0.2.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/com/github/jnr/jnr-constants/0.9.9/jnr-constants-0.9.9.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/kohsuke/stapler/stapler-groovy/1.259/stapler-groovy-1.259.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/kohsuke/stapler/stapler-jelly/1.259/stapler-jelly-1.259.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/jenkins-ci/commons-jelly/1.1-jenkins-20120928/commons-jelly-1.1-jenkins-20120928.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/dom4j/dom4j/2.1.1/dom4j-2.1.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/kohsuke/stapler/stapler-jrebel/1.259/stapler-jrebel-1.259.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/kohsuke/stapler/stapler/1.259/stapler-1.259.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/commons-discovery/commons-discovery/0.4/commons-discovery-0.4.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/jvnet/tiger-types/2.2/tiger-types-2.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/kohsuke/asm5/5.0.1/asm5-5.0.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/com/google/code/findbugs/jsr305/2.0.1/jsr305-2.0.1.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/kohsuke/windows-package-checker/1.2/windows-package-checker-1.2.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/kohsuke/stapler/stapler-adjunct-zeroclipboard/1.3.5-1/stapler-adjunct-zeroclipboard-1.3.5-1.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/kohsuke/stapler/stapler-adjunct-timeline/1.5/stapler-adjunct-timeline-1.5.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/kohsuke/stapler/stapler-adjunct-codemirror/1.3/stapler-adjunct-codemirror-1.3.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/io/jenkins/stapler/jenkins-stapler-support/1.1/jenkins-stapler-support-1.1.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/com/infradna/tool/bridge-method-annotation/1.13/bridge-method-annotation-1.13.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/kohsuke/stapler/json-lib/2.4-jenkins-2/json-lib-2.4-jenkins-2.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/net/sf/ezmorph/ezmorph/1.0.6/ezmorph-1.0.6.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/commons-httpclient/commons-httpclient/3.1-jenkins-1/commons-httpclient-3.1-jenkins-1.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/args4j/args4j/2.33/args4j-2.33.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/jenkins-ci/annotation-indexer/1.12/annotation-indexer-1.12.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/jenkins-ci/bytecode-compatibility-transformer/2.0-beta-2/bytecode-compatibility-transformer-2.0-beta-2.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/kohsuke/asm6/6.2/asm6-6.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/jenkins-ci/constant-pool-scanner/1.2/constant-pool-scanner-1.2.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/jenkins-ci/task-reactor/1.5/task-reactor-1.5.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/jvnet/localizer/localizer/1.26/localizer-1.26.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/antlr/antlr/2.7.6/antlr-2.7.6.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/jvnet/hudson/xstream/1.4.7-jenkins-1/xstream-1.4.7-jenkins-1.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/xpp3/xpp3/1.1.4c/xpp3-1.1.4c.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/jfree/jfreechart/1.0.19/jfreechart-1.0.19.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/jfree/jcommon/1.0.23/jcommon-1.0.23.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/apache/ant/ant/1.10.7/ant-1.10.7.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/apache/ant/ant-launcher/1.10.7/ant-launcher-1.10.7.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/commons-io/commons-io/2.6/commons-io-2.6.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/commons-digester/commons-digester/2.1/commons-digester-2.1.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/commons-beanutils/commons-beanutils/1.9.3/commons-beanutils-1.9.3.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/apache/commons/commons-compress/1.19/commons-compress-1.19.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/com/sun/mail/jakarta.mail/1.6.5/jakarta.mail-1.6.5.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/com/sun/activation/jakarta.activation/1.2.1/jakarta.activation-1.2.1.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/jaxen/jaxen/1.1-beta-11/jaxen-1.1-beta-11.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/commons-jelly/commons-jelly-tags-fmt/1.0/commons-jelly-tags-fmt-1.0.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/commons-jelly/commons-jelly-tags-xml/1.1/commons-jelly-tags-xml-1.1.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/jvnet/hudson/commons-jelly-tags-define/1.0.1-hudson-20071021/commons-jelly-tags-define-1.0.1-hudson-20071021.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/jenkins-ci/commons-jexl/1.1-jenkins-20111212/commons-jexl-1.1-jenkins-20111212.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/acegisecurity/acegi-security/1.0.7/acegi-security-1.0.7.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/springframework/spring-jdbc/1.2.9/spring-jdbc-1.2.9.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/springframework/spring-dao/1.2.9/spring-dao-1.2.9.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/oro/oro/2.0.8/oro-2.0.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/codehaus/groovy/groovy-all/2.4.12/groovy-all-2.4.12.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/jline/jline/2.12/jline-2.12.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/fusesource/jansi/jansi/1.11/jansi-1.11.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/springframework/spring-webmvc/2.5.6.SEC03/spring-webmvc-2.5.6.SEC03.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/springframework/spring-beans/2.5.6.SEC03/spring-beans-2.5.6.SEC03.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/springframework/spring-context/2.5.6.SEC03/spring-context-2.5.6.SEC03.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/springframework/spring-context-support/2.5.6.SEC03/spring-context-support-2.5.6.SEC03.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/springframework/spring-web/2.5.6.SEC03/spring-web-2.5.6.SEC03.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/springframework/spring-core/2.5.6.SEC03/spring-core-2.5.6.SEC03.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/springframework/spring-aop/2.5.6.SEC03/spring-aop-2.5.6.SEC03.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/javax/servlet/jsp/jstl/javax.servlet.jsp.jstl-api/1.2.1/javax.servlet.jsp.jstl-api-1.2.1.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.26/jcl-over-slf4j-1.7.26.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/slf4j/log4j-over-slf4j/1.7.26/log4j-over-slf4j-1.7.26.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/com/sun/xml/txw2/txw2/20110809/txw2-20110809.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/javax/xml/stream/stax-api/1.0-2/stax-api-1.0-2.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/relaxngDatatype/relaxngDatatype/20020414/relaxngDatatype-20020414.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/jvnet/winp/winp/1.28/winp-1.28.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/jenkins-ci/memory-monitor/1.9/memory-monitor-1.9.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/codehaus/woodstox/wstx-asl/3.2.9/wstx-asl-3.2.9.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/net/java/dev/jna/jna/5.3.1/jna-5.3.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/kohsuke/akuma/1.10/akuma-1.10.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/kohsuke/libpam4j/1.11/libpam4j-1.11.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/org/kohsuke/libzfs/0.8/libzfs-0.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/com/sun/solaris/embedded_su4j/1.1/embedded_su4j-1.1.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/net/java/sezpoz/sezpoz/1.13/sezpoz-1.13.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/kohsuke/jinterop/j-interop/2.0.6-kohsuke-1/j-interop-2.0.6-kohsuke-1.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/kohsuke/jinterop/j-interopdeps/2.0.6-kohsuke-1/j-interopdeps-2.0.6-kohsuke-1.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/samba/jcifs/jcifs/1.3.17-kohsuke-1/jcifs-1.3.17-kohsuke-1.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/jvnet/robust-http-client/robust-http-client/1.2/robust-http-client-1.2.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/commons-codec/commons-codec/1.14/commons-codec-1.14.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/kohsuke/access-modifier-annotation/1.16/access-modifier-annotation-1.16.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/commons-fileupload/commons-fileupload/1.3.1-jenkins-2/commons-fileupload-1.3.1-jenkins-2.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/com/google/guava/guava/11.0.1/guava-11.0.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/com/jcraft/jzlib/1.1.3-kohsuke-1/jzlib-1.1.3-kohsuke-1.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/net/jcip/jcip-annotations/1.0/jcip-annotations-1.0.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>
+        /Users/t45k/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.21/animal-sniffer-annotations-1.21.jar
+    </AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/t45k/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar
+    </AuxClasspathEntry>
+    <SrcDir>/Users/t45k/prog/bitbucket-server-code-insights-plugin/src/main/java</SrcDir>
+    <SrcDir>/Users/t45k/prog/bitbucket-server-code-insights-plugin/target/generated-sources/localizer</SrcDir>
+    <WrkDir>/Users/t45k/prog/bitbucket-server-code-insights-plugin/target</WrkDir>
+</Project>
+<BugInstance instanceOccurrenceNum='0' instanceHash='2fc535c8576df081b915f3cfe2e84789' cweid='476' rank='8'
+             abbrev='NP' category='CORRECTNESS' priority='2' type='NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR'
+             instanceOccurrenceMax='0'>
+    <ShortMessage>非 null フィールドは初期化されていない</ShortMessage>
+    <LongMessage>非 null フィールド logger は io.jenkins.plugins.codeInsights.JenkinsLogger.&lt;static initializer for
+        JenkinsLogger&gt;() によって初期化されていません。
+    </LongMessage>
+    <Class classname='io.jenkins.plugins.codeInsights.JenkinsLogger' primary='true'>
+        <SourceLine classname='io.jenkins.plugins.codeInsights.JenkinsLogger' start='5' end='14'
+                    sourcepath='io/jenkins/plugins/codeInsights/JenkinsLogger.kt' sourcefile='JenkinsLogger.kt'>
+            <Message>該当箇所 JenkinsLogger.kt:[lines 5-14]</Message>
+        </SourceLine>
+        <Message>クラス io.jenkins.plugins.codeInsights.JenkinsLogger</Message>
+    </Class>
+    <Method isStatic='true' classname='io.jenkins.plugins.codeInsights.JenkinsLogger' signature='()V'
+            name='&lt;clinit&gt;' primary='true'>
+        <SourceLine endBytecode='48' classname='io.jenkins.plugins.codeInsights.JenkinsLogger' start='6' end='6'
+                    sourcepath='io/jenkins/plugins/codeInsights/JenkinsLogger.kt' sourcefile='JenkinsLogger.kt'
+                    startBytecode='0'></SourceLine>
+        <Message>メソッド io.jenkins.plugins.codeInsights.JenkinsLogger.&lt;static initializer for JenkinsLogger&gt;()
+        </Message>
+    </Method>
+    <Field isStatic='true' classname='io.jenkins.plugins.codeInsights.JenkinsLogger'
+           signature='Ljava/io/PrintStream;' name='logger' primary='true'>
+        <SourceLine classname='io.jenkins.plugins.codeInsights.JenkinsLogger'
+                    sourcepath='io/jenkins/plugins/codeInsights/JenkinsLogger.kt' sourcefile='JenkinsLogger.kt'>
+            <Message>該当場所 JenkinsLogger.kt</Message>
+        </SourceLine>
+        <Message>フィールド io.jenkins.plugins.codeInsights.JenkinsLogger.logger</Message>
+    </Field>
+    <SourceLine synthetic='true' endBytecode='48' classname='io.jenkins.plugins.codeInsights.JenkinsLogger'
+                start='6' end='6' sourcepath='io/jenkins/plugins/codeInsights/JenkinsLogger.kt'
+                sourcefile='JenkinsLogger.kt' startBytecode='0'>
+        <Message>該当箇所 JenkinsLogger.kt:[line 6]</Message>
+    </SourceLine>
+</BugInstance>
+<BugInstance instanceOccurrenceNum='0' instanceHash='d8a8183a11a1e8cbad705600135d2c1a' rank='15' abbrev='ST'
+             category='STYLE' priority='1' type='ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD' instanceOccurrenceMax='0'>
+    <ShortMessage>インスタンスメソッドから static フィールドへの書き込み</ShortMessage>
+    <LongMessage>インスタンスメソッド io.jenkins.plugins.codeInsights.JenkinsLogger.setLogger(PrintStream) から static フィールド
+        io.jenkins.plugins.codeInsights.JenkinsLogger.logger に書き込みをしています。
+    </LongMessage>
+    <Class classname='io.jenkins.plugins.codeInsights.JenkinsLogger' primary='true'>
+        <SourceLine classname='io.jenkins.plugins.codeInsights.JenkinsLogger' start='5' end='14'
+                    sourcepath='io/jenkins/plugins/codeInsights/JenkinsLogger.kt' sourcefile='JenkinsLogger.kt'>
+            <Message>該当箇所 JenkinsLogger.kt:[lines 5-14]</Message>
+        </SourceLine>
+        <Message>クラス io.jenkins.plugins.codeInsights.JenkinsLogger</Message>
+    </Class>
+    <Method isStatic='false' classname='io.jenkins.plugins.codeInsights.JenkinsLogger'
+            signature='(Ljava/io/PrintStream;)V' name='setLogger' primary='true'>
+        <SourceLine endBytecode='66' classname='io.jenkins.plugins.codeInsights.JenkinsLogger' start='9' end='10'
+                    sourcepath='io/jenkins/plugins/codeInsights/JenkinsLogger.kt' sourcefile='JenkinsLogger.kt'
+                    startBytecode='0'></SourceLine>
+        <Message>メソッド io.jenkins.plugins.codeInsights.JenkinsLogger.setLogger(PrintStream)</Message>
+    </Method>
+    <Field isStatic='true' classname='io.jenkins.plugins.codeInsights.JenkinsLogger'
+           signature='Ljava/io/PrintStream;' name='logger' primary='true'>
+        <SourceLine classname='io.jenkins.plugins.codeInsights.JenkinsLogger'
+                    sourcepath='io/jenkins/plugins/codeInsights/JenkinsLogger.kt' sourcefile='JenkinsLogger.kt'>
+            <Message>該当場所 JenkinsLogger.kt</Message>
+        </SourceLine>
+        <Message>フィールド io.jenkins.plugins.codeInsights.JenkinsLogger.logger</Message>
+    </Field>
+    <SourceLine endBytecode='7' classname='io.jenkins.plugins.codeInsights.JenkinsLogger' start='9' end='9'
+                sourcepath='io/jenkins/plugins/codeInsights/JenkinsLogger.kt' sourcefile='JenkinsLogger.kt'
+                startBytecode='7' primary='true'>
+        <Message>該当箇所 JenkinsLogger.kt:[line 9]</Message>
+    </SourceLine>
+</BugInstance>
+<BugInstance instanceOccurrenceNum='0' instanceHash='e05809c6c1a5ec3d6d66df23bcb661b7' rank='17' abbrev='BC'
+             category='STYLE' priority='2' type='BC_BAD_CAST_TO_ABSTRACT_COLLECTION' instanceOccurrenceMax='0'>
+    <ShortMessage>抽象コレクションへの疑わしいキャスト</ShortMessage>
+    <LongMessage>Collection から抽象クラス java.util.List
+        への疑わしいキャストです。io.jenkins.plugins.codeInsights.KotlinEntryPoint.delegate()
+    </LongMessage>
+    <Class classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint' primary='true'>
+        <SourceLine classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint' start='11' end='66'
+                    sourcepath='io/jenkins/plugins/codeInsights/KotlinEntryPoint.kt'
+                    sourcefile='KotlinEntryPoint.kt'>
+            <Message>該当箇所 KotlinEntryPoint.kt:[lines 11-66]</Message>
+        </SourceLine>
+        <Message>クラス io.jenkins.plugins.codeInsights.KotlinEntryPoint</Message>
+    </Class>
+    <Method isStatic='false' classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint' signature='()V'
+            name='delegate' primary='true'>
+        <SourceLine endBytecode='164' classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint' start='38'
+                    end='61' sourcepath='io/jenkins/plugins/codeInsights/KotlinEntryPoint.kt'
+                    sourcefile='KotlinEntryPoint.kt' startBytecode='0'></SourceLine>
+        <Message>メソッド io.jenkins.plugins.codeInsights.KotlinEntryPoint.delegate()</Message>
+    </Method>
+    <Type role='TYPE_FOUND' descriptor='Ljava/util/Collection;'>
+        <SourceLine classname='java.util.Collection' start='413' end='764' sourcepath='java/util/Collection.java'
+                    sourcefile='Collection.java'>
+            <Message>該当箇所 Collection.java:[lines 413-764]</Message>
+        </SourceLine>
+        <Message>実際の型 java.util.Collection</Message>
+    </Type>
+    <Type role='TYPE_EXPECTED' descriptor='Ljava/util/List;'>
+        <SourceLine classname='java.util.List' start='437' end='1064' sourcepath='java/util/List.java'
+                    sourcefile='List.java'>
+            <Message>該当箇所 List.java:[lines 437-1064]</Message>
+        </SourceLine>
+        <Message>期待された java.util.List</Message>
+    </Type>
+    <LocalVariable role='LOCAL_VARIABLE_VALUE_OF' pc='326' name='destination$iv$iv' register='11'>
+        <Message>destination$iv$iv からロードされた値</Message>
+    </LocalVariable>
+    <SourceLine endBytecode='328' classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint' start='66' end='66'
+                sourcepath='io/jenkins/plugins/codeInsights/KotlinEntryPoint.kt' sourcefile='KotlinEntryPoint.kt'
+                startBytecode='328' primary='true'>
+        <Message>該当箇所 KotlinEntryPoint.kt:[line 66]</Message>
+    </SourceLine>
+</BugInstance>
+<BugInstance instanceOccurrenceNum='0' instanceHash='cea674d3b37181eba1eaf735737f6dc7' cweid='374' rank='18'
+             abbrev='EI2' category='MALICIOUS_CODE' priority='2' type='EI_EXPOSE_REP2' instanceOccurrenceMax='0'>
+    <ShortMessage>可変オブジェクトへの参照を取り込むことによって内部表現を暴露するかもしれないメソッド</ShortMessage>
+    <LongMessage>new io.jenkins.plugins.codeInsights.KotlinEntryPoint(Run, FilePath, Launcher, TaskListener, String,
+        String, String, String, String, String, String, String, String, String, String, String, String, String,
+        String) は，KotlinEntryPoint.run の中に外部の可変オブジェクトを格納することによって内部表現を暴露するかもしれません。
+    </LongMessage>
+    <Class classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint' primary='true'>
+        <SourceLine classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint' start='11' end='66'
+                    sourcepath='io/jenkins/plugins/codeInsights/KotlinEntryPoint.kt'
+                    sourcefile='KotlinEntryPoint.kt'>
+            <Message>該当箇所 KotlinEntryPoint.kt:[lines 11-66]</Message>
+        </SourceLine>
+        <Message>クラス io.jenkins.plugins.codeInsights.KotlinEntryPoint</Message>
+    </Class>
+    <Method isStatic='false' classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint'
+            signature='(Lhudson/model/Run;Lhudson/FilePath;Lhudson/Launcher;Lhudson/model/TaskListener;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V'
+            name='&lt;init&gt;' primary='true'>
+        <SourceLine endBytecode='597' classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint' start='11'
+                    end='12' sourcepath='io/jenkins/plugins/codeInsights/KotlinEntryPoint.kt'
+                    sourcefile='KotlinEntryPoint.kt' startBytecode='0'></SourceLine>
+        <Message>メソッド new io.jenkins.plugins.codeInsights.KotlinEntryPoint(Run, FilePath, Launcher, TaskListener,
+            String, String, String, String, String, String, String, String, String, String, String, String, String,
+            String, String)
+        </Message>
+    </Method>
+    <Field isStatic='false' classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint'
+           signature='Lhudson/model/Run;' name='run' primary='true'>
+        <SourceLine classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint'
+                    sourcepath='io/jenkins/plugins/codeInsights/KotlinEntryPoint.kt'
+                    sourcefile='KotlinEntryPoint.kt'>
+            <Message>該当場所 KotlinEntryPoint.kt</Message>
+        </SourceLine>
+        <Message>フィールド io.jenkins.plugins.codeInsights.KotlinEntryPoint.run</Message>
+    </Field>
+    <LocalVariable role='LOCAL_VARIABLE_NAMED' pc='136' name='run' register='1'>
+        <Message>ローカル変数名 run</Message>
+    </LocalVariable>
+    <SourceLine endBytecode='136' classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint' start='13' end='13'
+                sourcepath='io/jenkins/plugins/codeInsights/KotlinEntryPoint.kt' sourcefile='KotlinEntryPoint.kt'
+                startBytecode='136' primary='true'>
+        <Message>該当箇所 KotlinEntryPoint.kt:[line 13]</Message>
+    </SourceLine>
+</BugInstance>
+<BugInstance instanceOccurrenceNum='0' instanceHash='d23a24ce4f36265c14c3aa1627ef84f6' cweid='374' rank='18'
+             abbrev='EI2' category='MALICIOUS_CODE' priority='2' type='EI_EXPOSE_REP2' instanceOccurrenceMax='0'>
+    <ShortMessage>可変オブジェクトへの参照を取り込むことによって内部表現を暴露するかもしれないメソッド</ShortMessage>
+    <LongMessage>new io.jenkins.plugins.codeInsights.KotlinEntryPoint(Run, FilePath, Launcher, TaskListener, String,
+        String, String, String, String, String, String, String, String, String, String, String, String, String,
+        String) は，KotlinEntryPoint.workspace の中に外部の可変オブジェクトを格納することによって内部表現を暴露するかもしれません。
+    </LongMessage>
+    <Class classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint' primary='true'>
+        <SourceLine classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint' start='11' end='66'
+                    sourcepath='io/jenkins/plugins/codeInsights/KotlinEntryPoint.kt'
+                    sourcefile='KotlinEntryPoint.kt'>
+            <Message>該当箇所 KotlinEntryPoint.kt:[lines 11-66]</Message>
+        </SourceLine>
+        <Message>クラス io.jenkins.plugins.codeInsights.KotlinEntryPoint</Message>
+    </Class>
+    <Method isStatic='false' classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint'
+            signature='(Lhudson/model/Run;Lhudson/FilePath;Lhudson/Launcher;Lhudson/model/TaskListener;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V'
+            name='&lt;init&gt;' primary='true'>
+        <SourceLine endBytecode='597' classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint' start='11'
+                    end='12' sourcepath='io/jenkins/plugins/codeInsights/KotlinEntryPoint.kt'
+                    sourcefile='KotlinEntryPoint.kt' startBytecode='0'></SourceLine>
+        <Message>メソッド new io.jenkins.plugins.codeInsights.KotlinEntryPoint(Run, FilePath, Launcher, TaskListener,
+            String, String, String, String, String, String, String, String, String, String, String, String, String,
+            String, String)
+        </Message>
+    </Method>
+    <Field isStatic='false' classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint'
+           signature='Lhudson/FilePath;' name='workspace' primary='true'>
+        <SourceLine classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint'
+                    sourcepath='io/jenkins/plugins/codeInsights/KotlinEntryPoint.kt'
+                    sourcefile='KotlinEntryPoint.kt'>
+            <Message>該当場所 KotlinEntryPoint.kt</Message>
+        </SourceLine>
+        <Message>フィールド io.jenkins.plugins.codeInsights.KotlinEntryPoint.workspace</Message>
+    </Field>
+    <LocalVariable role='LOCAL_VARIABLE_NAMED' pc='141' name='workspace' register='2'>
+        <Message>ローカル変数名 workspace</Message>
+    </LocalVariable>
+    <SourceLine endBytecode='141' classname='io.jenkins.plugins.codeInsights.KotlinEntryPoint' start='14' end='14'
+                sourcepath='io/jenkins/plugins/codeInsights/KotlinEntryPoint.kt' sourcefile='KotlinEntryPoint.kt'
+                startBytecode='141' primary='true'>
+        <Message>該当箇所 KotlinEntryPoint.kt:[line 14]</Message>
+    </SourceLine>
+</BugInstance>
+<BugInstance instanceOccurrenceNum='0' instanceHash='75a08d7c728d00e637053905d1369cac' rank='16' abbrev='Nm'
+             category='BAD_PRACTICE' priority='2' type='NM_CLASS_NAMING_CONVENTION' instanceOccurrenceMax='0'>
+    <ShortMessage>クラス名は大文字から始めるべき</ShortMessage>
+    <LongMessage>クラス名 io.jenkins.plugins.codeInsights.domain.Annotation$$serializer は，大文字から始まっていません。</LongMessage>
+    <Class classname='io.jenkins.plugins.codeInsights.domain.Annotation$$serializer' primary='true'>
+        <SourceLine classname='io.jenkins.plugins.codeInsights.domain.Annotation$$serializer' start='3' end='10'
+                    sourcepath='io/jenkins/plugins/codeInsights/domain/Annotation.kt' sourcefile='Annotation.kt'>
+            <Message>該当箇所 Annotation.kt:[lines 3-10]</Message>
+        </SourceLine>
+        <Message>クラス io.jenkins.plugins.codeInsights.domain.Annotation$$serializer</Message>
+    </Class>
+    <SourceLine synthetic='true' classname='io.jenkins.plugins.codeInsights.domain.Annotation$$serializer' start='3'
+                end='10' sourcepath='io/jenkins/plugins/codeInsights/domain/Annotation.kt'
+                sourcefile='Annotation.kt'>
+        <Message>該当箇所 Annotation.kt:[lines 3-10]</Message>
+    </SourceLine>
+</BugInstance>
+<BugInstance instanceOccurrenceNum='0' instanceHash='c497a72c472da9b9ba848d596c73639f' rank='17' abbrev='BC'
+             category='STYLE' priority='2' type='BC_BAD_CAST_TO_ABSTRACT_COLLECTION' instanceOccurrenceMax='0'>
+    <ShortMessage>抽象コレクションへの疑わしいキャスト</ShortMessage>
+    <LongMessage>Collection から抽象クラス java.util.List
+        への疑わしいキャストです。io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider.convert(String)
+    </LongMessage>
+    <Class classname='io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider' primary='true'>
+        <SourceLine classname='io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider' start='6'
+                    end='38' sourcepath='io/jenkins/plugins/codeInsights/domain/CheckstyleAnnotationProvider.kt'
+                    sourcefile='CheckstyleAnnotationProvider.kt'>
+            <Message>該当箇所 CheckstyleAnnotationProvider.kt:[lines 6-38]</Message>
+        </SourceLine>
+        <Message>クラス io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider</Message>
+    </Class>
+    <Method isStatic='false' classname='io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider'
+            signature='(Ljava/lang/String;)Ljava/util/List;' name='convert' primary='true'>
+        <SourceLine endBytecode='163'
+                    classname='io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider' start='13'
+                    end='14' sourcepath='io/jenkins/plugins/codeInsights/domain/CheckstyleAnnotationProvider.kt'
+                    sourcefile='CheckstyleAnnotationProvider.kt' startBytecode='0'></SourceLine>
+        <Message>メソッド io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider.convert(String)</Message>
+    </Method>
+    <Type role='TYPE_FOUND' descriptor='Ljava/util/Collection;'>
+        <SourceLine classname='java.util.Collection' start='413' end='764' sourcepath='java/util/Collection.java'
+                    sourcefile='Collection.java'>
+            <Message>該当箇所 Collection.java:[lines 413-764]</Message>
+        </SourceLine>
+        <Message>実際の型 java.util.Collection</Message>
+    </Type>
+    <Type role='TYPE_EXPECTED' descriptor='Ljava/util/List;'>
+        <SourceLine classname='java.util.List' start='437' end='1064' sourcepath='java/util/List.java'
+                    sourcefile='List.java'>
+            <Message>該当箇所 List.java:[lines 437-1064]</Message>
+        </SourceLine>
+        <Message>期待された java.util.List</Message>
+    </Type>
+    <LocalVariable role='LOCAL_VARIABLE_VALUE_OF' pc='355' name='destination$iv$iv' register='6'>
+        <Message>destination$iv$iv からロードされた値</Message>
+    </LocalVariable>
+    <SourceLine endBytecode='357' classname='io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider'
+                start='38' end='38'
+                sourcepath='io/jenkins/plugins/codeInsights/domain/CheckstyleAnnotationProvider.kt'
+                sourcefile='CheckstyleAnnotationProvider.kt' startBytecode='357' primary='true'>
+        <Message>該当箇所 CheckstyleAnnotationProvider.kt:[line 38]</Message>
+    </SourceLine>
+    <SourceLine role='SOURCE_LINE_ANOTHER_INSTANCE' endBytecode='334'
+                classname='io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider' start='35' end='35'
+                sourcepath='io/jenkins/plugins/codeInsights/domain/CheckstyleAnnotationProvider.kt'
+                sourcefile='CheckstyleAnnotationProvider.kt' startBytecode='334'>
+        <Message>他の出現箇所 CheckstyleAnnotationProvider.kt:[line 35]</Message>
+    </SourceLine>
+</BugInstance>
+<BugInstance instanceOccurrenceNum='0' instanceHash='cdf7ad7805b9b179a4aace31d9e9df0e' cweid='374' rank='18'
+             abbrev='EI2' category='MALICIOUS_CODE' priority='2' type='EI_EXPOSE_REP2' instanceOccurrenceMax='0'>
+    <ShortMessage>可変オブジェクトへの参照を取り込むことによって内部表現を暴露するかもしれないメソッド</ShortMessage>
+    <LongMessage>new io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider(XmlMapper, String)
+        は，CheckstyleAnnotationProvider.xmlMapper の中に外部の可変オブジェクトを格納することによって内部表現を暴露するかもしれません。
+    </LongMessage>
+    <Class classname='io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider' primary='true'>
+        <SourceLine classname='io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider' start='6'
+                    end='38' sourcepath='io/jenkins/plugins/codeInsights/domain/CheckstyleAnnotationProvider.kt'
+                    sourcefile='CheckstyleAnnotationProvider.kt'>
+            <Message>該当箇所 CheckstyleAnnotationProvider.kt:[lines 6-38]</Message>
+        </SourceLine>
+        <Message>クラス io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider</Message>
+    </Class>
+    <Method isStatic='false' classname='io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider'
+            signature='(Lcom/fasterxml/jackson/dataformat/xml/XmlMapper;Ljava/lang/String;)V' name='&lt;init&gt;'
+            primary='true'>
+        <SourceLine endBytecode='102'
+                    classname='io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider' start='9'
+                    end='6' sourcepath='io/jenkins/plugins/codeInsights/domain/CheckstyleAnnotationProvider.kt'
+                    sourcefile='CheckstyleAnnotationProvider.kt' startBytecode='0'></SourceLine>
+        <Message>メソッド new io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider(XmlMapper, String)
+        </Message>
+    </Method>
+    <Field isStatic='false' classname='io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider'
+           signature='Lcom/fasterxml/jackson/dataformat/xml/XmlMapper;' name='xmlMapper' primary='true'>
+        <SourceLine classname='io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider'
+                    sourcepath='io/jenkins/plugins/codeInsights/domain/CheckstyleAnnotationProvider.kt'
+                    sourcefile='CheckstyleAnnotationProvider.kt'>
+            <Message>該当場所 CheckstyleAnnotationProvider.kt</Message>
+        </SourceLine>
+        <Message>フィールド io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider.xmlMapper</Message>
+    </Field>
+    <LocalVariable role='LOCAL_VARIABLE_NAMED' pc='19' name='xmlMapper' register='1'>
+        <Message>ローカル変数名 xmlMapper</Message>
+    </LocalVariable>
+    <SourceLine endBytecode='19' classname='io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider'
+                start='7' end='7'
+                sourcepath='io/jenkins/plugins/codeInsights/domain/CheckstyleAnnotationProvider.kt'
+                sourcefile='CheckstyleAnnotationProvider.kt' startBytecode='19' primary='true'>
+        <Message>該当箇所 CheckstyleAnnotationProvider.kt:[line 7]</Message>
+    </SourceLine>
+</BugInstance>
+<BugInstance instanceOccurrenceNum='0' instanceHash='709a3599efa684223bfd97aeb5bc85b9' rank='16' abbrev='Nm'
+             category='BAD_PRACTICE' priority='2' type='NM_CLASS_NAMING_CONVENTION' instanceOccurrenceMax='0'>
+    <ShortMessage>クラス名は大文字から始めるべき</ShortMessage>
+    <LongMessage>クラス名 io.jenkins.plugins.codeInsights.domain.Severity$$serializer は，大文字から始まっていません。</LongMessage>
+    <Class classname='io.jenkins.plugins.codeInsights.domain.Severity$$serializer' primary='true'>
+        <SourceLine classname='io.jenkins.plugins.codeInsights.domain.Severity$$serializer' start='12' end='16'
+                    sourcepath='io/jenkins/plugins/codeInsights/domain/Annotation.kt' sourcefile='Annotation.kt'>
+            <Message>該当箇所 Annotation.kt:[lines 12-16]</Message>
+        </SourceLine>
+        <Message>クラス io.jenkins.plugins.codeInsights.domain.Severity$$serializer</Message>
+    </Class>
+    <SourceLine synthetic='true' classname='io.jenkins.plugins.codeInsights.domain.Severity$$serializer' start='12'
+                end='16' sourcepath='io/jenkins/plugins/codeInsights/domain/Annotation.kt'
+                sourcefile='Annotation.kt'>
+        <Message>該当箇所 Annotation.kt:[lines 12-16]</Message>
+    </SourceLine>
+</BugInstance>
+<BugInstance instanceOccurrenceNum='0' instanceHash='930648228e99bae663ea25eec56570f8' rank='17' abbrev='BC'
+             category='STYLE' priority='2' type='BC_BAD_CAST_TO_ABSTRACT_COLLECTION' instanceOccurrenceMax='0'>
+    <ShortMessage>抽象コレクションへの疑わしいキャスト</ShortMessage>
+    <LongMessage>Collection から抽象クラス java.util.List
+        への疑わしいキャストです。io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider.convert(String)
+    </LongMessage>
+    <Class classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider' primary='true'>
+        <SourceLine classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider' start='20'
+                    end='121' sourcepath='io/jenkins/plugins/codeInsights/domain/SonarQubeAnnotationProvider.kt'
+                    sourcefile='SonarQubeAnnotationProvider.kt'>
+            <Message>該当箇所 SonarQubeAnnotationProvider.kt:[lines 20-121]</Message>
+        </SourceLine>
+        <Message>クラス io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider</Message>
+    </Class>
+    <Method isStatic='false' classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider'
+            signature='(Ljava/lang/String;)Ljava/util/List;' name='convert' primary='true'>
+        <SourceLine endBytecode='311' classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider'
+                    start='30' end='31'
+                    sourcepath='io/jenkins/plugins/codeInsights/domain/SonarQubeAnnotationProvider.kt'
+                    sourcefile='SonarQubeAnnotationProvider.kt' startBytecode='0'></SourceLine>
+        <Message>メソッド io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider.convert(String)</Message>
+    </Method>
+    <Type role='TYPE_FOUND' descriptor='Ljava/util/Collection;'>
+        <SourceLine classname='java.util.Collection' start='413' end='764' sourcepath='java/util/Collection.java'
+                    sourcefile='Collection.java'>
+            <Message>該当箇所 Collection.java:[lines 413-764]</Message>
+        </SourceLine>
+        <Message>実際の型 java.util.Collection</Message>
+    </Type>
+    <Type role='TYPE_EXPECTED' descriptor='Ljava/util/List;'>
+        <SourceLine classname='java.util.List' start='437' end='1064' sourcepath='java/util/List.java'
+                    sourcefile='List.java'>
+            <Message>該当箇所 List.java:[lines 437-1064]</Message>
+        </SourceLine>
+        <Message>期待された java.util.List</Message>
+    </Type>
+    <LocalVariable role='LOCAL_VARIABLE_VALUE_OF' pc='175' name='destination$iv$iv' register='6'>
+        <Message>destination$iv$iv からロードされた値</Message>
+    </LocalVariable>
+    <SourceLine endBytecode='177' classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider'
+                start='113' end='113'
+                sourcepath='io/jenkins/plugins/codeInsights/domain/SonarQubeAnnotationProvider.kt'
+                sourcefile='SonarQubeAnnotationProvider.kt' startBytecode='177' primary='true'>
+        <Message>該当箇所 SonarQubeAnnotationProvider.kt:[line 113]</Message>
+    </SourceLine>
+    <SourceLine role='SOURCE_LINE_ANOTHER_INSTANCE' endBytecode='274'
+                classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider' start='117' end='117'
+                sourcepath='io/jenkins/plugins/codeInsights/domain/SonarQubeAnnotationProvider.kt'
+                sourcefile='SonarQubeAnnotationProvider.kt' startBytecode='274'>
+        <Message>他の出現箇所 SonarQubeAnnotationProvider.kt:[line 117]</Message>
+    </SourceLine>
+    <SourceLine role='SOURCE_LINE_ANOTHER_INSTANCE' endBytecode='665'
+                classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider' start='121' end='121'
+                sourcepath='io/jenkins/plugins/codeInsights/domain/SonarQubeAnnotationProvider.kt'
+                sourcefile='SonarQubeAnnotationProvider.kt' startBytecode='665'>
+        <Message>他の出現箇所 SonarQubeAnnotationProvider.kt:[line 121]</Message>
+    </SourceLine>
+</BugInstance>
+<BugInstance instanceOccurrenceNum='0' instanceHash='ccbb7d318564ca3bea8c106b2a965e33' cweid='476' rank='18'
+             abbrev='RCN' category='STYLE' priority='2' type='RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE'
+             instanceOccurrenceMax='0'>
+    <ShortMessage>null ではないことがわかっている値の冗長な null チェック</ShortMessage>
+    <LongMessage>null ではないことがわかっている値 Object.toString() の冗長な null
+        チェックがあります。io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider.convert(String)
+    </LongMessage>
+    <Class classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider' primary='true'>
+        <SourceLine classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider' start='20'
+                    end='121' sourcepath='io/jenkins/plugins/codeInsights/domain/SonarQubeAnnotationProvider.kt'
+                    sourcefile='SonarQubeAnnotationProvider.kt'>
+            <Message>該当箇所 SonarQubeAnnotationProvider.kt:[lines 20-121]</Message>
+        </SourceLine>
+        <Message>クラス io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider</Message>
+    </Class>
+    <Method isStatic='false' classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider'
+            signature='(Ljava/lang/String;)Ljava/util/List;' name='convert' primary='true'>
+        <SourceLine endBytecode='1858'
+                    classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider' start='30'
+                    end='31' sourcepath='io/jenkins/plugins/codeInsights/domain/SonarQubeAnnotationProvider.kt'
+                    sourcefile='SonarQubeAnnotationProvider.kt' startBytecode='0'></SourceLine>
+        <Message>メソッド io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider.convert(String)</Message>
+    </Method>
+    <Method isStatic='false' role='METHOD_RETURN_VALUE_OF' classname='java.lang.Object'
+            signature='()Ljava/lang/String;' name='toString'>
+        <SourceLine endBytecode='77' classname='java.lang.Object' start='239' end='239'
+                    sourcepath='java/lang/Object.java' sourcefile='Object.java' startBytecode='0'></SourceLine>
+        <Message>戻り値 Object.toString()</Message>
+    </Method>
+    <SourceLine role='SOURCE_REDUNDANT_NULL_CHECK' endBytecode='489'
+                classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider' start='39' end='39'
+                sourcepath='io/jenkins/plugins/codeInsights/domain/SonarQubeAnnotationProvider.kt'
+                sourcefile='SonarQubeAnnotationProvider.kt' startBytecode='489' primary='true'>
+        <Message>冗長な null チェックが行われている箇所 SonarQubeAnnotationProvider.kt:[line 39]</Message>
+    </SourceLine>
+</BugInstance>
+<BugInstance instanceOccurrenceNum='0' instanceHash='712e15c491c166fcff31e70e42c481db' cweid='476' rank='18'
+             abbrev='RCN' category='STYLE' priority='2' type='RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE'
+             instanceOccurrenceMax='0'>
+    <ShortMessage>null ではないことがわかっている値の冗長な null チェック</ShortMessage>
+    <LongMessage>null ではないことがわかっている値 kotlinx.serialization.json.JsonElementKt.getJsonPrimitive(JsonElement) の冗長な
+        null チェックがあります。io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider.convert(String)
+    </LongMessage>
+    <Class classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider' primary='true'>
+        <SourceLine classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider' start='20'
+                    end='121' sourcepath='io/jenkins/plugins/codeInsights/domain/SonarQubeAnnotationProvider.kt'
+                    sourcefile='SonarQubeAnnotationProvider.kt'>
+            <Message>該当箇所 SonarQubeAnnotationProvider.kt:[lines 20-121]</Message>
+        </SourceLine>
+        <Message>クラス io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider</Message>
+    </Class>
+    <Method isStatic='false' classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider'
+            signature='(Ljava/lang/String;)Ljava/util/List;' name='convert' primary='true'>
+        <SourceLine endBytecode='1858'
+                    classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider' start='30'
+                    end='31' sourcepath='io/jenkins/plugins/codeInsights/domain/SonarQubeAnnotationProvider.kt'
+                    sourcefile='SonarQubeAnnotationProvider.kt' startBytecode='0'></SourceLine>
+        <Message>メソッド io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider.convert(String)</Message>
+    </Method>
+    <Method isStatic='true' role='METHOD_RETURN_VALUE_OF' classname='kotlinx.serialization.json.JsonElementKt'
+            signature='(Lkotlinx/serialization/json/JsonElement;)Lkotlinx/serialization/json/JsonPrimitive;'
+            name='getJsonPrimitive'>
+        <SourceLine endBytecode='100' classname='kotlinx.serialization.json.JsonElementKt' start='153' end='153'
+                    sourcepath='kotlinx/serialization/json/JsonElement.kt' sourcefile='JsonElement.kt'
+                    startBytecode='0'></SourceLine>
+        <Message>戻り値 kotlinx.serialization.json.JsonElementKt.getJsonPrimitive(JsonElement)</Message>
+    </Method>
+    <SourceLine role='SOURCE_REDUNDANT_NULL_CHECK' endBytecode='375'
+                classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider' start='36' end='36'
+                sourcepath='io/jenkins/plugins/codeInsights/domain/SonarQubeAnnotationProvider.kt'
+                sourcefile='SonarQubeAnnotationProvider.kt' startBytecode='375' primary='true'>
+        <Message>冗長な null チェックが行われている箇所 SonarQubeAnnotationProvider.kt:[line 36]</Message>
+    </SourceLine>
+    <SourceLine role='SOURCE_LINE_ANOTHER_INSTANCE' endBytecode='533'
+                classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider' start='40' end='40'
+                sourcepath='io/jenkins/plugins/codeInsights/domain/SonarQubeAnnotationProvider.kt'
+                sourcefile='SonarQubeAnnotationProvider.kt' startBytecode='533'>
+        <Message>他の出現箇所 SonarQubeAnnotationProvider.kt:[line 40]</Message>
+    </SourceLine>
+</BugInstance>
+<BugInstance instanceOccurrenceNum='0' instanceHash='b0d4fcca435d9fcc62af864264f04fdd' cweid='476' rank='18'
+             abbrev='RCN' category='STYLE' priority='2' type='RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE'
+             instanceOccurrenceMax='0'>
+    <ShortMessage>null ではないことがわかっている値の冗長な null チェック</ShortMessage>
+    <LongMessage>null ではないことがわかっている値 kotlinx.serialization.json.JsonPrimitive.getContent() の冗長な null
+        チェックがあります。io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider.convert(String)
+    </LongMessage>
+    <Class classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider' primary='true'>
+        <SourceLine classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider' start='20'
+                    end='121' sourcepath='io/jenkins/plugins/codeInsights/domain/SonarQubeAnnotationProvider.kt'
+                    sourcefile='SonarQubeAnnotationProvider.kt'>
+            <Message>該当箇所 SonarQubeAnnotationProvider.kt:[lines 20-121]</Message>
+        </SourceLine>
+        <Message>クラス io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider</Message>
+    </Class>
+    <Method isStatic='false' classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider'
+            signature='(Ljava/lang/String;)Ljava/util/List;' name='convert' primary='true'>
+        <SourceLine endBytecode='1858'
+                    classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider' start='30'
+                    end='31' sourcepath='io/jenkins/plugins/codeInsights/domain/SonarQubeAnnotationProvider.kt'
+                    sourcefile='SonarQubeAnnotationProvider.kt' startBytecode='0'></SourceLine>
+        <Message>メソッド io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider.convert(String)</Message>
+    </Method>
+    <Method isStatic='false' role='METHOD_RETURN_VALUE_OF' classname='kotlinx.serialization.json.JsonPrimitive'
+            signature='()Ljava/lang/String;' name='getContent'>
+        <SourceLine classname='kotlinx.serialization.json.JsonPrimitive'
+                    sourcepath='kotlinx/serialization/json/JsonElement.kt' sourcefile='JsonElement.kt'></SourceLine>
+        <Message>戻り値 kotlinx.serialization.json.JsonPrimitive.getContent()</Message>
+    </Method>
+    <SourceLine role='SOURCE_REDUNDANT_NULL_CHECK' endBytecode='545'
+                classname='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider' start='40' end='40'
+                sourcepath='io/jenkins/plugins/codeInsights/domain/SonarQubeAnnotationProvider.kt'
+                sourcefile='SonarQubeAnnotationProvider.kt' startBytecode='545' primary='true'>
+        <Message>冗長な null チェックが行われている箇所 SonarQubeAnnotationProvider.kt:[line 40]</Message>
+    </SourceLine>
+</BugInstance>
+<BugInstance instanceOccurrenceNum='0' instanceHash='26f46d1dc8c7b0db42d6af901b96753c' cweid='374' rank='18'
+             abbrev='EI2' category='MALICIOUS_CODE' priority='2' type='EI_EXPOSE_REP2' instanceOccurrenceMax='0'>
+    <ShortMessage>可変オブジェクトへの参照を取り込むことによって内部表現を暴露するかもしれないメソッド</ShortMessage>
+    <LongMessage>new io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl(FilePath, Run)
+        は，FileTransferServiceImpl.workspace の中に外部の可変オブジェクトを格納することによって内部表現を暴露するかもしれません。
+    </LongMessage>
+    <Class classname='io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl' primary='true'>
+        <SourceLine classname='io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl' start='7' end='14'
+                    sourcepath='io/jenkins/plugins/codeInsights/framework/FileTransferServiceImpl.kt'
+                    sourcefile='FileTransferServiceImpl.kt'>
+            <Message>該当箇所 FileTransferServiceImpl.kt:[lines 7-14]</Message>
+        </SourceLine>
+        <Message>クラス io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl</Message>
+    </Class>
+    <Method isStatic='false' classname='io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl'
+            signature='(Lhudson/FilePath;Lhudson/model/Run;)V' name='&lt;init&gt;' primary='true'>
+        <SourceLine endBytecode='106' classname='io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl'
+                    start='7' end='7'
+                    sourcepath='io/jenkins/plugins/codeInsights/framework/FileTransferServiceImpl.kt'
+                    sourcefile='FileTransferServiceImpl.kt' startBytecode='0'></SourceLine>
+        <Message>メソッド new io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl(FilePath, Run)</Message>
+    </Method>
+    <Field isStatic='false' classname='io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl'
+           signature='Lhudson/FilePath;' name='workspace' primary='true'>
+        <SourceLine classname='io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl'
+                    sourcepath='io/jenkins/plugins/codeInsights/framework/FileTransferServiceImpl.kt'
+                    sourcefile='FileTransferServiceImpl.kt'>
+            <Message>該当場所 FileTransferServiceImpl.kt</Message>
+        </SourceLine>
+        <Message>フィールド io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl.workspace</Message>
+    </Field>
+    <LocalVariable role='LOCAL_VARIABLE_NAMED' pc='18' name='workspace' register='1'>
+        <Message>ローカル変数名 workspace</Message>
+    </LocalVariable>
+    <SourceLine endBytecode='18' classname='io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl'
+                start='7' end='7' sourcepath='io/jenkins/plugins/codeInsights/framework/FileTransferServiceImpl.kt'
+                sourcefile='FileTransferServiceImpl.kt' startBytecode='18' primary='true'>
+        <Message>該当箇所 FileTransferServiceImpl.kt:[line 7]</Message>
+    </SourceLine>
+</BugInstance>
+<BugInstance instanceOccurrenceNum='0' instanceHash='718ba8c614ccaf99288f69d199179b12' cweid='391' rank='16'
+             abbrev='DE' category='BAD_PRACTICE' priority='2' type='DE_MIGHT_IGNORE' instanceOccurrenceMax='0'>
+    <ShortMessage>例外を無視しているかもしれないメソッド</ShortMessage>
+    <LongMessage>io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder.setSonarQube(String,
+        String, String, String, String) は，java.lang.Exception を無視しているかもしれません。
+    </LongMessage>
+    <Class classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder' primary='true'>
+        <SourceLine classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder'
+                    start='10' end='36'
+                    sourcepath='io/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder.kt'
+                    sourcefile='ExecutableAnnotationProvidersBuilder.kt'>
+            <Message>該当箇所 ExecutableAnnotationProvidersBuilder.kt:[lines 10-36]</Message>
+        </SourceLine>
+        <Message>クラス io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder</Message>
+    </Class>
+    <Method isStatic='false'
+            classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder'
+            signature='(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder;'
+            name='setSonarQube' primary='true'>
+        <SourceLine endBytecode='232'
+                    classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder'
+                    start='26' end='33'
+                    sourcepath='io/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder.kt'
+                    sourcefile='ExecutableAnnotationProvidersBuilder.kt' startBytecode='0'></SourceLine>
+        <Message>メソッド
+            io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder.setSonarQube(String,
+            String, String, String, String)
+        </Message>
+    </Method>
+    <Class role='CLASS_EXCEPTION' classname='java.lang.Exception'>
+        <SourceLine classname='java.lang.Exception' start='55' end='124' sourcepath='java/lang/Exception.java'
+                    sourcefile='Exception.java'>
+            <Message>該当箇所 Exception.java:[lines 55-124]</Message>
+        </SourceLine>
+        <Message>例外クラス java.lang.Exception</Message>
+    </Class>
+    <SourceLine endBytecode='79'
+                classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder' start='30'
+                end='30'
+                sourcepath='io/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder.kt'
+                sourcefile='ExecutableAnnotationProvidersBuilder.kt' startBytecode='79' primary='true'>
+        <Message>該当箇所 ExecutableAnnotationProvidersBuilder.kt:[line 30]</Message>
+    </SourceLine>
+    <SourceLine endBytecode='79'
+                classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder' start='30'
+                end='30'
+                sourcepath='io/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder.kt'
+                sourcefile='ExecutableAnnotationProvidersBuilder.kt' startBytecode='79' primary='true'>
+        <Message>該当箇所 ExecutableAnnotationProvidersBuilder.kt:[line 30]</Message>
+    </SourceLine>
+</BugInstance>
+<BugInstance instanceOccurrenceNum='0' instanceHash='884637611a4d445aeb0c09e7f3a797f0' cweid='374' rank='18'
+             abbrev='EI' category='MALICIOUS_CODE' priority='2' type='EI_EXPOSE_REP' instanceOccurrenceMax='0'>
+    <ShortMessage>可変オブジェクトへの参照を返すことによって内部表現を暴露するかもしれないメソッド</ShortMessage>
+    <LongMessage>io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder.build()
+        は，ExecutableAnnotationProvidersBuilder.executables を返すことによって内部表現を暴露するかもしれません。
+    </LongMessage>
+    <Class classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder' primary='true'>
+        <SourceLine classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder'
+                    start='10' end='36'
+                    sourcepath='io/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder.kt'
+                    sourcefile='ExecutableAnnotationProvidersBuilder.kt'>
+            <Message>該当箇所 ExecutableAnnotationProvidersBuilder.kt:[lines 10-36]</Message>
+        </SourceLine>
+        <Message>クラス io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder</Message>
+    </Class>
+    <Method isStatic='false'
+            classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder'
+            signature='()Ljava/util/List;' name='build' primary='true'>
+        <SourceLine endBytecode='46'
+                    classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder'
+                    start='36' end='36'
+                    sourcepath='io/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder.kt'
+                    sourcefile='ExecutableAnnotationProvidersBuilder.kt' startBytecode='0'></SourceLine>
+        <Message>メソッド io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder.build()</Message>
+    </Method>
+    <Field isStatic='false' classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder'
+           signature='Ljava/util/List;' name='executables' primary='true'>
+        <SourceLine classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder'
+                    sourcepath='io/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder.kt'
+                    sourcefile='ExecutableAnnotationProvidersBuilder.kt'>
+            <Message>該当場所 ExecutableAnnotationProvidersBuilder.kt</Message>
+        </SourceLine>
+        <Message>フィールド io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder.executables
+        </Message>
+    </Field>
+    <SourceLine endBytecode='4'
+                classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder' start='36'
+                end='36'
+                sourcepath='io/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder.kt'
+                sourcefile='ExecutableAnnotationProvidersBuilder.kt' startBytecode='4' primary='true'>
+        <Message>該当箇所 ExecutableAnnotationProvidersBuilder.kt:[line 36]</Message>
+    </SourceLine>
+</BugInstance>
+<BugInstance instanceOccurrenceNum='0' instanceHash='a302ac56ae14a62a9c7647344cd2f2d' rank='17' abbrev='BC'
+             category='STYLE' priority='2' type='BC_BAD_CAST_TO_ABSTRACT_COLLECTION' instanceOccurrenceMax='0'>
+    <ShortMessage>抽象コレクションへの疑わしいキャスト</ShortMessage>
+    <LongMessage>Collection から抽象クラス java.util.List
+        への疑わしいキャストです。io.jenkins.plugins.codeInsights.usecase.GitRepo.detectChangedFiles(String, String)
+    </LongMessage>
+    <Class classname='io.jenkins.plugins.codeInsights.usecase.GitRepo' primary='true'>
+        <SourceLine classname='io.jenkins.plugins.codeInsights.usecase.GitRepo' start='20' end='69'
+                    sourcepath='io/jenkins/plugins/codeInsights/usecase/GitRepo.kt' sourcefile='GitRepo.kt'>
+            <Message>該当箇所 GitRepo.kt:[lines 20-69]</Message>
+        </SourceLine>
+        <Message>クラス io.jenkins.plugins.codeInsights.usecase.GitRepo</Message>
+    </Class>
+    <Method isStatic='false' classname='io.jenkins.plugins.codeInsights.usecase.GitRepo'
+            signature='(Ljava/lang/String;Ljava/lang/String;)Ljava/util/Set;' name='detectChangedFiles'
+            primary='true'>
+        <SourceLine endBytecode='165' classname='io.jenkins.plugins.codeInsights.usecase.GitRepo' start='26'
+                    end='33' sourcepath='io/jenkins/plugins/codeInsights/usecase/GitRepo.kt' sourcefile='GitRepo.kt'
+                    startBytecode='0'></SourceLine>
+        <Message>メソッド io.jenkins.plugins.codeInsights.usecase.GitRepo.detectChangedFiles(String, String)</Message>
+    </Method>
+    <Type role='TYPE_FOUND' descriptor='Ljava/util/Collection;'>
+        <SourceLine classname='java.util.Collection' start='413' end='764' sourcepath='java/util/Collection.java'
+                    sourcefile='Collection.java'>
+            <Message>該当箇所 Collection.java:[lines 413-764]</Message>
+        </SourceLine>
+        <Message>実際の型 java.util.Collection</Message>
+    </Type>
+    <Type role='TYPE_EXPECTED' descriptor='Ljava/util/List;'>
+        <SourceLine classname='java.util.List' start='437' end='1064' sourcepath='java/util/List.java'
+                    sourcefile='List.java'>
+            <Message>該当箇所 List.java:[lines 437-1064]</Message>
+        </SourceLine>
+        <Message>期待された java.util.List</Message>
+    </Type>
+    <LocalVariable role='LOCAL_VARIABLE_VALUE_OF' pc='261' name='destination$iv$iv' register='11'>
+        <Message>destination$iv$iv からロードされた値</Message>
+    </LocalVariable>
+    <SourceLine endBytecode='263' classname='io.jenkins.plugins.codeInsights.usecase.GitRepo' start='65' end='65'
+                sourcepath='io/jenkins/plugins/codeInsights/usecase/GitRepo.kt' sourcefile='GitRepo.kt'
+                startBytecode='263' primary='true'>
+        <Message>該当箇所 GitRepo.kt:[line 65]</Message>
+    </SourceLine>
+    <SourceLine role='SOURCE_LINE_ANOTHER_INSTANCE' endBytecode='363'
+                classname='io.jenkins.plugins.codeInsights.usecase.GitRepo' start='69' end='69'
+                sourcepath='io/jenkins/plugins/codeInsights/usecase/GitRepo.kt' sourcefile='GitRepo.kt'
+                startBytecode='363'>
+        <Message>他の出現箇所 GitRepo.kt:[line 69]</Message>
+    </SourceLine>
+</BugInstance>
+<BugCategory category='BAD_PRACTICE'>
+    <Description>Bad practice</Description>
+</BugCategory>
+<BugCategory category='MALICIOUS_CODE'>
+    <Description>Malicious code vulnerability</Description>
+</BugCategory>
+<BugCategory category='CORRECTNESS'>
+    <Description>Correctness</Description>
+</BugCategory>
+<BugCategory category='STYLE'>
+    <Description>Dodgy code</Description>
+</BugCategory>
+<BugPattern abbrev='NP' category='CORRECTNESS' type='NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR'>
+    <ShortDescription>非 null フィールドは初期化されていない</ShortDescription>
+    <Details>
+
+        &lt;p&gt;
+        フィールドは，非 &lt;code&gt;null&lt;/code&gt; としてマークされていますが，コンストラクタで書き込まれていません。
+        フィールドは，コンストラクタの間，ほかの場所で初期化されるか，または使用する前に常に初期化されるかもしれません。
+        &lt;/p&gt;
+
+    </Details>
+</BugPattern>
+<BugPattern abbrev='ST' category='STYLE' type='ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD'>
+    <ShortDescription>インスタンスメソッドから static フィールドへの書き込み</ShortDescription>
+    <Details>
+
+        &lt;p&gt;
+        このインスタンスメソッドは， &lt;code&gt;static&lt;/code&gt; フィールドに書き込みをしています。
+        複数のインスタンスが操作されているなら，正しくさせるのは難しいです。一般的にバッドプラクティスです。
+        &lt;/p&gt;
+
+    </Details>
+</BugPattern>
+<BugPattern cweid='374' abbrev='EI2' category='MALICIOUS_CODE' type='EI_EXPOSE_REP2'>
+    <ShortDescription>可変オブジェクトへの参照を取り込むことによって内部表現を暴露するかもしれないメソッド</ShortDescription>
+    <Details>
+
+        &lt;p&gt;
+        このコードはオブジェクトの内部表現に外部の可変オブジェクトの参照を格納しています。
+        インスタンスが信頼できないコードによってアクセスされるなら，可変オブジェクトのチェックされていない変更がセキュリティや他の重要なプロパティを危うくするでしょう。
+        何か違うことをする必要があります。オブジェクトのコピーを格納することは，多くの状況でより良いアプローチです。
+        &lt;/p&gt;
+
+    </Details>
+</BugPattern>
+<BugPattern abbrev='Nm' category='BAD_PRACTICE' type='NM_CLASS_NAMING_CONVENTION'>
+    <ShortDescription>クラス名は大文字から始めるべき</ShortDescription>
+    <Details>
+
+        &lt;p&gt;
+        クラス名は，最初の文字とそれに続く各単語の最初の文字を大文字にした名詞にすべきです。
+        クラス名は単純でわかりやすいようにしてください。
+        頭文字や略語 (URLやHTMLなどのように略語がロング形式よりもはるかに広く使われている場合を除く) の使用は避けてください。
+        &lt;/p&gt;
+
+    </Details>
+</BugPattern>
+<BugPattern cweid='374' abbrev='EI' category='MALICIOUS_CODE' type='EI_EXPOSE_REP'>
+    <ShortDescription>可変オブジェクトへの参照を返すことによって内部表現を暴露するかもしれないメソッド</ShortDescription>
+    <Details>
+
+        &lt;p&gt;
+        オブジェクトのフィールドに格納された可変オブジェクトの参照を返すと，オブジェクトの内部表現を暴露します。
+        インスタンスが信頼できないコードによってアクセスされるなら，可変オブジェクトのチェックされていない変更がセキュリティや他の重要なプロパティを危うくするでしょう。
+        何か違うことをする必要があります。オブジェクトの新しいコピーを返すことは，多くの状況でより良いアプローチです。
+        &lt;/p&gt;
+
+    </Details>
+</BugPattern>
+<BugPattern abbrev='BC' category='STYLE' type='BC_BAD_CAST_TO_ABSTRACT_COLLECTION'>
+    <ShortDescription>抽象コレクションへの疑わしいキャスト</ShortDescription>
+    <Details>
+
+        &lt;p&gt;
+        このコードは &lt;code&gt;Collection&lt;/code&gt; を抽象コレクションにキャストしています (たとえば &lt;code&gt;List&lt;/code&gt; ， &lt;code&gt;Set&lt;/code&gt;
+        ， &lt;code&gt;Map&lt;/code&gt;)。
+        オブジェクトがキャストする型であるということが保証されていることを確認してください。
+        必要とするコレクションの反復処理ができるなら &lt;code&gt;Set&lt;/code&gt; または &lt;code&gt;List&lt;/code&gt; にキャストする必要はありません。
+        &lt;/p&gt;
+
+    </Details>
+</BugPattern>
+<BugPattern abbrev='DE' category='BAD_PRACTICE' type='DE_MIGHT_IGNORE'>
+    <ShortDescription>例外を無視しているかもしれないメソッド</ShortDescription>
+    <Details>
+
+        &lt;p&gt;
+        このメソッドは例外を無視しているかもしれません。
+        一般的に例外は何らかの方法で処理または報告すべきです。またはメソッドからスローすべきです。
+        &lt;/p&gt;
+
+    </Details>
+</BugPattern>
+<BugPattern abbrev='RCN' category='STYLE' type='RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE'>
+    <ShortDescription>null ではないことがわかっている値の冗長な null チェック</ShortDescription>
+    <Details>
+
+        &lt;p&gt;
+        このメソッドには &lt;code&gt;null&lt;/code&gt; ではないことがわかっている値の冗長な &lt;code&gt;null&lt;/code&gt; チェックがあります。
+        &lt;/p&gt;
+
+    </Details>
+</BugPattern>
+<BugCode abbrev='ST'>
+    <Description>static フィールドの誤用</Description>
+</BugCode>
+<BugCode abbrev='BC'>
+    <Description>オブジェクト参照の間違ったキャスト</Description>
+</BugCode>
+<BugCode cweid='391' abbrev='DE'>
+    <Description>捨てられたか無視された例外</Description>
+</BugCode>
+<BugCode cweid='476' abbrev='NP'>
+    <Description>null値 の利用</Description>
+</BugCode>
+<BugCode abbrev='EI'>
+    <Description>内部表現を暴露するかもしれない配列を返すメソッド</Description>
+</BugCode>
+<BugCode cweid='476' abbrev='RCN'>
+    <Description>null への冗長な比較</Description>
+</BugCode>
+<BugCode abbrev='EI2'>
+    <Description>可変オブジェクトへの参照の格納</Description>
+</BugCode>
+<BugCode abbrev='Nm'>
+    <Description>紛らわしいメソッド名</Description>
+</BugCode>
+<Errors missingClasses='0' errors='0'></Errors>
+<FindBugsSummary num_packages='4' total_classes='22' priority_1='1' priority_2='16' total_size='558'
+                 clock_seconds='6.32' referenced_classes='273' vm_version='14.0.2+12' total_bugs='17'
+                 java_version='14.0.2' gc_seconds='0.11' alloc_mbytes='512.00' cpu_seconds='27.92'
+                 peak_mbytes='295.48' timestamp='Mon, 21 Mar 2022 22:15:19 +0900'>
+    <FileStats path='io/jenkins/plugins/codeInsights/CodeInsightsBuilder.java' size='102' bugCount='0'></FileStats>
+    <FileStats path='io/jenkins/plugins/codeInsights/HttpClient.kt' size='84' bugCount='0'></FileStats>
+    <FileStats path='io/jenkins/plugins/codeInsights/JenkinsLogger.kt' size='13'
+               bugHash='883fe004b7804fdfd7d813d6047dcefe' bugCount='2'></FileStats>
+    <FileStats path='io/jenkins/plugins/codeInsights/KotlinEntryPoint.kt' size='68'
+               bugHash='71870dffd0edd5a86fee7ddf1069b075' bugCount='3'></FileStats>
+    <FileStats path='io/jenkins/plugins/codeInsights/domain/Annotation.kt' size='83'
+               bugHash='cec9f03a10d98b4975347f950c6e0672' bugCount='2'></FileStats>
+    <FileStats path='io/jenkins/plugins/codeInsights/domain/AnnotationProvider.kt' size='7'
+               bugCount='0'></FileStats>
+    <FileStats path='io/jenkins/plugins/codeInsights/domain/CheckstyleAnnotationProvider.kt' size='31'
+               bugHash='f23a0bb2f82d27c206ed69b6569b2c6d' bugCount='2'></FileStats>
+    <FileStats path='io/jenkins/plugins/codeInsights/domain/SonarQubeAnnotationProvider.kt' size='90'
+               bugHash='328bc6b06365e5e3b45820291bec49ae' bugCount='4'></FileStats>
+    <FileStats path='io/jenkins/plugins/codeInsights/framework/FileTransferServiceImpl.kt' size='11'
+               bugHash='422e209cbf17f7c82da24f21a2d60384' bugCount='1'></FileStats>
+    <FileStats path='io/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder.kt' size='22'
+               bugHash='050db9c6119cb50eea1cda4a6a95f0fd' bugCount='2'></FileStats>
+    <FileStats path='io/jenkins/plugins/codeInsights/usecase/FileTransferService.kt' size='3'
+               bugCount='0'></FileStats>
+    <FileStats path='io/jenkins/plugins/codeInsights/usecase/GitRepo.kt' size='44'
+               bugHash='276432e0700f33d45cd408db01723c97' bugCount='1'></FileStats>
+    <PackageStats package='io.jenkins.plugins.codeInsights' priority_1='1' total_bugs='5' priority_2='4'
+                  total_size='267' total_types='7'>
+        <ClassStats bugs='0' size='43' interface='false' sourceFile='CodeInsightsBuilder.java'
+                    class='io.jenkins.plugins.codeInsights.CodeInsightsBuilder'></ClassStats>
+        <ClassStats bugs='0' size='59' interface='false' sourceFile='CodeInsightsBuilder.java'
+                    class='io.jenkins.plugins.codeInsights.CodeInsightsBuilder$DescriptorImpl'></ClassStats>
+        <ClassStats bugs='0' size='74' interface='false' sourceFile='HttpClient.kt'
+                    class='io.jenkins.plugins.codeInsights.HttpClient'></ClassStats>
+        <ClassStats bugs='0' size='3' interface='false' sourceFile='HttpClient.kt'
+                    class='io.jenkins.plugins.codeInsights.HttpClient$CallApiFailureException'></ClassStats>
+        <ClassStats bugs='0' size='7' interface='false' sourceFile='HttpClient.kt'
+                    class='io.jenkins.plugins.codeInsights.HttpClient$json$1'></ClassStats>
+        <ClassStats bugs='2' size='13' priority_1='1' priority_2='1' interface='false' sourceFile='JenkinsLogger.kt'
+                    class='io.jenkins.plugins.codeInsights.JenkinsLogger'></ClassStats>
+        <ClassStats bugs='3' size='68' priority_2='3' interface='false' sourceFile='KotlinEntryPoint.kt'
+                    class='io.jenkins.plugins.codeInsights.KotlinEntryPoint'></ClassStats>
+    </PackageStats>
+    <PackageStats package='io.jenkins.plugins.codeInsights.domain' total_bugs='8' priority_2='8' total_size='211'
+                  total_types='11'>
+        <ClassStats bugs='0' size='31' interface='false' sourceFile='Annotation.kt'
+                    class='io.jenkins.plugins.codeInsights.domain.Annotation'></ClassStats>
+        <ClassStats bugs='1' size='14' priority_2='1' interface='false' sourceFile='Annotation.kt'
+                    class='io.jenkins.plugins.codeInsights.domain.Annotation$$serializer'></ClassStats>
+        <ClassStats bugs='0' size='5' interface='false' sourceFile='Annotation.kt'
+                    class='io.jenkins.plugins.codeInsights.domain.Annotation$Companion'></ClassStats>
+        <ClassStats bugs='0' size='7' interface='false' sourceFile='AnnotationProvider.kt'
+                    class='io.jenkins.plugins.codeInsights.domain.AnnotationProvider'></ClassStats>
+        <ClassStats bugs='2' size='31' priority_2='2' interface='false' sourceFile='CheckstyleAnnotationProvider.kt'
+                    class='io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider'></ClassStats>
+        <ClassStats bugs='0' size='14' interface='false' sourceFile='Annotation.kt'
+                    class='io.jenkins.plugins.codeInsights.domain.Severity'></ClassStats>
+        <ClassStats bugs='1' size='14' priority_2='1' interface='false' sourceFile='Annotation.kt'
+                    class='io.jenkins.plugins.codeInsights.domain.Severity$$serializer'></ClassStats>
+        <ClassStats bugs='0' size='5' interface='false' sourceFile='Annotation.kt'
+                    class='io.jenkins.plugins.codeInsights.domain.Severity$Companion'></ClassStats>
+        <ClassStats bugs='4' size='79' priority_2='4' interface='false' sourceFile='SonarQubeAnnotationProvider.kt'
+                    class='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider'></ClassStats>
+        <ClassStats bugs='0' size='2' interface='false' sourceFile='SonarQubeAnnotationProvider.kt'
+                    class='io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProviderKt'></ClassStats>
+        <ClassStats bugs='0' size='9' interface='false' sourceFile='SonarQubeAnnotationProvider.kt'
+                    class='io.jenkins.plugins.codeInsights.domain.SonarQubeCredential'></ClassStats>
+    </PackageStats>
+    <PackageStats package='io.jenkins.plugins.codeInsights.framework' total_bugs='1' priority_2='1' total_size='11'
+                  total_types='1'>
+        <ClassStats bugs='1' size='11' priority_2='1' interface='false' sourceFile='FileTransferServiceImpl.kt'
+                    class='io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl'></ClassStats>
+    </PackageStats>
+    <PackageStats package='io.jenkins.plugins.codeInsights.usecase' total_bugs='3' priority_2='3' total_size='69'
+                  total_types='3'>
+        <ClassStats bugs='2' size='22' priority_2='2' interface='false'
+                    sourceFile='ExecutableAnnotationProvidersBuilder.kt'
+                    class='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder'></ClassStats>
+        <ClassStats bugs='0' size='3' interface='true' sourceFile='FileTransferService.kt'
+                    class='io.jenkins.plugins.codeInsights.usecase.FileTransferService'></ClassStats>
+        <ClassStats bugs='1' size='44' priority_2='1' interface='false' sourceFile='GitRepo.kt'
+                    class='io.jenkins.plugins.codeInsights.usecase.GitRepo'></ClassStats>
+    </PackageStats>
+    <FindBugsProfile>
+        <ClassProfile avgMicrosecondsPerInvocation='466' totalMilliseconds='1168'
+                      name='edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine'
+                      maxMicrosecondsPerInvocation='51515' standardDeviationMicrosecondsPerInvocation='1623'
+                      invocations='2507'></ClassProfile>
+        <ClassProfile avgMicrosecondsPerInvocation='332' totalMilliseconds='836'
+                      name='edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine'
+                      maxMicrosecondsPerInvocation='3773' standardDeviationMicrosecondsPerInvocation='326'
+                      invocations='2514'></ClassProfile>
+        <ClassProfile avgMicrosecondsPerInvocation='1447' totalMilliseconds='395'
+                      name='edu.umd.cs.findbugs.detect.FieldItemSummary' maxMicrosecondsPerInvocation='31990'
+                      standardDeviationMicrosecondsPerInvocation='3309' invocations='273'></ClassProfile>
+        <ClassProfile avgMicrosecondsPerInvocation='1103' totalMilliseconds='301'
+                      name='edu.umd.cs.findbugs.detect.FindNoSideEffectMethods' maxMicrosecondsPerInvocation='18377'
+                      standardDeviationMicrosecondsPerInvocation='2115' invocations='273'></ClassProfile>
+        <ClassProfile avgMicrosecondsPerInvocation='345' totalMilliseconds='289'
+                      name='edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory' maxMicrosecondsPerInvocation='9944'
+                      standardDeviationMicrosecondsPerInvocation='674' invocations='837'></ClassProfile>
+        <ClassProfile avgMicrosecondsPerInvocation='1477' totalMilliseconds='166'
+                      name='edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder'
+                      maxMicrosecondsPerInvocation='53576' standardDeviationMicrosecondsPerInvocation='5601'
+                      invocations='113'></ClassProfile>
+        <ClassProfile avgMicrosecondsPerInvocation='1164' totalMilliseconds='137'
+                      name='edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory'
+                      maxMicrosecondsPerInvocation='37790' standardDeviationMicrosecondsPerInvocation='3866'
+                      invocations='118'></ClassProfile>
+        <ClassProfile avgMicrosecondsPerInvocation='495' totalMilliseconds='135'
+                      name='edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers'
+                      maxMicrosecondsPerInvocation='5638' standardDeviationMicrosecondsPerInvocation='907'
+                      invocations='273'></ClassProfile>
+        <ClassProfile avgMicrosecondsPerInvocation='44' totalMilliseconds='109'
+                      name='edu.umd.cs.findbugs.util.TopologicalSort' maxMicrosecondsPerInvocation='1851'
+                      standardDeviationMicrosecondsPerInvocation='93' invocations='2460'></ClassProfile>
+        <ClassProfile avgMicrosecondsPerInvocation='839' totalMilliseconds='102'
+                      name='edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory'
+                      maxMicrosecondsPerInvocation='10694' standardDeviationMicrosecondsPerInvocation='1863'
+                      invocations='122'></ClassProfile>
+        <ClassProfile avgMicrosecondsPerInvocation='214' totalMilliseconds='89'
+                      name='edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine'
+                      maxMicrosecondsPerInvocation='17876' standardDeviationMicrosecondsPerInvocation='942'
+                      invocations='415'></ClassProfile>
+        <ClassProfile avgMicrosecondsPerInvocation='321' totalMilliseconds='87'
+                      name='edu.umd.cs.findbugs.detect.CalledMethods' maxMicrosecondsPerInvocation='4297'
+                      standardDeviationMicrosecondsPerInvocation='600' invocations='273'></ClassProfile>
+        <ClassProfile avgMicrosecondsPerInvocation='730' totalMilliseconds='86'
+                      name='edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory'
+                      maxMicrosecondsPerInvocation='9187' standardDeviationMicrosecondsPerInvocation='1557'
+                      invocations='118'></ClassProfile>
+        <ClassProfile avgMicrosecondsPerInvocation='707' totalMilliseconds='84'
+                      name='edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory'
+                      maxMicrosecondsPerInvocation='10077' standardDeviationMicrosecondsPerInvocation='1540'
+                      invocations='119'></ClassProfile>
+        <ClassProfile avgMicrosecondsPerInvocation='272' totalMilliseconds='74'
+                      name='edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures'
+                      maxMicrosecondsPerInvocation='4459' standardDeviationMicrosecondsPerInvocation='573'
+                      invocations='273'></ClassProfile>
+        <ClassProfile avgMicrosecondsPerInvocation='264' totalMilliseconds='72'
+                      name='edu.umd.cs.findbugs.detect.BuildStringPassthruGraph' maxMicrosecondsPerInvocation='4336'
+                      standardDeviationMicrosecondsPerInvocation='592' invocations='273'></ClassProfile>
+    </FindBugsProfile>
+</FindBugsSummary>
+<ClassFeatures></ClassFeatures>
+<History></History>
+</BugCollection>

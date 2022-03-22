@@ -26,7 +26,7 @@ class SonarQubeAnnotationProvider(
 
     private val client = OkHttpClient()
 
-    override fun convert(repositoryPath: String): List<Annotation> {
+    override fun convert(): List<Annotation> {
         val totalPage = fetchTotalPage() ?: return emptyList()
         return (1..(totalPage + PAGE_SIZE - 1) / PAGE_SIZE)
             .flatMap { page -> callApi(page)?.let { it.jsonObject["issues"]!!.jsonArray } ?: emptyList() }

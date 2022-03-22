@@ -5,7 +5,7 @@ data class Annotation(
     private val line: Int,
     private val message: String,
     val path: String,
-    private val severity: Severity = Severity.MEDIUM,
+    private val severity: Severity = Severity.LOW,
     private val link: String? = null,
 )
 

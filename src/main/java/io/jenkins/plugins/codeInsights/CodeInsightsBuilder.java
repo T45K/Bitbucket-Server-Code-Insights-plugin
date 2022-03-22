@@ -26,6 +26,7 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
     private String srcPath = "src/main/java";
     private String baseBranch = "origin/master";
     private String checkstyleFilePath = "";
+    private String spotBugsFilePath = "";
     private String sonarQubeProjectKey = "";
 
     @DataBoundConstructor
@@ -50,6 +51,11 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
     }
 
     @DataBoundSetter
+    public void setSpotBugsFilePath(final String spotBugsFilePath) {
+        this.spotBugsFilePath = spotBugsFilePath;
+    }
+
+    @DataBoundSetter
     public void setSonarQubeProjectKey(@NotNull final String sonarQubeProjectKey) {
         this.sonarQubeProjectKey = sonarQubeProjectKey;
     }
@@ -66,7 +72,7 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
             descriptor.sonarQubeUrl, descriptor.sonarQubeToken, descriptor.sonarQubeUsername, descriptor.sonarQubePassword, // optional global settings (SonarQube)
             repositoryName, commitId, // mandatory local settings
             srcPath, baseBranch, // optional local settings (with default values)
-            checkstyleFilePath, sonarQubeProjectKey // optional local settings
+            checkstyleFilePath, spotBugsFilePath, sonarQubeProjectKey // optional local settings
         ).delegate();
     }
 

@@ -28,6 +28,7 @@ class KotlinEntryPoint(
     private val srcPath: String,
     private val baseBranch: String,
     private val checkstyleFilePath: String,
+    private val spotBugsFilePath: String,
     private val sonarQubeProjectKey: String,
 ) {
     init {
@@ -47,12 +48,13 @@ class KotlinEntryPoint(
         val changedFiles = GitRepo(run.rootDir.resolve(".git").absolutePath)
             .detectChangedFiles(commitId, baseBranch)
         val executables = ExecutableAnnotationProvidersBuilder(fileTransferService)
-            .setCheckstyle(checkstyleFilePath)
+            .setCheckstyle(checkstyleFilePath, workspace.remote)
+            .setSpotBugs(spotBugsFilePath, srcPath)
             .setSonarQube(sonarQubeUrl, sonarQubeProjectKey, sonarQubeToken, sonarQubeUserName, sonarQubePassword)
             .build()
         for (executable in executables) {
             JenkinsLogger.info("Start ${executable.name}")
-            val annotations = executable.convert(workspace.remote).filter { changedFiles.contains(it.path) }
+            val annotations = executable.convert().filter { changedFiles.contains(it.path) }
             if (annotations.isNotEmpty()) {
                 httpClient.postAnnotations(executable.name, annotations)
             }
