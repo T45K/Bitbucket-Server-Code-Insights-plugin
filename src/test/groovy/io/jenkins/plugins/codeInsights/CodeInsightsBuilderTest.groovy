@@ -98,7 +98,7 @@ class CodeInsightsBuilderTest extends Specification {
 
         final def project = jenkins.createFreeStyleProject()
         final def builder = new CodeInsightsBuilder('repo', INITIAL_COMMIT_ID)
-        builder.setSpotBugsFilePath('src/test/resources/spotbugs-text.xml')
+        builder.setSpotBugsFilePath('src/test/resources/spotbugs-test.xml')
         project.buildersList << builder
         project.customWorkspace = Paths.get('.').toAbsolutePath().toString()
 
@@ -165,7 +165,7 @@ class CodeInsightsBuilderTest extends Specification {
         final def project = jenkins.createFreeStyleProject()
         final def builder = new CodeInsightsBuilder('repo', INITIAL_COMMIT_ID)
         builder.setCheckstyleFilePath('target/checkstyle-result.xml')
-        builder.setSpotBugsFilePath('src/test/resources/spotbugs-text.xml')
+        builder.setSpotBugsFilePath('src/test/resources/spotbugs-test.xml')
         builder.setSonarQubeProjectKey('trial')
         project.buildersList << builder
         project.customWorkspace = Paths.get('.').toAbsolutePath().toString()
