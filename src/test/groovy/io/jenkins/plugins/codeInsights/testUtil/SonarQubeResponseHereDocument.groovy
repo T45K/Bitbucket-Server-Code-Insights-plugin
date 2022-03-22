@@ -1,4 +1,4 @@
-package io.jenkins.plugins.codeInsights.util
+package io.jenkins.plugins.codeInsights.testUtil
 
 class SonarQubeResponseHereDocument {
     final static def RESPONSE_BODY = '''\

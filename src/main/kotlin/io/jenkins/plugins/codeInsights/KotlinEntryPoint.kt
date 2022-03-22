@@ -45,8 +45,10 @@ class KotlinEntryPoint(
 
         val fileTransferService = FileTransferServiceImpl(workspace, run)
         fileTransferService.copyFromWorkspaceToLocal(".git")
-        val changedFiles = GitRepo(run.rootDir.resolve(".git").absolutePath)
-            .detectChangedFiles(commitId, baseBranch)
+        val changedFiles = GitRepo(run.rootDir.resolve(".git")).use {
+            it.detectChangedFiles(commitId, baseBranch)
+        }
+
         val executables = ExecutableAnnotationProvidersBuilder(fileTransferService)
             .setCheckstyle(checkstyleFilePath, workspace.remote)
             .setSpotBugs(spotBugsFilePath, srcPath)

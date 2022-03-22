@@ -26,4 +26,10 @@ jobs:
             ${{ runner.os }}-
       - run: git fetch origin gitrepo-test-branch
       - run: git fetch origin master
-      - run: sh mvnw clean test
+      - run: sh mvnw clean package
+      - name: Save hpi
+        uses: actions/upload-artifact@v2
+        with:
+          name: hpi
+          path: target/codeInsights.hpi
+
