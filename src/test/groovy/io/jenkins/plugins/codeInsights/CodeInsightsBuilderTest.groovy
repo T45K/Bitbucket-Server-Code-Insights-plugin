@@ -53,7 +53,7 @@ class CodeInsightsBuilderTest extends Specification {
 
     def 'build successful without specifying any source'() {
         given:
-        server.enqueue(new MockResponse().setResponseCode(200))
+        server.enqueue(new MockResponse().setResponseCode(200)) // put reports
         jenkins.get(CodeInsightsBuilder.DescriptorImpl).configure(Stub(StaplerRequest), jsonObject)
 
         final def project = jenkins.createFreeStyleProject()
@@ -73,11 +73,12 @@ class CodeInsightsBuilderTest extends Specification {
     def 'build successful with Checkstyle file'() {
         given:
         server.enqueue(new MockResponse()) // put reports
+        server.enqueue(new MockResponse()) // post annotations
         jenkins.get(CodeInsightsBuilder.DescriptorImpl).configure(Stub(StaplerRequest), jsonObject)
 
         final def project = jenkins.createFreeStyleProject()
         final def builder = new CodeInsightsBuilder('repo', INITIAL_COMMIT_ID)
-        builder.setCheckstyleFilePath('src/test/resources/checkstyle-test.xml')
+        builder.setCheckstyleFilePath('target/checkstyle-result.xml')
         project.buildersList << builder
         project.customWorkspace = Paths.get('.').toAbsolutePath().toString()
 

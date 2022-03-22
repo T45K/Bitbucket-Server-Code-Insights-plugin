@@ -18,8 +18,8 @@ class ExecutableAnnotationProvidersBuilder(private val fileTransferService: File
             executables.add(
                 CheckstyleAnnotationProvider(
                     xmlMapper,
+                    repositoryPath,
                     fileTransferService.readFile(checkstyleFilePath),
-                    repositoryPath
                 )
             )
         }
