@@ -1,6 +1,6 @@
 package io.jenkins.plugins.codeInsights.domain
 
-import io.jenkins.plugins.codeInsights.util.SonarQubeResponseHereDocument
+import io.jenkins.plugins.codeInsights.testUtil.SonarQubeResponseHereDocument
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
 import spock.lang.Specification

@@ -12,15 +12,14 @@ import org.eclipse.jgit.revwalk.filter.RevFilter
 import org.eclipse.jgit.treewalk.AbstractTreeIterator
 import org.eclipse.jgit.treewalk.CanonicalTreeParser
 import org.eclipse.jgit.util.io.DisabledOutputStream
+import java.io.Closeable
 import java.io.File
 
 /**
- * @param fullPath must include ".git"
+ * @param gitDir must include ".git"
  */
-class GitRepo(fullPath: String) {
-    private val git = File(fullPath)
-        .let(::FileRepository)
-        .let(::Git)
+class GitRepo(gitDir: File) : Closeable {
+    private val git = Git(FileRepository(gitDir))
 
     fun detectChangedFiles(head: String, base: String): Set<String> {
         val headObjectId: ObjectId = git.repository.resolve(head)
@@ -56,5 +55,9 @@ class GitRepo(fullPath: String) {
         val treeParser = CanonicalTreeParser().apply { reset(git.repository.newObjectReader(), tree) }
         revWalk.dispose()
         return treeParser
+    }
+
+    override fun close() {
+        git.repository.close()
     }
 }
