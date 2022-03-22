@@ -1,7 +1,7 @@
 package io.jenkins.plugins.codeInsights
 
 import hudson.model.Result
-import io.jenkins.plugins.codeInsights.util.SonarQubeResponseHereDocument
+import io.jenkins.plugins.codeInsights.testUtil.SonarQubeResponseHereDocument
 import net.sf.json.JSONObject
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
