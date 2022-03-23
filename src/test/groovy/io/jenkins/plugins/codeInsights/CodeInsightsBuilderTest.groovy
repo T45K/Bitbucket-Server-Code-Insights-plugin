@@ -1,6 +1,7 @@
 package io.jenkins.plugins.codeInsights
 
 import hudson.model.Result
+import io.jenkins.plugins.codeInsights.testUtil.FileUtil
 import net.sf.json.JSONObject
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
@@ -9,13 +10,12 @@ import org.jvnet.hudson.test.JenkinsRule
 import org.kohsuke.stapler.StaplerRequest
 import spock.lang.Specification
 
-import java.nio.file.Files
 import java.nio.file.Paths
 
 class CodeInsightsBuilderTest extends Specification {
     private static final def INITIAL_COMMIT_ID = 'ed5582899d97af2ec47dad0462a7a38a8f3ebeeb'
     private static final def LOCAL_JENKINS_DIR = Paths.get('target', 'tmp')
-    private static final def SONAR_QUBE_RESPONSE = Files.readAllLines(Paths.get('src', 'test', 'resources', 'sonarQubeResonse.json')).join('\n')
+    private static final def SONAR_QUBE_RESPONSE = FileUtil.readString(Paths.get('src', 'test', 'resources', 'sonarQubeResonse.json'))
 
     @Rule
     private final JenkinsRule jenkins = new JenkinsRule()
@@ -23,18 +23,19 @@ class CodeInsightsBuilderTest extends Specification {
     private final def server = new MockWebServer()
 
     private final def jsonObject = new JSONObject(
-        [codeInsights:
-             [bitbucketUrl: server.url('').toString(),
-              project     : 'project',
-              reportKey   : 'reportKey',
-              username    : 'username',
-              password    : 'password']
-        ])
+        [
+            codeInsights: [
+                bitbucketUrl: server.url('').toString(),
+                project     : 'project',
+                reportKey   : 'reportKey',
+                username    : 'username',
+                password    : 'password',
+            ]
+        ]
+    )
 
     def setupSpec() {
-        if (Files.notExists(LOCAL_JENKINS_DIR)) {
-            Files.createDirectory(LOCAL_JENKINS_DIR)
-        }
+        FileUtil.createDirIfNotExist(LOCAL_JENKINS_DIR)
     }
 
     def 'test config round-trip'() {
@@ -118,15 +119,18 @@ class CodeInsightsBuilderTest extends Specification {
         server.enqueue(new MockResponse().setBody(SONAR_QUBE_RESPONSE)) // call to fetch total page
         server.enqueue(new MockResponse().setBody(SONAR_QUBE_RESPONSE)) // call to fetch issues
         final def jsonObject = new JSONObject(
-            [codeInsights:
-                 [bitbucketUrl  : server.url('').toString(),
-                  project       : 'project',
-                  reportKey     : 'reportKey',
-                  username      : 'username',
-                  password      : 'password',
-                  sonarQubeUrl  : server.url('').toString(),
-                  sonarQubeToken: 'hoge']
-            ])
+            [
+                codeInsights: [
+                    bitbucketUrl  : server.url('').toString(),
+                    project       : 'project',
+                    reportKey     : 'reportKey',
+                    username      : 'username',
+                    password      : 'password',
+                    sonarQubeUrl  : server.url('').toString(),
+                    sonarQubeToken: 'hoge'
+                ]
+            ]
+        )
         jenkins.get(CodeInsightsBuilder.DescriptorImpl).configure(Stub(StaplerRequest), jsonObject)
 
         final def project = jenkins.createFreeStyleProject()
@@ -151,15 +155,18 @@ class CodeInsightsBuilderTest extends Specification {
         server.enqueue(new MockResponse().setBody(SONAR_QUBE_RESPONSE)) // call to fetch total page
         server.enqueue(new MockResponse().setBody(SONAR_QUBE_RESPONSE)) // call to fetch issues
         final def jsonObject = new JSONObject(
-            [codeInsights:
-                 [bitbucketUrl  : server.url('').toString(),
-                  project       : 'project',
-                  reportKey     : 'reportKey',
-                  username      : 'username',
-                  password      : 'password',
-                  sonarQubeUrl  : server.url('').toString(),
-                  sonarQubeToken: 'hoge']
-            ])
+            [
+                codeInsights: [
+                    bitbucketUrl  : server.url('').toString(),
+                    project       : 'project',
+                    reportKey     : 'reportKey',
+                    username      : 'username',
+                    password      : 'password',
+                    sonarQubeUrl  : server.url('').toString(),
+                    sonarQubeToken: 'hoge'
+                ]
+            ]
+        )
         jenkins.get(CodeInsightsBuilder.DescriptorImpl).configure(Stub(StaplerRequest), jsonObject)
 
         final def project = jenkins.createFreeStyleProject()

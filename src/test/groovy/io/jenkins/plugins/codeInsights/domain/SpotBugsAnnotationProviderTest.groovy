@@ -1,15 +1,15 @@
 package io.jenkins.plugins.codeInsights.domain
 
+import io.jenkins.plugins.codeInsights.testUtil.FileUtil
 import spock.lang.Specification
 
-import java.nio.file.Files
 import java.nio.file.Paths
 
 class SpotBugsAnnotationProviderTest extends Specification {
 
     def 'check'() {
         given:
-        def sut = new SpotBugsAnnotationProvider('src/main/java', Files.readAllLines(Paths.get('src/test/resources/spotbugs-test.xml')).join('\n'))
+        def sut = new SpotBugsAnnotationProvider('src/main/java', FileUtil.readString(Paths.get('src/test/resources/spotbugs-test.xml')))
 
         expect:
         sut.convert() == [
