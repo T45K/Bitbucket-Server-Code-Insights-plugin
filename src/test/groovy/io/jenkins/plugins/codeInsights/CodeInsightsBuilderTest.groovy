@@ -1,7 +1,6 @@
 package io.jenkins.plugins.codeInsights
 
 import hudson.model.Result
-import io.jenkins.plugins.codeInsights.testUtil.SonarQubeResponseHereDocument
 import net.sf.json.JSONObject
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
@@ -16,6 +15,7 @@ import java.nio.file.Paths
 class CodeInsightsBuilderTest extends Specification {
     private static final def INITIAL_COMMIT_ID = 'ed5582899d97af2ec47dad0462a7a38a8f3ebeeb'
     private static final def LOCAL_JENKINS_DIR = Paths.get('target', 'tmp')
+    private static final def SONAR_QUBE_RESPONSE = Files.readAllLines(Paths.get('src', 'test', 'resources', 'sonarQubeResonse.json')).join('\n')
 
     @Rule
     private final JenkinsRule jenkins = new JenkinsRule()
@@ -115,8 +115,8 @@ class CodeInsightsBuilderTest extends Specification {
     def 'build successful with SonarQube'() {
         given:
         server.enqueue(new MockResponse()) // put reports
-        server.enqueue(new MockResponse().setBody(SonarQubeResponseHereDocument.RESPONSE_BODY)) // call to fetch total page
-        server.enqueue(new MockResponse().setBody(SonarQubeResponseHereDocument.RESPONSE_BODY)) // call to fetch issues
+        server.enqueue(new MockResponse().setBody(SONAR_QUBE_RESPONSE)) // call to fetch total page
+        server.enqueue(new MockResponse().setBody(SONAR_QUBE_RESPONSE)) // call to fetch issues
         final def jsonObject = new JSONObject(
             [codeInsights:
                  [bitbucketUrl  : server.url('').toString(),
@@ -148,8 +148,8 @@ class CodeInsightsBuilderTest extends Specification {
     def 'build successful with all sources'() {
         given:
         server.enqueue(new MockResponse())
-        server.enqueue(new MockResponse().setBody(SonarQubeResponseHereDocument.RESPONSE_BODY)) // call to fetch total page
-        server.enqueue(new MockResponse().setBody(SonarQubeResponseHereDocument.RESPONSE_BODY)) // call to fetch issues
+        server.enqueue(new MockResponse().setBody(SONAR_QUBE_RESPONSE)) // call to fetch total page
+        server.enqueue(new MockResponse().setBody(SONAR_QUBE_RESPONSE)) // call to fetch issues
         final def jsonObject = new JSONObject(
             [codeInsights:
                  [bitbucketUrl  : server.url('').toString(),
