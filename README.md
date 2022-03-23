@@ -3,6 +3,7 @@
 [![Build Status](https://github.com/T45K/Bitbucket-Server-Code-Insights-plugin/actions/workflows/execute-test.yaml/badge.svg)](https://github.com/T45K/Bitbucket-Server-Code-Insights-plugin/actions/workflows/execute-test.yaml)
 [![GitHub release](https://img.shields.io/github/v/release/T45K/Bitbucket-Server-Code-Insights-plugin?display_name=tag&include_prereleases)](https://github.com/T45K/Bitbucket-Server-Code-Insights-plugin/releases/latest)
 [![CodeFactor](https://www.codefactor.io/repository/github/t45k/bitbucket-server-code-insights-plugin/badge)](https://www.codefactor.io/repository/github/t45k/bitbucket-server-code-insights-plugin)
+[![codecov](https://codecov.io/gh/T45K/Bitbucket-Server-Code-Insights-plugin/branch/master/graph/badge.svg?token=WMB09M8P7R)](https://codecov.io/gh/T45K/Bitbucket-Server-Code-Insights-plugin)
 
 ## Introduction
 
