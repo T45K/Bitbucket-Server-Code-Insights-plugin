@@ -39,6 +39,6 @@ class FileTransferServiceImplTest extends Specification {
         expect:
         sut.readFile('gitrepo-modified') == '''\
 before modified
-'''
+'''.replace('\n', System.lineSeparator())
     }
 }
