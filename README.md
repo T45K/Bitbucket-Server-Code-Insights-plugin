@@ -4,6 +4,10 @@
 [![GitHub release](https://img.shields.io/github/v/release/T45K/Bitbucket-Server-Code-Insights-plugin?display_name=tag&include_prereleases)](https://github.com/T45K/Bitbucket-Server-Code-Insights-plugin/releases/latest)
 [![CodeFactor](https://www.codefactor.io/repository/github/t45k/bitbucket-server-code-insights-plugin/badge)](https://www.codefactor.io/repository/github/t45k/bitbucket-server-code-insights-plugin)
 [![codecov](https://codecov.io/gh/T45K/Bitbucket-Server-Code-Insights-plugin/branch/master/graph/badge.svg?token=WMB09M8P7R)](https://codecov.io/gh/T45K/Bitbucket-Server-Code-Insights-plugin)
+[![CodeQL](https://github.com/T45K/Bitbucket-Server-Code-Insights-plugin/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/T45K/Bitbucket-Server-Code-Insights-plugin/actions/workflows/codeql-analysis.yml)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/T45K/Bitbucket-Server-Code-Insights-plugin.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/T45K/Bitbucket-Server-Code-Insights-plugin/alerts/)
+[![Language grade: Java](https://img.shields.io/lgtm/grade/java/g/T45K/Bitbucket-Server-Code-Insights-plugin.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/T45K/Bitbucket-Server-Code-Insights-plugin/context:java)
+![License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 
 ## Introduction
 
