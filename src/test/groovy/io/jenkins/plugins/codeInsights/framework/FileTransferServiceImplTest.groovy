@@ -3,11 +3,13 @@ package io.jenkins.plugins.codeInsights.framework
 import hudson.FilePath
 import hudson.model.Run
 import io.jenkins.plugins.codeInsights.testUtil.FileUtil
+import spock.lang.IgnoreIf
 import spock.lang.Specification
 
 import java.nio.file.Files
 import java.nio.file.Paths
 
+@IgnoreIf({ jvm.javaVersion.startsWith('17') })
 class FileTransferServiceImplTest extends Specification {
     def 'copyFromWorkspaceToLocal copies target file'() {
         given:
