@@ -2,7 +2,6 @@ package io.jenkins.plugins.codeInsights.domain
 
 import io.jenkins.plugins.codeInsights.JenkinsLogger
 import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.int
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
@@ -29,7 +28,11 @@ class SonarQubeAnnotationProvider(
     override fun convert(): List<Annotation> {
         val totalPage = fetchTotalPage() ?: return emptyList()
         return (1..(totalPage + PAGE_SIZE - 1) / PAGE_SIZE)
-            .flatMap { page -> callApi(page)?.let { it.jsonObject["issues"]!!.jsonArray } ?: emptyList() }
+            .flatMap { page ->
+                callApi(page)?.let(Json::parseToJsonElement)
+                    ?.let { it.jsonObject["issues"]?.jsonArray }
+                    ?: emptyList()
+            }
             .map { it.jsonObject }
             .map { issue ->
                 Annotation(
@@ -52,12 +55,13 @@ class SonarQubeAnnotationProvider(
 
     private fun fetchTotalPage(): Int? =
         callApi(1)?.let {
-            it.jsonObject["paging"]!!
+            it.let(Json::parseToJsonElement)
+                .jsonObject["paging"]!!
                 .jsonObject["total"]!!
                 .jsonPrimitive.int
         }
 
-    private fun callApi(page: Int): JsonElement? {
+    private fun callApi(page: Int): String? {
         val url = super.source.toHttpUrl().newBuilder()
             .addPathSegment("api")
             .addPathSegment("issues")
@@ -75,7 +79,7 @@ class SonarQubeAnnotationProvider(
 
         return client.newCall(request).execute().let {
             if (it.isSuccessful) {
-                it.body!!.string().let(Json::parseToJsonElement)
+                it.body!!.string()
             } else {
                 JenkinsLogger.info("Failed to call $name API")
                 JenkinsLogger.info(it.body!!.string())
