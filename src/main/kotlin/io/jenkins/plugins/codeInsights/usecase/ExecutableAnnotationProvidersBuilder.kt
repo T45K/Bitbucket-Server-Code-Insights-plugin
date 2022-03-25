@@ -43,7 +43,7 @@ class ExecutableAnnotationProvidersBuilder(private val fileTransferService: File
             JenkinsLogger.info("SonarQube enabled")
             executables.add(SonarQubeAnnotationProvider(sonarQubeUrl, sonarQubeProjectKey, sonarQubeCredential))
         } catch (e: Exception) {
-            // Skip
+            JenkinsLogger.info(e.message ?: "")
         }
         return this
     }

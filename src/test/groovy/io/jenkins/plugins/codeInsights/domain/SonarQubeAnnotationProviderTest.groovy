@@ -62,7 +62,7 @@ class SonarQubeAnnotationProviderTest extends Specification {
     def 'convert returns emptyList when issues are missing'() {
         given:
         server.enqueue(new MockResponse().setBody(SONAR_QUBE_RESPONSE))
-        server.enqueue(new MockResponse())
+        server.enqueue(new MockResponse().setBody('{}'))
 
         final def sut = new SonarQubeAnnotationProvider(server.url('').toString(), 'trial', new SonarQubeCredential('', 'admin', 'admin'))
 
