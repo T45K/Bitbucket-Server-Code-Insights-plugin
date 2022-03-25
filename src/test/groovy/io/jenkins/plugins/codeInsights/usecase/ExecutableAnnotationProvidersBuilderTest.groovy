@@ -37,20 +37,21 @@ class ExecutableAnnotationProvidersBuilderTest extends Specification {
         ''               || []
     }
 
-//    def 'setSonarQube can perform correctly'() {
-//        given:
-//        final def sut = new ExecutableAnnotationProvidersBuilder(fileTransferServiceStub)
-//
-//        expect:
-//        sut.setSonarQube(url, projectKey, token, username, password).build() == expect
-//
-//        where:
-//        url   | projectKey   | token   | username   | password   || expect
-//        'url' | 'projectKey' | 'token' | 'username' | 'password' || [new SonarQubeAnnotationProvider(url, projectKey, new SonarQubeCredential(token, username, password))]
-//        'url' | 'projectKey' | 'token' | ''         | ''         || [new SonarQubeAnnotationProvider(url, projectKey, new SonarQubeCredential(token, username, password))]
-//        'url' | 'projectKey' | ''      | 'username' | 'password' || [new SonarQubeAnnotationProvider(url, projectKey, new SonarQubeCredential(token, username, password))]
-//        ''    | 'projectKey' | 'token' | 'username' | 'password' || []
-//        'url' | ''           | 'token' | 'username' | 'password' || []
-//        'url' | 'projectKey' | ''      | ''         | ''         || []
-//    } TODO
+    // TODO
+    /*def 'setSonarQube can perform correctly'() {
+        given:
+        final def sut = new ExecutableAnnotationProvidersBuilder(fileTransferServiceStub)
+
+        expect:
+        sut.setSonarQube(url, projectKey, token, username, password).build() == expect
+
+        where:
+        url   | projectKey   | token   | username   | password   || expect
+        'url' | 'projectKey' | 'token' | 'username' | 'password' || [new SonarQubeAnnotationProvider(url, projectKey, new SonarQubeCredential(token, username, password))]
+        'url' | 'projectKey' | 'token' | ''         | ''         || [new SonarQubeAnnotationProvider(url, projectKey, new SonarQubeCredential(token, username, password))]
+        'url' | 'projectKey' | ''      | 'username' | 'password' || [new SonarQubeAnnotationProvider(url, projectKey, new SonarQubeCredential(token, username, password))]
+        ''    | 'projectKey' | 'token' | 'username' | 'password' || []
+        'url' | ''           | 'token' | 'username' | 'password' || []
+        'url' | 'projectKey' | ''      | ''         | ''         || []
+    }*/
 }
