@@ -2,6 +2,7 @@ package io.jenkins.plugins.codeInsights.domain
 
 import com.fasterxml.jackson.dataformat.xml.XmlMapper
 import io.jenkins.plugins.codeInsights.util.asArray
+import io.jenkins.plugins.codeInsights.util.flat
 import io.jenkins.plugins.codeInsights.util.toForwardSlashString
 import java.nio.file.Paths
 
@@ -20,7 +21,7 @@ class PmdAnnotationProvider(
                 fileTag["violation"].asArray()
                     .map { violationTag ->
                         val line = violationTag["beginline"].asInt()
-                        val message = "$name says: ${violationTag.asText()}"
+                        val message = "$name says: ${violationTag[""].asText().flat()}"
                         val severity = violationTag["priority"].asInt().toAnnotationSeverity()
                         val link = violationTag["externalInfoUrl"].asText()
                         Annotation(line, message, filePath, severity, link)
