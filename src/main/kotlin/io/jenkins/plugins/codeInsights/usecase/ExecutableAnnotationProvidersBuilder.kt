@@ -29,7 +29,13 @@ class ExecutableAnnotationProvidersBuilder(private val fileTransferService: File
     fun setSpotBugs(spotBugsFilePath: String, srcPath: String): ExecutableAnnotationProvidersBuilder {
         if (spotBugsFilePath.isNotBlank()) {
             JenkinsLogger.info("SpotBugs enabled")
-            executables.add(SpotBugsAnnotationProvider(srcPath, fileTransferService.readFile(spotBugsFilePath)))
+            executables.add(
+                SpotBugsAnnotationProvider(
+                    srcPath,
+                    xmlMapper,
+                    fileTransferService.readFile(spotBugsFilePath)
+                )
+            )
         }
         return this
     }
@@ -40,10 +46,12 @@ class ExecutableAnnotationProvidersBuilder(private val fileTransferService: File
     ): ExecutableAnnotationProvidersBuilder {
         try {
             val sonarQubeCredential = SonarQubeCredential(sonarQubeToken, sonarQubeUsername, sonarQubePassword)
-            JenkinsLogger.info("SonarQube enabled")
-            executables.add(SonarQubeAnnotationProvider(sonarQubeUrl, sonarQubeProjectKey, sonarQubeCredential))
+            if (sonarQubeUrl.isNotBlank() && sonarQubeProjectKey.isNotBlank()) {
+                JenkinsLogger.info("SonarQube enabled")
+                executables.add(SonarQubeAnnotationProvider(sonarQubeUrl, sonarQubeProjectKey, sonarQubeCredential))
+            }
         } catch (e: Exception) {
-            // Skip
+            JenkinsLogger.info(e.message ?: "")
         }
         return this
     }

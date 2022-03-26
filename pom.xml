@@ -13,8 +13,8 @@
     <version>${revision}</version>
     <packaging>hpi</packaging>
     <properties>
-        <revision>0.3.0</revision>
-        <jenkins.version>2.235.1</jenkins.version>
+        <revision>0.4.0</revision>
+        <jenkins.version>2.340</jenkins.version>
         <java.level>8</java.level>
         <gitHubRepo>T45K/Bitbucket-Server-Code-Insights-plugin</gitHubRepo>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -128,6 +128,12 @@
             <groupId>net.bytebuddy</groupId>
             <artifactId>byte-buddy</artifactId>
             <version>1.12.8</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.objenesis</groupId>
+            <artifactId>objenesis</artifactId>
+            <version>3.2</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -297,6 +303,25 @@
                         <phase>compile</phase>
                         <goals>
                             <goal>pmd</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.7</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
                         </goals>
                     </execution>
                 </executions>

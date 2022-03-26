@@ -2,34 +2,36 @@ name: execute-test
 
 on:
   pull_request:
+  push:
     branches:
       - master
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ macos-latest, windows-latest, ubuntu-latest ]
+        java: [ 8, 11 ,17 ]
     steps:
-      - uses: actions/checkout@v2
-      - name: Set up JDK 8
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Set up JDK
         uses: actions/setup-java@v2
         with:
-          java-version: '8'
-          distribution: 'adopt'
+          java-version: ${{ matrix.java }}
+          distribution: 'temurin'
           cache: 'maven'
-      - name: Cache local Maven repository
-        uses: actions/cache@v2
-        with:
-          path: ~/.m2/repository
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-maven-
-            ${{ runner.os }}-
-      - run: git fetch origin gitrepo-test-branch
-      - run: git fetch origin master
       - run: sh mvnw clean package
       - name: Save hpi
         uses: actions/upload-artifact@v2
         with:
-          name: hpi
+          name: plugin_Java-${{ matrix.java }}_${{ matrix.os }}
           path: target/codeInsights.hpi
-
+      - name: Upload coverage
+        uses: codecov/codecov-action@v2
+        if: ${{ matrix.os == 'ubuntu-latest' && matrix.java == '8' }}
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true
