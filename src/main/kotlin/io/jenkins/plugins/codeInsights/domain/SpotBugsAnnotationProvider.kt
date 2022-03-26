@@ -7,11 +7,10 @@ import java.nio.file.Paths
 
 class SpotBugsAnnotationProvider(
     private val srcPath: String,
+    private val xmlMapper: XmlMapper,
     contents: String,
 ) : AnnotationProvider(contents) {
     override val name: String = "SpotBugs"
-
-    private val xmlMapper = XmlMapper()
 
     override fun convert(): List<Annotation> =
         xmlMapper.readTree(source)["BugInstance"].asArray().flatMap { bugInstance ->
