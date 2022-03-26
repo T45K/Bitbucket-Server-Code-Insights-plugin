@@ -15,7 +15,7 @@ import java.nio.file.Paths
 class CodeInsightsBuilderTest extends Specification {
     private static final def INITIAL_COMMIT_ID = 'ed5582899d97af2ec47dad0462a7a38a8f3ebeeb'
     private static final def LOCAL_JENKINS_DIR = Paths.get('target', 'tmp')
-    private static final def SONAR_QUBE_RESPONSE = FileUtil.readString(Paths.get('src', 'test', 'resources', 'sonarQubeResonse.json'))
+    private static final def SONAR_QUBE_RESPONSE = FileUtil.readString(Paths.get('src', 'test', 'resources', 'sonarQubeResponse.json'))
 
     @Rule
     private final JenkinsRule jenkins = new JenkinsRule()
