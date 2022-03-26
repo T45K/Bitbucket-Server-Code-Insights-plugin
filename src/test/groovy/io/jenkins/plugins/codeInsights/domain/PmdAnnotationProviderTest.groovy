@@ -20,7 +20,7 @@ class PmdAnnotationProviderTest extends Specification {
         expect:
         sut.convert() == [
             new Annotation(19, 'PMD says: Avoid unused local variables such as \'a\'.',
-                'src/main/java/io/jenkins/plugins/codeInsights/Sample.java', Severity.MEDIUM, 'https://pmd.github.io/pmd-6.42.0/pmd_rules_java_bestpractices.html#unusedlocalvariable')
+                'src/main/java/Sample.java', Severity.MEDIUM, 'https://pmd.github.io/pmd-6.42.0/pmd_rules_java_bestpractices.html#unusedlocalvariable')
         ]
     }
 

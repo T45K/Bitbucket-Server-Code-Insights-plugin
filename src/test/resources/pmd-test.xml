@@ -2,7 +2,7 @@
 <pmd xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://pmd.sourceforge.net/report/2.0.0"
      xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd"
      version="6.42.0" timestamp="2022-03-26T18:03:15.136">
-    <file name="\test\repo\src\main\java\io\jenkins\plugins\codeInsights\Sample.java">
+    <file name="/test/repo/src/main/java/Sample.java">
         <violation beginline="19" endline="19" begincolumn="13" endcolumn="13" rule="UnusedLocalVariable"
                    ruleset="Best Practices" package="io.jenkins.plugins.codeInsights" class="Sample" method="main"
                    variable="a"
