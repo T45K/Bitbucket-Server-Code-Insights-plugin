@@ -16,6 +16,12 @@
         <f:entry title="Path of checkstyle results file" field="checkstyleFilePath">
             <f:textbox/>
         </f:entry>
+        <f:entry title="Path of SpotBugs results file" field="spotBugsFilePath">
+            <f:textbox/>
+        </f:entry>
+        <f:entry title="Path of PMD results file" field="pmdFilePath">
+            <f:textbox/>
+        </f:entry>
         <f:entry title="SonarQube project key" field="sonarQubeProjectKey"
                  description="same as XXX of `mvn sonar:sonar -Dsonar.projectKey=XXX`">
             <f:textbox/>

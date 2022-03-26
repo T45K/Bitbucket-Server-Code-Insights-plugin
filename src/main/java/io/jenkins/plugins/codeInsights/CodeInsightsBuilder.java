@@ -1,5 +1,6 @@
 package io.jenkins.plugins.codeInsights;
 
+import hudson.EnvVars;
 import hudson.Extension;
 import hudson.FilePath;
 import hudson.Launcher;
@@ -27,6 +28,7 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
     private String baseBranch = "origin/master";
     private String checkstyleFilePath = "";
     private String spotBugsFilePath = "";
+    private String pmdFilePath = "";
     private String sonarQubeProjectKey = "";
 
     @DataBoundConstructor
@@ -56,6 +58,11 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
     }
 
     @DataBoundSetter
+    public void setPmdFilePath(final String pmdFilePath) {
+        this.pmdFilePath = pmdFilePath;
+    }
+
+    @DataBoundSetter
     public void setSonarQubeProjectKey(@NotNull final String sonarQubeProjectKey) {
         this.sonarQubeProjectKey = sonarQubeProjectKey;
     }
@@ -63,16 +70,17 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
     @Override
     public void perform(@NotNull final Run<?, ?> run,
                         @NotNull final FilePath workspace,
+                        @NotNull final EnvVars envVars,
                         @NotNull final Launcher launcher,
                         @NotNull final TaskListener listener) {
         final DescriptorImpl descriptor = (DescriptorImpl) super.getDescriptor();
         new KotlinEntryPoint(
-            run, workspace, launcher, listener, // given by Jenkins
+            run, workspace, envVars, launcher, listener, // given by Jenkins
             descriptor.bitbucketUrl, descriptor.project, descriptor.reportKey, descriptor.username, descriptor.password, // mandatory global settings (Bitbucket)
             descriptor.sonarQubeUrl, descriptor.sonarQubeToken, descriptor.sonarQubeUsername, descriptor.sonarQubePassword, // optional global settings (SonarQube)
             repositoryName, commitId, // mandatory local settings
             srcPath, baseBranch, // optional local settings (with default values)
-            checkstyleFilePath, spotBugsFilePath, sonarQubeProjectKey // optional local settings
+            checkstyleFilePath, spotBugsFilePath, pmdFilePath, sonarQubeProjectKey // optional local settings
         ).delegate();
     }
 
