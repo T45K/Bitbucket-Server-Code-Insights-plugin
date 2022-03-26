@@ -113,6 +113,27 @@ class CodeInsightsBuilderTest extends Specification {
         jenkins.assertLogContains('Finished: SUCCESS', build)
     }
 
+    def 'build successful with PMD file'() {
+        given:
+        server.enqueue(new MockResponse()) // put reports
+        jenkins.get(CodeInsightsBuilder.DescriptorImpl).configure(Stub(StaplerRequest), jsonObject)
+
+        final def project = jenkins.createFreeStyleProject()
+        final def builder = new CodeInsightsBuilder('repo', INITIAL_COMMIT_ID)
+        builder.setPmdFilePath('target/pmd.xml')
+        project.buildersList << builder
+        project.customWorkspace = Paths.get('.').toAbsolutePath().toString()
+
+        expect:
+        final def build = jenkins.buildAndAssertSuccess(project)
+        jenkins.assertLogContains('[Code Insights plugin] Start to put reports', build)
+        jenkins.assertLogContains('[Code Insights plugin] Put reports: SUCCESS', build)
+        jenkins.assertLogContains('[Code Insights plugin] PMD enabled', build)
+        jenkins.assertLogContains('[Code Insights plugin] Start PMD', build)
+        jenkins.assertLogContains('[Code Insights plugin] Finish PMD', build)
+        jenkins.assertLogContains('Finished: SUCCESS', build)
+    }
+
     def 'build successful with SonarQube'() {
         given:
         server.enqueue(new MockResponse()) // put reports
@@ -173,6 +194,7 @@ class CodeInsightsBuilderTest extends Specification {
         final def builder = new CodeInsightsBuilder('repo', INITIAL_COMMIT_ID)
         builder.setCheckstyleFilePath('target/checkstyle-result.xml')
         builder.setSpotBugsFilePath('src/test/resources/spotbugs-test.xml')
+        builder.setPmdFilePath('target/pmd.xml')
         builder.setSonarQubeProjectKey('trial')
         project.buildersList << builder
         project.customWorkspace = Paths.get('.').toAbsolutePath().toString()
@@ -183,14 +205,33 @@ class CodeInsightsBuilderTest extends Specification {
         jenkins.assertLogContains('[Code Insights plugin] Put reports: SUCCESS', build)
         jenkins.assertLogContains('[Code Insights plugin] Checkstyle enabled', build)
         jenkins.assertLogContains('[Code Insights plugin] SpotBugs enabled', build)
+        jenkins.assertLogContains('[Code Insights plugin] PMD enabled', build)
         jenkins.assertLogContains('[Code Insights plugin] SonarQube enabled', build)
         jenkins.assertLogContains('[Code Insights plugin] Start Checkstyle', build)
         jenkins.assertLogContains('[Code Insights plugin] Finish Checkstyle', build)
         jenkins.assertLogContains('[Code Insights plugin] Start SpotBugs', build)
         jenkins.assertLogContains('[Code Insights plugin] Finish SpotBugs', build)
+        jenkins.assertLogContains('[Code Insights plugin] Start PMD', build)
+        jenkins.assertLogContains('[Code Insights plugin] Finish PMD', build)
         jenkins.assertLogContains('[Code Insights plugin] Start SonarQube', build)
         jenkins.assertLogContains('[Code Insights plugin] Finish SonarQube', build)
         jenkins.assertLogContains('Finished: SUCCESS', build)
+    }
+
+    def 'build failure when plugin cannot find input file path'() {
+        given:
+        jenkins.get(CodeInsightsBuilder.DescriptorImpl).configure(Stub(StaplerRequest), jsonObject)
+
+        final def project = jenkins.createFreeStyleProject()
+        final def builder = new CodeInsightsBuilder('repo', INITIAL_COMMIT_ID)
+        builder.setCheckstyleFilePath('nothing')
+        project.buildersList << builder
+        project.customWorkspace = Paths.get('.').toAbsolutePath().toString()
+
+        expect:
+        final def build = jenkins.buildAndAssertStatus(Result.FAILURE, project)
+        jenkins.assertLogContains('[Code Insights plugin] Start to put reports', build)
+        jenkins.assertLogContains('Finished: FAILURE', build)
     }
 
     def 'build failure when plugin cannot get response from Bitbucket server'() {

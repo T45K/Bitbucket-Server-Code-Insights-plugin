@@ -2,6 +2,7 @@ package io.jenkins.plugins.codeInsights.domain
 
 import com.fasterxml.jackson.dataformat.xml.XmlMapper
 import io.jenkins.plugins.codeInsights.util.asArray
+import io.jenkins.plugins.codeInsights.util.flat
 import io.jenkins.plugins.codeInsights.util.toForwardSlashString
 import java.nio.file.Paths
 
@@ -23,8 +24,4 @@ class SpotBugsAnnotationProvider(
                 )
             }
         }
-
-    private fun String.flat() = this.replace("\n", "")
-        .replace("\\s+".toRegex(), " ")
-        .trim()
 }

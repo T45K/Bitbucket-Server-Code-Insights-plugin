@@ -2,6 +2,7 @@ package io.jenkins.plugins.codeInsights.usecase
 
 import io.jenkins.plugins.codeInsights.JenkinsLogger
 import io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider
+import io.jenkins.plugins.codeInsights.domain.PmdAnnotationProvider
 import io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider
 import io.jenkins.plugins.codeInsights.domain.SpotBugsAnnotationProvider
 import spock.lang.Specification
@@ -29,7 +30,7 @@ class ExecutableAnnotationProvidersBuilderTest extends Specification {
         1 * mockLogger.println('[Code Insights plugin] Checkstyle enabled')
 
         where:
-        repositoryPath << ['repo', '.', '']
+        repositoryPath << ['repo', '.', '/']
     }
 
     def 'setCheckstyle does not set annotation provider when checkstyle file path is not given'() {
@@ -44,7 +45,7 @@ class ExecutableAnnotationProvidersBuilderTest extends Specification {
         0 * mockLogger.println('[Code Insights plugin] Checkstyle enabled')
 
         where:
-        repositoryPath << ['repo', '.', '']
+        repositoryPath << ['repo', '.', '/']
     }
 
     def 'setSpotBugs set annotation provider when SpotBugs file path is given'() {
@@ -60,7 +61,7 @@ class ExecutableAnnotationProvidersBuilderTest extends Specification {
         1 * mockLogger.println('[Code Insights plugin] SpotBugs enabled')
 
         where:
-        srcPath << ['src', '.', '']
+        srcPath << ['src', '.', '/']
     }
 
     def 'setSpotBugs does not set annotation provider when SpotBugs file path is not given'() {
@@ -75,7 +76,38 @@ class ExecutableAnnotationProvidersBuilderTest extends Specification {
         0 * mockLogger.println('[Code Insights plugin] SpotBugs enabled')
 
         where:
-        srcPath << ['src', '.', '']
+        srcPath << ['src', '.', '/']
+    }
+
+    def 'setPmd set annotation provider when PMD file path is given'() {
+        given:
+        final def sut = new ExecutableAnnotationProvidersBuilder(fileTransferServiceStub)
+
+        when:
+        def executables = sut.setPmd('result.xml', repositoryPath).build()
+
+        then:
+        executables.size() == 1
+        executables[0].class == PmdAnnotationProvider
+        1 * mockLogger.println('[Code Insights plugin] PMD enabled')
+
+        where:
+        repositoryPath << ['repo', '.', '/']
+    }
+
+    def 'setPmd does not set annotation provider when PMD file path is not given'() {
+        given:
+        final def sut = new ExecutableAnnotationProvidersBuilder(fileTransferServiceStub)
+
+        when:
+        def executables = sut.setPmd('', repositoryPath).build()
+
+        then:
+        executables.isEmpty()
+        0 * mockLogger.println('[Code Insights plugin] PMD enabled')
+
+        where:
+        repositoryPath << ['src', '.', '/']
     }
 
     def 'setSonarQube set annotation provider when SonarQube url, project key, and account information are given'() {
@@ -141,7 +173,8 @@ class ExecutableAnnotationProvidersBuilderTest extends Specification {
         expect:
         sut.setCheckstyle('result.xml', 'repo')
             .setSpotBugs('result.xml', 'src')
+            .setPmd('result.xml', 'repo')
             .setSonarQube('url', 'projectKey', 'token', '', '')
-            .build()*.class ==~ [CheckstyleAnnotationProvider, SpotBugsAnnotationProvider, SonarQubeAnnotationProvider]
+            .build()*.class ==~ [CheckstyleAnnotationProvider, SpotBugsAnnotationProvider, PmdAnnotationProvider, SonarQubeAnnotationProvider]
     }
 }

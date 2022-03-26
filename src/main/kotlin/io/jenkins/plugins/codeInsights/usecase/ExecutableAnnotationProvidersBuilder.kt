@@ -4,6 +4,7 @@ import com.fasterxml.jackson.dataformat.xml.XmlMapper
 import io.jenkins.plugins.codeInsights.JenkinsLogger
 import io.jenkins.plugins.codeInsights.domain.AnnotationProvider
 import io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider
+import io.jenkins.plugins.codeInsights.domain.PmdAnnotationProvider
 import io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider
 import io.jenkins.plugins.codeInsights.domain.SonarQubeCredential
 import io.jenkins.plugins.codeInsights.domain.SpotBugsAnnotationProvider
@@ -19,7 +20,7 @@ class ExecutableAnnotationProvidersBuilder(private val fileTransferService: File
                 CheckstyleAnnotationProvider(
                     xmlMapper,
                     repositoryPath,
-                    fileTransferService.readFile(checkstyleFilePath),
+                    fileTransferService.readFile(checkstyleFilePath)
                 )
             )
         }
@@ -36,6 +37,14 @@ class ExecutableAnnotationProvidersBuilder(private val fileTransferService: File
                     fileTransferService.readFile(spotBugsFilePath)
                 )
             )
+        }
+        return this
+    }
+
+    fun setPmd(pmdFilePath: String, repositoryPath: String): ExecutableAnnotationProvidersBuilder {
+        if (pmdFilePath.isNotBlank()) {
+            JenkinsLogger.info("PMD enabled")
+            executables.add(PmdAnnotationProvider(xmlMapper, repositoryPath, fileTransferService.readFile(pmdFilePath)))
         }
         return this
     }

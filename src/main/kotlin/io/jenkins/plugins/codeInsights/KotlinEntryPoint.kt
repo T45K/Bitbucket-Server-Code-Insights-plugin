@@ -1,5 +1,6 @@
 package io.jenkins.plugins.codeInsights
 
+import hudson.EnvVars
 import hudson.FilePath
 import hudson.Launcher
 import hudson.model.Run
@@ -12,6 +13,7 @@ import io.jenkins.plugins.codeInsights.usecase.GitRepo
 class KotlinEntryPoint(
     private val run: Run<*, *>,
     private val workspace: FilePath,
+    private val envVars: EnvVars,
     private val launcher: Launcher,
     private val listener: TaskListener,
     private val bitbucketUrl: String,
@@ -29,6 +31,7 @@ class KotlinEntryPoint(
     private val baseBranch: String,
     private val checkstyleFilePath: String,
     private val spotBugsFilePath: String,
+    private val pmdFilePath: String,
     private val sonarQubeProjectKey: String,
 ) {
     init {
@@ -52,6 +55,7 @@ class KotlinEntryPoint(
         val executables = ExecutableAnnotationProvidersBuilder(fileTransferService)
             .setCheckstyle(checkstyleFilePath, workspace.remote)
             .setSpotBugs(spotBugsFilePath, srcPath)
+            .setPmd(pmdFilePath, workspace.remote)
             .setSonarQube(sonarQubeUrl, sonarQubeProjectKey, sonarQubeToken, sonarQubeUserName, sonarQubePassword)
             .build()
         for (executable in executables) {
