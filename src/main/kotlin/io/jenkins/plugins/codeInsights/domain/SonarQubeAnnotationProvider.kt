@@ -104,6 +104,6 @@ class SonarQubeCredential(
     val value: String = when {
         token.isNotEmpty() -> Credentials.basic(token, "")
         username.isNotEmpty() && password.isNotEmpty() -> Credentials.basic(username, password)
-        else -> throw RuntimeException("Please use SonarQubeCredential after setting valid items")
+        else -> throw RuntimeException("SonarQube credential items are not given")
     }
 }
