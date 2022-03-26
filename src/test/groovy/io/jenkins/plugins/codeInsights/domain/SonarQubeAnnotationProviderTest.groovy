@@ -161,7 +161,7 @@ class SonarQubeAnnotationProviderTest extends Specification {
 
         then:
         final def e = thrown(RuntimeException)
-        e.message == 'Please use SonarQubeCredential after setting valid items'
+        e.message == 'SonarQube credential items are not given'
 
         where:
         token | username | password

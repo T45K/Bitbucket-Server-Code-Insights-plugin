@@ -9,7 +9,9 @@ import spock.lang.Specification
 import java.nio.file.Files
 import java.nio.file.Paths
 
-@IgnoreIf({ jvm.javaVersion.startsWith('17') })
+@IgnoreIf({
+    println jvm.javaVersion
+    jvm.javaVersion.startsWith('17') })
 class FileTransferServiceImplTest extends Specification {
     def 'copyFromWorkspaceToLocal copies target file'() {
         given:
