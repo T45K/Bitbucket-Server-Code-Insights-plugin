@@ -70,7 +70,7 @@ class HttpClient(
     }
 
     fun postAnnotations(name: String, annotations: List<Annotation>) {
-        JenkinsLogger.info("Start to post $name annotations ")
+        JenkinsLogger.info("Start to post $name annotations")
         val request = Request.Builder()
             .url(annotationUrl)
             .authorizationHeader()
