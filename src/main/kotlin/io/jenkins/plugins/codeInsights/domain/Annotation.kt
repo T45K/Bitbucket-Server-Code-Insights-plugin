@@ -1,6 +1,8 @@
 package io.jenkins.plugins.codeInsights.domain
 
-@kotlinx.serialization.Serializable
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class Annotation(
     private val line: Int,
     private val message: String,
@@ -9,8 +11,7 @@ data class Annotation(
     private val link: String? = null,
 )
 
-@Suppress("unused")
-@kotlinx.serialization.Serializable
+@Serializable
 enum class Severity {
     LOW, MEDIUM, HIGH
 }

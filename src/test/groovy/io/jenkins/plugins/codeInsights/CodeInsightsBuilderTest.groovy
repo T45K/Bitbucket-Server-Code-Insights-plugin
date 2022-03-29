@@ -265,6 +265,40 @@ class CodeInsightsBuilderTest extends Specification {
         jenkins.assertLogContains('[Code Insights plugin] Put reports: FAILURE', build)
     }
 
+    def 'DescriptorImpl can be saved and loaded'() {
+        given:
+        final def jsonObject = new JSONObject(
+            [
+                codeInsights: [
+                    bitbucketUrl     : server.url('').toString(),
+                    project          : 'project',
+                    reportKey        : 'reportKey',
+                    username         : 'username',
+                    password         : 'password',
+                    sonarQubeUrl     : server.url('').toString(),
+                    sonarQubeToken   : 'token',
+                    sonarQubeUsername: 'username',
+                    sonarQubePassword: 'password',
+                ]
+            ]
+        )
+        jenkins.get(CodeInsightsBuilder.DescriptorImpl).configure(Stub(StaplerRequest), jsonObject)
+
+        when:
+        final def descriptor = new CodeInsightsBuilder.DescriptorImpl()
+
+        then:
+        descriptor.bitbucketUrl == server.url('').toString()
+        descriptor.project == 'project'
+        descriptor.reportKey == 'reportKey'
+        descriptor.username == 'username'
+        descriptor.password == 'password'
+        descriptor.sonarQubeUrl == server.url('').toString()
+        descriptor.sonarQubeToken == 'token'
+        descriptor.sonarQubePassword == 'password'
+        descriptor.sonarQubePassword == 'password'
+    }
+
     def cleanup() {
         server.shutdown()
     }
