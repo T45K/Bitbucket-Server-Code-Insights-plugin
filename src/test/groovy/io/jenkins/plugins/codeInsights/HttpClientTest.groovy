@@ -64,7 +64,7 @@ class HttpClientTest extends Specification {
         def sut = new HttpClient('username', 'password', server.url('').toString(), 'project', 'repo', 'commit', 'key')
 
         when:
-        sut.postAnnotations('test_name', [new Annotation(1, 'test message', '/test/repo/path', Severity.LOW, null)])
+        sut.postAnnotations('test_name', [new Annotation(1, 'test message', '/test/repo/path', Severity.HIGH, null)])
 
         then:
         1 * mockLogger.println('[Code Insights plugin] Start to post test_name annotations')
@@ -78,7 +78,7 @@ class HttpClientTest extends Specification {
                     line    : 1,
                     message : 'test message',
                     path    : '/test/repo/path',
-                    severity: 'LOW',
+                    severity: 'HIGH',
                     link    : null
                 ],
             ],
