@@ -24,6 +24,7 @@ jobs:
   analyze:
     name: Analyze
     runs-on: ubuntu-latest
+    if: !contains(github.head_ref, 'release')
     permissions:
       actions: read
       contents: read
