@@ -2,6 +2,8 @@ name: execute-test
 
 on:
   pull_request:
+    branches-ignore:
+      - 'release/**'
   push:
     branches:
       - master
