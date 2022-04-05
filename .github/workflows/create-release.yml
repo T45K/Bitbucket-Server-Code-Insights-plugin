@@ -6,7 +6,7 @@ on:
 jobs:
   create-release:
     runs-on: ubuntu-latest
-    if: contains(github.head_ref, 'releae')
+    if: contains(github.head_ref, 'release')
     steps:
       - uses: actions/checkout@v3
         with:
