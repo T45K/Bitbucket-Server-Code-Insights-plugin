@@ -2,8 +2,6 @@ name: execute-test
 
 on:
   pull_request:
-    branches-ignore:
-      - 'release/**'
   push:
     branches:
       - master
@@ -11,6 +9,7 @@ on:
 jobs:
   test:
     runs-on: ${{ matrix.os }}
+    if: !contains(github.head_ref, 'dependabot')
     strategy:
       matrix:
         os: [ macos-latest, windows-latest, ubuntu-latest ]
