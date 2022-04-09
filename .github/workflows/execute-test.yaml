@@ -23,12 +23,8 @@ jobs:
           java-version: ${{ matrix.java }}
           distribution: 'temurin'
           cache: 'maven'
-      - run: sh mvnw clean package
-      - name: Save hpi
-        uses: actions/upload-artifact@v2
-        with:
-          name: plugin_Java-${{ matrix.java }}_${{ matrix.os }}
-          path: target/codeInsights.hpi
+      - name: Test
+        run: sh mvnw clean test
       - name: Upload coverage
         uses: codecov/codecov-action@v2
         if: ${{ matrix.os == 'ubuntu-latest' && matrix.java == '8' }}

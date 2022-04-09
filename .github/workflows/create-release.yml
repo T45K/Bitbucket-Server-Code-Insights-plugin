@@ -1,0 +1,31 @@
+name: create-release
+
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  create-release:
+    name: Create release
+    runs-on: ubuntu-latest
+    if: contains(github.head_ref, 'release')
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: 8
+          distribution: 'temurin'
+          cache: 'maven'
+      - name: Build
+        run: sh mvnw clean package
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: ${{ github.event.pull_request.body }}
+          tag_name: ${{ github.event.pull_request.title }}
+          generate_release_notes: true
+          files: target/codeInsights.hpi
