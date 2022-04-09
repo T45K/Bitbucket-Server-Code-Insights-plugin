@@ -15,7 +15,6 @@ jobs:
       - run: echo 'hello world'
       - name: Release
         uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
         with:
           tag_name: ${{ github.event.pull_request.title }}
           generate_release_notes: true
