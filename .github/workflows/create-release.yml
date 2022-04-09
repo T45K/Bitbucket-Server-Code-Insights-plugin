@@ -2,6 +2,8 @@ name: create-release
 
 on:
   pull_request:
+    types:
+      - closed
 
 jobs:
   create-release:
@@ -23,6 +25,7 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
+          name: ${{ github.event.pull_request.body }}
           tag_name: ${{ github.event.pull_request.title }}
           generate_release_notes: true
           files: target/codeInsights.hpi
