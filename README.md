@@ -19,6 +19,11 @@ https://docs.atlassian.com/bitbucket-server/rest/7.21.0/bitbucket-code-insights-
 
 ## Getting started
 
+### Use the latest release
+
+Just download the latest plugin from [here](https://github.com/T45K/Bitbucket-Server-Code-Insights-plugin/releases).
+
+### Build on yourself
 Building this plugin requires Java 8+.
 
 1. Clone this repository.
@@ -55,22 +60,23 @@ Set up in your Job settings page of give in `Jenkinsfile` as parameter.
 |      `commitId`       | Commit Sha of target branch. You can use `env.GIT_COMMIT` as commitId in Jenkins Multibranch pipeline job.                                            |   Yes    |       `-`       | 
 |     `baseBranch`      | Base branch of your repository (e.g., `origin/main`).                                                                                                 |    No    | `origin/master` | 
 | `checkstyleFilePath`  | Relative path of Checkstyle result file from repository root (e.g., `target/checkstyle-result.xml`).                                                  |    No    |       `-`       |
-| `spotBugsFilePath`    | Relative path of SpotBugs result file from repository root (e.g., `target/spotbugsXml.xml`).                                                          |    No    |       `-`       |  
+|  `spotBugsFilePath`   | Relative path of SpotBugs result file from repository root (e.g., `target/spotbugsXml.xml`).                                                          |    No    |       `-`       |
+|     `pmdFilePath`     | Relative path of PMD result file from repository root (e.g., `target/pmd.xml`)                                                                        |    No    |       `-`       |
 | `SonarQubeProjectKey` | Project key of SonarQube project. If you use SonarQube plugin in Jenkins, specify the same value as `XXX` of `mvn sonar:sonar -Dsonar.projectKey=XXX` |    No    |       `-`       | 
 
 ## Supporting tools
 
 Currently, this plugin supports the following tools.
+
 - Checkstyle
 - SpotBugs
+- PMD
 - SonarQube
 
 The following tools are planned to be supported in the future.
 
-- PMD
 - CodeQL
 
 ## LICENSE
 
 Licensed under MIT, see [LICENSE](LICENSE.md)
-
