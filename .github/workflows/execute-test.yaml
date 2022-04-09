@@ -9,7 +9,6 @@ on:
 jobs:
   test:
     runs-on: ${{ matrix.os }}
-    if: ${{ !contains(github.head_ref, 'release') }}
     strategy:
       matrix:
         os: [ macos-latest, windows-latest, ubuntu-latest ]
