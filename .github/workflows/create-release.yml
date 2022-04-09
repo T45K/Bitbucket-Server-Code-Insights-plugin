@@ -5,6 +5,7 @@ on:
 
 jobs:
   create-release:
+    name: Create release
     runs-on: ubuntu-latest
     if: contains(github.head_ref, 'release')
     steps:
@@ -12,3 +13,10 @@ jobs:
         with:
           fetch-depth: 0
       - run: echo 'hello world'
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          tag_name: ${{ github.event.pull_request.title }}
+          generate_release_notes: true
+          body_path: ${{ github.workspace }}-CHANGELOG.txt
