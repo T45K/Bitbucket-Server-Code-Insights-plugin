@@ -18,4 +18,3 @@ jobs:
         with:
           tag_name: ${{ github.event.pull_request.title }}
           generate_release_notes: true
-          body_path: ${{ github.workspace }}-CHANGELOG.txt
