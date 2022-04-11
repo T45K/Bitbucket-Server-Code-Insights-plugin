@@ -66,7 +66,7 @@ class SonarQubeAnnotationProvider(
             .addPathSegment("api")
             .addPathSegment("issues")
             .addPathSegment("search")
-            .addQueryParameter("componentKey", sonarQubeProjectKey)
+            .addQueryParameter("componentKeys", sonarQubeProjectKey)
             .addQueryParameter("p", page.toString())
             .addQueryParameter("ps", PAGE_SIZE.toString())
             .build()
