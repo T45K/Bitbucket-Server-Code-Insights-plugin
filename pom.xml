@@ -301,7 +301,7 @@
                     <dependency>
                         <groupId>net.sourceforge.pmd</groupId>
                         <artifactId>pmd-java</artifactId>
-                        <version>6.44.0</version>
+                        <version>6.45.0</version>
                     </dependency>
                 </dependencies>
                 <executions>
