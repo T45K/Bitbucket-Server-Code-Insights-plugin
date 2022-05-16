@@ -1,5 +1,8 @@
 package io.jenkins.plugins.codeInsights;
 
+import com.cloudbees.plugins.credentials.CredentialsProvider;
+import com.cloudbees.plugins.credentials.common.StandardListBoxModel;
+import com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl;
 import hudson.EnvVars;
 import hudson.Extension;
 import hudson.FilePath;
@@ -7,8 +10,12 @@ import hudson.Launcher;
 import hudson.model.AbstractProject;
 import hudson.model.Run;
 import hudson.model.TaskListener;
+import hudson.security.ACL;
 import hudson.tasks.BuildStepDescriptor;
 import hudson.tasks.Builder;
+import hudson.util.ListBoxModel;
+import hudson.util.Secret;
+import jenkins.model.Jenkins;
 import jenkins.tasks.SimpleBuildStep;
 import lombok.Getter;
 import net.sf.json.JSONObject;
@@ -17,6 +24,8 @@ import org.jetbrains.annotations.NotNull;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.DataBoundSetter;
 import org.kohsuke.stapler.StaplerRequest;
+
+import java.util.Optional;
 
 @SuppressWarnings("unused")
 @Getter
@@ -74,9 +83,13 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
                         @NotNull final Launcher launcher,
                         @NotNull final TaskListener listener) {
         final DescriptorImpl descriptor = (DescriptorImpl) super.getDescriptor();
+        final Optional<UsernamePasswordCredentialsImpl> bitbucketCredential = Optional.ofNullable(
+            CredentialsProvider.findCredentialById(descriptor.bitbucketCredentialId, UsernamePasswordCredentialsImpl.class, run));
         new KotlinEntryPoint(
             run, workspace, envVars, launcher, listener, // given by Jenkins
-            descriptor.bitbucketUrl, descriptor.project, descriptor.reportKey, descriptor.username, descriptor.password, // mandatory global settings (Bitbucket)
+            descriptor.bitbucketUrl, descriptor.project, descriptor.reportKey,
+            bitbucketCredential.map(UsernamePasswordCredentialsImpl::getUsername).orElse(""),
+            bitbucketCredential.map(UsernamePasswordCredentialsImpl::getPassword).map(Secret::getPlainText).orElse(""), // mandatory global settings (Bitbucket)
             descriptor.sonarQubeUrl, descriptor.sonarQubeToken, descriptor.sonarQubeUsername, descriptor.sonarQubePassword, // optional global settings (SonarQube)
             repositoryName, commitId, // mandatory local settings
             srcPath, baseBranch, // optional local settings (with default values)
@@ -91,8 +104,7 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
         private String bitbucketUrl;
         private String project;
         private String reportKey;
-        private String username;
-        private String password;
+        private String bitbucketCredentialId;
         private String sonarQubeUrl;
         private String sonarQubeToken;
         private String sonarQubeUsername;
@@ -108,8 +120,7 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
             this.bitbucketUrl = globalSettings.getString("bitbucketUrl");
             this.project = globalSettings.getString("project");
             this.reportKey = globalSettings.getString("reportKey");
-            this.username = globalSettings.getString("username");
-            this.password = globalSettings.getString("password");
+            this.bitbucketCredentialId = globalSettings.getString("bitbucketCredentialId");
             this.sonarQubeUrl = globalSettings.getOrDefault("sonarQubeUrl", "").toString();
             this.sonarQubeToken = globalSettings.getOrDefault("sonarQubeToken", "").toString();
             this.sonarQubeUsername = globalSettings.getOrDefault("sonarQubeUsername", "").toString();
@@ -127,6 +138,12 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
         @NotNull
         public String getDisplayName() {
             return "Call Bitbucket Server Code Insights API";
+        }
+
+        public ListBoxModel doFillBitbucketCredentialIdItems() {
+            return new StandardListBoxModel()
+                .includeEmptyValue()
+                .includeAs(ACL.SYSTEM, Jenkins.get(), UsernamePasswordCredentialsImpl.class);
         }
     }
 }

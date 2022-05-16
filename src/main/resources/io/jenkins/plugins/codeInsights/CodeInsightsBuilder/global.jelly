@@ -1,5 +1,5 @@
 <?jelly escape-by-default='true'?>
-<j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form">
+<j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form" xmlns:c="/lib/credentials">
     <f:section title="Bitbucket Server Code Insights API plugin" name="codeInsights">
         <f:entry title="URL of Bitbucket" field="bitbucketUrl">
             <f:textbox/>
@@ -11,11 +11,8 @@
                  description="The report key should be a unique string chosen by the reporter and should be unique enough not to potentially clash with report keys from other reporters. We recommend using reverse DNS namespacing or a similar standard to ensure that collision is avoided.">
             <f:textbox/>
         </f:entry>
-        <f:entry title="Username of Bitbucket user" field="username">
-            <f:textbox/>
-        </f:entry>
-        <f:entry title="Password of Bitbucket user" field="password">
-            <f:password/>
+        <f:entry title="Username and password of Bitbucket user" field="bitbucketCredentialId">
+            <c:select/>
         </f:entry>
         <f:advanced>
             <f:entry title="URL of SonarQube" field="sonarQubeUrl">
