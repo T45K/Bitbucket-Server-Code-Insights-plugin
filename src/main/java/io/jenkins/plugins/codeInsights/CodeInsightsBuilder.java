@@ -1,6 +1,7 @@
 package io.jenkins.plugins.codeInsights;
 
 import com.cloudbees.plugins.credentials.CredentialsProvider;
+import com.cloudbees.plugins.credentials.common.StandardCredentials;
 import com.cloudbees.plugins.credentials.common.StandardListBoxModel;
 import com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl;
 import hudson.EnvVars;
@@ -20,11 +21,13 @@ import jenkins.tasks.SimpleBuildStep;
 import lombok.Getter;
 import net.sf.json.JSONObject;
 import org.jenkinsci.Symbol;
+import org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl;
 import org.jetbrains.annotations.NotNull;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.DataBoundSetter;
 import org.kohsuke.stapler.StaplerRequest;
 
+import java.util.Collections;
 import java.util.Optional;
 
 @SuppressWarnings("unused")
@@ -83,14 +86,20 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
                         @NotNull final Launcher launcher,
                         @NotNull final TaskListener listener) {
         final DescriptorImpl descriptor = (DescriptorImpl) super.getDescriptor();
-        final Optional<UsernamePasswordCredentialsImpl> bitbucketCredential = Optional.ofNullable(
+        final Optional<UsernamePasswordCredentialsImpl> bitbucketUsernamePassword = Optional.ofNullable(
             CredentialsProvider.findCredentialById(descriptor.bitbucketCredentialId, UsernamePasswordCredentialsImpl.class, run));
+        final Optional<StringCredentialsImpl> sonarQubeToken = Optional.ofNullable(
+            CredentialsProvider.findCredentialById(descriptor.sonarQubeCredentialId, StringCredentialsImpl.class, run));
+        final Optional<UsernamePasswordCredentialsImpl> sonarQubeUsernamePassword = Optional.ofNullable(
+            CredentialsProvider.findCredentialById(descriptor.sonarQubeCredentialId, UsernamePasswordCredentialsImpl.class, run));
         new KotlinEntryPoint(
             run, workspace, envVars, launcher, listener, // given by Jenkins
             descriptor.bitbucketUrl, descriptor.project, descriptor.reportKey,
-            bitbucketCredential.map(UsernamePasswordCredentialsImpl::getUsername).orElse(""),
-            bitbucketCredential.map(UsernamePasswordCredentialsImpl::getPassword).map(Secret::getPlainText).orElse(""), // mandatory global settings (Bitbucket)
-            descriptor.sonarQubeUrl, descriptor.sonarQubeToken, descriptor.sonarQubeUsername, descriptor.sonarQubePassword, // optional global settings (SonarQube)
+            bitbucketUsernamePassword.map(UsernamePasswordCredentialsImpl::getUsername).orElse(""),
+            bitbucketUsernamePassword.map(UsernamePasswordCredentialsImpl::getPassword).map(Secret::getPlainText).orElse(""), // mandatory global settings (Bitbucket)
+            descriptor.sonarQubeUrl, sonarQubeToken.map(StringCredentialsImpl::getSecret).map(Secret::getPlainText).orElse(""),
+            sonarQubeUsernamePassword.map(UsernamePasswordCredentialsImpl::getUsername).orElse(""),
+            sonarQubeUsernamePassword.map(UsernamePasswordCredentialsImpl::getPassword).map(Secret::getPlainText).orElse(""), // optional global settings (SonarQube)
             repositoryName, commitId, // mandatory local settings
             srcPath, baseBranch, // optional local settings (with default values)
             checkstyleFilePath, spotBugsFilePath, pmdFilePath, sonarQubeProjectKey // optional local settings
@@ -106,9 +115,7 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
         private String reportKey;
         private String bitbucketCredentialId;
         private String sonarQubeUrl;
-        private String sonarQubeToken;
-        private String sonarQubeUsername;
-        private String sonarQubePassword;
+        private String sonarQubeCredentialId;
 
         public DescriptorImpl() {
             super.load();
@@ -122,9 +129,7 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
             this.reportKey = globalSettings.getString("reportKey");
             this.bitbucketCredentialId = globalSettings.getString("bitbucketCredentialId");
             this.sonarQubeUrl = globalSettings.getOrDefault("sonarQubeUrl", "").toString();
-            this.sonarQubeToken = globalSettings.getOrDefault("sonarQubeToken", "").toString();
-            this.sonarQubeUsername = globalSettings.getOrDefault("sonarQubeUsername", "").toString();
-            this.sonarQubePassword = globalSettings.getOrDefault("sonarQubePassword", "").toString();
+            this.sonarQubeCredentialId = globalSettings.getOrDefault("sonarQubeCredentialId", "").toString();
             save();
             return true;
         }
@@ -140,10 +145,19 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
             return "Call Bitbucket Server Code Insights API";
         }
 
+        @SuppressWarnings("deprecation") // FIXME: Investigate alternative ways to use system auth instead of ACL.SYSTEM
         public ListBoxModel doFillBitbucketCredentialIdItems() {
             return new StandardListBoxModel()
                 .includeEmptyValue()
                 .includeAs(ACL.SYSTEM, Jenkins.get(), UsernamePasswordCredentialsImpl.class);
+        }
+
+        @SuppressWarnings("deprecation")
+        public ListBoxModel doFillSonarQubeCredentialIdItems() {
+            return new StandardListBoxModel()
+                .includeEmptyValue()
+                .includeMatchingAs(ACL.SYSTEM, Jenkins.get(), StandardCredentials.class, Collections.emptyList(),
+                    type -> type instanceof UsernamePasswordCredentialsImpl || type instanceof StringCredentialsImpl);
         }
     }
 }
