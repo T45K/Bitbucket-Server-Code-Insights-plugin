@@ -1,5 +1,9 @@
 package io.jenkins.plugins.codeInsights
 
+import com.cloudbees.plugins.credentials.CredentialsProvider
+import com.cloudbees.plugins.credentials.CredentialsScope
+import com.cloudbees.plugins.credentials.domains.Domain
+import com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl
 import hudson.model.Result
 import io.jenkins.plugins.codeInsights.testUtil.FileUtil
 import net.sf.json.JSONObject
@@ -25,11 +29,10 @@ class CodeInsightsBuilderTest extends Specification {
     private final def jsonObject = new JSONObject(
         [
             codeInsights: [
-                bitbucketUrl: server.url('').toString(),
-                project     : 'project',
-                reportKey   : 'reportKey',
-                username    : 'username',
-                password    : 'password',
+                bitbucketUrl         : server.url('').toString(),
+                project              : 'project',
+                reportKey            : 'reportKey',
+                bitbucketCredentialId: 'username:password'
             ]
         ]
     )
@@ -136,23 +139,30 @@ class CodeInsightsBuilderTest extends Specification {
 
     def 'build successful with SonarQube'() {
         given:
+        CredentialsProvider.saveAll()
         server.enqueue(new MockResponse()) // put reports
         server.enqueue(new MockResponse().setBody(SONAR_QUBE_RESPONSE)) // call to fetch total page
         server.enqueue(new MockResponse().setBody(SONAR_QUBE_RESPONSE)) // call to fetch issues
         final def jsonObject = new JSONObject(
             [
                 codeInsights: [
-                    bitbucketUrl  : server.url('').toString(),
-                    project       : 'project',
-                    reportKey     : 'reportKey',
-                    username      : 'username',
-                    password      : 'password',
-                    sonarQubeUrl  : server.url('').toString(),
-                    sonarQubeToken: 'hoge'
+                    bitbucketUrl         : server.url('').toString(),
+                    project              : 'project',
+                    reportKey            : 'reportKey',
+                    bitbucketCredentialId: 'username:password',
+                    sonarQubeUrl         : server.url('').toString(),
+                    sonarQubeCredentialId: 'sonarqube'
                 ]
             ]
         )
         jenkins.get(CodeInsightsBuilder.DescriptorImpl).configure(Stub(StaplerRequest), jsonObject)
+        CredentialsProvider.lookupStores(jenkins)
+            .iterator()
+            .next()
+            .addCredentials(
+                Domain.global(),
+                new UsernamePasswordCredentialsImpl(CredentialsScope.GLOBAL, 'sonarqube', '', 'username', 'password')
+            )
 
         final def project = jenkins.createFreeStyleProject()
         final def builder = new CodeInsightsBuilder('repo', INITIAL_COMMIT_ID)
@@ -178,17 +188,23 @@ class CodeInsightsBuilderTest extends Specification {
         final def jsonObject = new JSONObject(
             [
                 codeInsights: [
-                    bitbucketUrl  : server.url('').toString(),
-                    project       : 'project',
-                    reportKey     : 'reportKey',
-                    username      : 'username',
-                    password      : 'password',
-                    sonarQubeUrl  : server.url('').toString(),
-                    sonarQubeToken: 'hoge'
+                    bitbucketUrl         : server.url('').toString(),
+                    project              : 'project',
+                    reportKey            : 'reportKey',
+                    bitbucketCredentialId: 'username:password',
+                    sonarQubeUrl         : server.url('').toString(),
+                    sonarQubeCredentialId: 'sonarqube'
                 ]
             ]
         )
         jenkins.get(CodeInsightsBuilder.DescriptorImpl).configure(Stub(StaplerRequest), jsonObject)
+        CredentialsProvider.lookupStores(jenkins)
+            .iterator()
+            .next()
+            .addCredentials(
+                Domain.global(),
+                new UsernamePasswordCredentialsImpl(CredentialsScope.GLOBAL, 'sonarqube', '', 'username', 'password')
+            )
 
         final def project = jenkins.createFreeStyleProject()
         final def builder = new CodeInsightsBuilder('repo', INITIAL_COMMIT_ID)
@@ -270,15 +286,12 @@ class CodeInsightsBuilderTest extends Specification {
         final def jsonObject = new JSONObject(
             [
                 codeInsights: [
-                    bitbucketUrl     : server.url('').toString(),
-                    project          : 'project',
-                    reportKey        : 'reportKey',
-                    username         : 'username',
-                    password         : 'password',
-                    sonarQubeUrl     : server.url('').toString(),
-                    sonarQubeToken   : 'token',
-                    sonarQubeUsername: 'username',
-                    sonarQubePassword: 'password',
+                    bitbucketUrl         : server.url('').toString(),
+                    project              : 'project',
+                    reportKey            : 'reportKey',
+                    bitbucketCredentialId: 'username:password',
+                    sonarQubeUrl         : server.url('').toString(),
+                    sonarQubeCredentialId: 'sonarqube'
                 ]
             ]
         )
@@ -291,12 +304,9 @@ class CodeInsightsBuilderTest extends Specification {
         descriptor.bitbucketUrl == server.url('').toString()
         descriptor.project == 'project'
         descriptor.reportKey == 'reportKey'
-        descriptor.username == 'username'
-        descriptor.password == 'password'
+        descriptor.bitbucketCredentialId == 'username:password'
         descriptor.sonarQubeUrl == server.url('').toString()
-        descriptor.sonarQubeToken == 'token'
-        descriptor.sonarQubePassword == 'password'
-        descriptor.sonarQubePassword == 'password'
+        descriptor.sonarQubeCredentialId == 'sonarqube'
     }
 
     def cleanup() {
