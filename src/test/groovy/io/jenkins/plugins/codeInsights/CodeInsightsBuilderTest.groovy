@@ -1,10 +1,16 @@
 package io.jenkins.plugins.codeInsights
 
+import com.cloudbees.plugins.credentials.CredentialsProvider
+import com.cloudbees.plugins.credentials.CredentialsScope
+import com.cloudbees.plugins.credentials.domains.Domain
+import com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl
 import hudson.model.Result
+import hudson.util.Secret
 import io.jenkins.plugins.codeInsights.testUtil.FileUtil
 import net.sf.json.JSONObject
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
+import org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl
 import org.junit.Rule
 import org.jvnet.hudson.test.JenkinsRule
 import org.kohsuke.stapler.StaplerRequest
@@ -25,11 +31,10 @@ class CodeInsightsBuilderTest extends Specification {
     private final def jsonObject = new JSONObject(
         [
             codeInsights: [
-                bitbucketUrl: server.url('').toString(),
-                project     : 'project',
-                reportKey   : 'reportKey',
-                username    : 'username',
-                password    : 'password',
+                bitbucketUrl         : server.url('').toString(),
+                project              : 'project',
+                reportKey            : 'reportKey',
+                bitbucketCredentialId: 'username:password'
             ]
         ]
     )
@@ -136,23 +141,30 @@ class CodeInsightsBuilderTest extends Specification {
 
     def 'build successful with SonarQube'() {
         given:
+        CredentialsProvider.saveAll()
         server.enqueue(new MockResponse()) // put reports
         server.enqueue(new MockResponse().setBody(SONAR_QUBE_RESPONSE)) // call to fetch total page
         server.enqueue(new MockResponse().setBody(SONAR_QUBE_RESPONSE)) // call to fetch issues
         final def jsonObject = new JSONObject(
             [
                 codeInsights: [
-                    bitbucketUrl  : server.url('').toString(),
-                    project       : 'project',
-                    reportKey     : 'reportKey',
-                    username      : 'username',
-                    password      : 'password',
-                    sonarQubeUrl  : server.url('').toString(),
-                    sonarQubeToken: 'hoge'
+                    bitbucketUrl         : server.url('').toString(),
+                    project              : 'project',
+                    reportKey            : 'reportKey',
+                    bitbucketCredentialId: 'username:password',
+                    sonarQubeUrl         : server.url('').toString(),
+                    sonarQubeCredentialId: 'sonarqube'
                 ]
             ]
         )
         jenkins.get(CodeInsightsBuilder.DescriptorImpl).configure(Stub(StaplerRequest), jsonObject)
+        CredentialsProvider.lookupStores(jenkins)
+            .iterator()
+            .next()
+            .addCredentials(
+                Domain.global(),
+                new UsernamePasswordCredentialsImpl(CredentialsScope.GLOBAL, 'sonarqube', '', 'username', 'password')
+            )
 
         final def project = jenkins.createFreeStyleProject()
         final def builder = new CodeInsightsBuilder('repo', INITIAL_COMMIT_ID)
@@ -178,17 +190,23 @@ class CodeInsightsBuilderTest extends Specification {
         final def jsonObject = new JSONObject(
             [
                 codeInsights: [
-                    bitbucketUrl  : server.url('').toString(),
-                    project       : 'project',
-                    reportKey     : 'reportKey',
-                    username      : 'username',
-                    password      : 'password',
-                    sonarQubeUrl  : server.url('').toString(),
-                    sonarQubeToken: 'hoge'
+                    bitbucketUrl         : server.url('').toString(),
+                    project              : 'project',
+                    reportKey            : 'reportKey',
+                    bitbucketCredentialId: 'username:password',
+                    sonarQubeUrl         : server.url('').toString(),
+                    sonarQubeCredentialId: 'sonarqube'
                 ]
             ]
         )
         jenkins.get(CodeInsightsBuilder.DescriptorImpl).configure(Stub(StaplerRequest), jsonObject)
+        CredentialsProvider.lookupStores(jenkins)
+            .iterator()
+            .next()
+            .addCredentials(
+                Domain.global(),
+                new UsernamePasswordCredentialsImpl(CredentialsScope.GLOBAL, 'sonarqube', '', 'username', 'password')
+            )
 
         final def project = jenkins.createFreeStyleProject()
         final def builder = new CodeInsightsBuilder('repo', INITIAL_COMMIT_ID)
@@ -270,15 +288,12 @@ class CodeInsightsBuilderTest extends Specification {
         final def jsonObject = new JSONObject(
             [
                 codeInsights: [
-                    bitbucketUrl     : server.url('').toString(),
-                    project          : 'project',
-                    reportKey        : 'reportKey',
-                    username         : 'username',
-                    password         : 'password',
-                    sonarQubeUrl     : server.url('').toString(),
-                    sonarQubeToken   : 'token',
-                    sonarQubeUsername: 'username',
-                    sonarQubePassword: 'password',
+                    bitbucketUrl         : server.url('').toString(),
+                    project              : 'project',
+                    reportKey            : 'reportKey',
+                    bitbucketCredentialId: 'username:password',
+                    sonarQubeUrl         : server.url('').toString(),
+                    sonarQubeCredentialId: 'sonarqube'
                 ]
             ]
         )
@@ -291,12 +306,61 @@ class CodeInsightsBuilderTest extends Specification {
         descriptor.bitbucketUrl == server.url('').toString()
         descriptor.project == 'project'
         descriptor.reportKey == 'reportKey'
-        descriptor.username == 'username'
-        descriptor.password == 'password'
+        descriptor.bitbucketCredentialId == 'username:password'
         descriptor.sonarQubeUrl == server.url('').toString()
-        descriptor.sonarQubeToken == 'token'
-        descriptor.sonarQubePassword == 'password'
-        descriptor.sonarQubePassword == 'password'
+        descriptor.sonarQubeCredentialId == 'sonarqube'
+    }
+
+    def 'doFillBitbucketCredentialIdItems returns username and password credentials'() {
+        CredentialsProvider.lookupStores(jenkins)
+            .iterator()
+            .next()
+            .with {
+                addCredentials(
+                    Domain.global(),
+                    new UsernamePasswordCredentialsImpl(CredentialsScope.GLOBAL, 'id1', '', 'username', 'password')
+                )
+                addCredentials(
+                    Domain.global(),
+                    new UsernamePasswordCredentialsImpl(CredentialsScope.GLOBAL, 'id2', '', 'foo', 'bar')
+                )
+                addCredentials(
+                    Domain.global(),
+                    new StringCredentialsImpl(CredentialsScope.GLOBAL, 'id3', '', Secret.fromString('secret'))
+                )
+            }
+
+        when:
+        final def items = new CodeInsightsBuilder.DescriptorImpl().doFillBitbucketCredentialIdItems()
+
+        then:
+        items*.value ==~ ['', 'id1', 'id2']
+    }
+
+    def 'doFillSonarQubeCredentialIdItems returns username and password and secret text credentials'() {
+        CredentialsProvider.lookupStores(jenkins)
+            .iterator()
+            .next()
+            .with {
+                addCredentials(
+                    Domain.global(),
+                    new UsernamePasswordCredentialsImpl(CredentialsScope.GLOBAL, 'id1', '', 'username', 'password')
+                )
+                addCredentials(
+                    Domain.global(),
+                    new UsernamePasswordCredentialsImpl(CredentialsScope.GLOBAL, 'id2', '', 'foo', 'bar')
+                )
+                addCredentials(
+                    Domain.global(),
+                    new StringCredentialsImpl(CredentialsScope.GLOBAL, 'id3', '', Secret.fromString('secret'))
+                )
+            }
+
+        when:
+        final def items = new CodeInsightsBuilder.DescriptorImpl().doFillSonarQubeCredentialIdItems()
+
+        then:
+        items*.value ==~ ['', 'id1', 'id2', 'id3']
     }
 
     def cleanup() {
