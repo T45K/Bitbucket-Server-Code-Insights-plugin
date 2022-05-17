@@ -5,10 +5,12 @@ import com.cloudbees.plugins.credentials.CredentialsScope
 import com.cloudbees.plugins.credentials.domains.Domain
 import com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl
 import hudson.model.Result
+import hudson.util.Secret
 import io.jenkins.plugins.codeInsights.testUtil.FileUtil
 import net.sf.json.JSONObject
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
+import org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl
 import org.junit.Rule
 import org.jvnet.hudson.test.JenkinsRule
 import org.kohsuke.stapler.StaplerRequest
@@ -307,6 +309,58 @@ class CodeInsightsBuilderTest extends Specification {
         descriptor.bitbucketCredentialId == 'username:password'
         descriptor.sonarQubeUrl == server.url('').toString()
         descriptor.sonarQubeCredentialId == 'sonarqube'
+    }
+
+    def 'doFillBitbucketCredentialIdItems returns username and password credentials'() {
+        CredentialsProvider.lookupStores(jenkins)
+            .iterator()
+            .next()
+            .with {
+                addCredentials(
+                    Domain.global(),
+                    new UsernamePasswordCredentialsImpl(CredentialsScope.GLOBAL, 'id1', '', 'username', 'password')
+                )
+                addCredentials(
+                    Domain.global(),
+                    new UsernamePasswordCredentialsImpl(CredentialsScope.GLOBAL, 'id2', '', 'foo', 'bar')
+                )
+                addCredentials(
+                    Domain.global(),
+                    new StringCredentialsImpl(CredentialsScope.GLOBAL, 'id3', '', Secret.fromString('secret'))
+                )
+            }
+
+        when:
+        final def items = new CodeInsightsBuilder.DescriptorImpl().doFillBitbucketCredentialIdItems()
+
+        then:
+        items*.value ==~ ['', 'id1', 'id2']
+    }
+
+    def 'doFillSonarQubeCredentialIdItems returns username and password and secret text credentials'() {
+        CredentialsProvider.lookupStores(jenkins)
+            .iterator()
+            .next()
+            .with {
+                addCredentials(
+                    Domain.global(),
+                    new UsernamePasswordCredentialsImpl(CredentialsScope.GLOBAL, 'id1', '', 'username', 'password')
+                )
+                addCredentials(
+                    Domain.global(),
+                    new UsernamePasswordCredentialsImpl(CredentialsScope.GLOBAL, 'id2', '', 'foo', 'bar')
+                )
+                addCredentials(
+                    Domain.global(),
+                    new StringCredentialsImpl(CredentialsScope.GLOBAL, 'id3', '', Secret.fromString('secret'))
+                )
+            }
+
+        when:
+        final def items = new CodeInsightsBuilder.DescriptorImpl().doFillSonarQubeCredentialIdItems()
+
+        then:
+        items*.value ==~ ['', 'id1', 'id2', 'id3']
     }
 
     def cleanup() {
