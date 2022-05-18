@@ -18,17 +18,9 @@
             <f:entry title="URL of SonarQube" field="sonarQubeUrl">
                 <f:textbox/>
             </f:entry>
-            <f:entry title="Token of SonarQube user" field="sonarQubeToken"
-                     description="Either token only or username and password is needed.">
-                <f:password/>
-            </f:entry>
-            <f:entry title="Username of SonarQube user" field="sonarQubeUsername"
-                     description="Either token only or username and password is needed.">
-                <f:textbox/>
-            </f:entry>
-            <f:entry title="Password of SonarQube user" field="sonarQubePassword"
-                     description="Either token only or username and password is needed.">
-                <f:password/>
+            <f:entry title="Credential of SonarQube" field="sonarQubeCredentialId"
+                     description="You can use token or username password as SonarQube credential">
+                <c:select/>
             </f:entry>
         </f:advanced>
     </f:section>
