@@ -112,7 +112,7 @@
             <artifactId>org.eclipse.jgit</artifactId>
             <!--suppress MavenPackageUpdate -->
             <!-- for Java 8 -->
-            <version>5.13.0.202109080827-r</version>
+            <version>6.2.0.202206071550-r</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
