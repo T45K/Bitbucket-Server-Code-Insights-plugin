@@ -27,7 +27,7 @@ jobs:
         run: sh mvnw clean test
       - name: Upload coverage
         uses: codecov/codecov-action@v2
-        if: ${{ matrix.os == 'ubuntu-latest' && matrix.java == '8' }}
+        if: ${{ matrix.os == 'ubuntu-latest' && matrix.java == '11' }}
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: true
