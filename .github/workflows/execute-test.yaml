@@ -12,7 +12,7 @@ jobs:
     strategy:
       matrix:
         os: [ macos-latest, windows-latest, ubuntu-latest ]
-        java: [ 8, 11 ,17 ]
+        java: [ 11 ,17 ]
     steps:
       - uses: actions/checkout@v3
         with:
@@ -27,7 +27,7 @@ jobs:
         run: sh mvnw clean test
       - name: Upload coverage
         uses: codecov/codecov-action@v2
-        if: ${{ matrix.os == 'ubuntu-latest' && matrix.java == '8' }}
+        if: ${{ matrix.os == 'ubuntu-latest' && matrix.java == '11' }}
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: true
