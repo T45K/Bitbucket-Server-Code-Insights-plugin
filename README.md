@@ -24,7 +24,7 @@ https://docs.atlassian.com/bitbucket-server/rest/7.21.0/bitbucket-code-insights-
 Just download the latest plugin from [here](https://github.com/T45K/Bitbucket-Server-Code-Insights-plugin/releases).
 
 ### Build on yourself
-Building this plugin requires Java 8+.
+Building this plugin requires Java 11+.
 
 1. Clone this repository.
 2. Move into the directory.
