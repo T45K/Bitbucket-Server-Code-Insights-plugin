@@ -1,6 +1,7 @@
 package io.jenkins.plugins.codeInsights
 
 import io.jenkins.plugins.codeInsights.domain.Annotation
+import io.jenkins.plugins.codeInsights.domain.coverage.Coverage
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import okhttp3.Credentials
@@ -37,6 +38,14 @@ class HttpClient(
 
     private val annotationUrl = reportUrl.newBuilder()
         .addPathSegment("annotations")
+        .build()
+
+    private val coverageUrl = bitbucketUrl.toHttpUrl().newBuilder()
+        .addPathSegment("rest")
+        .addPathSegment("code-coverage")
+        .addPathSegment("1.0")
+        .addPathSegment("commits")
+        .addPathSegment(commitId)
         .build()
 
     private val credential = Credentials.basic(username, password)
@@ -81,6 +90,25 @@ class HttpClient(
                 JenkinsLogger.info("Post $name annotations: SUCCESS")
             } else {
                 JenkinsLogger.info("Post $name annotations: FAILURE")
+                JenkinsLogger.info(it.body!!.string())
+                throw CallApiFailureException()
+            }
+        }
+    }
+
+    fun postCoverage(coverage: Coverage) {
+        JenkinsLogger.info("Start to post coverage")
+        val request = Request.Builder()
+            .url(coverageUrl)
+            .authorizationHeader()
+            .header("X-Atlassian-Token", "no-check")
+            .post(json.encodeToString(coverage).toRequestBody(mediaType))
+            .build()
+        client.newCall(request).execute().also {
+            if (it.isSuccessful) {
+                JenkinsLogger.info("Post coverage: SUCCESS")
+            } else {
+                JenkinsLogger.info("Post coverage: FAILURE")
                 JenkinsLogger.info(it.body!!.string())
                 throw CallApiFailureException()
             }

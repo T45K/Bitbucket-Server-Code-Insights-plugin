@@ -1,10 +1,13 @@
 package io.jenkins.plugins.codeInsights
 
+import com.fasterxml.jackson.dataformat.xml.XmlMapper
 import hudson.EnvVars
 import hudson.FilePath
 import hudson.Launcher
 import hudson.model.Run
 import hudson.model.TaskListener
+import io.jenkins.plugins.codeInsights.domain.coverage.Coverage
+import io.jenkins.plugins.codeInsights.domain.coverage.CoverageProvider
 import io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl
 import io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder
 import io.jenkins.plugins.codeInsights.usecase.GitRepo
@@ -33,6 +36,7 @@ class KotlinEntryPoint(
     private val spotBugsFilePath: String,
     private val pmdFilePath: String,
     private val sonarQubeProjectKey: String,
+    private val jacocoFilePath: String,
 ) {
     init {
         JenkinsLogger.setLogger(listener.logger)
@@ -66,5 +70,17 @@ class KotlinEntryPoint(
             }
             JenkinsLogger.info("Finish ${executable.name}")
         }
+
+        if (jacocoFilePath.isBlank()) {
+            return
+        }
+
+        JenkinsLogger.info("Start Coverage")
+        val coverage = CoverageProvider(fileTransferService, XmlMapper()).convert(jacocoFilePath, srcPath)
+            .filter { it.isNotEmpty() }
+            .filter { changedFiles.contains(it.path) }
+            .let(::Coverage)
+        httpClient.postCoverage(coverage)
+        JenkinsLogger.info("Finish Coverage")
     }
 }
