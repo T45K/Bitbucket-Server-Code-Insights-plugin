@@ -1,8 +1,8 @@
-package io.jenkins.plugins.codeInsights.framework
+package io.jenkins.plugins.codeInsights.infrastructure
 
 import hudson.FilePath
 import hudson.model.Run
-import io.jenkins.plugins.codeInsights.usecase.FileTransferService
+import io.jenkins.plugins.codeInsights.domain.FileTransferService
 
 class FileTransferServiceImpl(private val workspace: FilePath, run: Run<*, *>) : FileTransferService {
     private val local = FilePath(run.rootDir)

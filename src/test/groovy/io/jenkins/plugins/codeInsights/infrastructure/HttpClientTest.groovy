@@ -1,10 +1,12 @@
-package io.jenkins.plugins.codeInsights
+package io.jenkins.plugins.codeInsights.infrastructure
 
 import groovy.json.JsonSlurper
+import io.jenkins.plugins.codeInsights.JenkinsLogger
 import io.jenkins.plugins.codeInsights.domain.Annotation
 import io.jenkins.plugins.codeInsights.domain.Severity
 import io.jenkins.plugins.codeInsights.domain.coverage.CoverageMeasuredFile
 import io.jenkins.plugins.codeInsights.domain.coverage.CoverageRequest
+import io.jenkins.plugins.codeInsights.infrastructure.HttpClient
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
 import spock.lang.Specification

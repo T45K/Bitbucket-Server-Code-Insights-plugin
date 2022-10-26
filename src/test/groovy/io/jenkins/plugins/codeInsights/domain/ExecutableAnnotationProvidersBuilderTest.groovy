@@ -1,10 +1,6 @@
-package io.jenkins.plugins.codeInsights.usecase
+package io.jenkins.plugins.codeInsights.domain
 
 import io.jenkins.plugins.codeInsights.JenkinsLogger
-import io.jenkins.plugins.codeInsights.domain.CheckstyleAnnotationProvider
-import io.jenkins.plugins.codeInsights.domain.PmdAnnotationProvider
-import io.jenkins.plugins.codeInsights.domain.SonarQubeAnnotationProvider
-import io.jenkins.plugins.codeInsights.domain.SpotBugsAnnotationProvider
 import spock.lang.Specification
 
 class ExecutableAnnotationProvidersBuilderTest extends Specification {

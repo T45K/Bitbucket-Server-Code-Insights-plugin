@@ -1,16 +1,15 @@
 package io.jenkins.plugins.codeInsights
 
-import com.fasterxml.jackson.dataformat.xml.XmlMapper
 import hudson.EnvVars
 import hudson.FilePath
 import hudson.Launcher
 import hudson.model.Run
 import hudson.model.TaskListener
-import io.jenkins.plugins.codeInsights.domain.coverage.CoverageRequest
-import io.jenkins.plugins.codeInsights.domain.coverage.CoverageProvider
-import io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl
-import io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder
-import io.jenkins.plugins.codeInsights.usecase.GitRepo
+import io.jenkins.plugins.codeInsights.infrastructure.FileTransferServiceImpl
+import io.jenkins.plugins.codeInsights.infrastructure.GitRepo
+import io.jenkins.plugins.codeInsights.infrastructure.HttpClient
+import io.jenkins.plugins.codeInsights.usecase.CoverageUsecase
+import io.jenkins.plugins.codeInsights.usecase.ReportUsecase
 
 @Suppress("unused", "CanBeParameter")
 class KotlinEntryPoint(
@@ -48,39 +47,33 @@ class KotlinEntryPoint(
             bitbucketUrl, project, repositoryName, commitId, reportKey, // url
         )
 
-        httpClient.putReport()
-
         val fileTransferService = FileTransferServiceImpl(workspace, run)
         fileTransferService.copyFromWorkspaceToLocal(".git")
+
         val changedFiles = GitRepo(run.rootDir.resolve(".git")).use {
             it.detectChangedFiles(commitId, baseBranch)
         }
 
-        val executables = ExecutableAnnotationProvidersBuilder(fileTransferService)
-            .setCheckstyle(checkstyleFilePath, workspace.remote)
-            .setSpotBugs(spotBugsFilePath, srcPath)
-            .setPmd(pmdFilePath, workspace.remote)
-            .setSonarQube(sonarQubeUrl, sonarQubeProjectKey, sonarQubeToken, sonarQubeUserName, sonarQubePassword)
-            .build()
-        for (executable in executables) {
-            JenkinsLogger.info("Start ${executable.name}")
-            val annotations = executable.convert().filter { changedFiles.contains(it.path) }
-            if (annotations.isNotEmpty()) {
-                httpClient.postAnnotations(executable.name, annotations)
-            }
-            JenkinsLogger.info("Finish ${executable.name}")
+        if (reportKey.isNotBlank()) {
+            ReportUsecase(
+                httpClient,
+                fileTransferService,
+                workspace,
+                checkstyleFilePath,
+                spotBugsFilePath,
+                srcPath,
+                pmdFilePath,
+                sonarQubeUrl,
+                sonarQubeProjectKey,
+                sonarQubeToken,
+                sonarQubeUserName,
+                sonarQubePassword,
+                changedFiles
+            ).execute()
         }
 
-        if (jacocoFilePath.isBlank()) {
-            return
+        if (jacocoFilePath.isNotBlank()) {
+            CoverageUsecase(fileTransferService, jacocoFilePath, srcPath, changedFiles, httpClient)
         }
-
-        JenkinsLogger.info("Start Coverage")
-        val coverageRequest = CoverageProvider(fileTransferService, XmlMapper()).convert(jacocoFilePath, srcPath)
-            .filter { it.isNotEmpty() }
-            .filter { changedFiles.contains(it.path) }
-            .let(::CoverageRequest)
-        httpClient.postCoverage(coverageRequest)
-        JenkinsLogger.info("Finish Coverage")
     }
 }
