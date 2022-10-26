@@ -42,6 +42,7 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
     private String spotBugsFilePath = "";
     private String pmdFilePath = "";
     private String sonarQubeProjectKey = "";
+    private String jacocoFilePath = "";
 
     @DataBoundConstructor
     public CodeInsightsBuilder(@NotNull final String repositoryName, @NotNull final String commitId) {
@@ -79,6 +80,11 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
         this.sonarQubeProjectKey = sonarQubeProjectKey;
     }
 
+    @DataBoundSetter
+    public void setJacocoFilePath(final String jacocoFilePath) {
+        this.jacocoFilePath = jacocoFilePath;
+    }
+
     @Override
     public void perform(@NotNull final Run<?, ?> run,
                         @NotNull final FilePath workspace,
@@ -102,7 +108,7 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
             sonarQubeUsernamePassword.map(UsernamePasswordCredentialsImpl::getPassword).map(Secret::getPlainText).orElse(""), // optional global settings (SonarQube)
             repositoryName, commitId, // mandatory local settings
             srcPath, baseBranch, // optional local settings (with default values)
-            checkstyleFilePath, spotBugsFilePath, pmdFilePath, sonarQubeProjectKey // optional local settings
+            checkstyleFilePath, spotBugsFilePath, pmdFilePath, sonarQubeProjectKey, jacocoFilePath // optional local settings
         ).delegate();
     }
 

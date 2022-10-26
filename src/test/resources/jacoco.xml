@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><!DOCTYPE report PUBLIC "-//JACOCO//DTD Report 1.1//EN"
+        "report.dtd">
+<report name="Bitbucket Server Code Insights plugin">
+    <package name="io/jenkins/plugins/codeInsights/domain">
+        <class name="io/jenkins/plugins/codeInsights/domain/Annotation" sourcefilename="Annotation.kt">
+            <method name="&lt;init&gt;"
+                    desc="(ILjava/lang/String;Ljava/lang/String;Lio/jenkins/plugins/codeInsights/domain/Severity;Ljava/lang/String;)V"
+                    line="5">
+                <counter type="INSTRUCTION" missed="0" covered="27"/>
+                <counter type="LINE" missed="0" covered="7"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="&lt;init&gt;"
+                    desc="(ILjava/lang/String;Ljava/lang/String;Lio/jenkins/plugins/codeInsights/domain/Severity;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V"
+                    line="6">
+                <counter type="INSTRUCTION" missed="0" covered="18"/>
+                <counter type="LINE" missed="0" covered="4"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="getPath" desc="()Ljava/lang/String;" line="9">
+                <counter type="INSTRUCTION" missed="0" covered="3"/>
+                <counter type="LINE" missed="0" covered="1"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="write$Self"
+                    desc="(Lio/jenkins/plugins/codeInsights/domain/Annotation;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V"
+                    line="5">
+                <counter type="INSTRUCTION" missed="13" covered="61"/>
+                <counter type="BRANCH" missed="8" covered="4"/>
+                <counter type="LINE" missed="0" covered="2"/>
+                <counter type="COMPLEXITY" missed="6" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <counter type="INSTRUCTION" missed="13" covered="109"/>
+            <counter type="BRANCH" missed="8" covered="4"/>
+            <counter type="LINE" missed="0" covered="8"/>
+            <counter type="COMPLEXITY" missed="6" covered="4"/>
+            <counter type="METHOD" missed="0" covered="4"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </class>
+        <class name="io/jenkins/plugins/codeInsights/domain/Annotation$$serializer" sourcefilename="Annotation.kt">
+            <method name="childSerializers" desc="()[Lkotlinx/serialization/KSerializer;" line="5">
+                <counter type="INSTRUCTION" missed="31" covered="0"/>
+                <counter type="LINE" missed="1" covered="0"/>
+                <counter type="COMPLEXITY" missed="1" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="deserialize"
+                    desc="(Lkotlinx/serialization/encoding/Decoder;)Lio/jenkins/plugins/codeInsights/domain/Annotation;"
+                    line="5">
+                <counter type="INSTRUCTION" missed="169" covered="0"/>
+                <counter type="BRANCH" missed="11" covered="0"/>
+                <counter type="LINE" missed="1" covered="0"/>
+                <counter type="COMPLEXITY" missed="9" covered="0"/>
+                <counter type="METHOD" missed="1" covered="0"/>
+            </method>
+            <method name="serialize"
+                    desc="(Lkotlinx/serialization/encoding/Encoder;Lio/jenkins/plugins/codeInsights/domain/Annotation;)V"
+                    line="5">
+                <counter type="INSTRUCTION" missed="0" covered="21"/>
+                <counter type="LINE" missed="0" covered="1"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="&lt;clinit&gt;" desc="()V" line="5">
+                <counter type="INSTRUCTION" missed="0" covered="36"/>
+                <counter type="LINE" missed="0" covered="2"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <counter type="INSTRUCTION" missed="200" covered="57"/>
+            <counter type="BRANCH" missed="11" covered="0"/>
+            <counter type="LINE" missed="0" covered="2"/>
+            <counter type="COMPLEXITY" missed="10" covered="2"/>
+            <counter type="METHOD" missed="2" covered="2"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </class>
+        <class name="io/jenkins/plugins/codeInsights/domain/Annotation$Companion" sourcefilename="Annotation.kt">
+            <method name="serializer" desc="()Lkotlinx/serialization/KSerializer;" line="5">
+                <counter type="INSTRUCTION" missed="0" covered="3"/>
+                <counter type="LINE" missed="0" covered="1"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <counter type="INSTRUCTION" missed="0" covered="3"/>
+            <counter type="LINE" missed="0" covered="1"/>
+            <counter type="COMPLEXITY" missed="0" covered="1"/>
+            <counter type="METHOD" missed="0" covered="1"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </class>
+        <class name="io/jenkins/plugins/codeInsights/domain/AnnotationProvider" sourcefilename="AnnotationProvider.kt">
+            <method name="&lt;init&gt;" desc="(Ljava/lang/String;)V" line="3">
+                <counter type="INSTRUCTION" missed="0" covered="9"/>
+                <counter type="LINE" missed="0" covered="1"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <method name="getSource" desc="()Ljava/lang/String;" line="3">
+                <counter type="INSTRUCTION" missed="0" covered="3"/>
+                <counter type="LINE" missed="0" covered="1"/>
+                <counter type="COMPLEXITY" missed="0" covered="1"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <counter type="INSTRUCTION" missed="0" covered="12"/>
+            <counter type="LINE" missed="0" covered="1"/>
+            <counter type="COMPLEXITY" missed="0" covered="2"/>
+            <counter type="METHOD" missed="0" covered="2"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </class>
+        <sourcefile name="AnnotationProvider.kt">
+            <line nr="3" mi="0" ci="9" mb="0" cb="0"/>
+            <counter type="INSTRUCTION" missed="0" covered="12"/>
+            <counter type="LINE" missed="0" covered="1"/>
+            <counter type="COMPLEXITY" missed="0" covered="2"/>
+            <counter type="METHOD" missed="0" covered="2"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </sourcefile>
+        <sourcefile name="Annotation.kt">
+            <line nr="5" mi="205" ci="102" mb="16" cb="3"/>
+            <line nr="6" mi="0" ci="14" mb="0" cb="0"/>
+            <line nr="7" mi="0" ci="3" mb="0" cb="0"/>
+            <line nr="8" mi="0" ci="3" mb="0" cb="0"/>
+            <line nr="9" mi="0" ci="6" mb="0" cb="0"/>
+            <line nr="10" mi="5" ci="6" mb="3" cb="1"/>
+            <line nr="11" mi="0" ci="5" mb="0" cb="0"/>
+            <line nr="12" mi="0" ci="2" mb="0" cb="0"/>
+            <line nr="14" mi="0" ci="16" mb="0" cb="0"/>
+            <line nr="16" mi="0" ci="25" mb="0" cb="0"/>
+            <counter type="INSTRUCTION" missed="213" covered="210"/>
+            <counter type="BRANCH" missed="19" covered="4"/>
+            <counter type="LINE" missed="0" covered="10"/>
+            <counter type="COMPLEXITY" missed="16" covered="10"/>
+            <counter type="METHOD" missed="2" covered="10"/>
+            <counter type="CLASS" missed="0" covered="6"/>
+        </sourcefile>
+        <counter type="INSTRUCTION" missed="213" covered="965"/>
+        <counter type="BRANCH" missed="25" covered="48"/>
+        <counter type="LINE" missed="0" covered="125"/>
+        <counter type="COMPLEXITY" missed="22" covered="51"/>
+        <counter type="METHOD" missed="2" covered="30"/>
+        <counter type="CLASS" missed="0" covered="12"/>
+    </package>
+    <package name="io/jenkins/plugins/codeInsights/util">
+        <class name="io/jenkins/plugins/codeInsights/util/JsonNodeUtilKt" sourcefilename="JsonNodeUtil.kt">
+            <method name="asArray" desc="(Lcom/fasterxml/jackson/databind/JsonNode;)Ljava/lang/Iterable;" line="5">
+                <counter type="INSTRUCTION" missed="0" covered="20"/>
+                <counter type="BRANCH" missed="1" covered="5"/>
+                <counter type="LINE" missed="0" covered="1"/>
+                <counter type="COMPLEXITY" missed="1" covered="3"/>
+                <counter type="METHOD" missed="0" covered="1"/>
+            </method>
+            <counter type="INSTRUCTION" missed="0" covered="20"/>
+            <counter type="BRANCH" missed="1" covered="5"/>
+            <counter type="LINE" missed="0" covered="1"/>
+            <counter type="COMPLEXITY" missed="1" covered="3"/>
+            <counter type="METHOD" missed="0" covered="1"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </class>
+        <sourcefile name="JsonNodeUtil.kt">
+            <line nr="5" mi="0" ci="20" mb="1" cb="5"/>
+            <counter type="INSTRUCTION" missed="0" covered="20"/>
+            <counter type="BRANCH" missed="1" covered="5"/>
+            <counter type="LINE" missed="0" covered="1"/>
+            <counter type="COMPLEXITY" missed="1" covered="3"/>
+            <counter type="METHOD" missed="0" covered="1"/>
+            <counter type="CLASS" missed="0" covered="1"/>
+        </sourcefile>
+        <counter type="INSTRUCTION" missed="0" covered="59"/>
+        <counter type="BRANCH" missed="1" covered="5"/>
+        <counter type="LINE" missed="0" covered="5"/>
+        <counter type="COMPLEXITY" missed="1" covered="5"/>
+        <counter type="METHOD" missed="0" covered="3"/>
+        <counter type="CLASS" missed="0" covered="3"/>
+    </package>
+    <counter type="INSTRUCTION" missed="233" covered="2336"/>
+    <counter type="BRANCH" missed="33" covered="86"/>
+    <counter type="LINE" missed="1" covered="373"/>
+    <counter type="COMPLEXITY" missed="29" covered="124"/>
+    <counter type="METHOD" missed="2" covered="87"/>
+    <counter type="CLASS" missed="0" covered="25"/>
+</report>
