@@ -13,7 +13,7 @@ class CoverageProvider(
 ) {
 
     fun convert(jacocoFilePath: String, srcPath: String): List<CoverageMeasuredFiles> =
-        xmlMapper.readTree(fileTransferService.readFile(jacocoFilePath))["package"].flatMap { packageTag ->
+        xmlMapper.readTree(fileTransferService.readFile(jacocoFilePath))["package"].asArray().flatMap { packageTag ->
             val packageName = packageTag["name"].asText()
             packageTag["sourcefile"].asArray().map { sourceFile ->
                 val sourceFileName = sourceFile["name"].asText()
