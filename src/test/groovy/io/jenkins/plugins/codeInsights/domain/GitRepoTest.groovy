@@ -1,6 +1,6 @@
 package io.jenkins.plugins.codeInsights.domain
 
-import io.jenkins.plugins.codeInsights.usecase.GitRepo
+import io.jenkins.plugins.codeInsights.infrastructure.GitRepo
 import spock.lang.Specification
 
 class GitRepoTest extends Specification {

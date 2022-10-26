@@ -819,35 +819,35 @@
         <LongMessage>new io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl(FilePath, Run)
             は，FileTransferServiceImpl.workspace の中に外部の可変オブジェクトを格納することによって内部表現を暴露するかもしれません。
         </LongMessage>
-        <Class classname='io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl' primary='true'>
-            <SourceLine classname='io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl' start='7' end='14'
+        <Class classname='io.jenkins.plugins.codeInsights.infrastructure.FileTransferServiceImpl' primary='true'>
+            <SourceLine classname='io.jenkins.plugins.codeInsights.infrastructure.FileTransferServiceImpl' start='7' end='14'
                         sourcepath='io/jenkins/plugins/codeInsights/framework/FileTransferServiceImpl.kt'
                         sourcefile='FileTransferServiceImpl.kt'>
                 <Message>該当箇所 FileTransferServiceImpl.kt:[lines 7-14]</Message>
             </SourceLine>
-            <Message>クラス io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl</Message>
+            <Message>クラス io.jenkins.plugins.codeInsights.infrastructure.FileTransferServiceImpl</Message>
         </Class>
-        <Method isStatic='false' classname='io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl'
+        <Method isStatic='false' classname='io.jenkins.plugins.codeInsights.infrastructure.FileTransferServiceImpl'
                 signature='(Lhudson/FilePath;Lhudson/model/Run;)V' name='&lt;init&gt;' primary='true'>
-            <SourceLine endBytecode='106' classname='io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl'
+            <SourceLine endBytecode='106' classname='io.jenkins.plugins.codeInsights.infrastructure.FileTransferServiceImpl'
                         start='7' end='7'
                         sourcepath='io/jenkins/plugins/codeInsights/framework/FileTransferServiceImpl.kt'
                         sourcefile='FileTransferServiceImpl.kt' startBytecode='0'></SourceLine>
             <Message>メソッド new io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl(FilePath, Run)</Message>
         </Method>
-        <Field isStatic='false' classname='io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl'
+        <Field isStatic='false' classname='io.jenkins.plugins.codeInsights.infrastructure.FileTransferServiceImpl'
                signature='Lhudson/FilePath;' name='workspace' primary='true'>
-            <SourceLine classname='io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl'
+            <SourceLine classname='io.jenkins.plugins.codeInsights.infrastructure.FileTransferServiceImpl'
                         sourcepath='io/jenkins/plugins/codeInsights/framework/FileTransferServiceImpl.kt'
                         sourcefile='FileTransferServiceImpl.kt'>
                 <Message>該当場所 FileTransferServiceImpl.kt</Message>
             </SourceLine>
-            <Message>フィールド io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl.workspace</Message>
+            <Message>フィールド io.jenkins.plugins.codeInsights.infrastructure.FileTransferServiceImpl.workspace</Message>
         </Field>
         <LocalVariable role='LOCAL_VARIABLE_NAMED' pc='18' name='workspace' register='1'>
             <Message>ローカル変数名 workspace</Message>
         </LocalVariable>
-        <SourceLine endBytecode='18' classname='io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl'
+        <SourceLine endBytecode='18' classname='io.jenkins.plugins.codeInsights.infrastructure.FileTransferServiceImpl'
                     start='7' end='7' sourcepath='io/jenkins/plugins/codeInsights/framework/FileTransferServiceImpl.kt'
                     sourcefile='FileTransferServiceImpl.kt' startBytecode='18' primary='true'>
             <Message>該当箇所 FileTransferServiceImpl.kt:[line 7]</Message>
@@ -856,29 +856,29 @@
     <BugInstance instanceOccurrenceNum='0' instanceHash='718ba8c614ccaf99288f69d199179b12' cweid='391' rank='16'
                  abbrev='DE' category='BAD_PRACTICE' priority='2' type='DE_MIGHT_IGNORE' instanceOccurrenceMax='0'>
         <ShortMessage>例外を無視しているかもしれないメソッド</ShortMessage>
-        <LongMessage>io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder.setSonarQube(String,
+        <LongMessage>io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder.setSonarQube(String,
             String, String, String, String) は，java.lang.Exception を無視しているかもしれません。
         </LongMessage>
-        <Class classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder' primary='true'>
-            <SourceLine classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder'
+        <Class classname='io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder' primary='true'>
+            <SourceLine classname='io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder'
                         start='10' end='36'
                         sourcepath='io/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder.kt'
                         sourcefile='ExecutableAnnotationProvidersBuilder.kt'>
                 <Message>該当箇所 ExecutableAnnotationProvidersBuilder.kt:[lines 10-36]</Message>
             </SourceLine>
-            <Message>クラス io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder</Message>
+            <Message>クラス io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder</Message>
         </Class>
         <Method isStatic='false'
-                classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder'
+                classname='io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder'
                 signature='(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder;'
                 name='setSonarQube' primary='true'>
             <SourceLine endBytecode='232'
-                        classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder'
+                        classname='io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder'
                         start='26' end='33'
                         sourcepath='io/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder.kt'
                         sourcefile='ExecutableAnnotationProvidersBuilder.kt' startBytecode='0'></SourceLine>
             <Message>メソッド
-                io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder.setSonarQube(String,
+                io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder.setSonarQube(String,
                 String, String, String, String)
             </Message>
         </Method>
@@ -890,14 +890,14 @@
             <Message>例外クラス java.lang.Exception</Message>
         </Class>
         <SourceLine endBytecode='79'
-                    classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder' start='30'
+                    classname='io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder' start='30'
                     end='30'
                     sourcepath='io/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder.kt'
                     sourcefile='ExecutableAnnotationProvidersBuilder.kt' startBytecode='79' primary='true'>
             <Message>該当箇所 ExecutableAnnotationProvidersBuilder.kt:[line 30]</Message>
         </SourceLine>
         <SourceLine endBytecode='79'
-                    classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder' start='30'
+                    classname='io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder' start='30'
                     end='30'
                     sourcepath='io/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder.kt'
                     sourcefile='ExecutableAnnotationProvidersBuilder.kt' startBytecode='79' primary='true'>
@@ -907,40 +907,40 @@
     <BugInstance instanceOccurrenceNum='0' instanceHash='884637611a4d445aeb0c09e7f3a797f0' cweid='374' rank='18'
                  abbrev='EI' category='MALICIOUS_CODE' priority='2' type='EI_EXPOSE_REP' instanceOccurrenceMax='0'>
         <ShortMessage>可変オブジェクトへの参照を返すことによって内部表現を暴露するかもしれないメソッド</ShortMessage>
-        <LongMessage>io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder.build()
+        <LongMessage>io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder.build()
             は，ExecutableAnnotationProvidersBuilder.executables を返すことによって内部表現を暴露するかもしれません。
         </LongMessage>
-        <Class classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder' primary='true'>
-            <SourceLine classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder'
+        <Class classname='io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder' primary='true'>
+            <SourceLine classname='io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder'
                         start='10' end='36'
                         sourcepath='io/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder.kt'
                         sourcefile='ExecutableAnnotationProvidersBuilder.kt'>
                 <Message>該当箇所 ExecutableAnnotationProvidersBuilder.kt:[lines 10-36]</Message>
             </SourceLine>
-            <Message>クラス io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder</Message>
+            <Message>クラス io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder</Message>
         </Class>
         <Method isStatic='false'
-                classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder'
+                classname='io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder'
                 signature='()Ljava/util/List;' name='build' primary='true'>
             <SourceLine endBytecode='46'
-                        classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder'
+                        classname='io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder'
                         start='36' end='36'
                         sourcepath='io/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder.kt'
                         sourcefile='ExecutableAnnotationProvidersBuilder.kt' startBytecode='0'></SourceLine>
-            <Message>メソッド io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder.build()</Message>
+            <Message>メソッド io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder.build()</Message>
         </Method>
-        <Field isStatic='false' classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder'
+        <Field isStatic='false' classname='io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder'
                signature='Ljava/util/List;' name='executables' primary='true'>
-            <SourceLine classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder'
+            <SourceLine classname='io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder'
                         sourcepath='io/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder.kt'
                         sourcefile='ExecutableAnnotationProvidersBuilder.kt'>
                 <Message>該当場所 ExecutableAnnotationProvidersBuilder.kt</Message>
             </SourceLine>
-            <Message>フィールド io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder.executables
+            <Message>フィールド io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder.executables
             </Message>
         </Field>
         <SourceLine endBytecode='4'
-                    classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder' start='36'
+                    classname='io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder' start='36'
                     end='36'
                     sourcepath='io/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder.kt'
                     sourcefile='ExecutableAnnotationProvidersBuilder.kt' startBytecode='4' primary='true'>
@@ -951,22 +951,22 @@
                  category='STYLE' priority='2' type='BC_BAD_CAST_TO_ABSTRACT_COLLECTION' instanceOccurrenceMax='0'>
         <ShortMessage>抽象コレクションへの疑わしいキャスト</ShortMessage>
         <LongMessage>Collection から抽象クラス java.util.List
-            への疑わしいキャストです。io.jenkins.plugins.codeInsights.usecase.GitRepo.detectChangedFiles(String, String)
+            への疑わしいキャストです。io.jenkins.plugins.codeInsights.infrastructure.GitRepo.detectChangedFiles(String, String)
         </LongMessage>
-        <Class classname='io.jenkins.plugins.codeInsights.usecase.GitRepo' primary='true'>
-            <SourceLine classname='io.jenkins.plugins.codeInsights.usecase.GitRepo' start='20' end='69'
+        <Class classname='io.jenkins.plugins.codeInsights.infrastructure.GitRepo' primary='true'>
+            <SourceLine classname='io.jenkins.plugins.codeInsights.infrastructure.GitRepo' start='20' end='69'
                         sourcepath='io/jenkins/plugins/codeInsights/usecase/GitRepo.kt' sourcefile='GitRepo.kt'>
                 <Message>該当箇所 GitRepo.kt:[lines 20-69]</Message>
             </SourceLine>
-            <Message>クラス io.jenkins.plugins.codeInsights.usecase.GitRepo</Message>
+            <Message>クラス io.jenkins.plugins.codeInsights.infrastructure.GitRepo</Message>
         </Class>
-        <Method isStatic='false' classname='io.jenkins.plugins.codeInsights.usecase.GitRepo'
+        <Method isStatic='false' classname='io.jenkins.plugins.codeInsights.infrastructure.GitRepo'
                 signature='(Ljava/lang/String;Ljava/lang/String;)Ljava/util/Set;' name='detectChangedFiles'
                 primary='true'>
-            <SourceLine endBytecode='165' classname='io.jenkins.plugins.codeInsights.usecase.GitRepo' start='26'
+            <SourceLine endBytecode='165' classname='io.jenkins.plugins.codeInsights.infrastructure.GitRepo' start='26'
                         end='33' sourcepath='io/jenkins/plugins/codeInsights/usecase/GitRepo.kt' sourcefile='GitRepo.kt'
                         startBytecode='0'></SourceLine>
-            <Message>メソッド io.jenkins.plugins.codeInsights.usecase.GitRepo.detectChangedFiles(String, String)</Message>
+            <Message>メソッド io.jenkins.plugins.codeInsights.infrastructure.GitRepo.detectChangedFiles(String, String)</Message>
         </Method>
         <Type role='TYPE_FOUND' descriptor='Ljava/util/Collection;'>
             <SourceLine classname='java.util.Collection' start='413' end='764' sourcepath='java/util/Collection.java'
@@ -985,13 +985,13 @@
         <LocalVariable role='LOCAL_VARIABLE_VALUE_OF' pc='261' name='destination$iv$iv' register='11'>
             <Message>destination$iv$iv からロードされた値</Message>
         </LocalVariable>
-        <SourceLine endBytecode='263' classname='io.jenkins.plugins.codeInsights.usecase.GitRepo' start='65' end='65'
+        <SourceLine endBytecode='263' classname='io.jenkins.plugins.codeInsights.infrastructure.GitRepo' start='65' end='65'
                     sourcepath='io/jenkins/plugins/codeInsights/usecase/GitRepo.kt' sourcefile='GitRepo.kt'
                     startBytecode='263' primary='true'>
             <Message>該当箇所 GitRepo.kt:[line 65]</Message>
         </SourceLine>
         <SourceLine role='SOURCE_LINE_ANOTHER_INSTANCE' endBytecode='363'
-                    classname='io.jenkins.plugins.codeInsights.usecase.GitRepo' start='69' end='69'
+                    classname='io.jenkins.plugins.codeInsights.infrastructure.GitRepo' start='69' end='69'
                     sourcepath='io/jenkins/plugins/codeInsights/usecase/GitRepo.kt' sourcefile='GitRepo.kt'
                     startBytecode='363'>
             <Message>他の出現箇所 GitRepo.kt:[line 69]</Message>
@@ -1159,11 +1159,11 @@
             <ClassStats bugs='0' size='59' interface='false' sourceFile='CodeInsightsBuilder.java'
                         class='io.jenkins.plugins.codeInsights.CodeInsightsBuilder$DescriptorImpl'></ClassStats>
             <ClassStats bugs='0' size='74' interface='false' sourceFile='HttpClient.kt'
-                        class='io.jenkins.plugins.codeInsights.HttpClient'></ClassStats>
+                        class='io.jenkins.plugins.codeInsights.infrastructure.HttpClient'></ClassStats>
             <ClassStats bugs='0' size='3' interface='false' sourceFile='HttpClient.kt'
-                        class='io.jenkins.plugins.codeInsights.HttpClient$CallApiFailureException'></ClassStats>
+                        class='io.jenkins.plugins.codeInsights.infrastructure.HttpClient$CallApiFailureException'></ClassStats>
             <ClassStats bugs='0' size='7' interface='false' sourceFile='HttpClient.kt'
-                        class='io.jenkins.plugins.codeInsights.HttpClient$json$1'></ClassStats>
+                        class='io.jenkins.plugins.codeInsights.infrastructure.HttpClient$json$1'></ClassStats>
             <ClassStats bugs='2' size='13' priority_1='1' priority_2='1' interface='false' sourceFile='JenkinsLogger.kt'
                         class='io.jenkins.plugins.codeInsights.JenkinsLogger'></ClassStats>
             <ClassStats bugs='3' size='68' priority_2='3' interface='false' sourceFile='KotlinEntryPoint.kt'
@@ -1197,17 +1197,17 @@
         <PackageStats package='io.jenkins.plugins.codeInsights.framework' total_bugs='1' priority_2='1' total_size='11'
                       total_types='1'>
             <ClassStats bugs='1' size='11' priority_2='1' interface='false' sourceFile='FileTransferServiceImpl.kt'
-                        class='io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl'></ClassStats>
+                        class='io.jenkins.plugins.codeInsights.infrastructure.FileTransferServiceImpl'></ClassStats>
         </PackageStats>
         <PackageStats package='io.jenkins.plugins.codeInsights.usecase' total_bugs='3' priority_2='3' total_size='69'
                       total_types='3'>
             <ClassStats bugs='2' size='22' priority_2='2' interface='false'
                         sourceFile='ExecutableAnnotationProvidersBuilder.kt'
-                        class='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder'></ClassStats>
+                        class='io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder'></ClassStats>
             <ClassStats bugs='0' size='3' interface='true' sourceFile='FileTransferService.kt'
-                        class='io.jenkins.plugins.codeInsights.usecase.FileTransferService'></ClassStats>
+                        class='io.jenkins.plugins.codeInsights.domain.FileTransferService'></ClassStats>
             <ClassStats bugs='1' size='44' priority_2='1' interface='false' sourceFile='GitRepo.kt'
-                        class='io.jenkins.plugins.codeInsights.usecase.GitRepo'></ClassStats>
+                        class='io.jenkins.plugins.codeInsights.infrastructure.GitRepo'></ClassStats>
         </PackageStats>
         <FindBugsProfile>
             <ClassProfile avgMicrosecondsPerInvocation='466' totalMilliseconds='1168'
@@ -2093,35 +2093,35 @@
     <LongMessage>new io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl(FilePath, Run)
         は，FileTransferServiceImpl.workspace の中に外部の可変オブジェクトを格納することによって内部表現を暴露するかもしれません。
     </LongMessage>
-    <Class classname='io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl' primary='true'>
-        <SourceLine classname='io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl' start='7' end='14'
+    <Class classname='io.jenkins.plugins.codeInsights.infrastructure.FileTransferServiceImpl' primary='true'>
+        <SourceLine classname='io.jenkins.plugins.codeInsights.infrastructure.FileTransferServiceImpl' start='7' end='14'
                     sourcepath='io/jenkins/plugins/codeInsights/framework/FileTransferServiceImpl.kt'
                     sourcefile='FileTransferServiceImpl.kt'>
             <Message>該当箇所 FileTransferServiceImpl.kt:[lines 7-14]</Message>
         </SourceLine>
-        <Message>クラス io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl</Message>
+        <Message>クラス io.jenkins.plugins.codeInsights.infrastructure.FileTransferServiceImpl</Message>
     </Class>
-    <Method isStatic='false' classname='io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl'
+    <Method isStatic='false' classname='io.jenkins.plugins.codeInsights.infrastructure.FileTransferServiceImpl'
             signature='(Lhudson/FilePath;Lhudson/model/Run;)V' name='&lt;init&gt;' primary='true'>
-        <SourceLine endBytecode='106' classname='io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl'
+        <SourceLine endBytecode='106' classname='io.jenkins.plugins.codeInsights.infrastructure.FileTransferServiceImpl'
                     start='7' end='7'
                     sourcepath='io/jenkins/plugins/codeInsights/framework/FileTransferServiceImpl.kt'
                     sourcefile='FileTransferServiceImpl.kt' startBytecode='0'></SourceLine>
         <Message>メソッド new io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl(FilePath, Run)</Message>
     </Method>
-    <Field isStatic='false' classname='io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl'
+    <Field isStatic='false' classname='io.jenkins.plugins.codeInsights.infrastructure.FileTransferServiceImpl'
            signature='Lhudson/FilePath;' name='workspace' primary='true'>
-        <SourceLine classname='io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl'
+        <SourceLine classname='io.jenkins.plugins.codeInsights.infrastructure.FileTransferServiceImpl'
                     sourcepath='io/jenkins/plugins/codeInsights/framework/FileTransferServiceImpl.kt'
                     sourcefile='FileTransferServiceImpl.kt'>
             <Message>該当場所 FileTransferServiceImpl.kt</Message>
         </SourceLine>
-        <Message>フィールド io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl.workspace</Message>
+        <Message>フィールド io.jenkins.plugins.codeInsights.infrastructure.FileTransferServiceImpl.workspace</Message>
     </Field>
     <LocalVariable role='LOCAL_VARIABLE_NAMED' pc='18' name='workspace' register='1'>
         <Message>ローカル変数名 workspace</Message>
     </LocalVariable>
-    <SourceLine endBytecode='18' classname='io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl'
+    <SourceLine endBytecode='18' classname='io.jenkins.plugins.codeInsights.infrastructure.FileTransferServiceImpl'
                 start='7' end='7' sourcepath='io/jenkins/plugins/codeInsights/framework/FileTransferServiceImpl.kt'
                 sourcefile='FileTransferServiceImpl.kt' startBytecode='18' primary='true'>
         <Message>該当箇所 FileTransferServiceImpl.kt:[line 7]</Message>
@@ -2130,29 +2130,29 @@
 <BugInstance instanceOccurrenceNum='0' instanceHash='718ba8c614ccaf99288f69d199179b12' cweid='391' rank='16'
              abbrev='DE' category='BAD_PRACTICE' priority='2' type='DE_MIGHT_IGNORE' instanceOccurrenceMax='0'>
     <ShortMessage>例外を無視しているかもしれないメソッド</ShortMessage>
-    <LongMessage>io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder.setSonarQube(String,
+    <LongMessage>io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder.setSonarQube(String,
         String, String, String, String) は，java.lang.Exception を無視しているかもしれません。
     </LongMessage>
-    <Class classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder' primary='true'>
-        <SourceLine classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder'
+    <Class classname='io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder' primary='true'>
+        <SourceLine classname='io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder'
                     start='10' end='36'
                     sourcepath='io/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder.kt'
                     sourcefile='ExecutableAnnotationProvidersBuilder.kt'>
             <Message>該当箇所 ExecutableAnnotationProvidersBuilder.kt:[lines 10-36]</Message>
         </SourceLine>
-        <Message>クラス io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder</Message>
+        <Message>クラス io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder</Message>
     </Class>
     <Method isStatic='false'
-            classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder'
+            classname='io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder'
             signature='(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder;'
             name='setSonarQube' primary='true'>
         <SourceLine endBytecode='232'
-                    classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder'
+                    classname='io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder'
                     start='26' end='33'
                     sourcepath='io/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder.kt'
                     sourcefile='ExecutableAnnotationProvidersBuilder.kt' startBytecode='0'></SourceLine>
         <Message>メソッド
-            io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder.setSonarQube(String,
+            io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder.setSonarQube(String,
             String, String, String, String)
         </Message>
     </Method>
@@ -2164,14 +2164,14 @@
         <Message>例外クラス java.lang.Exception</Message>
     </Class>
     <SourceLine endBytecode='79'
-                classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder' start='30'
+                classname='io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder' start='30'
                 end='30'
                 sourcepath='io/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder.kt'
                 sourcefile='ExecutableAnnotationProvidersBuilder.kt' startBytecode='79' primary='true'>
         <Message>該当箇所 ExecutableAnnotationProvidersBuilder.kt:[line 30]</Message>
     </SourceLine>
     <SourceLine endBytecode='79'
-                classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder' start='30'
+                classname='io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder' start='30'
                 end='30'
                 sourcepath='io/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder.kt'
                 sourcefile='ExecutableAnnotationProvidersBuilder.kt' startBytecode='79' primary='true'>
@@ -2181,40 +2181,40 @@
 <BugInstance instanceOccurrenceNum='0' instanceHash='884637611a4d445aeb0c09e7f3a797f0' cweid='374' rank='18'
              abbrev='EI' category='MALICIOUS_CODE' priority='2' type='EI_EXPOSE_REP' instanceOccurrenceMax='0'>
     <ShortMessage>可変オブジェクトへの参照を返すことによって内部表現を暴露するかもしれないメソッド</ShortMessage>
-    <LongMessage>io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder.build()
+    <LongMessage>io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder.build()
         は，ExecutableAnnotationProvidersBuilder.executables を返すことによって内部表現を暴露するかもしれません。
     </LongMessage>
-    <Class classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder' primary='true'>
-        <SourceLine classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder'
+    <Class classname='io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder' primary='true'>
+        <SourceLine classname='io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder'
                     start='10' end='36'
                     sourcepath='io/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder.kt'
                     sourcefile='ExecutableAnnotationProvidersBuilder.kt'>
             <Message>該当箇所 ExecutableAnnotationProvidersBuilder.kt:[lines 10-36]</Message>
         </SourceLine>
-        <Message>クラス io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder</Message>
+        <Message>クラス io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder</Message>
     </Class>
     <Method isStatic='false'
-            classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder'
+            classname='io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder'
             signature='()Ljava/util/List;' name='build' primary='true'>
         <SourceLine endBytecode='46'
-                    classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder'
+                    classname='io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder'
                     start='36' end='36'
                     sourcepath='io/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder.kt'
                     sourcefile='ExecutableAnnotationProvidersBuilder.kt' startBytecode='0'></SourceLine>
-        <Message>メソッド io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder.build()</Message>
+        <Message>メソッド io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder.build()</Message>
     </Method>
-    <Field isStatic='false' classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder'
+    <Field isStatic='false' classname='io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder'
            signature='Ljava/util/List;' name='executables' primary='true'>
-        <SourceLine classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder'
+        <SourceLine classname='io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder'
                     sourcepath='io/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder.kt'
                     sourcefile='ExecutableAnnotationProvidersBuilder.kt'>
             <Message>該当場所 ExecutableAnnotationProvidersBuilder.kt</Message>
         </SourceLine>
-        <Message>フィールド io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder.executables
+        <Message>フィールド io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder.executables
         </Message>
     </Field>
     <SourceLine endBytecode='4'
-                classname='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder' start='36'
+                classname='io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder' start='36'
                 end='36'
                 sourcepath='io/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder.kt'
                 sourcefile='ExecutableAnnotationProvidersBuilder.kt' startBytecode='4' primary='true'>
@@ -2225,22 +2225,22 @@
              category='STYLE' priority='2' type='BC_BAD_CAST_TO_ABSTRACT_COLLECTION' instanceOccurrenceMax='0'>
     <ShortMessage>抽象コレクションへの疑わしいキャスト</ShortMessage>
     <LongMessage>Collection から抽象クラス java.util.List
-        への疑わしいキャストです。io.jenkins.plugins.codeInsights.usecase.GitRepo.detectChangedFiles(String, String)
+        への疑わしいキャストです。io.jenkins.plugins.codeInsights.infrastructure.GitRepo.detectChangedFiles(String, String)
     </LongMessage>
-    <Class classname='io.jenkins.plugins.codeInsights.usecase.GitRepo' primary='true'>
-        <SourceLine classname='io.jenkins.plugins.codeInsights.usecase.GitRepo' start='20' end='69'
+    <Class classname='io.jenkins.plugins.codeInsights.infrastructure.GitRepo' primary='true'>
+        <SourceLine classname='io.jenkins.plugins.codeInsights.infrastructure.GitRepo' start='20' end='69'
                     sourcepath='io/jenkins/plugins/codeInsights/usecase/GitRepo.kt' sourcefile='GitRepo.kt'>
             <Message>該当箇所 GitRepo.kt:[lines 20-69]</Message>
         </SourceLine>
-        <Message>クラス io.jenkins.plugins.codeInsights.usecase.GitRepo</Message>
+        <Message>クラス io.jenkins.plugins.codeInsights.infrastructure.GitRepo</Message>
     </Class>
-    <Method isStatic='false' classname='io.jenkins.plugins.codeInsights.usecase.GitRepo'
+    <Method isStatic='false' classname='io.jenkins.plugins.codeInsights.infrastructure.GitRepo'
             signature='(Ljava/lang/String;Ljava/lang/String;)Ljava/util/Set;' name='detectChangedFiles'
             primary='true'>
-        <SourceLine endBytecode='165' classname='io.jenkins.plugins.codeInsights.usecase.GitRepo' start='26'
+        <SourceLine endBytecode='165' classname='io.jenkins.plugins.codeInsights.infrastructure.GitRepo' start='26'
                     end='33' sourcepath='io/jenkins/plugins/codeInsights/usecase/GitRepo.kt' sourcefile='GitRepo.kt'
                     startBytecode='0'></SourceLine>
-        <Message>メソッド io.jenkins.plugins.codeInsights.usecase.GitRepo.detectChangedFiles(String, String)</Message>
+        <Message>メソッド io.jenkins.plugins.codeInsights.infrastructure.GitRepo.detectChangedFiles(String, String)</Message>
     </Method>
     <Type role='TYPE_FOUND' descriptor='Ljava/util/Collection;'>
         <SourceLine classname='java.util.Collection' start='413' end='764' sourcepath='java/util/Collection.java'
@@ -2259,13 +2259,13 @@
     <LocalVariable role='LOCAL_VARIABLE_VALUE_OF' pc='261' name='destination$iv$iv' register='11'>
         <Message>destination$iv$iv からロードされた値</Message>
     </LocalVariable>
-    <SourceLine endBytecode='263' classname='io.jenkins.plugins.codeInsights.usecase.GitRepo' start='65' end='65'
+    <SourceLine endBytecode='263' classname='io.jenkins.plugins.codeInsights.infrastructure.GitRepo' start='65' end='65'
                 sourcepath='io/jenkins/plugins/codeInsights/usecase/GitRepo.kt' sourcefile='GitRepo.kt'
                 startBytecode='263' primary='true'>
         <Message>該当箇所 GitRepo.kt:[line 65]</Message>
     </SourceLine>
     <SourceLine role='SOURCE_LINE_ANOTHER_INSTANCE' endBytecode='363'
-                classname='io.jenkins.plugins.codeInsights.usecase.GitRepo' start='69' end='69'
+                classname='io.jenkins.plugins.codeInsights.infrastructure.GitRepo' start='69' end='69'
                 sourcepath='io/jenkins/plugins/codeInsights/usecase/GitRepo.kt' sourcefile='GitRepo.kt'
                 startBytecode='363'>
         <Message>他の出現箇所 GitRepo.kt:[line 69]</Message>
@@ -2433,11 +2433,11 @@
         <ClassStats bugs='0' size='59' interface='false' sourceFile='CodeInsightsBuilder.java'
                     class='io.jenkins.plugins.codeInsights.CodeInsightsBuilder$DescriptorImpl'></ClassStats>
         <ClassStats bugs='0' size='74' interface='false' sourceFile='HttpClient.kt'
-                    class='io.jenkins.plugins.codeInsights.HttpClient'></ClassStats>
+                    class='io.jenkins.plugins.codeInsights.infrastructure.HttpClient'></ClassStats>
         <ClassStats bugs='0' size='3' interface='false' sourceFile='HttpClient.kt'
-                    class='io.jenkins.plugins.codeInsights.HttpClient$CallApiFailureException'></ClassStats>
+                    class='io.jenkins.plugins.codeInsights.infrastructure.HttpClient$CallApiFailureException'></ClassStats>
         <ClassStats bugs='0' size='7' interface='false' sourceFile='HttpClient.kt'
-                    class='io.jenkins.plugins.codeInsights.HttpClient$json$1'></ClassStats>
+                    class='io.jenkins.plugins.codeInsights.infrastructure.HttpClient$json$1'></ClassStats>
         <ClassStats bugs='2' size='13' priority_1='1' priority_2='1' interface='false' sourceFile='JenkinsLogger.kt'
                     class='io.jenkins.plugins.codeInsights.JenkinsLogger'></ClassStats>
         <ClassStats bugs='3' size='68' priority_2='3' interface='false' sourceFile='KotlinEntryPoint.kt'
@@ -2471,17 +2471,17 @@
     <PackageStats package='io.jenkins.plugins.codeInsights.framework' total_bugs='1' priority_2='1' total_size='11'
                   total_types='1'>
         <ClassStats bugs='1' size='11' priority_2='1' interface='false' sourceFile='FileTransferServiceImpl.kt'
-                    class='io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl'></ClassStats>
+                    class='io.jenkins.plugins.codeInsights.infrastructure.FileTransferServiceImpl'></ClassStats>
     </PackageStats>
     <PackageStats package='io.jenkins.plugins.codeInsights.usecase' total_bugs='3' priority_2='3' total_size='69'
                   total_types='3'>
         <ClassStats bugs='2' size='22' priority_2='2' interface='false'
                     sourceFile='ExecutableAnnotationProvidersBuilder.kt'
-                    class='io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder'></ClassStats>
+                    class='io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder'></ClassStats>
         <ClassStats bugs='0' size='3' interface='true' sourceFile='FileTransferService.kt'
-                    class='io.jenkins.plugins.codeInsights.usecase.FileTransferService'></ClassStats>
+                    class='io.jenkins.plugins.codeInsights.domain.FileTransferService'></ClassStats>
         <ClassStats bugs='1' size='44' priority_2='1' interface='false' sourceFile='GitRepo.kt'
-                    class='io.jenkins.plugins.codeInsights.usecase.GitRepo'></ClassStats>
+                    class='io.jenkins.plugins.codeInsights.infrastructure.GitRepo'></ClassStats>
     </PackageStats>
     <FindBugsProfile>
         <ClassProfile avgMicrosecondsPerInvocation='466' totalMilliseconds='1168'

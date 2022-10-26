@@ -1,4 +1,4 @@
-package io.jenkins.plugins.codeInsights.usecase
+package io.jenkins.plugins.codeInsights.domain
 
 interface FileTransferService {
     fun copyFromWorkspaceToLocal(path: String)

@@ -1,4 +1,4 @@
-package io.jenkins.plugins.codeInsights.usecase
+package io.jenkins.plugins.codeInsights.infrastructure
 
 import org.eclipse.jgit.api.Git
 import org.eclipse.jgit.diff.DiffEntry.ChangeType.ADD

@@ -1,5 +1,6 @@
-package io.jenkins.plugins.codeInsights
+package io.jenkins.plugins.codeInsights.infrastructure
 
+import io.jenkins.plugins.codeInsights.JenkinsLogger
 import io.jenkins.plugins.codeInsights.domain.Annotation
 import io.jenkins.plugins.codeInsights.domain.coverage.CoverageRequest
 import kotlinx.serialization.encodeToString
