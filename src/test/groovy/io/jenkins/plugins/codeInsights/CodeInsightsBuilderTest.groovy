@@ -182,11 +182,43 @@ class CodeInsightsBuilderTest extends Specification {
         jenkins.assertLogContains('Finished: SUCCESS', build)
     }
 
+    def 'build successful with Coverage'() {
+        given:
+        CredentialsProvider.saveAll()
+        server.enqueue(new MockResponse()) // put reports
+        final def jsonObject = new JSONObject(
+            [
+                codeInsights: [
+                    bitbucketUrl         : server.url('').toString(),
+                    project              : 'project',
+                    bitbucketCredentialId: 'username:password',
+                ]
+            ]
+        )
+        jenkins.get(CodeInsightsBuilder.DescriptorImpl).configure(Stub(StaplerRequest), jsonObject)
+
+        final def project = jenkins.createFreeStyleProject()
+        final def builder = new CodeInsightsBuilder('repo', INITIAL_COMMIT_ID)
+        builder.setJacocoFilePath('src/test/resources/jacoco.xml')
+        project.buildersList << builder
+        project.customWorkspace = Paths.get('.').toAbsolutePath().toString()
+
+        expect:
+        final def build = jenkins.buildAndAssertSuccess(project)
+        jenkins.assertLogContains('[Code Insights plugin] Coverage enabled', build)
+        jenkins.assertLogContains('[Code Insights plugin] Start Coverage', build)
+        jenkins.assertLogContains('[Code Insights plugin] Start to post coverage', build)
+        jenkins.assertLogContains('[Code Insights plugin] Post coverage: SUCCESS', build)
+        jenkins.assertLogContains('[Code Insights plugin] Finish Coverage', build)
+        jenkins.assertLogContains('Finished: SUCCESS', build)
+    }
+
     def 'build successful with all sources'() {
         given:
         server.enqueue(new MockResponse())
         server.enqueue(new MockResponse().setBody(SONAR_QUBE_RESPONSE)) // call to fetch total page
         server.enqueue(new MockResponse().setBody(SONAR_QUBE_RESPONSE)) // call to fetch issues
+        server.enqueue(new MockResponse())
         final def jsonObject = new JSONObject(
             [
                 codeInsights: [
@@ -214,6 +246,7 @@ class CodeInsightsBuilderTest extends Specification {
         builder.setSpotBugsFilePath('src/test/resources/spotbugs-test.xml')
         builder.setPmdFilePath('target/pmd.xml')
         builder.setSonarQubeProjectKey('trial')
+        builder.setJacocoFilePath('src/test/resources/jacoco.xml')
         project.buildersList << builder
         project.customWorkspace = Paths.get('.').toAbsolutePath().toString()
 
@@ -233,6 +266,11 @@ class CodeInsightsBuilderTest extends Specification {
         jenkins.assertLogContains('[Code Insights plugin] Finish PMD', build)
         jenkins.assertLogContains('[Code Insights plugin] Start SonarQube', build)
         jenkins.assertLogContains('[Code Insights plugin] Finish SonarQube', build)
+        jenkins.assertLogContains('[Code Insights plugin] Coverage enabled', build)
+        jenkins.assertLogContains('[Code Insights plugin] Start Coverage', build)
+        jenkins.assertLogContains('[Code Insights plugin] Start to post coverage', build)
+        jenkins.assertLogContains('[Code Insights plugin] Post coverage: SUCCESS', build)
+        jenkins.assertLogContains('[Code Insights plugin] Finish Coverage', build)
         jenkins.assertLogContains('Finished: SUCCESS', build)
     }
 

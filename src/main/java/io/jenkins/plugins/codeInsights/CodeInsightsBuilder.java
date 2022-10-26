@@ -132,7 +132,7 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
             final JSONObject globalSettings = json.getJSONObject("codeInsights");
             this.bitbucketUrl = globalSettings.getString("bitbucketUrl");
             this.project = globalSettings.getString("project");
-            this.reportKey = globalSettings.getString("reportKey");
+            this.reportKey = globalSettings.getOrDefault("reportKey", "").toString();
             this.bitbucketCredentialId = globalSettings.getString("bitbucketCredentialId");
             this.sonarQubeUrl = globalSettings.getOrDefault("sonarQubeUrl", "").toString();
             this.sonarQubeCredentialId = globalSettings.getOrDefault("sonarQubeCredentialId", "").toString();

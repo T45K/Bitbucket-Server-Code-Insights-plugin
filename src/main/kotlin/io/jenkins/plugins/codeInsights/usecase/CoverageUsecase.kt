@@ -15,6 +15,7 @@ class CoverageUsecase(
     private val httpClient: HttpClient,
 ) {
     fun execute() {
+        JenkinsLogger.info("Coverage enabled")
         JenkinsLogger.info("Start Coverage")
         val coverageRequest = CoverageProvider(fileTransferService, XmlMapper()).convert(jacocoFilePath, srcPath)
             .filter { it.isNotEmpty() }
