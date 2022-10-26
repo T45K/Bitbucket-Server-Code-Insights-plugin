@@ -1,7 +1,7 @@
 package io.jenkins.plugins.codeInsights
 
 import io.jenkins.plugins.codeInsights.domain.Annotation
-import io.jenkins.plugins.codeInsights.domain.coverage.Coverage
+import io.jenkins.plugins.codeInsights.domain.coverage.CoverageRequest
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import okhttp3.Credentials
@@ -49,7 +49,7 @@ class HttpClient(
         .build()
 
     private val credential = Credentials.basic(username, password)
-    private val mediaType = "application/json; charset=utf-8".toMediaType()
+    private val applicationJsonMediaType = "application/json; charset=utf-8".toMediaType()
     private val json = Json { encodeDefaults = true }
 
     private val reportRequestBody = json.encodeToString(
@@ -58,7 +58,7 @@ class HttpClient(
             "reporter" to "Jenkins",
             "logoUrl" to "https://www.jenkins.io/images/logos/superhero/256.png",
         )
-    ).toRequestBody(mediaType)
+    ).toRequestBody(applicationJsonMediaType)
 
     fun putReport() {
         JenkinsLogger.info("Start to put reports")
@@ -83,7 +83,7 @@ class HttpClient(
         val request = Request.Builder()
             .url(annotationUrl)
             .authorizationHeader()
-            .post(json.encodeToString(mapOf("annotations" to annotations)).toRequestBody(mediaType))
+            .post(json.encodeToString(mapOf("annotations" to annotations)).toRequestBody(applicationJsonMediaType))
             .build()
         client.newCall(request).execute().also {
             if (it.isSuccessful) {
@@ -96,13 +96,13 @@ class HttpClient(
         }
     }
 
-    fun postCoverage(coverage: Coverage) {
+    fun postCoverage(coverageRequest: CoverageRequest) {
         JenkinsLogger.info("Start to post coverage")
         val request = Request.Builder()
             .url(coverageUrl)
             .authorizationHeader()
             .header("X-Atlassian-Token", "no-check")
-            .post(json.encodeToString(coverage).toRequestBody(mediaType))
+            .post(json.encodeToString(coverageRequest).toRequestBody(applicationJsonMediaType))
             .build()
         client.newCall(request).execute().also {
             if (it.isSuccessful) {

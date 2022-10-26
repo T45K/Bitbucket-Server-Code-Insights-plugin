@@ -11,12 +11,15 @@ class CoverageProviderTest extends Specification {
 
     def 'convert '() {
         def fileTransferService = Stub(FileTransferService) {
-            readFile(*_) >> FileUtil.readString(Paths.get('src', 'test', 'resources', 'jacoco.xml'))
+            readFile('file') >> FileUtil.readString(Paths.get('src', 'test', 'resources', 'jacoco.xml'))
         }
         def sut = new CoverageProvider(fileTransferService, new XmlMapper())
 
         expect:
-        println sut.convert("sss", "src/main/java")
-        // TODO: write assertion
+        sut.convert('file', 'src/main/java') == [
+            new CoverageMeasuredFile('src/main/java/io/jenkins/plugins/codeInsights/domain/AnnotationProvider.kt', 'C:3'),
+            new CoverageMeasuredFile('src/main/java/io/jenkins/plugins/codeInsights/domain/Annotation.kt', 'C:6,7,8,9,11,12,14,16;P:5,10'),
+            new CoverageMeasuredFile('src/main/java/io/jenkins/plugins/codeInsights/util/JsonNodeUtil.kt', 'P:5')
+        ]
     }
 }

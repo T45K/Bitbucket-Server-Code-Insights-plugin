@@ -3,12 +3,12 @@ package io.jenkins.plugins.codeInsights.domain.coverage
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Coverage(
-    private val files: List<CoverageMeasuredFiles>
+data class CoverageRequest(
+    private val files: List<CoverageMeasuredFile>
 )
 
 @Serializable
-data class CoverageMeasuredFiles(
+data class CoverageMeasuredFile(
     val path: String,
     private val coverage: String,
 ) {

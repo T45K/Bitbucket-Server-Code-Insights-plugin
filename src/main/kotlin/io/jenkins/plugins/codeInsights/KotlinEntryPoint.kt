@@ -6,7 +6,7 @@ import hudson.FilePath
 import hudson.Launcher
 import hudson.model.Run
 import hudson.model.TaskListener
-import io.jenkins.plugins.codeInsights.domain.coverage.Coverage
+import io.jenkins.plugins.codeInsights.domain.coverage.CoverageRequest
 import io.jenkins.plugins.codeInsights.domain.coverage.CoverageProvider
 import io.jenkins.plugins.codeInsights.framework.FileTransferServiceImpl
 import io.jenkins.plugins.codeInsights.usecase.ExecutableAnnotationProvidersBuilder
@@ -76,11 +76,11 @@ class KotlinEntryPoint(
         }
 
         JenkinsLogger.info("Start Coverage")
-        val coverage = CoverageProvider(fileTransferService, XmlMapper()).convert(jacocoFilePath, srcPath)
+        val coverageRequest = CoverageProvider(fileTransferService, XmlMapper()).convert(jacocoFilePath, srcPath)
             .filter { it.isNotEmpty() }
             .filter { changedFiles.contains(it.path) }
-            .let(::Coverage)
-        httpClient.postCoverage(coverage)
+            .let(::CoverageRequest)
+        httpClient.postCoverage(coverageRequest)
         JenkinsLogger.info("Finish Coverage")
     }
 }
