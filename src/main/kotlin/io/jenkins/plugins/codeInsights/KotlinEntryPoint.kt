@@ -9,7 +9,7 @@ import io.jenkins.plugins.codeInsights.infrastructure.FileTransferServiceImpl
 import io.jenkins.plugins.codeInsights.infrastructure.GitRepo
 import io.jenkins.plugins.codeInsights.infrastructure.HttpClient
 import io.jenkins.plugins.codeInsights.usecase.CoverageUsecase
-import io.jenkins.plugins.codeInsights.usecase.ReportUsecase
+import io.jenkins.plugins.codeInsights.usecase.AnnotationUsecase
 
 @Suppress("unused", "CanBeParameter")
 class KotlinEntryPoint(
@@ -54,8 +54,9 @@ class KotlinEntryPoint(
             it.detectChangedFiles(commitId, baseBranch)
         }
 
-        if (reportKey.isNotBlank()) {
-            ReportUsecase(
+        val annotationEnabled = reportKey.isNotBlank()
+        if (annotationEnabled) {
+            AnnotationUsecase(
                 httpClient,
                 fileTransferService,
                 workspace,
@@ -72,7 +73,8 @@ class KotlinEntryPoint(
             ).execute()
         }
 
-        if (jacocoFilePath.isNotBlank()) {
+        val coverageEnabled = jacocoFilePath.isNotBlank()
+        if (coverageEnabled) {
             CoverageUsecase(fileTransferService, jacocoFilePath, srcPath, changedFiles, httpClient).execute()
         }
     }

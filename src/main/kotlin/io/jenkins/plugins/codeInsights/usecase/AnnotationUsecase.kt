@@ -6,7 +6,7 @@ import io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuild
 import io.jenkins.plugins.codeInsights.domain.FileTransferService
 import io.jenkins.plugins.codeInsights.infrastructure.HttpClient
 
-class ReportUsecase(
+class AnnotationUsecase(
     private val httpClient: HttpClient,
     private val fileTransferService: FileTransferService,
     private val workspace: FilePath,
