@@ -5,6 +5,7 @@ import hudson.FilePath
 import hudson.Launcher
 import hudson.model.Run
 import hudson.model.TaskListener
+import io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder
 import io.jenkins.plugins.codeInsights.infrastructure.FileTransferServiceImpl
 import io.jenkins.plugins.codeInsights.infrastructure.GitRepo
 import io.jenkins.plugins.codeInsights.infrastructure.HttpClient
@@ -56,21 +57,13 @@ class KotlinEntryPoint(
 
         val annotationEnabled = reportKey.isNotBlank()
         if (annotationEnabled) {
-            AnnotationUsecase(
-                httpClient,
-                fileTransferService,
-                workspace,
-                checkstyleFilePath,
-                spotBugsFilePath,
-                srcPath,
-                pmdFilePath,
-                sonarQubeUrl,
-                sonarQubeProjectKey,
-                sonarQubeToken,
-                sonarQubeUserName,
-                sonarQubePassword,
-                changedFiles
-            ).execute()
+            val executables = ExecutableAnnotationProvidersBuilder(fileTransferService)
+                .setCheckstyle(checkstyleFilePath, workspace.remote)
+                .setSpotBugs(spotBugsFilePath, srcPath)
+                .setPmd(pmdFilePath, workspace.remote)
+                .setSonarQube(sonarQubeUrl, sonarQubeProjectKey, sonarQubeToken, sonarQubeUserName, sonarQubePassword)
+                .build()
+            AnnotationUsecase(httpClient, executables, changedFiles).execute()
         }
 
         val coverageEnabled = jacocoFilePath.isNotBlank()
