@@ -18,7 +18,6 @@ class QodanaAnnotationProvider(content: String) : AnnotationProvider(content) {
                 val severity = when (it.level) {
                     "error" -> Severity.HIGH
                     "warning" -> Severity.MEDIUM
-                    "note",
                     else -> Severity.LOW
                 }
                 if (it.locations.isEmpty()) {
