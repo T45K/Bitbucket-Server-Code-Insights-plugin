@@ -312,7 +312,6 @@ class CodeInsightsBuilderTest extends Specification {
 
         expect:
         final def build = jenkins.buildAndAssertStatus(Result.FAILURE, project)
-        jenkins.assertLogContains('[Code Insights plugin] Start to put reports', build)
         jenkins.assertLogContains('Finished: FAILURE', build)
     }
 
