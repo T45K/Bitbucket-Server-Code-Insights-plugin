@@ -270,7 +270,7 @@
                     <dependency>
                         <groupId>com.puppycrawl.tools</groupId>
                         <artifactId>checkstyle</artifactId>
-                        <version>10.5.0</version>
+                        <version>10.6.0</version>
                     </dependency>
                 </dependencies>
                 <executions>
@@ -295,12 +295,12 @@
                     <dependency>
                         <groupId>net.sourceforge.pmd</groupId>
                         <artifactId>pmd-core</artifactId>
-                        <version>6.52.0</version>
+                        <version>6.53.0</version>
                     </dependency>
                     <dependency>
                         <groupId>net.sourceforge.pmd</groupId>
                         <artifactId>pmd-java</artifactId>
-                        <version>6.52.0</version>
+                        <version>6.53.0</version>
                     </dependency>
                 </dependencies>
                 <executions>
