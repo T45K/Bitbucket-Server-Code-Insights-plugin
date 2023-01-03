@@ -36,6 +36,7 @@ class KotlinEntryPoint(
     private val spotBugsFilePath: String,
     private val pmdFilePath: String,
     private val sonarQubeProjectKey: String,
+    private val qodanaFilePath: String,
     private val jacocoFilePath: String,
 ) {
     init {
@@ -61,6 +62,7 @@ class KotlinEntryPoint(
                 .setCheckstyle(checkstyleFilePath, workspace.remote)
                 .setSpotBugs(spotBugsFilePath, srcPath)
                 .setPmd(pmdFilePath, workspace.remote)
+                .setQodana(qodanaFilePath)
                 .setSonarQube(sonarQubeUrl, sonarQubeProjectKey, sonarQubeToken, sonarQubeUserName, sonarQubePassword)
                 .build()
             AnnotationUsecase(httpClient, executables, changedFiles).execute()

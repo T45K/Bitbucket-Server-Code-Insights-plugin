@@ -43,6 +43,14 @@ class ExecutableAnnotationProvidersBuilder(private val fileTransferService: File
         return this
     }
 
+    fun setQodana(qodanaFilePath: String): ExecutableAnnotationProvidersBuilder {
+        if (qodanaFilePath.isNotBlank()) {
+            JenkinsLogger.info("Qodana enabled")
+            executables.add(QodanaAnnotationProvider(qodanaFilePath))
+        }
+        return this
+    }
+
     fun setSonarQube(
         sonarQubeUrl: String, sonarQubeProjectKey: String,
         sonarQubeToken: String, sonarQubeUsername: String, sonarQubePassword: String

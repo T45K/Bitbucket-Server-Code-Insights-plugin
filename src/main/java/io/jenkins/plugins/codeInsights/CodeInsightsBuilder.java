@@ -19,6 +19,8 @@ import hudson.util.Secret;
 import jenkins.model.Jenkins;
 import jenkins.tasks.SimpleBuildStep;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import net.sf.json.JSONObject;
 import org.jenkinsci.Symbol;
 import org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl;
@@ -32,6 +34,8 @@ import java.util.Optional;
 
 @SuppressWarnings("unused")
 @Getter
+@Setter(onMethod = @__(@DataBoundSetter))
+@RequiredArgsConstructor(onConstructor = @__(@DataBoundConstructor))
 public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
     private final String repositoryName;
     private final String commitId;
@@ -42,48 +46,8 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
     private String spotBugsFilePath = "";
     private String pmdFilePath = "";
     private String sonarQubeProjectKey = "";
+    private String qodanaFilePath = "";
     private String jacocoFilePath = "";
-
-    @DataBoundConstructor
-    public CodeInsightsBuilder(@NotNull final String repositoryName, @NotNull final String commitId) {
-        this.repositoryName = repositoryName;
-        this.commitId = commitId;
-    }
-
-    @DataBoundSetter
-    public void setSrcPath(@NotNull final String srcPath) {
-        this.srcPath = srcPath;
-    }
-
-    @DataBoundSetter
-    public void setBaseBranch(@NotNull final String baseBranch) {
-        this.baseBranch = baseBranch;
-    }
-
-    @DataBoundSetter
-    public void setCheckstyleFilePath(@NotNull final String checkstyleFilePath) {
-        this.checkstyleFilePath = checkstyleFilePath;
-    }
-
-    @DataBoundSetter
-    public void setSpotBugsFilePath(final String spotBugsFilePath) {
-        this.spotBugsFilePath = spotBugsFilePath;
-    }
-
-    @DataBoundSetter
-    public void setPmdFilePath(final String pmdFilePath) {
-        this.pmdFilePath = pmdFilePath;
-    }
-
-    @DataBoundSetter
-    public void setSonarQubeProjectKey(@NotNull final String sonarQubeProjectKey) {
-        this.sonarQubeProjectKey = sonarQubeProjectKey;
-    }
-
-    @DataBoundSetter
-    public void setJacocoFilePath(final String jacocoFilePath) {
-        this.jacocoFilePath = jacocoFilePath;
-    }
 
     @Override
     public void perform(@NotNull final Run<?, ?> run,
@@ -108,7 +72,7 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
             sonarQubeUsernamePassword.map(UsernamePasswordCredentialsImpl::getPassword).map(Secret::getPlainText).orElse(""), // optional global settings (SonarQube)
             repositoryName, commitId, // mandatory local settings
             srcPath, baseBranch, // optional local settings (with default values)
-            checkstyleFilePath, spotBugsFilePath, pmdFilePath, sonarQubeProjectKey, jacocoFilePath // optional local settings
+            checkstyleFilePath, spotBugsFilePath, pmdFilePath, sonarQubeProjectKey, qodanaFilePath, jacocoFilePath // optional local settings
         ).delegate();
     }
 
