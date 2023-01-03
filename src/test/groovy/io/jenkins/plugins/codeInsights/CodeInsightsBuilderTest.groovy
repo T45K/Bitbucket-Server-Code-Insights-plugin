@@ -6,7 +6,7 @@ import com.cloudbees.plugins.credentials.domains.Domain
 import com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl
 import hudson.model.Result
 import hudson.util.Secret
-import io.jenkins.plugins.codeInsights.testUtil.FileUtil
+import io.jenkins.plugins.codeInsights.test_util.FileUtil
 import net.sf.json.JSONObject
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
@@ -16,12 +16,13 @@ import org.jvnet.hudson.test.JenkinsRule
 import org.kohsuke.stapler.StaplerRequest
 import spock.lang.Specification
 
+import java.nio.file.Path
 import java.nio.file.Paths
 
 class CodeInsightsBuilderTest extends Specification {
     private static final def INITIAL_COMMIT_ID = 'ed5582899d97af2ec47dad0462a7a38a8f3ebeeb'
-    private static final def LOCAL_JENKINS_DIR = Paths.get('target', 'tmp')
-    private static final def SONAR_QUBE_RESPONSE = FileUtil.readString(Paths.get('src', 'test', 'resources', 'sonarQubeResponse.json'))
+    private static final def LOCAL_JENKINS_DIR = Path.of('target', 'tmp')
+    private static final def SONAR_QUBE_RESPONSE = Path.of('src', 'test', 'resources', 'sonarQubeResponse.json').text
 
     @Rule
     private final JenkinsRule jenkins = new JenkinsRule()

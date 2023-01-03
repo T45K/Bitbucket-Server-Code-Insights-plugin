@@ -1,5 +1,4 @@
-package io.jenkins.plugins.codeInsights.testUtil
-
+package io.jenkins.plugins.codeInsights.test_util
 
 import java.nio.file.Files
 
@@ -10,10 +9,6 @@ class FileUtil {
         } else {
             dir
         }
-    }
-
-    static def readString(path) {
-        Files.readAllLines(path).join('\n')
     }
 
     static def deleteRecursive(path) {

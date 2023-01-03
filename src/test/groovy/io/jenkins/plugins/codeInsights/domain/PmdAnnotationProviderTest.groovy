@@ -1,10 +1,9 @@
 package io.jenkins.plugins.codeInsights.domain
 
 import com.fasterxml.jackson.dataformat.xml.XmlMapper
-import io.jenkins.plugins.codeInsights.testUtil.FileUtil
 import spock.lang.Specification
 
-import java.nio.file.Paths
+import java.nio.file.Path
 
 @SuppressWarnings('GroovyAccessibility')
 class PmdAnnotationProviderTest extends Specification {
@@ -14,7 +13,7 @@ class PmdAnnotationProviderTest extends Specification {
         final def sut = new PmdAnnotationProvider(
             new XmlMapper(),
             '/test/repo',
-            FileUtil.readString(Paths.get('src', 'test', 'resources', 'pmd-test.xml')),
+            Path.of('src', 'test', 'resources', 'pmd-test.xml').text,
         )
 
         expect:
@@ -29,7 +28,7 @@ class PmdAnnotationProviderTest extends Specification {
         final def sut = new PmdAnnotationProvider(
             new XmlMapper(),
             '/test/repo',
-            FileUtil.readString(Paths.get('src', 'test', 'resources', 'pmd-test.xml')),
+            Path.of('src', 'test', 'resources', 'pmd-test.xml').text,
         )
 
         expect:
