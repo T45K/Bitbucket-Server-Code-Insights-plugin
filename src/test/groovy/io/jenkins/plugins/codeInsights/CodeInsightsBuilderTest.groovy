@@ -183,6 +183,27 @@ class CodeInsightsBuilderTest extends Specification {
         jenkins.assertLogContains('Finished: SUCCESS', build)
     }
 
+    def 'build successful with Qodana file'() {
+        given:
+        server.enqueue(new MockResponse()) // put reports
+        jenkins.get(CodeInsightsBuilder.DescriptorImpl).configure(Stub(StaplerRequest), jsonObject)
+
+        final def project = jenkins.createFreeStyleProject()
+        final def builder = new CodeInsightsBuilder('repo', INITIAL_COMMIT_ID)
+        builder.setQodanaFilePath('src/test/resources/qodana-report.json')
+        project.buildersList << builder
+        project.customWorkspace = Path.of('.').toAbsolutePath().toString()
+
+        expect:
+        final def build = jenkins.buildAndAssertSuccess(project)
+        jenkins.assertLogContains('[Code Insights plugin] Start to put reports', build)
+        jenkins.assertLogContains('[Code Insights plugin] Put reports: SUCCESS', build)
+        jenkins.assertLogContains('[Code Insights plugin] Qodana enabled', build)
+        jenkins.assertLogContains('[Code Insights plugin] Start Qodana', build)
+        jenkins.assertLogContains('[Code Insights plugin] Finish Qodana', build)
+        jenkins.assertLogContains('Finished: SUCCESS', build)
+    }
+
     def 'build successful with Coverage'() {
         given:
         CredentialsProvider.saveAll()
@@ -248,6 +269,7 @@ class CodeInsightsBuilderTest extends Specification {
         builder.setPmdFilePath('target/pmd.xml')
         builder.setSonarQubeProjectKey('trial')
         builder.setJacocoFilePath('src/test/resources/jacoco.xml')
+        builder.setQodanaFilePath('src/test/resources/qodana-report.json')
         project.buildersList << builder
         project.customWorkspace = Paths.get('.').toAbsolutePath().toString()
 
@@ -259,6 +281,7 @@ class CodeInsightsBuilderTest extends Specification {
         jenkins.assertLogContains('[Code Insights plugin] SpotBugs enabled', build)
         jenkins.assertLogContains('[Code Insights plugin] PMD enabled', build)
         jenkins.assertLogContains('[Code Insights plugin] SonarQube enabled', build)
+        jenkins.assertLogContains('[Code Insights plugin] Qodana enabled', build)
         jenkins.assertLogContains('[Code Insights plugin] Start Checkstyle', build)
         jenkins.assertLogContains('[Code Insights plugin] Finish Checkstyle', build)
         jenkins.assertLogContains('[Code Insights plugin] Start SpotBugs', build)
@@ -267,6 +290,8 @@ class CodeInsightsBuilderTest extends Specification {
         jenkins.assertLogContains('[Code Insights plugin] Finish PMD', build)
         jenkins.assertLogContains('[Code Insights plugin] Start SonarQube', build)
         jenkins.assertLogContains('[Code Insights plugin] Finish SonarQube', build)
+        jenkins.assertLogContains('[Code Insights plugin] Start Qodana', build)
+        jenkins.assertLogContains('[Code Insights plugin] Finish Qodana', build)
         jenkins.assertLogContains('[Code Insights plugin] Coverage enabled', build)
         jenkins.assertLogContains('[Code Insights plugin] Start Coverage', build)
         jenkins.assertLogContains('[Code Insights plugin] Start to post coverage', build)
