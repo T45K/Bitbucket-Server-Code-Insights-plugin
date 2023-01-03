@@ -46,7 +46,7 @@ class ExecutableAnnotationProvidersBuilder(private val fileTransferService: File
     fun setQodana(qodanaFilePath: String): ExecutableAnnotationProvidersBuilder {
         if (qodanaFilePath.isNotBlank()) {
             JenkinsLogger.info("Qodana enabled")
-            executables.add(QodanaAnnotationProvider(qodanaFilePath))
+            executables.add(QodanaAnnotationProvider(fileTransferService.readFile(qodanaFilePath)))
         }
         return this
     }
