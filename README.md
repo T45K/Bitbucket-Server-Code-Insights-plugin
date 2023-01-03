@@ -64,6 +64,7 @@ Set up in your Job settings page or give in `Jenkinsfile` as parameter.
 |  `spotBugsFilePath`   | Relative path of SpotBugs result file from repository root (e.g., `target/spotbugsXml.xml`).                                                          |    No    |       `-`       |
 |     `pmdFilePath`     | Relative path of PMD result file from repository root (e.g., `target/pmd.xml`)                                                                        |    No    |       `-`       |
 | `SonarQubeProjectKey` | Project key of SonarQube project. If you use SonarQube plugin in Jenkins, specify the same value as `XXX` of `mvn sonar:sonar -Dsonar.projectKey=XXX` |    No    |       `-`       |
+|   `qodanaFilePath`    | Relative path of Qodana result file from repository root (e.g., `report/qodana.sarif.json`)                                                           |    No    |       `-`       |
 |   `jacocoFilePath`    | Relative Path of JaCoCo result file from repository root (e.g., `target/site/jacoco/jacoco.xml`)                                                      |    No    |       `-`       |
 
 ## Supporting code analysis tools
@@ -74,10 +75,12 @@ Currently, this plugin supports the following tools.
 - SpotBugs
 - PMD
 - SonarQube
+- JetBrains Qodana
 
 The following tools are planned to be supported in the future.
 
 - CodeQL
+- Fortify
 
 ## Supporting coverage collecting tools
 
