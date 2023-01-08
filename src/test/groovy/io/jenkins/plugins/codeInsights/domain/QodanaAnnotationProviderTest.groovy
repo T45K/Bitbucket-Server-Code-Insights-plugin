@@ -8,7 +8,7 @@ class QodanaAnnotationProviderTest extends Specification {
 
     def 'convert returns annotations'() {
         given:
-        final def content = Path.of('src', 'test', 'resources', 'qodana-report.json').text
+        final def content = Path.of('src', 'test', 'resources', 'qodana-report.json').getText('UTF-8')
         final def sut = new QodanaAnnotationProvider(content)
 
         expect:
