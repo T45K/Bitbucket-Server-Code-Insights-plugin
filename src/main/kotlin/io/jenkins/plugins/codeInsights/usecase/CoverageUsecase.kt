@@ -39,7 +39,7 @@ class CoverageUsecase(
         JenkinsLogger.info("Start Coverage overview post")
         val coverageOverviewRequest = CoverageOverview(fileTransferService, XmlMapper()).convert(jacocoFilePath)
         val reportRequestBody = json.encodeToString(
-            ReportRequestForBitbucket(coverageOverviewRequest, ReportType.COVERAGE, ResultType.PASS, "")
+            ReportRequestForBitbucket(coverageOverviewRequest, ReportType.COVERAGE, ResultType.PASS, "Coverage Report for Jenkins.")
         ).toRequestBody(applicationJsonMediaType)
         httpClient.putReport(reportRequestBody, "$reportKey _ coverage")
         JenkinsLogger.info("Finish Coverage overview")
