@@ -16,7 +16,7 @@ data class ReportRequestForBitbucket<T>(
     val result: ResultType,
     val details: String,
     val title: String = "Jenkins Report",
-    val reporter: String  = "Jenkins",
+    val reporter: String = "Jenkins",
     val logoUrl: String = "https://www.jenkins.io/images/logos/superhero/256.png",
 )
 

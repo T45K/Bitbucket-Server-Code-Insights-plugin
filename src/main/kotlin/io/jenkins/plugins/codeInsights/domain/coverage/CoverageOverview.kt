@@ -12,18 +12,17 @@ class CoverageOverview(
 ) {
 
     fun convert(jacocoFilePath: String): List<CoverageOverviewItem<String>> =
-            xmlMapper.readTree(fileTransferService.readFile(jacocoFilePath)).asArray().flatMap { reportTag ->
-                val counterTags = reportTag["counter"] as ArrayNode
+        xmlMapper.readTree(fileTransferService.readFile(jacocoFilePath)).asArray().flatMap { reportTag ->
+            val counterTags = reportTag["counter"] as ArrayNode
 
-                counterTags.map { tag ->
-                    val type = tag["type"].asText()
-                    val missed = tag["missed"].asDouble()
-                    val covered = tag["covered"].asDouble()
-                    val coverage = missed / (missed + covered)
-                    val coverageRounded = (coverage * 100.0).roundToInt() / 100.0
+            counterTags.map { tag ->
+                val type = tag["type"].asText()
+                val missed = tag["missed"].asDouble()
+                val covered = tag["covered"].asDouble()
+                val coverage = missed / (missed + covered)
+                val coverageRounded = (coverage * 100.0).roundToInt() / 100.0
 
-                    CoverageOverviewItem(type,  "$coverageRounded %")
-                }
+                CoverageOverviewItem(type, "$coverageRounded %")
             }
+        }
 }
-

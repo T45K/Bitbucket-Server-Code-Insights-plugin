@@ -10,8 +10,8 @@ import io.jenkins.plugins.codeInsights.infrastructure.HttpClient
 import io.jenkins.plugins.codeInsights.infrastructure.dto.ReportRequestForBitbucket
 import io.jenkins.plugins.codeInsights.infrastructure.dto.ReportType
 import io.jenkins.plugins.codeInsights.infrastructure.dto.ResultType
-import kotlinx.serialization.json.Json
 import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.RequestBody.Companion.toRequestBody
 
@@ -39,7 +39,12 @@ class CoverageUsecase(
         JenkinsLogger.info("Start Coverage overview post")
         val coverageOverviewRequest = CoverageOverview(fileTransferService, XmlMapper()).convert(jacocoFilePath)
         val reportRequestBody = json.encodeToString(
-            ReportRequestForBitbucket(coverageOverviewRequest, ReportType.COVERAGE, ResultType.PASS, "Coverage Report for Jenkins.")
+            ReportRequestForBitbucket(
+                coverageOverviewRequest,
+                ReportType.COVERAGE,
+                ResultType.PASS,
+                "Coverage Report for Jenkins."
+            )
         ).toRequestBody(applicationJsonMediaType)
         httpClient.putReport(reportRequestBody, "$reportKey _ coverage")
         JenkinsLogger.info("Finish Coverage overview")
