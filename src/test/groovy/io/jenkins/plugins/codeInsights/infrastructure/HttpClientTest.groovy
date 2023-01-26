@@ -1,5 +1,6 @@
 package io.jenkins.plugins.codeInsights.infrastructure
 
+import groovy.json.JsonBuilder
 import groovy.json.JsonSlurper
 import io.jenkins.plugins.codeInsights.JenkinsLogger
 import io.jenkins.plugins.codeInsights.domain.Annotation
@@ -9,6 +10,7 @@ import io.jenkins.plugins.codeInsights.domain.coverage.CoverageRequest
 import okhttp3.RequestBody
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
+import okhttp3.MediaType
 import spock.lang.Specification
 
 @SuppressWarnings('GroovyAccessibility')
@@ -44,24 +46,25 @@ class HttpClientTest extends Specification {
     }
 
     @SuppressWarnings('GroovyConstructorNamedArguments')
-    def 'putReport shows success log when response status is 2200'() {
+    def 'putReport returns success when use custom RequestBody'() {
         server.enqueue(new MockResponse(responseCode: 200))
+        def json = new JsonBuilder()
         def sut = new HttpClient('username', 'password', server.url('').toString(), 'project', 'repo', 'commit', 'key')
 
         when:
-        sut.putReport(RequestBody.create("{title: 'Jenkins report'}", MediaType.parse("application/json")))
+        json(
+            title: "Jenkins Report"
+        )
+        sut.putReport(RequestBody.create(json.toPrettyString(), MediaType.parse("application/json")), "reportKey")
 
        then:
-        1 * mockLogger.println('[Code Insights plugin] Start to put reports')
+        1 * mockLogger.println('[Code Insights plugin] Start to put reports, reportKey = reportKey')
         1 * mockLogger.println('[Code Insights plugin] Put reports: SUCCESS')
         server.requestCount == 1
         def request = server.takeRequest()
         request.headers['Authorization'] == 'Basic ' + Base64.encoder.encodeToString('username:password'.bytes)
-        new JsonSlurper().parseText(request.body.readUtf8()) == [
-                title   : 'Jenkins report',
-                reporter: 'Jenkins',
-                logoUrl : 'https://www.jenkins.io/images/logos/superhero/256.png',
-        ]
+        def body = new JsonSlurper().parseText(request.body.readUtf8())
+       body.title == "Jenkins Report"
     }
 
     @SuppressWarnings('GroovyConstructorNamedArguments')
