@@ -73,7 +73,7 @@ class KotlinEntryPoint(
         }
 
         if (jacocoFilePath.isNotBlank()) {
-            CoverageUsecase(fileTransferService, jacocoFilePath, srcPath, changedFiles, httpClient).execute()
+            CoverageUsecase(fileTransferService, jacocoFilePath, srcPath, changedFiles, reportKey, httpClient).execute()
         }
     }
 }
