@@ -3,7 +3,6 @@ package io.jenkins.plugins.codeInsights.infrastructure.dto
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /**
  * Report request data.
  * Link: https://developer.atlassian.com/cloud/bitbucket/rest/api-group-reports/#api-repositories-workspace-repo-slug-commit-commit-reports-reportid-put
