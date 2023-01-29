@@ -34,7 +34,8 @@ class HttpClient(
         .addPathSegment("repos")
         .addPathSegment(repository)
         .addPathSegment("commits")
-        .addPathSegment(commitId).build()
+        .addPathSegment(commitId)
+        .build()
 
     private val defaultReportKey = reportKey;
 
