@@ -20,15 +20,11 @@ data class ReportRequestForBitbucket<T>(
 )
 
 @Serializable
-enum class ReportType(val value: String) {
-    SECURITY("SECURITY"),
-    COVERAGE("COVERAGE"),
-    TEST("TEST"),
-    BUG("BUG"),
+enum class ReportType {
+    SECURITY, COVERAGE, TEST, BUG,
 }
 
 @Serializable
-enum class ResultType(val value: String) {
-    PASS("PASS"),
-    FAIL("FAIL"),
+enum class ResultType {
+    PASS, FAIL,
 }
