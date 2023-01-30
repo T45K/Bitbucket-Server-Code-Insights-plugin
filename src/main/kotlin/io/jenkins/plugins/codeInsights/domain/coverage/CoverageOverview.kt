@@ -3,6 +3,8 @@ package io.jenkins.plugins.codeInsights.domain.coverage
 import com.fasterxml.jackson.databind.node.ArrayNode
 import com.fasterxml.jackson.dataformat.xml.XmlMapper
 import io.jenkins.plugins.codeInsights.domain.FileTransferService
+import io.jenkins.plugins.codeInsights.infrastructure.dto.ReportData
+import io.jenkins.plugins.codeInsights.infrastructure.dto.ReportDataType
 import io.jenkins.plugins.codeInsights.util.asArray
 import kotlin.math.roundToInt
 
@@ -11,7 +13,7 @@ class CoverageOverview(
     private val xmlMapper: XmlMapper,
 ) {
 
-    fun convert(jacocoFilePath: String): List<CoverageOverviewItem<String>> =
+    fun convert(jacocoFilePath: String): List<ReportData<String>> =
         xmlMapper.readTree(fileTransferService.readFile(jacocoFilePath)).asArray().flatMap { reportTag ->
             val counterTags = reportTag["counter"] as ArrayNode
 
@@ -20,9 +22,9 @@ class CoverageOverview(
                 val missed = tag["missed"].asDouble()
                 val covered = tag["covered"].asDouble()
                 val coverage = covered / (missed + covered)
-                val coverageRounded = (coverage * 100.0).roundToInt() / 100.0
+                val coverageRounded = (coverage * 1000.0).roundToInt().toDouble() / 10
 
-                CoverageOverviewItem(type, "$coverageRounded %")
+                ReportData(type, ReportDataType.TEXT, "$coverageRounded %")
             }
         }
 }

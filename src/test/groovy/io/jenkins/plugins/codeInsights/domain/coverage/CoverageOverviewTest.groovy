@@ -19,7 +19,7 @@ class CoverageOverviewTest extends Specification {
         sut.convert('file') == [
                 new CoverageOverviewItem("INSTRUCTION", "90.9 %"),
                 new CoverageOverviewItem("BRANCH", "72.3 %"),
-                new CoverageOverviewItem("LINE", "98.7 %"),
+                new CoverageOverviewItem("LINE", "99.7 %"),
                 new CoverageOverviewItem("COMPLEXITY", "81.0 %"),
                 new CoverageOverviewItem("METHOD", "97.8 %"),
                 new CoverageOverviewItem("CLASS", "100.0 %"),

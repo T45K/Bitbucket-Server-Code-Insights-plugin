@@ -5,11 +5,11 @@ import kotlinx.serialization.Serializable
 
 /**
  * Report request data.
- * Link: https://developer.atlassian.com/cloud/bitbucket/rest/api-group-reports/#api-repositories-workspace-repo-slug-commit-commit-reports-reportid-put
+ * @see <a href="https://developer.atlassian.com/cloud/bitbucket/rest/api-group-reports/#api-repositories-workspace-repo-slug-commit-commit-reports-reportid-put">Official doc</a>
  */
 @Serializable
 data class ReportRequestForBitbucket<T>(
-    val data: T,
+    val data: List<ReportData<T>>,
     @SerialName("report_type")
     val reportType: ReportType,
     val result: ResultType,
@@ -27,4 +27,16 @@ enum class ReportType {
 @Serializable
 enum class ResultType {
     PASS, FAIL,
+}
+
+@Serializable
+data class ReportData<T>(
+    val title: String,
+    val type: ReportDataType,
+    val value: T,
+)
+
+@Serializable
+enum class ReportDataType {
+    DURATION, BOOLEAN, Omitted, DATE, LINK, NUMBER, PERCENTAGE, TEXT
 }

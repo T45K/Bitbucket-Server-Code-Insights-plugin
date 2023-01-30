@@ -6,7 +6,6 @@ import io.jenkins.plugins.codeInsights.domain.coverage.CoverageRequest
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import okhttp3.Credentials
-import okhttp3.HttpUrl
 import okhttp3.HttpUrl.Companion.toHttpUrl
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
@@ -25,7 +24,7 @@ class HttpClient(
 ) {
     private val client: OkHttpClient = OkHttpClient()
 
-    private val bitBucketRequestBuilder = bitbucketUrl.toHttpUrl().newBuilder()
+    private val reportUrl = bitbucketUrl.toHttpUrl().newBuilder()
         .addPathSegment("rest")
         .addPathSegment("insights")
         .addPathSegment("1.0")
@@ -35,20 +34,11 @@ class HttpClient(
         .addPathSegment(repository)
         .addPathSegment("commits")
         .addPathSegment(commitId)
-        .build()
-
-    private val defaultReportKey = reportKey;
-
-    private fun getReportUrl(reportKey: String): HttpUrl {
-        return bitBucketRequestBuilder.newBuilder()
-            .addPathSegment("reports")
-            .addPathSegment(reportKey)
-            .build()
-    }
-
-    private val annotationUrl = bitBucketRequestBuilder.newBuilder()
         .addPathSegment("reports")
         .addPathSegment(reportKey)
+        .build()
+
+    private val annotationUrl = reportUrl.newBuilder()
         .addPathSegment("annotations")
         .build()
 
@@ -64,38 +54,10 @@ class HttpClient(
     private val applicationJsonMediaType = "application/json; charset=utf-8".toMediaType()
     private val json = Json { encodeDefaults = true }
 
-    private val reportRequestBody = json.encodeToString(
-        mapOf(
-            "title" to "Jenkins report",
-            "reporter" to "Jenkins",
-            "logoUrl" to "https://www.jenkins.io/images/logos/superhero/256.png",
-        )
-    ).toRequestBody(applicationJsonMediaType)
-
-    fun putReport() {
+    fun putReport(reportRequestBody: RequestBody) {
         JenkinsLogger.info("Start to put reports")
-        val url = getReportUrl(defaultReportKey)
         val request = Request.Builder()
-            .url(url)
-            .authorizationHeader()
-            .put(reportRequestBody)
-            .build()
-        client.newCall(request).execute().also {
-            if (it.isSuccessful) {
-                JenkinsLogger.info("Put reports: SUCCESS")
-            } else {
-                JenkinsLogger.info("Put reports: FAILURE")
-                JenkinsLogger.info(it.body!!.string())
-                throw CallApiFailureException()
-            }
-        }
-    }
-
-    fun putReport(reportRequestBody: RequestBody, reportKey: String) {
-        JenkinsLogger.info("Start to put reports, reportKey = $reportKey")
-
-        val request = Request.Builder()
-            .url(getReportUrl(reportKey))
+            .url(reportUrl)
             .authorizationHeader()
             .put(reportRequestBody)
             .build()

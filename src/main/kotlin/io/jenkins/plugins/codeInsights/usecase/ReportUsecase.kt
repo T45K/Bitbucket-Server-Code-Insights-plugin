@@ -22,8 +22,6 @@ class ReportUsecase(
     private val changedFiles: Set<String>,
 ) {
     fun execute() {
-        httpClient.putReport()
-
         val executables = ExecutableAnnotationProvidersBuilder(fileTransferService)
             .setCheckstyle(checkstyleFilePath, workspace.remote)
             .setSpotBugs(spotBugsFilePath, srcPath)
