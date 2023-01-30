@@ -19,7 +19,7 @@ class CoverageOverview(
                 val type = tag["type"].asText()
                 val missed = tag["missed"].asDouble()
                 val covered = tag["covered"].asDouble()
-                val coverage = missed / (missed + covered)
+                val coverage = covered / (missed + covered)
                 val coverageRounded = (coverage * 100.0).roundToInt() / 100.0
 
                 CoverageOverviewItem(type, "$coverageRounded %")

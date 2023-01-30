@@ -5,24 +5,24 @@ import io.jenkins.plugins.codeInsights.testUtil.FileUtil
 import io.jenkins.plugins.codeInsights.domain.FileTransferService
 import spock.lang.Specification
 
-import java.nio.file.Paths
+import java.nio.file.Path
 
 class CoverageOverviewTest extends Specification {
 
-    def 'convert '() {
+    def 'Calculate coverage from jacoco.xml'() {
         def fileTransferService = Stub(FileTransferService) {
-            readFile('file') >> FileUtil.readString(Paths.get('src', 'test', 'resources', 'jacoco.xml'))
+            readFile('file') >> FileUtil.readString(Path.of('src', 'test', 'resources', 'jacoco.xml'))
         }
         def sut = new CoverageOverview(fileTransferService, new XmlMapper())
 
         expect:
         sut.convert('file') == [
-                new CoverageOverviewItem("INSTRUCTION", "0.09 %"),
-                new CoverageOverviewItem("BRANCH", "0.28 %"),
-                new CoverageOverviewItem("LINE", "0.0 %"),
-                new CoverageOverviewItem("COMPLEXITY", "0.19 %"),
-                new CoverageOverviewItem("METHOD", "0.02 %"),
-                new CoverageOverviewItem("CLASS", "0.0 %"),
+                new CoverageOverviewItem("INSTRUCTION", "90.9 %"),
+                new CoverageOverviewItem("BRANCH", "72.3 %"),
+                new CoverageOverviewItem("LINE", "98.7 %"),
+                new CoverageOverviewItem("COMPLEXITY", "81.0 %"),
+                new CoverageOverviewItem("METHOD", "97.8 %"),
+                new CoverageOverviewItem("CLASS", "100.0 %"),
         ]
     }
 }
