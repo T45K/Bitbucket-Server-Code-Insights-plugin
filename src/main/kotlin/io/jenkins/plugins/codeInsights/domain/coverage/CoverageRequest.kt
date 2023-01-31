@@ -14,9 +14,3 @@ data class CoverageMeasuredFile(
 ) {
     fun isNotEmpty(): Boolean = coverage.isNotEmpty()
 }
-
-@Serializable
-data class CoverageOverviewItem<T>(
-    val title: String,
-    val value: T,
-)

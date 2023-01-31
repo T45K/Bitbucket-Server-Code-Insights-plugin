@@ -27,10 +27,16 @@ class HttpClientTest extends Specification {
     @SuppressWarnings('GroovyConstructorNamedArguments')
     def 'putReport shows success log when response status is 200'() {
         server.enqueue(new MockResponse(responseCode: 200))
+        def json = new JsonBuilder()
         def sut = new HttpClient('username', 'password', server.url('').toString(), 'project', 'repo', 'commit', 'key')
 
         when:
-        sut.putReport()
+        json(
+                title: 'Jenkins report',
+                reporter: 'Jenkins',
+                logoUrl: 'https://www.jenkins.io/images/logos/superhero/256.png'
+        )
+        sut.putReport(RequestBody.create(json.toPrettyString(), MediaType.parse("application/json")))
 
         then:
         1 * mockLogger.println('[Code Insights plugin] Start to put reports')
@@ -55,10 +61,10 @@ class HttpClientTest extends Specification {
         json(
             title: "Jenkins Report"
         )
-        sut.putReport(RequestBody.create(json.toPrettyString(), MediaType.parse("application/json")), "reportKey")
+        sut.putReport(RequestBody.create(json.toPrettyString(), MediaType.parse("application/json")))
 
        then:
-        1 * mockLogger.println('[Code Insights plugin] Start to put reports, reportKey = reportKey')
+        1 * mockLogger.println('[Code Insights plugin] Start to put reports')
         1 * mockLogger.println('[Code Insights plugin] Put reports: SUCCESS')
         server.requestCount == 1
         def request = server.takeRequest()
@@ -71,10 +77,11 @@ class HttpClientTest extends Specification {
     def 'putReport shows error log and throws error when response status is not 200'() {
         given:
         server.enqueue(new MockResponse(responseCode: errorCode))
+        def json = new JsonBuilder()
         def sut = new HttpClient('username', 'password', server.url('').toString(), 'project', 'repo', 'commit', 'key')
 
         when:
-        sut.putReport()
+        sut.putReport(RequestBody.create(json.toPrettyString(), MediaType.parse("application/json")))
 
         then:
         thrown(HttpClient.CallApiFailureException)

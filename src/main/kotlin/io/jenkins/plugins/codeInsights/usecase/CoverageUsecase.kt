@@ -21,7 +21,6 @@ class CoverageUsecase(
     private val jacocoFilePath: String,
     private val srcPath: String,
     private val changedFiles: Set<String>,
-    private val reportKey: String,
     private val httpClient: HttpClient,
 ) {
     private val json = Json { encodeDefaults = true }

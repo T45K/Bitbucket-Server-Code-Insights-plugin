@@ -68,12 +68,7 @@ class CodeInsightsBuilderTest extends Specification {
 
         expect:
         final def build = jenkins.buildAndAssertSuccess(project)
-        jenkins.assertLogContains('[Code Insights plugin] Start to put reports', build)
-        jenkins.assertLogContains('[Code Insights plugin] Put reports: SUCCESS', build)
         jenkins.assertLogContains('Finished: SUCCESS', build)
-        jenkins.assertLogNotContains('[Code Insights plugin] Checkstyle enabled', build)
-        jenkins.assertLogNotContains('[Code Insights plugin] SpotBugs enabled', build)
-        jenkins.assertLogNotContains('[Code Insights plugin] SonarQube enabled', build)
     }
 
     def 'build successful with Checkstyle file'() {
@@ -89,8 +84,6 @@ class CodeInsightsBuilderTest extends Specification {
 
         expect:
         final def build = jenkins.buildAndAssertSuccess(project)
-        jenkins.assertLogContains('[Code Insights plugin] Start to put reports', build)
-        jenkins.assertLogContains('[Code Insights plugin] Put reports: SUCCESS', build)
         jenkins.assertLogContains('[Code Insights plugin] Checkstyle enabled', build)
         jenkins.assertLogContains('[Code Insights plugin] Start Checkstyle', build)
         jenkins.assertLogContains('[Code Insights plugin] Finish Checkstyle', build)
@@ -110,8 +103,6 @@ class CodeInsightsBuilderTest extends Specification {
 
         expect:
         final def build = jenkins.buildAndAssertSuccess(project)
-        jenkins.assertLogContains('[Code Insights plugin] Start to put reports', build)
-        jenkins.assertLogContains('[Code Insights plugin] Put reports: SUCCESS', build)
         jenkins.assertLogContains('[Code Insights plugin] SpotBugs enabled', build)
         jenkins.assertLogContains('[Code Insights plugin] Start SpotBugs', build)
         jenkins.assertLogContains('[Code Insights plugin] Finish SpotBugs', build)
@@ -131,8 +122,6 @@ class CodeInsightsBuilderTest extends Specification {
 
         expect:
         final def build = jenkins.buildAndAssertSuccess(project)
-        jenkins.assertLogContains('[Code Insights plugin] Start to put reports', build)
-        jenkins.assertLogContains('[Code Insights plugin] Put reports: SUCCESS', build)
         jenkins.assertLogContains('[Code Insights plugin] PMD enabled', build)
         jenkins.assertLogContains('[Code Insights plugin] Start PMD', build)
         jenkins.assertLogContains('[Code Insights plugin] Finish PMD', build)
@@ -142,9 +131,9 @@ class CodeInsightsBuilderTest extends Specification {
     def 'build successful with SonarQube'() {
         given:
         CredentialsProvider.saveAll()
-        server.enqueue(new MockResponse()) // put reports
         server.enqueue(new MockResponse().setBody(SONAR_QUBE_RESPONSE)) // call to fetch total page
         server.enqueue(new MockResponse().setBody(SONAR_QUBE_RESPONSE)) // call to fetch issues
+        server.enqueue(new MockResponse())
         final def jsonObject = new JSONObject(
             [
                 codeInsights: [
@@ -174,8 +163,6 @@ class CodeInsightsBuilderTest extends Specification {
 
         expect:
         final def build = jenkins.buildAndAssertSuccess(project)
-        jenkins.assertLogContains('[Code Insights plugin] Start to put reports', build)
-        jenkins.assertLogContains('[Code Insights plugin] Put reports: SUCCESS', build)
         jenkins.assertLogContains('[Code Insights plugin] SonarQube enabled', build)
         jenkins.assertLogContains('[Code Insights plugin] Start SonarQube', build)
         jenkins.assertLogContains('[Code Insights plugin] Finish SonarQube', build)
@@ -186,6 +173,7 @@ class CodeInsightsBuilderTest extends Specification {
         given:
         CredentialsProvider.saveAll()
         server.enqueue(new MockResponse()) // put reports
+        server.enqueue(new MockResponse())
         final def jsonObject = new JSONObject(
             [
                 codeInsights: [
@@ -196,6 +184,7 @@ class CodeInsightsBuilderTest extends Specification {
             ]
         )
         jenkins.get(CodeInsightsBuilder.DescriptorImpl).configure(Stub(StaplerRequest), jsonObject)
+
 
         final def project = jenkins.createFreeStyleProject()
         final def builder = new CodeInsightsBuilder('repo', INITIAL_COMMIT_ID)
@@ -215,9 +204,9 @@ class CodeInsightsBuilderTest extends Specification {
 
     def 'build successful with all sources'() {
         given:
-        server.enqueue(new MockResponse())
         server.enqueue(new MockResponse().setBody(SONAR_QUBE_RESPONSE)) // call to fetch total page
         server.enqueue(new MockResponse().setBody(SONAR_QUBE_RESPONSE)) // call to fetch issues
+        server.enqueue(new MockResponse())
         server.enqueue(new MockResponse())
         final def jsonObject = new JSONObject(
             [
@@ -268,8 +257,12 @@ class CodeInsightsBuilderTest extends Specification {
         jenkins.assertLogContains('[Code Insights plugin] Finish SonarQube', build)
         jenkins.assertLogContains('[Code Insights plugin] Coverage enabled', build)
         jenkins.assertLogContains('[Code Insights plugin] Start Coverage', build)
+        jenkins.assertLogContains('[Code Insights plugin] Prepare payload to report', build)
+        jenkins.assertLogContains('[Code Insights plugin] Finish prepare payload to report', build)
+        jenkins.assertLogContains('[Code Insights plugin] Start report to bitbucket', build)
         jenkins.assertLogContains('[Code Insights plugin] Start to post coverage', build)
         jenkins.assertLogContains('[Code Insights plugin] Post coverage: SUCCESS', build)
+        jenkins.assertLogContains('[Code Insights plugin] Finish report to bitbucket', build)
         jenkins.assertLogContains('[Code Insights plugin] Finish Coverage', build)
         jenkins.assertLogContains('Finished: SUCCESS', build)
     }
@@ -286,7 +279,6 @@ class CodeInsightsBuilderTest extends Specification {
 
         expect:
         final def build = jenkins.buildAndAssertStatus(Result.FAILURE, project)
-        jenkins.assertLogContains('[Code Insights plugin] Start to put reports', build)
         jenkins.assertLogContains('Finished: FAILURE', build)
     }
 
@@ -298,10 +290,11 @@ class CodeInsightsBuilderTest extends Specification {
         final def builder = new CodeInsightsBuilder('repo', INITIAL_COMMIT_ID)
         project.buildersList << builder
         project.customWorkspace = Paths.get('.').toAbsolutePath().toString()
+        builder.setJacocoFilePath('src/test/resources/jacoco.xml')
 
         expect:
         final def build = jenkins.buildAndAssertStatus(Result.FAILURE, project)
-        jenkins.assertLogContains('[Code Insights plugin] Start to put reports', build)
+        jenkins.assertLogContains('[Code Insights plugin] Start to post coverage', build)
         jenkins.assertLogContains('Finished: FAILURE', build)
     }
 
@@ -310,15 +303,17 @@ class CodeInsightsBuilderTest extends Specification {
         server.enqueue(new MockResponse().setResponseCode(500))
         jenkins.get(CodeInsightsBuilder.DescriptorImpl).configure(Stub(StaplerRequest), jsonObject)
 
+
         final def project = jenkins.createFreeStyleProject()
         final def builder = new CodeInsightsBuilder('repo', INITIAL_COMMIT_ID)
         project.buildersList << builder
         project.customWorkspace = Paths.get('.').toAbsolutePath().toString()
+        builder.setJacocoFilePath('src/test/resources/jacoco.xml')
 
         expect:
         final def build = jenkins.buildAndAssertStatus(Result.FAILURE, project)
-        jenkins.assertLogContains('[Code Insights plugin] Start to put reports', build)
-        jenkins.assertLogContains('[Code Insights plugin] Put reports: FAILURE', build)
+        jenkins.assertLogContains('[Code Insights plugin] Start to post coverage', build)
+        jenkins.assertLogContains('[Code Insights plugin] Post coverage: FAILURE', build)
     }
 
     def 'DescriptorImpl can be saved and loaded'() {

@@ -1,8 +1,10 @@
 package io.jenkins.plugins.codeInsights.domain.coverage
 
 import com.fasterxml.jackson.dataformat.xml.XmlMapper
-import io.jenkins.plugins.codeInsights.testUtil.FileUtil
 import io.jenkins.plugins.codeInsights.domain.FileTransferService
+import io.jenkins.plugins.codeInsights.infrastructure.dto.ReportData
+import io.jenkins.plugins.codeInsights.infrastructure.dto.ReportDataType
+import io.jenkins.plugins.codeInsights.testUtil.FileUtil
 import spock.lang.Specification
 
 import java.nio.file.Path
@@ -17,12 +19,12 @@ class CoverageOverviewTest extends Specification {
 
         expect:
         sut.convert('file') == [
-                new CoverageOverviewItem("INSTRUCTION", "90.9 %"),
-                new CoverageOverviewItem("BRANCH", "72.3 %"),
-                new CoverageOverviewItem("LINE", "99.7 %"),
-                new CoverageOverviewItem("COMPLEXITY", "81.0 %"),
-                new CoverageOverviewItem("METHOD", "97.8 %"),
-                new CoverageOverviewItem("CLASS", "100.0 %"),
+                new ReportData("INSTRUCTION", ReportDataType.TEXT, "90.9 %"),
+                new ReportData("BRANCH", ReportDataType.TEXT, "72.3 %"),
+                new ReportData("LINE", ReportDataType.TEXT, "99.7 %"),
+                new ReportData("COMPLEXITY", ReportDataType.TEXT, "81.0 %"),
+                new ReportData("METHOD", ReportDataType.TEXT, "97.8 %"),
+                new ReportData("CLASS", ReportDataType.TEXT, "100.0 %"),
         ]
     }
 }
