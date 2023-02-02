@@ -1,15 +1,15 @@
 package io.jenkins.plugins.codeInsights.domain
 
-import io.jenkins.plugins.codeInsights.testUtil.FileUtil
+
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
 import spock.lang.Specification
 
-import java.nio.file.Paths
+import java.nio.file.Path
 
 @SuppressWarnings('GroovyAccessibility')
 class SonarQubeAnnotationProviderTest extends Specification {
-    private static final def SONAR_QUBE_RESPONSE = FileUtil.readString(Paths.get('src', 'test', 'resources', 'sonarQubeResponse.json'))
+    private static final def SONAR_QUBE_RESPONSE = Path.of('src', 'test', 'resources', 'sonarQubeResponse.json').text
 
     private final def server = new MockWebServer()
 
