@@ -1,10 +1,9 @@
 package io.jenkins.plugins.codeInsights.domain
 
 import com.fasterxml.jackson.dataformat.xml.XmlMapper
-import io.jenkins.plugins.codeInsights.testUtil.FileUtil
 import spock.lang.Specification
 
-import java.nio.file.Paths
+import java.nio.file.Path
 
 class CheckstyleAnnotationProviderTest extends Specification {
 
@@ -13,7 +12,7 @@ class CheckstyleAnnotationProviderTest extends Specification {
         final def sut = new CheckstyleAnnotationProvider(
             new XmlMapper(),
             '/test/repo',
-            FileUtil.readString(Paths.get('src', 'test', 'resources', 'checkstyle-test.xml')),
+            Path.of('src', 'test', 'resources', 'checkstyle-test.xml').text
         )
 
         expect:
