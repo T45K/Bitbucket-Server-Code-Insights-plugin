@@ -10,8 +10,6 @@ class AnnotationUsecase(
     private val changedFiles: Set<String>,
 ) {
     fun execute() {
-        httpClient.putReport()
-
         for (executable in executables) {
             JenkinsLogger.info("Start ${executable.name}")
             val annotations = executable.convert().filter { changedFiles.contains(it.path) }
