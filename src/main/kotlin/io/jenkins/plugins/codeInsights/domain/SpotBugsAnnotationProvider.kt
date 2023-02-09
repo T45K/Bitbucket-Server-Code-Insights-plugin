@@ -18,7 +18,7 @@ class SpotBugsAnnotationProvider(
             val message = bugInstance["LongMessage"].asText().flat()
             bugInstance["SourceLine"].asArray().map { sourceLine ->
                 Annotation(
-                    sourceLine["start"].asInt(),
+                    sourceLine["start"]?.asInt() ?: 0,
                     message,
                     Paths.get(srcPath, sourceLine["sourcepath"].asText()).toForwardSlashString(),
                 )

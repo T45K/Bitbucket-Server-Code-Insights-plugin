@@ -7,7 +7,7 @@ import java.nio.file.Path
 
 class SpotBugsAnnotationProviderTest extends Specification {
 
-    def 'check'() {
+    def 'convert returns annotation based on SpotBugs result file'() {
         given:
         def sut = new SpotBugsAnnotationProvider('src/main/java', new XmlMapper(), Path.of('src/test/resources/spotbugs-test.xml').getText('UTF-8'))
 
@@ -36,6 +36,24 @@ class SpotBugsAnnotationProviderTest extends Specification {
             new Annotation(36, 'io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder.build() は，ExecutableAnnotationProvidersBuilder.executables を返すことによって内部表現を暴露するかもしれません。', 'src/main/java/io/jenkins/plugins/codeInsights/usecase/ExecutableAnnotationProvidersBuilder.kt', Severity.LOW, null),
             new Annotation(65, 'Collection から抽象クラス java.util.List への疑わしいキャストです。io.jenkins.plugins.codeInsights.infrastructure.GitRepo.detectChangedFiles(String, String)', 'src/main/java/io/jenkins/plugins/codeInsights/usecase/GitRepo.kt', Severity.LOW, null),
             new Annotation(69, 'Collection から抽象クラス java.util.List への疑わしいキャストです。io.jenkins.plugins.codeInsights.infrastructure.GitRepo.detectChangedFiles(String, String)', 'src/main/java/io/jenkins/plugins/codeInsights/usecase/GitRepo.kt', Severity.LOW, null),
+        ]
+    }
+
+    def 'convert returns annotation whose line is 0 when start line is missing'() {
+        given:
+        def spotBugsResults = '''\
+<BugCollection>
+    <BugInstance>
+        <LongMessage>Missing line number</LongMessage>
+        <SourceLine sourcepath='foo/bar.java'></SourceLine>
+    </BugInstance>
+</BugCollection>
+'''
+        def sut = new SpotBugsAnnotationProvider('src/main/java', new XmlMapper(), spotBugsResults)
+
+        expect:
+        sut.convert() == [
+            new Annotation(0, 'Missing line number', 'src/main/java/foo/bar.java', Severity.LOW, null)
         ]
     }
 }
