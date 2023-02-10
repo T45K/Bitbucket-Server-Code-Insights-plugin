@@ -1,16 +1,15 @@
 package io.jenkins.plugins.codeInsights.domain
 
 import com.fasterxml.jackson.dataformat.xml.XmlMapper
-import io.jenkins.plugins.codeInsights.testUtil.FileUtil
 import spock.lang.Specification
 
-import java.nio.file.Paths
+import java.nio.file.Path
 
 class SpotBugsAnnotationProviderTest extends Specification {
 
     def 'check'() {
         given:
-        def sut = new SpotBugsAnnotationProvider('src/main/java', new XmlMapper(), FileUtil.readString(Paths.get('src/test/resources/spotbugs-test.xml')))
+        def sut = new SpotBugsAnnotationProvider('src/main/java', new XmlMapper(), Path.of('src/test/resources/spotbugs-test.xml').getText('UTF-8'))
 
         expect:
         sut.convert() == [

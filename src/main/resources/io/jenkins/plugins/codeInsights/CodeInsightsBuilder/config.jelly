@@ -26,5 +26,11 @@
                  description="same as XXX of `mvn sonar:sonar -Dsonar.projectKey=XXX`">
             <f:textbox/>
         </f:entry>
+        <f:entry title="Path of Qodana results file" field="qodanaFilePath">
+            <f:textbox/>
+        </f:entry>
+        <f:entry title="Path of JaCoCo results file" field="jacocoFilePath">
+            <f:textbox/>
+        </f:entry>
     </f:advanced>
 </j:jelly>

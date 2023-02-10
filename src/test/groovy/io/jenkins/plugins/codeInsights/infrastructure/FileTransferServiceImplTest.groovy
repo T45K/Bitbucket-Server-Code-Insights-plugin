@@ -2,8 +2,7 @@ package io.jenkins.plugins.codeInsights.infrastructure
 
 import hudson.FilePath
 import hudson.model.Run
-import io.jenkins.plugins.codeInsights.infrastructure.FileTransferServiceImpl
-import io.jenkins.plugins.codeInsights.testUtil.FileUtil
+import io.jenkins.plugins.codeInsights.test_util.FileUtil
 import spock.lang.Specification
 
 import java.nio.file.Files

@@ -5,11 +5,12 @@ import hudson.FilePath
 import hudson.Launcher
 import hudson.model.Run
 import hudson.model.TaskListener
+import io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuilder
 import io.jenkins.plugins.codeInsights.infrastructure.FileTransferServiceImpl
 import io.jenkins.plugins.codeInsights.infrastructure.GitRepo
 import io.jenkins.plugins.codeInsights.infrastructure.HttpClient
 import io.jenkins.plugins.codeInsights.usecase.CoverageUsecase
-import io.jenkins.plugins.codeInsights.usecase.ReportUsecase
+import io.jenkins.plugins.codeInsights.usecase.AnnotationUsecase
 
 @Suppress("unused", "CanBeParameter")
 class KotlinEntryPoint(
@@ -35,6 +36,7 @@ class KotlinEntryPoint(
     private val spotBugsFilePath: String,
     private val pmdFilePath: String,
     private val sonarQubeProjectKey: String,
+    private val qodanaFilePath: String,
     private val jacocoFilePath: String,
 ) {
     init {
@@ -54,25 +56,20 @@ class KotlinEntryPoint(
             it.detectChangedFiles(commitId, baseBranch)
         }
 
-        if (reportKey.isNotBlank()) {
-            ReportUsecase(
-                httpClient,
-                fileTransferService,
-                workspace,
-                checkstyleFilePath,
-                spotBugsFilePath,
-                srcPath,
-                pmdFilePath,
-                sonarQubeUrl,
-                sonarQubeProjectKey,
-                sonarQubeToken,
-                sonarQubeUserName,
-                sonarQubePassword,
-                changedFiles
-            ).execute()
+        val annotationEnabled = reportKey.isNotBlank()
+        if (annotationEnabled) {
+            val executables = ExecutableAnnotationProvidersBuilder(fileTransferService)
+                .setCheckstyle(checkstyleFilePath, workspace.remote)
+                .setSpotBugs(spotBugsFilePath, srcPath)
+                .setPmd(pmdFilePath, workspace.remote)
+                .setQodana(qodanaFilePath)
+                .setSonarQube(sonarQubeUrl, sonarQubeProjectKey, sonarQubeToken, sonarQubeUserName, sonarQubePassword)
+                .build()
+            AnnotationUsecase(httpClient, executables, changedFiles).execute()
         }
 
-        if (jacocoFilePath.isNotBlank()) {
+        val coverageEnabled = jacocoFilePath.isNotBlank()
+        if (coverageEnabled) {
             CoverageUsecase(fileTransferService, jacocoFilePath, srcPath, changedFiles, reportKey, httpClient).execute()
         }
     }
