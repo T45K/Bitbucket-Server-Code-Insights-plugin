@@ -39,9 +39,9 @@ class HttpClientTest extends Specification {
         def request = server.takeRequest()
         request.headers['Authorization'] == 'Basic ' + Base64.encoder.encodeToString('username:password'.bytes)
         new JsonSlurper().parseText(request.body.readUtf8()) == [
-                title   : 'Jenkins report',
-                reporter: 'Jenkins',
-                logoUrl : 'https://www.jenkins.io/images/logos/superhero/256.png',
+            title   : 'Jenkins report',
+            reporter: 'Jenkins',
+            logoUrl : 'https://www.jenkins.io/images/logos/superhero/256.png',
         ]
     }
 
@@ -53,7 +53,7 @@ class HttpClientTest extends Specification {
 
         when:
         json(
-                title: "Jenkins Report"
+            title: "Jenkins Report"
         )
         sut.putReport(RequestBody.create(json.toPrettyString(), MediaType.parse("application/json")), "reportKey")
 
@@ -101,15 +101,15 @@ class HttpClientTest extends Specification {
         def request = server.takeRequest()
         request.headers['Authorization'] == 'Basic ' + Base64.encoder.encodeToString('username:password'.bytes)
         new JsonSlurper().parseText(request.body.readUtf8()) == [
-                annotations: [
-                        [
-                                line    : 1,
-                                message : 'test message',
-                                path    : '/test/repo/path',
-                                severity: 'HIGH',
-                                link    : null
-                        ],
+            annotations: [
+                [
+                    line    : 1,
+                    message : 'test message',
+                    path    : '/test/repo/path',
+                    severity: 'HIGH',
+                    link    : null
                 ],
+            ],
         ]
     }
 
@@ -148,12 +148,12 @@ class HttpClientTest extends Specification {
         request.headers['X-Atlassian-Token'] == 'no-check'
         request
         new JsonSlurper().parseText(request.body.readUtf8()) == [
-                files: [
-                        [
-                                path    : 'src/main/java/App.java',
-                                coverage: 'C:1;P:2;U:3'
-                        ]
+            files: [
+                [
+                    path    : 'src/main/java/App.java',
+                    coverage: 'C:1;P:2;U:3'
                 ]
+            ]
         ]
     }
 
