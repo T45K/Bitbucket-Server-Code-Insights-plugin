@@ -513,7 +513,8 @@
     <BugInstance instanceOccurrenceNum='0' instanceHash='75a08d7c728d00e637053905d1369cac' rank='16' abbrev='Nm'
                  category='BAD_PRACTICE' priority='2' type='NM_CLASS_NAMING_CONVENTION' instanceOccurrenceMax='0'>
         <ShortMessage>クラス名は大文字から始めるべき</ShortMessage>
-        <LongMessage>クラス名 io.jenkins.plugins.codeInsights.domain.Annotation$$serializer は，大文字から始まっていません。</LongMessage>
+        <LongMessage>クラス名 io.jenkins.plugins.codeInsights.domain.Annotation$$serializer は，大文字から始まっていません。
+        </LongMessage>
         <Class classname='io.jenkins.plugins.codeInsights.domain.Annotation$$serializer' primary='true'>
             <SourceLine classname='io.jenkins.plugins.codeInsights.domain.Annotation$$serializer' start='3' end='10'
                         sourcepath='io/jenkins/plugins/codeInsights/domain/Annotation.kt' sourcefile='Annotation.kt'>
@@ -625,7 +626,8 @@
     <BugInstance instanceOccurrenceNum='0' instanceHash='709a3599efa684223bfd97aeb5bc85b9' rank='16' abbrev='Nm'
                  category='BAD_PRACTICE' priority='2' type='NM_CLASS_NAMING_CONVENTION' instanceOccurrenceMax='0'>
         <ShortMessage>クラス名は大文字から始めるべき</ShortMessage>
-        <LongMessage>クラス名 io.jenkins.plugins.codeInsights.domain.Severity$$serializer は，大文字から始まっていません。</LongMessage>
+        <LongMessage>クラス名 io.jenkins.plugins.codeInsights.domain.Severity$$serializer は，大文字から始まっていません。
+        </LongMessage>
         <Class classname='io.jenkins.plugins.codeInsights.domain.Severity$$serializer' primary='true'>
             <SourceLine classname='io.jenkins.plugins.codeInsights.domain.Severity$$serializer' start='12' end='16'
                         sourcepath='io/jenkins/plugins/codeInsights/domain/Annotation.kt' sourcefile='Annotation.kt'>
@@ -820,7 +822,8 @@
             は，FileTransferServiceImpl.workspace の中に外部の可変オブジェクトを格納することによって内部表現を暴露するかもしれません。
         </LongMessage>
         <Class classname='io.jenkins.plugins.codeInsights.infrastructure.FileTransferServiceImpl' primary='true'>
-            <SourceLine classname='io.jenkins.plugins.codeInsights.infrastructure.FileTransferServiceImpl' start='7' end='14'
+            <SourceLine classname='io.jenkins.plugins.codeInsights.infrastructure.FileTransferServiceImpl' start='7'
+                        end='14'
                         sourcepath='io/jenkins/plugins/codeInsights/framework/FileTransferServiceImpl.kt'
                         sourcefile='FileTransferServiceImpl.kt'>
                 <Message>該当箇所 FileTransferServiceImpl.kt:[lines 7-14]</Message>
@@ -829,7 +832,8 @@
         </Class>
         <Method isStatic='false' classname='io.jenkins.plugins.codeInsights.infrastructure.FileTransferServiceImpl'
                 signature='(Lhudson/FilePath;Lhudson/model/Run;)V' name='&lt;init&gt;' primary='true'>
-            <SourceLine endBytecode='106' classname='io.jenkins.plugins.codeInsights.infrastructure.FileTransferServiceImpl'
+            <SourceLine endBytecode='106'
+                        classname='io.jenkins.plugins.codeInsights.infrastructure.FileTransferServiceImpl'
                         start='7' end='7'
                         sourcepath='io/jenkins/plugins/codeInsights/framework/FileTransferServiceImpl.kt'
                         sourcefile='FileTransferServiceImpl.kt' startBytecode='0'></SourceLine>
@@ -966,7 +970,8 @@
             <SourceLine endBytecode='165' classname='io.jenkins.plugins.codeInsights.infrastructure.GitRepo' start='26'
                         end='33' sourcepath='io/jenkins/plugins/codeInsights/usecase/GitRepo.kt' sourcefile='GitRepo.kt'
                         startBytecode='0'></SourceLine>
-            <Message>メソッド io.jenkins.plugins.codeInsights.infrastructure.GitRepo.detectChangedFiles(String, String)</Message>
+            <Message>メソッド io.jenkins.plugins.codeInsights.infrastructure.GitRepo.detectChangedFiles(String, String)
+            </Message>
         </Method>
         <Type role='TYPE_FOUND' descriptor='Ljava/util/Collection;'>
             <SourceLine classname='java.util.Collection' start='413' end='764' sourcepath='java/util/Collection.java'
@@ -985,7 +990,8 @@
         <LocalVariable role='LOCAL_VARIABLE_VALUE_OF' pc='261' name='destination$iv$iv' register='11'>
             <Message>destination$iv$iv からロードされた値</Message>
         </LocalVariable>
-        <SourceLine endBytecode='263' classname='io.jenkins.plugins.codeInsights.infrastructure.GitRepo' start='65' end='65'
+        <SourceLine endBytecode='263' classname='io.jenkins.plugins.codeInsights.infrastructure.GitRepo' start='65'
+                    end='65'
                     sourcepath='io/jenkins/plugins/codeInsights/usecase/GitRepo.kt' sourcefile='GitRepo.kt'
                     startBytecode='263' primary='true'>
             <Message>該当箇所 GitRepo.kt:[line 65]</Message>
@@ -2094,7 +2100,8 @@
         は，FileTransferServiceImpl.workspace の中に外部の可変オブジェクトを格納することによって内部表現を暴露するかもしれません。
     </LongMessage>
     <Class classname='io.jenkins.plugins.codeInsights.infrastructure.FileTransferServiceImpl' primary='true'>
-        <SourceLine classname='io.jenkins.plugins.codeInsights.infrastructure.FileTransferServiceImpl' start='7' end='14'
+        <SourceLine classname='io.jenkins.plugins.codeInsights.infrastructure.FileTransferServiceImpl' start='7'
+                    end='14'
                     sourcepath='io/jenkins/plugins/codeInsights/framework/FileTransferServiceImpl.kt'
                     sourcefile='FileTransferServiceImpl.kt'>
             <Message>該当箇所 FileTransferServiceImpl.kt:[lines 7-14]</Message>
@@ -2240,7 +2247,8 @@
         <SourceLine endBytecode='165' classname='io.jenkins.plugins.codeInsights.infrastructure.GitRepo' start='26'
                     end='33' sourcepath='io/jenkins/plugins/codeInsights/usecase/GitRepo.kt' sourcefile='GitRepo.kt'
                     startBytecode='0'></SourceLine>
-        <Message>メソッド io.jenkins.plugins.codeInsights.infrastructure.GitRepo.detectChangedFiles(String, String)</Message>
+        <Message>メソッド io.jenkins.plugins.codeInsights.infrastructure.GitRepo.detectChangedFiles(String, String)
+        </Message>
     </Method>
     <Type role='TYPE_FOUND' descriptor='Ljava/util/Collection;'>
         <SourceLine classname='java.util.Collection' start='413' end='764' sourcepath='java/util/Collection.java'
