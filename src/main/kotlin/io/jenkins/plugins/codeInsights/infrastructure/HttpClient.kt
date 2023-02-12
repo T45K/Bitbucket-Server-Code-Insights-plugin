@@ -6,10 +6,12 @@ import io.jenkins.plugins.codeInsights.domain.coverage.CoverageRequest
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import okhttp3.Credentials
+import okhttp3.HttpUrl
 import okhttp3.HttpUrl.Companion.toHttpUrl
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 
 class HttpClient(
@@ -23,7 +25,7 @@ class HttpClient(
 ) {
     private val client: OkHttpClient = OkHttpClient()
 
-    private val reportUrl = bitbucketUrl.toHttpUrl().newBuilder()
+    private val bitBucketRequestBuilder = bitbucketUrl.toHttpUrl().newBuilder()
         .addPathSegment("rest")
         .addPathSegment("insights")
         .addPathSegment("1.0")
@@ -33,11 +35,20 @@ class HttpClient(
         .addPathSegment(repository)
         .addPathSegment("commits")
         .addPathSegment(commitId)
-        .addPathSegment("reports")
-        .addPathSegment(reportKey)
         .build()
 
-    private val annotationUrl = reportUrl.newBuilder()
+    private val defaultReportKey = reportKey;
+
+    private fun getReportUrl(reportKey: String): HttpUrl {
+        return bitBucketRequestBuilder.newBuilder()
+            .addPathSegment("reports")
+            .addPathSegment(reportKey)
+            .build()
+    }
+
+    private val annotationUrl = bitBucketRequestBuilder.newBuilder()
+        .addPathSegment("reports")
+        .addPathSegment(reportKey)
         .addPathSegment("annotations")
         .build()
 
@@ -63,8 +74,28 @@ class HttpClient(
 
     fun putReport() {
         JenkinsLogger.info("Start to put reports")
+        val url = getReportUrl(defaultReportKey)
         val request = Request.Builder()
-            .url(reportUrl)
+            .url(url)
+            .authorizationHeader()
+            .put(reportRequestBody)
+            .build()
+        client.newCall(request).execute().also {
+            if (it.isSuccessful) {
+                JenkinsLogger.info("Put reports: SUCCESS")
+            } else {
+                JenkinsLogger.info("Put reports: FAILURE")
+                JenkinsLogger.info(it.body!!.string())
+                throw CallApiFailureException()
+            }
+        }
+    }
+
+    fun putReport(reportRequestBody: RequestBody, reportKey: String) {
+        JenkinsLogger.info("Start to put reports, reportKey = $reportKey")
+
+        val request = Request.Builder()
+            .url(getReportUrl(reportKey))
             .authorizationHeader()
             .put(reportRequestBody)
             .build()

@@ -70,7 +70,7 @@ class KotlinEntryPoint(
 
         val coverageEnabled = jacocoFilePath.isNotBlank()
         if (coverageEnabled) {
-            CoverageUsecase(fileTransferService, jacocoFilePath, srcPath, changedFiles, httpClient).execute()
+            CoverageUsecase(fileTransferService, jacocoFilePath, srcPath, changedFiles, reportKey, httpClient).execute()
         }
     }
 }
