@@ -64,7 +64,7 @@ class HttpClientTest extends Specification {
         def request = server.takeRequest()
         request.headers['Authorization'] == 'Basic ' + Base64.encoder.encodeToString('username:password'.bytes)
         def body = new JsonSlurper().parseText(request.body.readUtf8())
-        body.title == "Jenkins Report"
+        body["title"] == "Jenkins Report"
     }
 
     @SuppressWarnings('GroovyConstructorNamedArguments')
