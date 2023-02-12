@@ -208,6 +208,7 @@ class CodeInsightsBuilderTest extends Specification {
         given:
         CredentialsProvider.saveAll()
         server.enqueue(new MockResponse()) // put reports
+        server.enqueue(new MockResponse()) // Put coverage report
         final def jsonObject = new JSONObject(
             [
                 codeInsights: [
@@ -241,6 +242,7 @@ class CodeInsightsBuilderTest extends Specification {
         server.enqueue(new MockResponse().setBody(SONAR_QUBE_RESPONSE)) // call to fetch total page
         server.enqueue(new MockResponse().setBody(SONAR_QUBE_RESPONSE)) // call to fetch issues
         server.enqueue(new MockResponse())
+        server.enqueue(new MockResponse()) // Put coverage report
         final def jsonObject = new JSONObject(
             [
                 codeInsights: [
