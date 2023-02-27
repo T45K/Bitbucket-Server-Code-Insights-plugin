@@ -20,7 +20,7 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <kotlin.version>1.7.22</kotlin.version>
-        <serialization.version>1.4.1</serialization.version>
+        <serialization.version>1.5.0</serialization.version>
         <enforcer.skip>true</enforcer.skip>
     </properties>
     <name>Bitbucket Server Code Insights plugin</name>
