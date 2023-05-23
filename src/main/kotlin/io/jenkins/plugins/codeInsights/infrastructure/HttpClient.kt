@@ -3,6 +3,7 @@ package io.jenkins.plugins.codeInsights.infrastructure
 import io.jenkins.plugins.codeInsights.JenkinsLogger
 import io.jenkins.plugins.codeInsights.domain.Annotation
 import io.jenkins.plugins.codeInsights.domain.coverage.CoverageRequest
+import io.jenkins.plugins.codeInsights.util.bearer
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import okhttp3.Credentials
@@ -17,6 +18,7 @@ import okhttp3.RequestBody.Companion.toRequestBody
 class HttpClient(
     username: String,
     password: String,
+    accessToken: String,
     bitbucketUrl: String,
     project: String,
     repository: String,
@@ -60,7 +62,10 @@ class HttpClient(
         .addPathSegment(commitId)
         .build()
 
-    private val credential = Credentials.basic(username, password)
+    private val credential =
+        if (username.isNotEmpty() && password.isNotEmpty()) Credentials.basic(username, password)
+        else Credentials.bearer(accessToken)
+
     private val applicationJsonMediaType = "application/json; charset=utf-8".toMediaType()
     private val json = Json { encodeDefaults = true }
 
