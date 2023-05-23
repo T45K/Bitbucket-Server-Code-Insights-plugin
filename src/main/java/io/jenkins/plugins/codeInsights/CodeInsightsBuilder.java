@@ -58,6 +58,8 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
         final DescriptorImpl descriptor = (DescriptorImpl) super.getDescriptor();
         final Optional<UsernamePasswordCredentialsImpl> bitbucketUsernamePassword = Optional.ofNullable(
             CredentialsProvider.findCredentialById(descriptor.bitbucketCredentialId, UsernamePasswordCredentialsImpl.class, run));
+        final Optional<StringCredentialsImpl> bitbucketHttpAccessToken = Optional.ofNullable(
+            CredentialsProvider.findCredentialById(descriptor.bitbucketCredentialId, StringCredentialsImpl.class, run));
         final Optional<StringCredentialsImpl> sonarQubeToken = Optional.ofNullable(
             CredentialsProvider.findCredentialById(descriptor.sonarQubeCredentialId, StringCredentialsImpl.class, run));
         final Optional<UsernamePasswordCredentialsImpl> sonarQubeUsernamePassword = Optional.ofNullable(
@@ -66,7 +68,8 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
             run, workspace, envVars, launcher, listener, // given by Jenkins
             descriptor.bitbucketUrl, descriptor.project, descriptor.reportKey,
             bitbucketUsernamePassword.map(UsernamePasswordCredentialsImpl::getUsername).orElse(""),
-            bitbucketUsernamePassword.map(UsernamePasswordCredentialsImpl::getPassword).map(Secret::getPlainText).orElse(""), // mandatory global settings (Bitbucket)
+            bitbucketUsernamePassword.map(UsernamePasswordCredentialsImpl::getPassword).map(Secret::getPlainText).orElse(""),
+            bitbucketHttpAccessToken.map(StringCredentialsImpl::getSecret).map(Secret::getPlainText).orElse(""), // mandatory global settings (Bitbucket)
             descriptor.sonarQubeUrl, sonarQubeToken.map(StringCredentialsImpl::getSecret).map(Secret::getPlainText).orElse(""),
             sonarQubeUsernamePassword.map(UsernamePasswordCredentialsImpl::getUsername).orElse(""),
             sonarQubeUsernamePassword.map(UsernamePasswordCredentialsImpl::getPassword).map(Secret::getPlainText).orElse(""), // optional global settings (SonarQube)
@@ -119,7 +122,8 @@ public class CodeInsightsBuilder extends Builder implements SimpleBuildStep {
         public ListBoxModel doFillBitbucketCredentialIdItems() {
             return new StandardListBoxModel()
                 .includeEmptyValue()
-                .includeAs(ACL.SYSTEM, Jenkins.get(), UsernamePasswordCredentialsImpl.class);
+                .includeAs(ACL.SYSTEM, Jenkins.get(), UsernamePasswordCredentialsImpl.class)
+                .includeAs(ACL.SYSTEM, Jenkins.get(), StringCredentialsImpl.class);
         }
 
         @SuppressWarnings("deprecation")
