@@ -9,8 +9,8 @@ import io.jenkins.plugins.codeInsights.domain.ExecutableAnnotationProvidersBuild
 import io.jenkins.plugins.codeInsights.infrastructure.FileTransferServiceImpl
 import io.jenkins.plugins.codeInsights.infrastructure.GitRepo
 import io.jenkins.plugins.codeInsights.infrastructure.HttpClient
-import io.jenkins.plugins.codeInsights.usecase.CoverageUsecase
 import io.jenkins.plugins.codeInsights.usecase.AnnotationUsecase
+import io.jenkins.plugins.codeInsights.usecase.CoverageUsecase
 
 @Suppress("unused", "CanBeParameter")
 class KotlinEntryPoint(
@@ -24,6 +24,7 @@ class KotlinEntryPoint(
     private val reportKey: String,
     private val username: String,
     private val password: String,
+    private val httpAccessToken: String,
     private val sonarQubeUrl: String,
     private val sonarQubeToken: String,
     private val sonarQubeUserName: String,
@@ -45,7 +46,7 @@ class KotlinEntryPoint(
 
     fun delegate() {
         val httpClient = HttpClient(
-            username, password, // credential
+            username, password, httpAccessToken, // credential
             bitbucketUrl, project, repositoryName, commitId, reportKey, // url
         )
 
